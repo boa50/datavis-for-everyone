@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Most dangerous foods</title>
     <link rel="stylesheet" href="./style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 </head>
 
@@ -11,17 +13,33 @@
     <!-- <h2 id="title">Title</h2> -->
     <!-- <h5 id="subtitle">Subtitle</h5> -->
 
-    <div>
-        <p id="average-value">0</p>
-        <p id="median-value">0</p>
-        <p id="mode-value">0</p>
+    <div class="flex flex-row p-4 pb-2 space-x-8">
+        <div>
+            <span>Average:</span>
+            <span id="average-value">0</span>
+        </div>
+        <div>
+            <span>Median:</span>
+            <span id="median-value">0</span>
+        </div>
+        <div>
+            <span>Mode:</span>
+            <span id="mode-value">0</span>
+        </div>
     </div>
 
-    <p class="range-field">
-        <input type="range" id="outlier-value" min="0" max="10000" value="5000" />
-    </p>
+    <div class="flex flex-row px-4 pt-2 pb-4 space-x-8">
+        <div>
+            <span>Sample:</span>
+            <input type="number" class="mx-2 w-20" id="n-elements-value" min="10" max="10000" value="100" />
+        </div>
+        <div>
+            <span>Outlier:</span>
+            <input type="range" class="mx-2 w-36" id="outlier-value" min="0" max="10000" value="0" />
+            <span id="outlier-value-text">None</span>
+        </div>
+    </div>
 
-    <!-- <div><svg id="density-chart"></svg></div> -->
     <div><svg id="histogram-chart"></svg></div>
 
     <!-- <p id="caption">Some caption</p> -->

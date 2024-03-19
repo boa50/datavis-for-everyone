@@ -9,3 +9,7 @@ export const margin = {
 }
 export const width = svgWidth - margin.left - margin.right
 export const height = svgHeight - margin.top - margin.bottom
+
+export const colours = {
+    main: d3.schemeTableau10[0]
+}

@@ -7,7 +7,6 @@ const modeValue = document.getElementById('mode-value')
 
 const nElementsValue = document.getElementById('n-elements-value')
 const outlierValue = document.getElementById('outlier-value')
-const outlierValueText = document.getElementById('outlier-value-text')
 
 
 let nElements = 100
@@ -23,14 +22,12 @@ nElementsValue.addEventListener('change', (event) => {
     data = getData(nElements, 50, 10)
 
     outlierValue.value = 5000
-    outlierValueText.textContent = 'None'
 
     updateStatistics()
     updateHistogram(data)
 })
 
 outlierValue.addEventListener('change', (event) => {
-    outlierValueText.textContent = +event.target.value
     updateData(data, +event.target.value, nElements)
     updateStatistics()
     updateHistogram(data)

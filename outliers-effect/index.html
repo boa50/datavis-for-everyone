@@ -4,50 +4,53 @@
     <meta charset="utf-8">
     <title>Most dangerous foods</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./slider/style.css">
+    <link rel="stylesheet" href="../components/slider/style.css">
+    <link rel="stylesheet" href="../components/card/style.css">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
 </head>
 
 <body>
-    <!-- <h2 id="title">Title</h2> -->
-    <!-- <h5 id="subtitle">Subtitle</h5> -->
-
-    <div class="flex flex-row p-4 pb-2 space-x-8">
-        <div>
-            <span>Average:</span>
-            <span id="average-value">0</span>
-        </div>
-        <div>
-            <span>Median:</span>
-            <span id="median-value">0</span>
-        </div>
-        <div>
-            <span>Mode:</span>
-            <span id="mode-value">0</span>
-        </div>
+    <div id="header" class="flex flex-col m-4">
+        <h1 id="title" class="font-sans text-2xl text-gray-700">The effects of outliers</h1>
+        <!-- <h5 id="subtitle" class="font-sans text-gray-500">Subtitle</h5> -->
     </div>
 
-    <div class="flex flex-row px-4 pt-2 pb-4 space-x-8 items-center">
-        <div>
-            <span>Sample:</span>
-            <input type="number" class="mx-2 w-20" id="n-elements-value" min="10" max="10000" value="100" />
+    <div class="flex flex-row p-4 pt-0 gap-x-52">
+        <div id="cards" class="flex flex-row space-x-8 items-center">
+            <div class="card min-w-32">
+                <span class="title">Average</span>
+                <span id="average-value" class="content">0</span>
+            </div>
+            <div class="card min-w-32">
+                <span class="title">Median</span>
+                <span id="median-value" class="content">0</span>
+            </div>
+            <div class="card min-w-32">
+                <span class="title">Mode</span>
+                <span id="mode-value" class="content">0</span>
+            </div>
         </div>
-        <div class="flex items-center">
-            <span>Outlier:</span>
-            <input type="range" class="mx-2 w-36" id="outlier-value" min="0" max="10000" value="0"
-                oninput="outlierValueText.value=value" />
-            <output id="outlierValueText" class="range-output min-w-16">None</output>
+
+        <div id="contols" class="flex flex-row space-x-8 items-center">
+            <div>
+                <span>Sample:</span>
+                <input type="number" class="mx-2 w-20" id="n-elements-value" min="10" max="10000" value="100" />
+            </div>
+            <div class="flex items-center">
+                <span>Outlier:</span>
+                <input type="range" class="mx-2 w-36" id="outlier-value" min="0" max="10000" value="50"
+                    oninput="outlierValueText.value=value" />
+                <output id="outlierValueText" class="range-output min-w-16">None</output>
+            </div>
         </div>
     </div>
 
     <div><svg id="histogram-chart"></svg></div>
 
-    <!-- <p id="caption">Some caption</p> -->
+    <!-- <p id="caption" class="flex justify-end text-sm text-gray-500 m-4">Some caption</p> -->
 
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script type="module" src="./slider/script.js"></script>
+    <script type="module" src="../components/slider/script.js"></script>
     <script type="module" src="./script.js"></script>
 </body>

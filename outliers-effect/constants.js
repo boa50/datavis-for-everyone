@@ -1,4 +1,4 @@
-export const svgWidth = 700
+export const svgWidth = 1200
 export const svgHeight = 500
 
 export const margin = {

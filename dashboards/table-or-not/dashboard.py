@@ -37,3 +37,9 @@ scatterplot = (
 )
 
 st.altair_chart(scatterplot, use_container_width=True)
+
+# Winners by country (Donut / bar)
+# N marathons held (number)
+# World records men / women (number)
+# Top 5 time (bar)
+# Modern years fastest marathons by average (bar)

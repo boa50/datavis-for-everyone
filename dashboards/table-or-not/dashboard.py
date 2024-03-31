@@ -6,6 +6,7 @@ from custom_utils import get_dataset_path
 import pandas as pd
 import streamlit as st
 import altair as alt
+import plotly.express as px
 
 st.set_page_config(
     page_title="Table dashboard",
@@ -38,7 +39,33 @@ scatterplot = (
 
 st.altair_chart(scatterplot, use_container_width=True)
 
-# Winners by country (Donut / bar)
+# Winners by country and Continent (map)
+df_winners = df[df["year"] >= 2000]
+df_countries = px.data.gapminder().query("year==2007")
+
+df_winners = (
+    df[df["year"] >= 2000]
+    .groupby(["country"])
+    .count()
+    .reset_index()[["country", "winner"]]
+)
+df_winners = pd.merge(df_winners, df_countries, how="left", on="country")[
+    ["country", "continent", "winner", "iso_alpha"]
+]
+
+fig = px.scatter_geo(
+    df_winners,
+    locations="iso_alpha",
+    hover_name="country",
+    color="continent",
+    size="winner",
+    size_max=50,
+    projection="natural earth",
+    height=700,
+)
+
+st.plotly_chart(fig, use_container_width=True)
+
 # N marathons held (number)
 # World records men / women (number)
 # Top 5 time (bar)

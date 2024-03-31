@@ -10,20 +10,21 @@ const nElementsValue = document.getElementById('n-elements-value')
 const outlierValue = document.getElementById('outlier-value')
 const outlierValueText = document.getElementById('outlierValueText')
 
-
+const meanInitial = 50
+const stdev = 10
 let nElements = 100
-let data = getData(nElements, 50, 10)
+let data = getData(nElements, meanInitial, stdev)
 updateStatistics()
 
 nElementsValue.value = nElements
-outlierValue.value = 50
+outlierValue.value = meanInitial
 handleInputChange({ target: outlierValue })
 
 nElementsValue.addEventListener('change', (event) => {
     nElements = +event.target.value
-    data = getData(nElements, 50, 10)
+    data = getData(nElements, meanInitial, stdev)
 
-    outlierValue.value = 5000
+    outlierValue.value = meanInitial
     handleInputChange({ target: outlierValue })
     outlierValueText.textContent = 'None'
 

@@ -7,6 +7,7 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 import plotly.express as px
+import datetime
 
 st.set_page_config(
     page_title="Table dashboard",
@@ -150,3 +151,25 @@ top_five_women.update_layout(
 st.plotly_chart(top_five_women, use_container_width=True)
 
 # Modern years fastest marathons by average (bar)
+df_modern_years = df[df["year"] >= 2000][["marathon", "year", "time"]]
+df_modern_years["time"] = pd.to_timedelta(df_modern_years["time"])
+df_modern_years = df_modern_years.groupby(by="marathon").mean().reset_index()
+df_modern_years["time"] = df_modern_years["time"] + datetime.datetime(1900, 1, 1)
+
+race_modern_years = px.bar(
+    df_modern_years,
+    x="marathon",
+    y="time",
+)
+race_modern_years.update_layout(
+    xaxis={"categoryorder": "total ascending"},
+    yaxis_title="Time to complete (average)",
+    xaxis_title="Marathon",
+    yaxis_tickformat="%H:%M:%S",
+    yaxis_range=[
+        datetime.datetime(1900, 1, 1, 2, 10, 0),
+        datetime.datetime(1900, 1, 1, 2, 20, 0),
+    ],
+)
+
+st.plotly_chart(race_modern_years, use_container_width=True)

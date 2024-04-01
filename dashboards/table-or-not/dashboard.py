@@ -15,7 +15,8 @@ st.set_page_config(
 )
 
 df = pd.read_csv(get_dataset_path("world_marathon_majors.csv"), encoding="latin-1")
-df["time_plot"] = pd.to_datetime(df["time"], format="%H:%M:%S")
+df["time_plot"] = pd.to_datetime(df["time"], format="%H:%M:%S", utc=True)
+df["time_seconds"] = pd.to_timedelta(df["time"]).dt.total_seconds()
 
 st.dataframe(df)
 
@@ -94,4 +95,58 @@ st.metric(
 )
 
 # Top 5 time (bar)
+df_top_five_men = df_men.sort_values(by="time")[:5]
+top_five_men = px.bar(
+    df_top_five_men,
+    x="time_seconds",
+    y="winner",
+    hover_data={
+        "time_seconds": False,
+        "year": True,
+        "marathon": True,
+        "time": True,
+    },
+)
+top_five_men.update_xaxes(
+    range=[
+        max(df_top_five_men["time_seconds"]) * 0.95,
+        max(df_top_five_men["time_seconds"]) * 1.01,
+    ]
+)
+top_five_men.update_layout(
+    yaxis={"categoryorder": "total descending"},
+    yaxis_title="Runner",
+    xaxis_title="Seconds to complete",
+)
+
+st.plotly_chart(top_five_men, use_container_width=True)
+
+df_top_five_women = (
+    df_women.groupby(by="winner").min().reset_index().sort_values(by="time")[:5]
+)
+top_five_women = px.bar(
+    df_top_five_women,
+    x="time_seconds",
+    y="winner",
+    hover_data={
+        "time_seconds": False,
+        "year": True,
+        "marathon": True,
+        "time": True,
+    },
+)
+top_five_women.update_xaxes(
+    range=[
+        max(df_top_five_women["time_seconds"]) * 0.95,
+        max(df_top_five_women["time_seconds"]) * 1.01,
+    ]
+)
+top_five_women.update_layout(
+    yaxis={"categoryorder": "total descending"},
+    yaxis_title="Runner",
+    xaxis_title="Seconds to complete",
+)
+
+st.plotly_chart(top_five_women, use_container_width=True)
+
 # Modern years fastest marathons by average (bar)

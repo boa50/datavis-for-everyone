@@ -66,7 +66,32 @@ fig = px.scatter_geo(
 
 st.plotly_chart(fig, use_container_width=True)
 
+
 # N marathons held (number)
+df_n_marathons = df.groupby(by=["year", "marathon"]).count()
+
+st.metric(label="Number of marathons held", value=df_n_marathons.shape[0])
+st.metric(
+    label="Number of marathons held (with women)",
+    value=df_n_marathons[df_n_marathons["gender"] > 1].shape[0],
+)
+
 # World records men / women (number)
+df_men = df[df["gender"] == "Male"]
+df_women = df[df["gender"] == "Female"]
+men_wr = df_men[df_men["time"] == min(df_men["time"])]
+women_wr = df_women[df_women["time"] == min(df_women["time"])]
+
+st.metric(
+    label="Men's world record",
+    value=men_wr["time"].iloc[0],
+    help=f'{men_wr["winner"].iloc[0]} ({men_wr["country"].iloc[0]}) - {men_wr["marathon"].iloc[0]} {men_wr["year"].iloc[0]}',
+)
+st.metric(
+    label="Women's world record",
+    value=women_wr["time"].iloc[0],
+    help=f'{women_wr["winner"].iloc[0]} ({women_wr["country"].iloc[0]}) - {women_wr["marathon"].iloc[0]} {women_wr["year"].iloc[0]}',
+)
+
 # Top 5 time (bar)
 # Modern years fastest marathons by average (bar)

@@ -7,7 +7,6 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 import plotly.express as px
-import datetime
 
 st.set_page_config(
     page_title="Table dashboard",
@@ -154,7 +153,7 @@ st.plotly_chart(top_five_women, use_container_width=True)
 df_modern_years = df[df["year"] >= 2000][["marathon", "year", "time"]]
 df_modern_years["time"] = pd.to_timedelta(df_modern_years["time"])
 df_modern_years = df_modern_years.groupby(by="marathon").mean().reset_index()
-df_modern_years["time"] = df_modern_years["time"] + datetime.datetime(1900, 1, 1)
+df_modern_years["time"] = df_modern_years["time"] + pd.to_datetime("1970/01/01")
 
 race_modern_years = px.bar(
     df_modern_years,
@@ -167,8 +166,8 @@ race_modern_years.update_layout(
     xaxis_title="Marathon",
     yaxis_tickformat="%H:%M:%S",
     yaxis_range=[
-        datetime.datetime(1900, 1, 1, 2, 10, 0),
-        datetime.datetime(1900, 1, 1, 2, 20, 0),
+        pd.to_datetime("1970/01/01 02:10:00"),
+        pd.to_datetime("1970/01/01 02:20:00"),
     ],
 )
 

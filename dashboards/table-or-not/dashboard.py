@@ -41,9 +41,9 @@ metrics_col1, metrics_col2, metrics_col3, metrics_col4 = metrics_container.colum
 # N marathons held (number)
 df_n_marathons = df.groupby(by=["year", "marathon"]).count()
 
-metrics_col1.metric(label="Number of marathons held", value=df_n_marathons.shape[0])
+metrics_col1.metric(label="Marathons held", value=df_n_marathons.shape[0])
 metrics_col2.metric(
-    label="Number of marathons held (with women)",
+    label="Marathons held (both genders)",
     value=df_n_marathons[df_n_marathons["gender"] > 1].shape[0],
 )
 
@@ -69,12 +69,13 @@ charts_container = st.container()
 charts_row1 = charts_container.container()
 charts_row1_col1, charts_row1_col2 = charts_row1.columns([0.6, 0.4], gap="medium")
 
+# Marathons finishing time by year
 scatterplot = (
     alt.Chart(
         df,
         height=chart_height_default,
         padding={"left": 8, "top": 2, "right": 16, "bottom": 16},
-        title="Some title",
+        title="Marathons finishing time by year",
     )
     .mark_circle(size=60)
     .encode(
@@ -85,7 +86,7 @@ scatterplot = (
         ),
         y=alt.Y(
             "utchoursminutesseconds(time_plot):T",
-            title="Completion Time",
+            title="Finishing time",
         ),
         color=alt.Color("gender", legend=None),
         tooltip=["year", "marathon", "gender", "winner", "country", "time"],
@@ -106,11 +107,11 @@ race_modern_years = px.bar(
     x="marathon",
     y="time",
     height=chart_height_default,
-    title="Some title",
+    title="Fastest marathons",
 )
 race_modern_years.update_layout(
     xaxis={"categoryorder": "total ascending"},
-    yaxis_title="Time to complete (average)",
+    yaxis_title="Finishing time (average)",
     xaxis_title="Marathon",
     yaxis_tickformat="%H:%M:%S",
     yaxis_range=[
@@ -152,7 +153,9 @@ winners_map = px.scatter_geo(
     size_max=50,
     projection="natural earth",
     height=chart_height_default,
-    title="Some title",
+    title="Winners by country",
+    color_discrete_sequence=px.colors.qualitative.G10,
+    hover_data={"iso_alpha": False, "continent": False},
 )
 winners_map.update_layout(
     margin=dict(l=8, r=8, t=20, b=8),
@@ -176,7 +179,7 @@ top_five_men = px.bar(
         "time": True,
     },
     height=chart_height_default,
-    title="Some title",
+    title="Fastest men",
 )
 top_five_men.update_xaxes(
     range=[
@@ -187,7 +190,7 @@ top_five_men.update_xaxes(
 top_five_men.update_layout(
     yaxis={"categoryorder": "total descending"},
     yaxis_title="Runner",
-    xaxis_title="Seconds to complete",
+    xaxis_title="Seconds to finish",
     margin=dict(l=8, r=8, t=20, b=8),
 )
 
@@ -207,7 +210,7 @@ top_five_women = px.bar(
         "time": True,
     },
     height=chart_height_default,
-    title="Some title",
+    title="Fastest women",
 )
 top_five_women.update_xaxes(
     range=[
@@ -218,7 +221,7 @@ top_five_women.update_xaxes(
 top_five_women.update_layout(
     yaxis={"categoryorder": "total descending"},
     yaxis_title="Runner",
-    xaxis_title="Seconds to complete",
+    xaxis_title="Seconds to finish",
     margin=dict(l=8, r=8, t=20, b=8),
 )
 

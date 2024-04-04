@@ -4,10 +4,11 @@ sys.path.append("dashboards")
 
 from custom_utils import get_dataset_path
 import pandas as pd
-import streamlit as st
 import altair as alt
 import plotly.express as px
+import streamlit as st
 from streamlit_js_eval import streamlit_js_eval
+from streamlit_theme import st_theme
 
 st.set_page_config(
     page_title="Table dashboard",
@@ -39,6 +40,9 @@ st.session_state["viewport_height"] = streamlit_js_eval(
 chart_height_default = st.session_state['viewport_height'] / 2.8
 
 colours = {"men": "#1F77B4", "men_light": "#7FBEE9", "women": "#E377C2", "women_light": "#F1BBE0"}
+
+# st.write(st_theme())
+# st.write(st_theme()["fadedText10"])
 
 
 metrics_container = st.container()
@@ -83,12 +87,14 @@ scatterplot = (
         padding={"left": 8, "top": 2, "right": 16, "bottom": 16},
         title="Marathons finishing time by year",
     )
+    .configure_axis(grid=False, domain=True)
     .mark_circle(size=60)
     .encode(
         x=alt.X(
             "year",
             title="Year",
             scale=alt.Scale(domain=[min(df["year"]) - 5, max(df["year"]) + 5]),
+            axis=alt.Axis(format="0")
         ),
         y=alt.Y(
             "utchoursminutesseconds(time_plot):T",
@@ -151,6 +157,8 @@ df_winners = pd.merge(df_winners, df_countries, how="left", on="country")[
     ["country", "continent", "winner", "iso_alpha"]
 ]
 
+map_lines_colour = st_theme()["fadedText60"]
+
 winners_map = px.scatter_geo(
     df_winners,
     locations="iso_alpha",
@@ -169,6 +177,12 @@ winners_map.update_layout(
     legend=dict(
         orientation="h", yanchor="top", y=1.05, xanchor="left", x=0.25, title_text=""
     ),
+    geo_bgcolor="rgba(0,0,0,0)",
+)
+winners_map.update_geos(
+    visible=False,
+    showcountries=True, 
+    countrycolor=map_lines_colour
 )
 
 charts_row2_col1.plotly_chart(winners_map, use_container_width=True)

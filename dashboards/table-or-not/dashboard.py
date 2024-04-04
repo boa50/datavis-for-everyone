@@ -38,6 +38,8 @@ st.session_state["viewport_height"] = streamlit_js_eval(
 )
 chart_height_default = st.session_state['viewport_height'] / 2.8
 
+colours = {"men": "#1F77B4", "men_light": "#7FBEE9", "women": "#E377C2", "women_light": "#F1BBE0"}
+
 
 metrics_container = st.container()
 metrics_col1, metrics_col2, metrics_col3, metrics_col4, _, _, _ = metrics_container.columns(7)
@@ -92,7 +94,7 @@ scatterplot = (
             "utchoursminutesseconds(time_plot):T",
             title="Finishing time",
         ),
-        color=alt.Color("gender", legend=None),
+        color=alt.Color("gender", legend=None, scale=alt.Scale(range=[colours["women"], colours["men"]])),
         tooltip=["year", "marathon", "gender", "winner", "country", "time"],
     )
 )
@@ -112,6 +114,7 @@ race_modern_years = px.bar(
     y="time",
     height=chart_height_default,
     title="Fastest marathons",
+    color_discrete_sequence=[px.colors.qualitative.D3[0]]
 )
 race_modern_years.update_layout(
     xaxis={"categoryorder": "total ascending"},
@@ -158,7 +161,7 @@ winners_map = px.scatter_geo(
     projection="natural earth",
     height=chart_height_default,
     title="Winners by country",
-    color_discrete_sequence=px.colors.qualitative.G10,
+    color_discrete_sequence=[px.colors.qualitative.D3[0], px.colors.qualitative.D3[3], px.colors.qualitative.D3[1], px.colors.qualitative.D3[2]],
     hover_data={"iso_alpha": False, "continent": False},
 )
 winners_map.update_layout(
@@ -176,6 +179,8 @@ top_five_men = px.bar(
     df_top_five_men,
     x="time_seconds",
     y="winner",
+    color="time_seconds",
+    color_continuous_scale=[colours["men"], colours["men_light"]],
     hover_data={
         "time_seconds": False,
         "year": True,
@@ -196,6 +201,7 @@ top_five_men.update_layout(
     yaxis_title="Runner",
     xaxis_title="Seconds to finish",
     margin=dict(l=8, r=8, t=20, b=8),
+    coloraxis_showscale=False
 )
 
 charts_row2_col2.plotly_chart(top_five_men, use_container_width=True)
@@ -207,6 +213,8 @@ top_five_women = px.bar(
     df_top_five_women,
     x="time_seconds",
     y="winner",
+    color="time_seconds",
+    color_continuous_scale=[colours["women"], colours["women_light"]],
     hover_data={
         "time_seconds": False,
         "year": True,
@@ -227,6 +235,7 @@ top_five_women.update_layout(
     yaxis_title="Runner",
     xaxis_title="Seconds to finish",
     margin=dict(l=8, r=8, t=20, b=8),
+    coloraxis_showscale=False
 )
 
 charts_row2_col3.plotly_chart(top_five_women, use_container_width=True)

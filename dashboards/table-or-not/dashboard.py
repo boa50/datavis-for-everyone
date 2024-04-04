@@ -22,15 +22,20 @@ df = pd.read_csv(get_dataset_path("world_marathon_majors.csv"), encoding="latin-
 df["time_plot"] = pd.to_datetime(df["time"], format="%H:%M:%S", utc=True)
 df["time_seconds"] = pd.to_timedelta(df["time"]).dt.total_seconds()
 
+page_theme = st_theme()
+
 st.markdown(
-    """
+    f"""
     <style>
-        .appview-container .main .block-container {
-            padding-top: 0rem;
-        }
-        # [data-testid="stVerticalBlock"] {
-        #     gap: 0rem;
-        # }
+        .appview-container .main .block-container {{
+            padding: 0rem 5rem;
+        }}
+        [data-testid="stMetric"] {{
+            border: 1px solid {page_theme["fadedText20"]};
+            border-radius: 5px;
+            padding: 16px;
+            margin: 0;
+        }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -39,7 +44,7 @@ st.markdown(
 st.session_state["viewport_height"] = streamlit_js_eval(
     js_expressions="screen.height", key="ViewportHeight"
 )
-chart_height_default = st.session_state['viewport_height'] / 2.8
+chart_height_default = st.session_state['viewport_height'] / 2.9
 
 
 metrics_container = st.container()
@@ -66,7 +71,7 @@ charts_row2_col1, charts_row2_col2, charts_row2_col3 = charts_row1.columns(
 )
 
 charts_row2_col1.plotly_chart(
-    winnersByCountry.plot(df, chart_height_default, st_theme()["fadedText60"]), 
+    winnersByCountry.plot(df, chart_height_default, page_theme["fadedText60"]), 
     use_container_width=True
 )
 
@@ -81,5 +86,3 @@ charts_row2_col3.plotly_chart(
     topRunners.plot(df_women, chart_height_default, "women"), 
     use_container_width=True
 )
-
-# st.dataframe(df)

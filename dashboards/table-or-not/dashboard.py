@@ -7,6 +7,7 @@ import pandas as pd
 import streamlit as st
 import altair as alt
 import plotly.express as px
+from streamlit_js_eval import streamlit_js_eval
 
 st.set_page_config(
     page_title="Table dashboard",
@@ -18,13 +19,11 @@ df = pd.read_csv(get_dataset_path("world_marathon_majors.csv"), encoding="latin-
 df["time_plot"] = pd.to_datetime(df["time"], format="%H:%M:%S", utc=True)
 df["time_seconds"] = pd.to_timedelta(df["time"]).dt.total_seconds()
 
-chart_height_default = 270
-
 st.markdown(
     """
     <style>
         .appview-container .main .block-container {
-            padding-top: 2.6rem;
+            padding-top: 0rem;
         }
         # [data-testid="stVerticalBlock"] {
         #     gap: 0rem;
@@ -34,9 +33,14 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
+st.session_state["viewport_height"] = streamlit_js_eval(
+    js_expressions="screen.height", key="ViewportHeight"
+)
+chart_height_default = st.session_state['viewport_height'] / 2.8
+
 
 metrics_container = st.container()
-metrics_col1, metrics_col2, metrics_col3, metrics_col4 = metrics_container.columns(4)
+metrics_col1, metrics_col2, metrics_col3, metrics_col4, _, _, _ = metrics_container.columns(7)
 
 # N marathons held (number)
 df_n_marathons = df.groupby(by=["year", "marathon"]).count()
@@ -160,7 +164,7 @@ winners_map = px.scatter_geo(
 winners_map.update_layout(
     margin=dict(l=8, r=8, t=20, b=8),
     legend=dict(
-        orientation="h", yanchor="top", y=1.02, xanchor="left", x=0.15, title_text=""
+        orientation="h", yanchor="top", y=1.05, xanchor="left", x=0.25, title_text=""
     ),
 )
 
@@ -228,4 +232,4 @@ top_five_women.update_layout(
 charts_row2_col3.plotly_chart(top_five_women, use_container_width=True)
 
 
-st.dataframe(df)
+# st.dataframe(df)

@@ -1,7 +1,17 @@
 import pandas as pd
 
-def plot(df: pd.DataFrame, container: any):
-    metrics_col1, metrics_col2, metrics_col3, metrics_col4, _, _, _ = container.columns(7)
+
+def plot(df: pd.DataFrame, container: any, screen_width: int):
+    n_cols = int(screen_width / 270)
+
+    if n_cols == 5:
+        metrics_col1, metrics_col2, metrics_col3, metrics_col4, _ = container.columns(5)
+    elif n_cols == 7:
+        metrics_col1, metrics_col2, metrics_col3, metrics_col4, _, _, _ = (
+            container.columns(7)
+        )
+    else:
+        metrics_col1, metrics_col2, metrics_col3, metrics_col4 = container.columns(4)
 
     # N marathons held (number)
     df_n_marathons = df.groupby(by=["year", "marathon"]).count()

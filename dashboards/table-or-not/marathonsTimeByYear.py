@@ -2,6 +2,7 @@ import pandas as pd
 import altair as alt
 from colours import colours
 
+
 # Marathons finishing time by year
 def plot(df: pd.DataFrame, chart_height: int):
     return (
@@ -18,13 +19,17 @@ def plot(df: pd.DataFrame, chart_height: int):
                 "year",
                 title="Year",
                 scale=alt.Scale(domain=[min(df["year"]) - 5, max(df["year"]) + 5]),
-                axis=alt.Axis(format="0")
+                axis=alt.Axis(format=".4", tickCount=7),
             ),
             y=alt.Y(
                 "utchoursminutesseconds(time_plot):T",
                 title="Finishing time",
             ),
-            color=alt.Color("gender", legend=None, scale=alt.Scale(range=[colours["women"], colours["men"]])),
+            color=alt.Color(
+                "gender",
+                legend=None,
+                scale=alt.Scale(range=[colours["women"], colours["men"]]),
+            ),
             tooltip=["year", "marathon", "gender", "winner", "country", "time"],
         )
     )

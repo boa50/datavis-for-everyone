@@ -3,6 +3,7 @@ import streamlit as st
 from streamlit_js_eval import streamlit_js_eval
 from streamlit_theme import st_theme
 import sys
+
 sys.path.append("dashboards")
 
 from custom_utils import get_dataset_path
@@ -28,7 +29,7 @@ st.markdown(
     f"""
     <style>
         .appview-container .main .block-container {{
-            padding: 0rem 5rem;
+            padding: 2rem 5rem;
         }}
         [data-testid="stMetric"] {{
             border: 1px solid {page_theme["fadedText20"]};
@@ -44,11 +45,14 @@ st.markdown(
 st.session_state["viewport_height"] = streamlit_js_eval(
     js_expressions="screen.height", key="ViewportHeight"
 )
-chart_height_default = st.session_state['viewport_height'] / 2.9
+st.session_state["viewport_width"] = streamlit_js_eval(
+    js_expressions="screen.width", key="ViewportWidth"
+)
+chart_height_default = st.session_state["viewport_height"] / 3
 
 
 metrics_container = st.container()
-metrics.plot(df, metrics_container)
+metrics.plot(df, metrics_container, st.session_state["viewport_width"])
 
 
 charts_container = st.container()
@@ -56,12 +60,10 @@ charts_row1 = charts_container.container()
 charts_row1_col1, charts_row1_col2 = charts_row1.columns([0.6, 0.4], gap="medium")
 
 charts_row1_col1.altair_chart(
-    marathonsTimeByYear.plot(df, chart_height_default), 
-    use_container_width=True
+    marathonsTimeByYear.plot(df, chart_height_default), use_container_width=True
 )
 charts_row1_col2.plotly_chart(
-    fastestMarathons.plot(df, chart_height_default), 
-    use_container_width=True
+    fastestMarathons.plot(df, chart_height_default), use_container_width=True
 )
 
 
@@ -71,18 +73,28 @@ charts_row2_col1, charts_row2_col2, charts_row2_col3 = charts_row1.columns(
 )
 
 charts_row2_col1.plotly_chart(
-    winnersByCountry.plot(df, chart_height_default, page_theme["fadedText60"]), 
-    use_container_width=True
+    winnersByCountry.plot(df, chart_height_default, page_theme["fadedText60"]),
+    use_container_width=True,
 )
 
-df_men = df[df["gender"] == "Male"].groupby(by="winner").min().reset_index().sort_values(by="time")
-df_women = df[df["gender"] == "Female"].groupby(by="winner").min().reset_index().sort_values(by="time")
+df_men = (
+    df[df["gender"] == "Male"]
+    .groupby(by="winner")
+    .min()
+    .reset_index()
+    .sort_values(by="time")
+)
+df_women = (
+    df[df["gender"] == "Female"]
+    .groupby(by="winner")
+    .min()
+    .reset_index()
+    .sort_values(by="time")
+)
 
 charts_row2_col2.plotly_chart(
-    topRunners.plot(df_men, chart_height_default, "men"), 
-    use_container_width=True
+    topRunners.plot(df_men, chart_height_default, "men"), use_container_width=True
 )
 charts_row2_col3.plotly_chart(
-    topRunners.plot(df_women, chart_height_default, "women"), 
-    use_container_width=True
+    topRunners.plot(df_women, chart_height_default, "women"), use_container_width=True
 )

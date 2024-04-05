@@ -29,13 +29,19 @@ st.markdown(
     f"""
     <style>
         .appview-container .main .block-container {{
-            padding: 2rem 5rem;
+            padding: 1rem 5rem;
         }}
         [data-testid="stMetric"] {{
             border: 1px solid {page_theme["fadedText20"]};
             border-radius: 5px;
             padding: 16px;
             margin: 0;
+        }}
+        .main > div > div > div > div > [data-testid="element-container"] {{
+            height: 0;
+        }}
+        .main > div > div > div > div > [data-testid="stVerticalBlockBorderWrapper"]:first-child {{
+            height: 0;
         }}
     </style>
     """,
@@ -48,7 +54,7 @@ st.session_state["viewport_height"] = streamlit_js_eval(
 st.session_state["viewport_width"] = streamlit_js_eval(
     js_expressions="screen.width", key="ViewportWidth"
 )
-chart_height_default = st.session_state["viewport_height"] / 3
+chart_height_default = st.session_state["viewport_height"] / 2.9
 
 
 metrics_container = st.container()

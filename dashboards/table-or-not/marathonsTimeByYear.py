@@ -13,17 +13,21 @@ def plot(df: pd.DataFrame, chart_height: int):
             title="Marathons finishing time by year",
         )
         .configure_axis(grid=False, domain=True)
+        .configure_title(offset=10)
         .mark_circle(size=60)
         .encode(
             x=alt.X(
                 "year",
                 title="Year",
                 scale=alt.Scale(domain=[min(df["year"]) - 5, max(df["year"]) + 5]),
-                axis=alt.Axis(format=".4", tickCount=7),
+                axis=alt.Axis(
+                    format=".4", tickCount=7, titlePadding=10, labelPadding=10
+                ),
             ),
             y=alt.Y(
                 "utchoursminutesseconds(time_plot):T",
                 title="Finishing time",
+                axis=alt.Axis(titlePadding=15, labelPadding=10),
             ),
             color=alt.Color(
                 "gender",

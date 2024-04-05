@@ -50,6 +50,9 @@ st.markdown(
         .main > div > div > div > div > [data-testid="stVerticalBlockBorderWrapper"]:first-child {{
             display: none;
         }}
+        [data-testid="stImage"] > img {{
+            margin: 1.5rem 0;
+        }}
     </style>
     """,
     unsafe_allow_html=True,

@@ -6,7 +6,7 @@ import sys
 
 sys.path.append("dashboards")
 
-from custom_utils import get_dataset_path
+from custom_utils import get_dataset_path, check_not_none
 import metrics
 import marathonsTimeByYear
 import fastestMarathons
@@ -38,8 +38,8 @@ st.markdown(
             border-radius: 5px;
         }}
         [data-testid="stMetric"] {{
-            border: 1px solid {page_theme["fadedText20"]};
-            background-color: {page_theme["secondaryBackgroundColor"]};
+            border: 1px solid {check_not_none(page_theme, "white", "fadedText20")};
+            background-color: {check_not_none(page_theme, "white", "secondaryBackgroundColor")};
             border-radius: 5px;
             padding: 16px;
             margin: 0;
@@ -61,11 +61,11 @@ st.session_state["viewport_height"] = streamlit_js_eval(
 st.session_state["viewport_width"] = streamlit_js_eval(
     js_expressions="screen.width", key="ViewportWidth"
 )
-chart_height_default = st.session_state["viewport_height"] / 2.9
+chart_height_default = check_not_none(st.session_state["viewport_height"]) / 2.9
 
 
 metrics_container = st.container()
-metrics.plot(df, metrics_container, st.session_state["viewport_width"])
+metrics.plot(df, metrics_container, check_not_none(st.session_state["viewport_width"]))
 
 
 charts_container = st.container()
@@ -74,13 +74,17 @@ charts_row1_col1, charts_row1_col2 = charts_row1.columns([0.6, 0.4], gap="medium
 
 charts_row1_col1.altair_chart(
     marathonsTimeByYear.plot(
-        df, chart_height_default, page_theme["secondaryBackgroundColor"]
+        df,
+        chart_height_default,
+        check_not_none(page_theme, "white", "secondaryBackgroundColor"),
     ),
     use_container_width=True,
 )
 charts_row1_col2.plotly_chart(
     fastestMarathons.plot(
-        df, chart_height_default, page_theme["secondaryBackgroundColor"]
+        df,
+        chart_height_default,
+        check_not_none(page_theme, "white", "secondaryBackgroundColor"),
     ),
     use_container_width=True,
 )
@@ -95,8 +99,8 @@ charts_row2_col1.plotly_chart(
     winnersByCountry.plot(
         df,
         chart_height_default,
-        page_theme["fadedText60"],
-        page_theme["secondaryBackgroundColor"],
+        check_not_none(page_theme, "white", "fadedText60"),
+        check_not_none(page_theme, "white", "secondaryBackgroundColor"),
     ),
     use_container_width=True,
 )
@@ -121,7 +125,9 @@ charts_row2_col2.plotly_chart(
         df_men,
         chart_height_default,
         "men",
-        background_colour=page_theme["secondaryBackgroundColor"],
+        background_colour=check_not_none(
+            page_theme, "white", "secondaryBackgroundColor"
+        ),
     ),
     use_container_width=True,
 )
@@ -130,7 +136,9 @@ charts_row2_col3.plotly_chart(
         df_women,
         chart_height_default,
         "women",
-        background_colour=page_theme["secondaryBackgroundColor"],
+        background_colour=check_not_none(
+            page_theme, "white", "secondaryBackgroundColor"
+        ),
         margin_left_add=15,
     ),
     use_container_width=True,

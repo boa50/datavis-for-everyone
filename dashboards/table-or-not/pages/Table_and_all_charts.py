@@ -1,0 +1,161 @@
+import pandas as pd
+import streamlit as st
+from streamlit_js_eval import streamlit_js_eval
+from streamlit_theme import st_theme
+import sys
+
+sys.path.append("dashboards")
+
+from custom_utils import get_dataset_path
+import metrics
+import marathonsTimeByYear
+import fastestMarathons
+import winnersByCountry
+import topRunners
+
+st.set_page_config(
+    page_title="Table and all charts",
+    page_icon="👟",
+    layout="wide",
+)
+
+df = pd.read_csv(get_dataset_path("world_marathon_majors.csv"), encoding="latin-1")
+df["time_plot"] = pd.to_datetime(df["time"], format="%H:%M:%S", utc=True)
+df["time_seconds"] = pd.to_timedelta(df["time"]).dt.total_seconds()
+
+page_theme = st_theme()
+
+st.markdown(
+    f"""
+    <style>
+        .appview-container .main .block-container {{
+            padding: 3rem 5rem;
+        }}
+        .chart-wrapper > canvas {{
+            border-radius: 5px;
+        }}
+        .stPlotlyChart > div > div > svg {{
+            border-radius: 5px;
+        }}
+        [data-testid="stMetric"] {{
+            border: 1px solid {page_theme["fadedText20"]};
+            background-color: {page_theme["secondaryBackgroundColor"]};
+            border-radius: 5px;
+            padding: 16px;
+            margin: 0;
+        }}
+        .main > div > div > div > div > [data-testid="element-container"] {{
+            display: none;
+        }}
+        .main > div > div > div > div > [data-testid="stVerticalBlockBorderWrapper"]:first-child {{
+            display: none;
+        }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.session_state["viewport_height"] = streamlit_js_eval(
+    js_expressions="screen.height", key="ViewportHeight"
+)
+st.session_state["viewport_width"] = streamlit_js_eval(
+    js_expressions="screen.width", key="ViewportWidth"
+)
+chart_height_default = st.session_state["viewport_height"] / 2.9
+
+
+metrics_container = st.container()
+metrics.plot(df, metrics_container, st.session_state["viewport_width"])
+
+
+charts_container = st.container()
+charts_row1 = charts_container.container()
+charts_row1_col1, charts_row1_col2 = charts_row1.columns([0.6, 0.4], gap="medium")
+
+charts_row1_col1.altair_chart(
+    marathonsTimeByYear.plot(
+        df, chart_height_default, page_theme["secondaryBackgroundColor"]
+    ),
+    use_container_width=True,
+)
+charts_row1_col2.plotly_chart(
+    fastestMarathons.plot(
+        df, chart_height_default, page_theme["secondaryBackgroundColor"]
+    ),
+    use_container_width=True,
+)
+
+
+charts_row2 = charts_container.container()
+charts_row2_col1, charts_row2_col2, charts_row2_col3, charts_row2_col4 = (
+    charts_row1.columns([0.3, 0.2, 0.2, 0.3], gap="medium")
+)
+
+charts_row2_col1.plotly_chart(
+    winnersByCountry.plot(
+        df,
+        chart_height_default,
+        page_theme["fadedText60"],
+        page_theme["secondaryBackgroundColor"],
+    ),
+    use_container_width=True,
+)
+
+df_men = (
+    df[df["gender"] == "Male"]
+    .groupby(by="winner")
+    .min()
+    .reset_index()
+    .sort_values(by="time")
+)
+df_women = (
+    df[df["gender"] == "Female"]
+    .groupby(by="winner")
+    .min()
+    .reset_index()
+    .sort_values(by="time")
+)
+
+charts_row2_col2.plotly_chart(
+    topRunners.plot(
+        df_men,
+        chart_height_default,
+        "men",
+        background_colour=page_theme["secondaryBackgroundColor"],
+    ),
+    use_container_width=True,
+)
+charts_row2_col3.plotly_chart(
+    topRunners.plot(
+        df_women,
+        chart_height_default,
+        "women",
+        background_colour=page_theme["secondaryBackgroundColor"],
+        margin_left_add=15,
+    ),
+    use_container_width=True,
+)
+
+charts_row2_col4.markdown(
+    "<div style='margin: 0.5rem 0; font-weight: 700'>Detailed data</div>",
+    unsafe_allow_html=True,
+)
+
+charts_row2_col4.dataframe(
+    df[["year", "marathon", "winner", "country", "gender", "time"]]
+    .sort_values(by=["year", "marathon"], ascending=False)
+    .style.set_properties(
+        **{"background-color": page_theme["secondaryBackgroundColor"]}
+    ),
+    column_config=dict(
+        year="Year",
+        marathon="Marathon",
+        winner="winner",
+        country="Country",
+        gender="Gender",
+        time="Time",
+    ),
+    height=int(chart_height_default) - 40,
+    hide_index=True,
+    use_container_width=True,
+)

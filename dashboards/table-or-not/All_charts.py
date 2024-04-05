@@ -14,7 +14,7 @@ import winnersByCountry
 import topRunners
 
 st.set_page_config(
-    page_title="Table dashboard",
+    page_title="All charts",
     page_icon="👟",
     layout="wide",
 )

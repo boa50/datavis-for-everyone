@@ -1,8 +1,14 @@
 import pandas as pd
 import plotly.express as px
 
+
 # Winners by country and Continent (map)
-def plot(df: pd.DataFrame, chart_height: int, map_lines_colour: str):
+def plot(
+    df: pd.DataFrame,
+    chart_height: int,
+    map_lines_colour: str,
+    background_colour: str = "white",
+):
     df_winners = df[df["year"] >= 2000]
     df_countries = px.data.gapminder().query("year==2007")
 
@@ -25,21 +31,33 @@ def plot(df: pd.DataFrame, chart_height: int, map_lines_colour: str):
         size_max=50,
         projection="natural earth",
         height=chart_height,
-        title="Winners by country",
-        color_discrete_sequence=[px.colors.qualitative.D3[0], px.colors.qualitative.D3[3], px.colors.qualitative.D3[1], px.colors.qualitative.D3[2]],
+        color_discrete_sequence=[
+            px.colors.qualitative.D3[0],
+            px.colors.qualitative.D3[3],
+            px.colors.qualitative.D3[1],
+            px.colors.qualitative.D3[2],
+        ],
         hover_data={"iso_alpha": False, "continent": False},
     )
     winners_map.update_layout(
-        margin=dict(l=8, r=8, t=20, b=8),
+        title=dict(text="Winners by country", x=0.015),
+        margin=dict(l=8, r=8, t=55, b=16),
         legend=dict(
-            orientation="h", yanchor="top", y=1.05, xanchor="left", x=0.25, title_text=""
+            orientation="h",
+            xanchor="left",
+            x=0.25,
+            yanchor="top",
+            y=1.07,
+            title_text="",
         ),
-        geo_bgcolor="rgba(0,0,0,0)",
+        paper_bgcolor=background_colour,
+        plot_bgcolor=background_colour,
     )
     winners_map.update_geos(
         visible=False,
-        showcountries=True, 
-        countrycolor=map_lines_colour
+        showcountries=True,
+        countrycolor=map_lines_colour,
+        bgcolor="rgba(0,0,0,0)",
     )
 
     return winners_map

@@ -4,16 +4,17 @@ from colours import colours
 
 
 # Marathons finishing time by year
-def plot(df: pd.DataFrame, chart_height: int):
+def plot(df: pd.DataFrame, chart_height: int, background_colour: str = "white"):
     return (
         alt.Chart(
             df,
             height=chart_height,
-            padding={"left": 8, "top": 2, "right": 16, "bottom": 16},
+            padding={"left": 16, "top": 16, "right": 16, "bottom": 16},
             title="Marathons finishing time by year",
         )
-        .configure_axis(grid=False, domain=True)
+        .configure(background=background_colour)
         .configure_title(offset=10)
+        .configure_axis(grid=False, domain=True)
         .mark_circle(size=60)
         .encode(
             x=alt.X(

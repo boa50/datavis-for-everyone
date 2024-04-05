@@ -29,19 +29,26 @@ st.markdown(
     f"""
     <style>
         .appview-container .main .block-container {{
-            padding: 1rem 5rem;
+            padding: 3rem 5rem;
+        }}
+        .chart-wrapper > canvas {{
+            border-radius: 5px;
+        }}
+        .stPlotlyChart > div > div > svg {{
+            border-radius: 5px;
         }}
         [data-testid="stMetric"] {{
             border: 1px solid {page_theme["fadedText20"]};
+            background-color: {page_theme["secondaryBackgroundColor"]};
             border-radius: 5px;
             padding: 16px;
             margin: 0;
         }}
         .main > div > div > div > div > [data-testid="element-container"] {{
-            height: 0;
+            display: none;
         }}
         .main > div > div > div > div > [data-testid="stVerticalBlockBorderWrapper"]:first-child {{
-            height: 0;
+            display: none;
         }}
     </style>
     """,
@@ -66,10 +73,16 @@ charts_row1 = charts_container.container()
 charts_row1_col1, charts_row1_col2 = charts_row1.columns([0.6, 0.4], gap="medium")
 
 charts_row1_col1.altair_chart(
-    marathonsTimeByYear.plot(df, chart_height_default), use_container_width=True
+    marathonsTimeByYear.plot(
+        df, chart_height_default, page_theme["secondaryBackgroundColor"]
+    ),
+    use_container_width=True,
 )
 charts_row1_col2.plotly_chart(
-    fastestMarathons.plot(df, chart_height_default), use_container_width=True
+    fastestMarathons.plot(
+        df, chart_height_default, page_theme["secondaryBackgroundColor"]
+    ),
+    use_container_width=True,
 )
 
 
@@ -79,7 +92,12 @@ charts_row2_col1, charts_row2_col2, charts_row2_col3 = charts_row1.columns(
 )
 
 charts_row2_col1.plotly_chart(
-    winnersByCountry.plot(df, chart_height_default, page_theme["fadedText60"]),
+    winnersByCountry.plot(
+        df,
+        chart_height_default,
+        page_theme["fadedText60"],
+        page_theme["secondaryBackgroundColor"],
+    ),
     use_container_width=True,
 )
 
@@ -99,8 +117,21 @@ df_women = (
 )
 
 charts_row2_col2.plotly_chart(
-    topRunners.plot(df_men, chart_height_default, "men"), use_container_width=True
+    topRunners.plot(
+        df_men,
+        chart_height_default,
+        "men",
+        background_colour=page_theme["secondaryBackgroundColor"],
+    ),
+    use_container_width=True,
 )
 charts_row2_col3.plotly_chart(
-    topRunners.plot(df_women, chart_height_default, "women"), use_container_width=True
+    topRunners.plot(
+        df_women,
+        chart_height_default,
+        "women",
+        background_colour=page_theme["secondaryBackgroundColor"],
+        margin_left_add=15,
+    ),
+    use_container_width=True,
 )

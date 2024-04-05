@@ -167,7 +167,7 @@ charts_row2_col4.dataframe(
         gender="Gender",
         time="Time",
     ),
-    height=int(chart_height_default if chart_height_default > 0 else 40) - 40,
+    height=int(chart_height_default - 40 if chart_height_default > 0 else 0),
     hide_index=True,
     use_container_width=True,
 )

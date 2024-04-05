@@ -1,5 +1,6 @@
 import pandas as pd
 import plotly.express as px
+from colours import colours
 
 
 # Winners by country and Continent (map)
@@ -40,7 +41,9 @@ def plot(
         hover_data={"iso_alpha": False, "continent": False},
     )
     winners_map.update_layout(
-        title=dict(text="Winners by country", x=0.015),
+        title=dict(
+            text="Winners by country", x=0.015, font_color=colours["chart_title"]
+        ),
         margin=dict(l=8, r=8, t=55, b=16),
         legend=dict(
             orientation="h",

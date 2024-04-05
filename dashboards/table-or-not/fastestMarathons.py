@@ -1,5 +1,6 @@
 import pandas as pd
 import plotly.express as px
+from colours import colours
 
 
 # Modern years fastest marathons by average (bar)
@@ -17,7 +18,9 @@ def plot(df: pd.DataFrame, chart_height: int, background_colour: str = "white"):
         color_discrete_sequence=[px.colors.qualitative.D3[0]],
     )
     race_modern_years.update_layout(
-        title=dict(text="Fastest marathons", x=0.015, y=0.95),
+        title=dict(
+            text="Fastest marathons", x=0.015, y=0.95, font_color=colours["chart_title"]
+        ),
         xaxis=dict(title="Marathon", categoryorder="total ascending"),
         yaxis=dict(
             title="Finishing time (average)",

@@ -7,11 +7,10 @@ import sys
 sys.path.append("dashboards")
 
 from custom_utils import get_dataset_path, check_not_none
+from colours import colours
 import metrics
 import marathonsTimeByYear
-import fastestMarathons
 import winnersByCountry
-import topRunners
 
 st.set_page_config(
     page_title="Table and essential charts",
@@ -95,7 +94,7 @@ charts_col1.plotly_chart(
 
 
 charts_col2.markdown(
-    "<div style='margin: 0.5rem 0; font-weight: 700'>Detailed data</div>",
+    f"<div style='margin: 0.5rem 0; font-weight: 700; color: {colours['chart_title']}'>Detailed data</div>",
     unsafe_allow_html=True,
 )
 

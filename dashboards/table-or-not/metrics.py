@@ -13,7 +13,7 @@ def plot(df: pd.DataFrame, container: any, screen_width: int):
             container.columns(5)
         )
 
-    logo.image("dashboards/table-or-not/img/logo.svg", width=int(screen_width / 11))
+    logo.image("dashboards/table-or-not/img/logo.svg", width=int(screen_width / 11) + 1)
 
     # N marathons held (number)
     df_n_marathons = df.groupby(by=["year", "marathon"]).count()

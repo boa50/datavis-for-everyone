@@ -28,7 +28,9 @@ def plot(
         height=chart_height,
     )
     top_runners.update_layout(
-        title=dict(text=f"Fastest {gender}", x=0.015),
+        title=dict(
+            text=f"Fastest {gender}", x=0.015, font_color=colours["chart_title"]
+        ),
         xaxis=dict(
             title="Seconds to finish",
             range=[

@@ -13,7 +13,9 @@ def plot(df: pd.DataFrame, chart_height: int, background_colour: str = "white"):
             title="Marathons finishing time by year",
         )
         .configure(background=background_colour)
-        .configure_title(offset=10)
+        .configure_title(
+            offset=10, fontSize=16, fontWeight=700, color=colours["chart_title"]
+        )
         .configure_axis(grid=False, domain=True)
         .mark_circle(size=60)
         .encode(

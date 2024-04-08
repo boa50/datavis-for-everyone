@@ -1,5 +1,3 @@
-import "https://cdn.jsdelivr.net/npm/d3@7"
-
 const getDeathsByGroup = (data, group) => {
     return data
         .filter(e => e.group === group)

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Napoleon's Moscow Campaign</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div id="header" class="flex flex-col m-4">
+        <h1 id="title" class="font-sans text-2xl text-gray-700">The road to Moscow</h1>
+        <!-- <h5 id="subtitle" class="font-sans text-gray-500">Subtitle</h5> -->
+    </div>
+
+    <div><svg id="scatterplot-chart"></svg></div>
+
+    <!-- <p id="caption" class="flex justify-end text-sm text-gray-500 m-4">Some caption</p> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script type="module" src="./charts/scatterplot.js"></script>
+</body>

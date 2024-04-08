@@ -1,0 +1,1 @@
+Rebuild of Napoleon's march to Moscow chart based on Storytelling With Data April 2024 challenge: https://community.storytellingwithdata.com/challenges/apr-2024-napoleons-april

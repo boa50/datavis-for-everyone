@@ -1,5 +1,6 @@
 import { buildTooltip } from "../../components/tooltip/script.js"
 import { addLegend } from "../../components/legend/script.js"
+import { addLegend as addCircleLegend } from "../../components/circle-legend/script.js"
 import { colours } from "../constants.js"
 
 const getDeathsByGroup = (data, group) => {
@@ -87,10 +88,21 @@ getData().then(datasets => {
         .domain(['Advancing', 'Retreating'])
         .range([colours.advancing, colours.retreating])
 
+    const deathsRange = [0, d3.max(data, d => d.deaths)]
+
     const size = d3
-        .scaleLinear()
-        .domain([0, d3.max(data, d => d.deaths)])
-        .range([0, 2000])
+        .scaleSqrt()
+        .domain(deathsRange)
+        .range([0, 4000])
+
+
+    addCircleLegend(
+        'scatterplot-chart',
+        size.copy().range([0, 35]),
+        [d3.quantile(deathsRange, 0.2), d3.quantile(deathsRange, 0.5), d3.quantile(deathsRange, 1)],
+        [width - 110, height],
+        colours.text
+    )
 
     const groupSymbol = d3
         .scaleOrdinal()
@@ -153,7 +165,7 @@ getData().then(datasets => {
         .join('text')
         .attr('transform', d => `translate(${projection([d.long, d.lat])})`)
         .attr('font-size', d => fontSize(d.type))
-        .attr('fill', '#737373')
+        .attr('fill', colours.text)
         .text(d => d.city)
 
     chart

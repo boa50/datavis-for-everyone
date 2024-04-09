@@ -1,3 +1,5 @@
+import { buildTooltip } from "../../components/tooltip/script.js"
+
 const getDeathsByGroup = (data, group) => {
     return data
         .filter(e => e.group === group)
@@ -48,6 +50,8 @@ const chart = svg
     .append('g')
     .attr('transform', `translate(${[margin.left, margin.top]})`)
 
+const { showTooltip, moveTooltip, hideTooltip } = buildTooltip('scatterplot-container', (d) => `Deaths: ${d.deaths}`)
+
 getData().then(datasets => {
     const data = datasets[0]
     const geo = datasets[1]
@@ -57,23 +61,23 @@ getData().then(datasets => {
         .scaleLinear()
         .domain(d3.extent(data, d => d.long).map((d, i) => d * [0.99, 1.01][i]))
         .range([0, width])
-    chart
-        .append('g')
-        .attr('transform', `translate(0, ${height})`)
-        .call(d3.axisBottom(x))
+    // chart
+    //     .append('g')
+    //     .attr('transform', `translate(0, ${height})`)
+    //     .call(d3.axisBottom(x))
 
     const y = d3
         .scaleLinear()
         .domain(d3.extent(data, d => d.lat).map((d, i) => d * [0.999, 1.001][i]))
         .range([height, 0])
-    chart
-        .append('g')
-        .call(d3.axisLeft(y))
+    // chart
+    //     .append('g')
+    //     .call(d3.axisLeft(y))
 
     const colour = d3
         .scaleOrdinal()
         .domain(['Advancing', 'Retreating'])
-        .range(['#d97706', '#030712'])
+        .range(['#002654', '#ea580c'])
 
     const size = d3
         .scaleLinear()
@@ -115,7 +119,7 @@ getData().then(datasets => {
     const fontSize = d3
         .scaleOrdinal()
         .domain(['city', 'country'])
-        .range([10, 20])
+        .range([11, 25])
 
     const projection = d3
         .geoMercator()
@@ -141,6 +145,7 @@ getData().then(datasets => {
         .join('text')
         .attr('transform', d => `translate(${projection([d.long, d.lat])})`)
         .attr('font-size', d => fontSize(d.type))
+        .attr('fill', '#737373')
         .text(d => d.city)
 
     chart
@@ -150,7 +155,10 @@ getData().then(datasets => {
         .attr('d', d3.symbol().type(d => groupSymbol(d.group)).size(d => size(d.deaths)))
         .attr('transform', d => `translate(${projection([d.long, d.lat])})`)
         .style('fill', d => colour(d.direction))
-        .style('fill-opacity', 0.3)
+        .style('fill-opacity', 0.4)
         .style('stroke', d => colour(d.direction))
         .attr('stroke-width', 0.5)
+        .on("mouseover", showTooltip)
+        .on("mousemove", moveTooltip)
+        .on("mouseleave", hideTooltip)
 })

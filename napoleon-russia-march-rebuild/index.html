@@ -10,17 +10,32 @@
 
 <body>
     <div id="header" class="flex flex-col m-4">
-        <h1 id="title" class="font-sans text-2xl text-gray-700">The road to Moscow</h1>
-        <!-- <h5 id="subtitle" class="font-sans text-gray-500">Subtitle</h5> -->
+        <h1 id="title" class="font-sans text-3xl text-gray-700">The road to Moscow</h1>
+        <h2 id="subtitle" class="font-sans text-md text-gray-500">Different approaches to represent the data used by
+            Charles Minard to illustrate Napoleon's catastrophic march to Moscow in 1812</h5>
     </div>
 
-    <div id="scatterplot-container" class="chart-container">
-        <svg id="scatterplot-legend"></svg>
-        <svg id="scatterplot-chart"></svg>
+    <div id="scatterplot-v1-container" class="chart-container">
+        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died?</h1>
+            <svg id="scatterplot-v1-legend"></svg>
+            <svg id="scatterplot-v1-chart"></svg>
     </div>
 
-    <!-- <p id="caption" class="flex justify-end text-sm text-gray-500 m-4">Some caption</p> -->
+    <div id="scatterplot-v2-container" class="chart-container">
+        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died?</h1>
+            <svg id="scatterplot-v2-legend"></svg>
+            <svg id="scatterplot-v2-chart"></svg>
+    </div>
+
+    <div id="scatterplot-v3-container" class="chart-container">
+        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died?</h1>
+            <svg id="scatterplot-v3-legend"></svg>
+            <svg id="scatterplot-v3-chart"></svg>
+    </div>
+
+    <p id="caption" class="flex justify-end text-sm text-gray-500 m-4">Data extracted from:
+        https://community.storytellingwithdata.com/challenges/apr-2024-napoleons-april</p>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
-    <script type="module" src="./charts/scatterplot.js"></script>
+    <script type="module" src="./charts/scatterplots/script.js"></script>
 </body>

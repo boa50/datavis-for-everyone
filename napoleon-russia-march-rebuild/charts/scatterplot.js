@@ -61,6 +61,15 @@ addLegend(
     [colours.advancing, colours.retreating]
 )
 
+addLegend(
+    'scatterplot-legend',
+    ['Group 1', 'Group 2', 'Group 3'],
+    colours.text,
+    [d3.symbol(d3.symbolCircle), d3.symbol(d3.symbolSquare), d3.symbol(d3.symbolTriangle)],
+    0,
+    width - 235
+)
+
 getData().then(datasets => {
     const data = datasets[0]
     const geo = datasets[1]

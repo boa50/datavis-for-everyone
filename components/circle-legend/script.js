@@ -1,3 +1,4 @@
+// Based on: https://d3-graph-gallery.com/graph/bubble_legend.html
 export const addLegend = (id, sizeScale, valuesToShow, position, colour) => {
     const svg = d3.select(`#${id}`)
         .append('g')

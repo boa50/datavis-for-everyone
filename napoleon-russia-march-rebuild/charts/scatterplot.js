@@ -1,4 +1,6 @@
 import { buildTooltip } from "../../components/tooltip/script.js"
+import { addLegend } from "../../components/legend/script.js"
+import { colours } from "../constants.js"
 
 const getDeathsByGroup = (data, group) => {
     return data
@@ -33,10 +35,10 @@ const svgWidth = 1080
 const svgHeight = 720
 
 const margin = {
-    left: 64,
-    right: 64,
+    left: 0,
+    right: 0,
     top: 16,
-    bottom: 32
+    bottom: 16
 }
 const width = svgWidth - margin.left - margin.right
 const height = svgHeight - margin.top - margin.bottom
@@ -51,6 +53,12 @@ const chart = svg
     .attr('transform', `translate(${[margin.left, margin.top]})`)
 
 const { showTooltip, moveTooltip, hideTooltip } = buildTooltip('scatterplot-container', (d) => `Deaths: ${d.deaths}`)
+
+addLegend(
+    'scatterplot-legend',
+    ['Advancing', 'Retreating'],
+    [colours.advancing, colours.retreating]
+)
 
 getData().then(datasets => {
     const data = datasets[0]
@@ -77,7 +85,7 @@ getData().then(datasets => {
     const colour = d3
         .scaleOrdinal()
         .domain(['Advancing', 'Retreating'])
-        .range(['#002654', '#ea580c'])
+        .range([colours.advancing, colours.retreating])
 
     const size = d3
         .scaleLinear()
@@ -124,7 +132,7 @@ getData().then(datasets => {
     const projection = d3
         .geoMercator()
         .center([31, 55])
-        .scale(3580)
+        .scale(4080)
         .translate([width / 2, height / 2])
         .clipExtent([[0, 0], [width, height]])
 
@@ -137,7 +145,7 @@ getData().then(datasets => {
         .attr('d', d3.geoPath()
             .projection(projection)
         )
-        .style('stroke', 'steelblue')
+        .style('stroke', '#9ca3af')
 
     chart
         .selectAll('.cities')

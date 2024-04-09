@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Napoleon's Moscow Campaign</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -13,7 +14,10 @@
         <!-- <h5 id="subtitle" class="font-sans text-gray-500">Subtitle</h5> -->
     </div>
 
-    <div id="scatterplot-container"><svg id="scatterplot-chart"></svg></div>
+    <div id="scatterplot-container" class="chart-container">
+        <svg id="scatterplot-legend"></svg>
+        <svg id="scatterplot-chart"></svg>
+    </div>
 
     <!-- <p id="caption" class="flex justify-end text-sm text-gray-500 m-4">Some caption</p> -->
 

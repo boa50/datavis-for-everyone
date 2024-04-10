@@ -2,6 +2,7 @@ import { addAxis } from '../axis.js'
 import { addLegend } from '../../../components/legend/script.js'
 import { colours } from '../../constants.js'
 import { lineV1 } from './v1.js'
+import { lineV2 } from './v2.js'
 
 const getData = () =>
     Promise.all([
@@ -76,4 +77,16 @@ getData().then(datasets => {
         ['#54A24B', '#F58518', '#B279A2', '#cbd5e1']
     )
     addAxis(chart1, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, d => `${d}°`, d3.format('.1s'))
+
+    // V2
+    const [chart2, width2, height2] = getSvgChart('line-v2-chart')
+
+    lineV2(chart2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors, yTemperature)
+
+    addLegend(
+        'line-v2-legend',
+        ['Survivors', 'Temperature'],
+        ['#54A24B', '#cbd5e1']
+    )
+    addAxis(chart2, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, d => `${d}°`, d3.format('.1s'))
 })

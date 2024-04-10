@@ -1,4 +1,5 @@
 import { addAxis } from '../axis.js'
+import { addLegend } from '../../../components/legend/script.js'
 import { colours } from '../../constants.js'
 
 const getData = () =>
@@ -99,7 +100,13 @@ getData().then(datasets => {
         .attr('stroke-width', 1.5)
         .attr('d', d => line(d[1]))
 
-    addAxis(chart, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, undefined, d3.format('.1s'))
+    addLegend(
+        'line-legend',
+        ['Group1', 'Group2', 'Group3', 'Temperature'],
+        ['#54A24B', '#F58518', '#B279A2', '#cbd5e1']
+    )
+
+    addAxis(chart, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, d => `${d}°`, d3.format('.1s'))
 
     const yAxisRight = chart
         .append('g')

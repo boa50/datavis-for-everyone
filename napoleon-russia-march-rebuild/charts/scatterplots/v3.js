@@ -39,7 +39,7 @@ export const scatterplotV3 = (chart, width, height, data, cities, geo, groupSymb
         .selectAll('.dt-points')
         .data(data)
         .join('path')
-        .attr('d', d3.symbol().type(d => groupSymbol(d.group)).size(d => size(d.deaths)))
+        .attr('d', d3.symbol().type(d => groupSymbol(d.group)).size(d => Math.pow(size(d.deaths), 2) * Math.PI))
         .attr('transform', d => `translate(${projection([d.long, d.lat])})`)
         .style('fill', d => colour(d.direction))
         .style('fill-opacity', 0.4)

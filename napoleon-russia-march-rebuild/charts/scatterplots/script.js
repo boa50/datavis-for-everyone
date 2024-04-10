@@ -96,7 +96,7 @@ const addLegends = (chartId, colour = false, group = false, deaths = false, widt
     if (deaths) {
         addCircleLegend(
             `scatterplot-${chartId}-chart`,
-            size.copy().range([0, 35]),
+            size,
             [d3.quantile(deathsRange, 0.2), d3.quantile(deathsRange, 0.5), d3.quantile(deathsRange, 1)],
             [width - 110, height - circlesYfix],
             colours.text
@@ -119,7 +119,7 @@ getData().then(datasets => {
     const size = d3
         .scaleSqrt()
         .domain(deathsRange)
-        .range([0, 4000])
+        .range([0, 35])
 
     const groupSymbol = d3
         .scaleOrdinal()
@@ -131,7 +131,7 @@ getData().then(datasets => {
     const [chart1, width1, height1] = getSvgChart('scatterplot-v1-chart', { left: 32, bottom: 64, top: 32 })
     const [x1, y1] = getXY(data, width1, height1)
 
-    scatterplotV1(chart1, height1, data, size.copy().range([0, 35]), colour, x1, y1,
+    scatterplotV1(chart1, height1, data, size, colour, x1, y1,
         buildTooltip('scatterplot-v1-container', (d) => `Deaths: ${d.deaths}`))
 
     addLegends('v1', true, false, true, width1, height1, size, deathsRange)

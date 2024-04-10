@@ -99,7 +99,8 @@ const addLegends = (chartId, colour = false, group = false, deaths = false, widt
             size,
             [d3.quantile(deathsRange, 0.2), d3.quantile(deathsRange, 0.5), d3.quantile(deathsRange, 1)],
             [width - 110, height - circlesYfix],
-            colours.text
+            colours.text,
+            'Deaths'
         )
     }
 }
@@ -150,7 +151,7 @@ getData().then(datasets => {
 
 
     // V3
-    const [chart3, width3, height3] = getSvgChart('scatterplot-v3-chart', { left: 0, top: 0 })
+    const [chart3, width3, height3] = getSvgChart('scatterplot-v3-chart', { left: 0, top: 8 })
 
     scatterplotV3(chart3, width3, height3, data, cities, geo, groupSymbol, size, colour,
         buildTooltip('scatterplot-v3-container', (d) =>

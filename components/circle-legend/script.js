@@ -1,5 +1,5 @@
 // Based on: https://d3-graph-gallery.com/graph/bubble_legend.html
-export const addLegend = (id, sizeScale, valuesToShow, position, colour) => {
+export const addLegend = (id, sizeScale, valuesToShow, position, colour, title = '') => {
     const svg = d3.select(`#${id}`)
         .append('g')
 
@@ -22,6 +22,15 @@ export const addLegend = (id, sizeScale, valuesToShow, position, colour) => {
                 return 0
         }
     }
+
+    // Title
+    svg
+        .append('text')
+        .attr('x', position[0] - 22)
+        .attr('y', position[1] - 85)
+        .text(title)
+        .attr('font-size', 15)
+        .attr('fill', colour)
 
     // Circles
     svg

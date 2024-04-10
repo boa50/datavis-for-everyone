@@ -26,11 +26,12 @@ export const addLegend = (id, sizeScale, valuesToShow, position, colour, title =
     // Title
     svg
         .append('text')
-        .attr('x', position[0] - 22)
+        .attr('x', position[0])
         .attr('y', position[1] - 85)
-        .text(title)
         .attr('font-size', 15)
+        .attr('text-anchor', 'middle')
         .attr('fill', colour)
+        .text(title)
 
     // Circles
     svg

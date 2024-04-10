@@ -1,14 +1,5 @@
-export const scatterplotV2 = (chart, height, data, groupSymbol, size, colour, x, y, tooltips) => {
+export const scatterplotV2 = (chart, data, groupSymbol, size, colour, x, y, tooltips) => {
     const { showTooltip, moveTooltip, hideTooltip } = tooltips
-
-    chart
-        .append('g')
-        .attr('transform', `translate(0, ${height})`)
-        .call(d3.axisBottom(x))
-
-    chart
-        .append('g')
-        .call(d3.axisLeft(y))
 
     chart
         .selectAll('.dt-points')

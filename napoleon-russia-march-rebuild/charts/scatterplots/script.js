@@ -1,6 +1,7 @@
 import { buildTooltip } from "../../../components/tooltip/script.js"
 import { addLegend } from "../../../components/legend/script.js"
 import { addLegend as addCircleLegend } from "../../../components/circle-legend/script.js"
+import { addAxis } from "./axis.js"
 import { colours } from "../../constants.js"
 import { scatterplotV1 } from "./v1.js"
 import { scatterplotV2 } from "./v2.js"
@@ -37,13 +38,16 @@ const getData = () =>
 
 const svgWidth = 1080
 const svgHeight = 720
+const marginDefault = {
+    left: 16,
+    right: 16,
+    top: 16,
+    bottom: 16
+}
 
 const getSvgChart = (id, marginCustom = {}) => {
     const margin = {
-        left: 16,
-        right: 16,
-        top: 16,
-        bottom: 16,
+        ...marginDefault,
         ...marginCustom
     }
     const width = svgWidth - margin.left - margin.right
@@ -127,26 +131,33 @@ getData().then(datasets => {
         .domain(['1', '2', '3'])
         .range([d3.symbolCircle, d3.symbolSquare, d3.symbolTriangle])
 
+    const v1v2Margin = {
+        ...marginDefault,
+        left: 64, bottom: 64, top: 32
+    }
+
 
     // V1
-    const [chart1, width1, height1] = getSvgChart('scatterplot-v1-chart', { left: 32, bottom: 64, top: 32 })
+    const [chart1, width1, height1] = getSvgChart('scatterplot-v1-chart', v1v2Margin)
     const [x1, y1] = getXY(data, width1, height1)
 
-    scatterplotV1(chart1, height1, data, size, colour, x1, y1,
+    scatterplotV1(chart1, data, size, colour, x1, y1,
         buildTooltip('scatterplot-v1-container', (d) => `Deaths: ${d.deaths}`))
 
+    addAxis(chart1, height1, width1, v1v2Margin, x1, y1, colours.text)
     addLegends('v1', true, false, true, width1, height1, size, deathsRange)
 
 
     // V2
-    const [chart2, width2, height2] = getSvgChart('scatterplot-v2-chart', { left: 32, bottom: 64, top: 32 })
+    const [chart2, width2, height2] = getSvgChart('scatterplot-v2-chart', v1v2Margin)
     const [x2, y2] = getXY(data, width2, height2)
 
-    scatterplotV2(chart2, height2, data, groupSymbol, size, colour, x2, y2,
+    scatterplotV2(chart2, data, groupSymbol, size, colour, x2, y2,
         buildTooltip('scatterplot-v2-container', (d) =>
             `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
         ))
 
+    addAxis(chart2, height2, width2, v1v2Margin, x2, y2, colours.text)
     addLegends('v2', true, true, true, width2, height2, size, deathsRange)
 
 

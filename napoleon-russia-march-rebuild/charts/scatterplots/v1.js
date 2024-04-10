@@ -1,14 +1,5 @@
-export const scatterplotV1 = (chart, height, data, radius, colour, x, y, tooltips) => {
+export const scatterplotV1 = (chart, data, radius, colour, x, y, tooltips) => {
     const { showTooltip, moveTooltip, hideTooltip } = tooltips
-
-    chart
-        .append('g')
-        .attr('transform', `translate(0, ${height})`)
-        .call(d3.axisBottom(x))
-
-    chart
-        .append('g')
-        .call(d3.axisLeft(y))
 
     chart
         .selectAll('circle')

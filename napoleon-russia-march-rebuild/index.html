@@ -12,31 +12,35 @@
     <div id="header" class="flex flex-col m-4">
         <h1 id="title" class="font-sans text-3xl text-gray-700">The road to Moscow</h1>
         <h2 id="subtitle" class="font-sans text-base text-gray-500">Different approaches to represent the data used by
-            Charles Minard to illustrate Napoleon's catastrophic march to Moscow in 1812</h5>
+            Charles Minard to illustrate Napoleon's catastrophic march to Moscow in 1812</h2>
     </div>
 
-    <div id="scatterplot-v1-container" class="chart-container">
-        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V1)</h1>
-            <h4 id="subtitle" class="font-sans text-sm text-gray-400">The first version represented soldiers' deaths in
-                a simple scatterplot with a linear proportion between latitude and longitude</h5>
-                <svg id="scatterplot-v1-legend"></svg>
-                <svg id="scatterplot-v1-chart"></svg>
+    <!-- <div id="scatterplot-v1-container" class="chart-container">
+        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V1)</h3>
+        <h4 id="subtitle" class="font-sans text-sm text-gray-400">The first version represented soldiers' deaths in
+            a simple scatterplot with a linear proportion between latitude and longitude</h4>
+        <svg id="scatterplot-v1-legend"></svg>
+        <svg id="scatterplot-v1-chart"></svg>
     </div>
 
     <div id="scatterplot-v2-container" class="chart-container">
-        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V2)</h1>
-            <h4 id="subtitle" class="font-sans text-sm text-gray-400">The second version brought group division to the
-                troops</h5>
-                <svg id="scatterplot-v2-legend"></svg>
-                <svg id="scatterplot-v2-chart"></svg>
+        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V2)</h3>
+        <h4 id="subtitle" class="font-sans text-sm text-gray-400">The second version brought group division to the
+            troops</h4>
+        <svg id="scatterplot-v2-legend"></svg>
+        <svg id="scatterplot-v2-chart"></svg>
     </div>
 
     <div id="scatterplot-v3-container" class="chart-container">
-        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V3)</h1>
-            <h4 id="subtitle" class="font-sans text-sm text-gray-400">The third one rescaled the point to put them in a
-                geographic space and show correctly the places where troops marched through</h5>
-                <svg id="scatterplot-v3-legend"></svg>
-                <svg id="scatterplot-v3-chart"></svg>
+        <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V3)</h3>
+        <h4 id="subtitle" class="font-sans text-sm text-gray-400">The third one rescaled the point to put them in a
+            geographic space and show correctly the places where troops marched through</h4>
+        <svg id="scatterplot-v3-legend"></svg>
+        <svg id="scatterplot-v3-chart"></svg>
+    </div> -->
+
+    <div id="line-container" class="chart-container">
+        <svg id="line-chart"></svg>
     </div>
 
     <p id="caption" class="flex justify-end text-sm text-gray-500 m-4">Data extracted from:
@@ -44,4 +48,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script type="module" src="./charts/scatterplots/script.js"></script>
+    <script type="module" src="./charts/line/script.js"></script>
 </body>

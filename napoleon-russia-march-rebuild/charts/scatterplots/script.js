@@ -1,7 +1,7 @@
 import { buildTooltip } from "../../../components/tooltip/script.js"
 import { addLegend } from "../../../components/legend/script.js"
 import { addLegend as addCircleLegend } from "../../../components/circle-legend/script.js"
-import { addAxis } from "./axis.js"
+import { addAxis } from "../axis.js"
 import { colours } from "../../constants.js"
 import { scatterplotV1 } from "./v1.js"
 import { scatterplotV2 } from "./v2.js"
@@ -144,7 +144,7 @@ getData().then(datasets => {
     scatterplotV1(chart1, data, size, colour, x1, y1,
         buildTooltip('scatterplot-v1-container', (d) => `Deaths: ${d.deaths}`))
 
-    addAxis(chart1, height1, width1, v1v2Margin, x1, y1, colours.text)
+    addAxis(chart1, height1, width1, v1v2Margin, x1, y1, 'Longitude', 'Latitude', colours.text)
     addLegends('v1', true, false, true, width1, height1, size, deathsRange)
 
 
@@ -157,7 +157,7 @@ getData().then(datasets => {
             `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
         ))
 
-    addAxis(chart2, height2, width2, v1v2Margin, x2, y2, colours.text)
+    addAxis(chart2, height2, width2, v1v2Margin, x2, y2, 'Longitude', 'Latitude', colours.text)
     addLegends('v2', true, true, true, width2, height2, size, deathsRange)
 
 

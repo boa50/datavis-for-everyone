@@ -1,4 +1,4 @@
-export const addAxis = (chart, height, width, margin, x, y, colour) => {
+export const addAxis = (chart, height, width, margin, x, y, xLabel, yLabel, colour, xFormat = undefined, yFormat = undefined) => {
     const xAxis = chart
         .append('g')
         .attr('transform', `translate(0, ${height})`)
@@ -7,6 +7,7 @@ export const addAxis = (chart, height, width, margin, x, y, colour) => {
                 .axisBottom(x)
                 .tickSize(0)
                 .tickPadding(10)
+                .tickFormat(xFormat)
         )
 
     xAxis
@@ -15,7 +16,7 @@ export const addAxis = (chart, height, width, margin, x, y, colour) => {
         .attr('y', 35)
         .attr('font-size', 12)
         .attr('text-anchor', 'middle')
-        .text('Longitude')
+        .text(xLabel)
 
     xAxis
         .select('.domain')
@@ -33,6 +34,7 @@ export const addAxis = (chart, height, width, margin, x, y, colour) => {
                 .axisLeft(y)
                 .tickSize(0)
                 .tickPadding(10)
+                .tickFormat(yFormat)
         )
 
     yAxis
@@ -42,7 +44,7 @@ export const addAxis = (chart, height, width, margin, x, y, colour) => {
         .attr('font-size', 12)
         .attr('transform', 'rotate(270)')
         .attr('text-anchor', 'middle')
-        .text('Latitude')
+        .text(yLabel)
 
     yAxis
         .select('.domain')

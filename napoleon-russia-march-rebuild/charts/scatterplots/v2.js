@@ -1,4 +1,6 @@
-export const scatterplotV2 = (chart, height, data, groupSymbol, size, colour, x, y) => {
+export const scatterplotV2 = (chart, height, data, groupSymbol, size, colour, x, y, tooltips) => {
+    const { showTooltip, moveTooltip, hideTooltip } = tooltips
+
     chart
         .append('g')
         .attr('transform', `translate(0, ${height})`)
@@ -18,4 +20,7 @@ export const scatterplotV2 = (chart, height, data, groupSymbol, size, colour, x,
         .style('stroke', d => colour(d.direction))
         .attr('stroke-width', 0.5)
         .attr('transform', d => `translate(${[x(d.long), y(d.lat)]})`)
+        .on('mouseover', showTooltip)
+        .on('mousemove', moveTooltip)
+        .on('mouseleave', hideTooltip)
 }

@@ -131,7 +131,8 @@ getData().then(datasets => {
     const [chart1, width1, height1] = getSvgChart('scatterplot-v1-chart', { left: 32, bottom: 64, top: 32 })
     const [x1, y1] = getXY(data, width1, height1)
 
-    scatterplotV1(chart1, height1, data, size, colour, x1, y1)
+    scatterplotV1(chart1, height1, data, size.copy().range([0, 35]), colour, x1, y1,
+        buildTooltip('scatterplot-v1-container', (d) => `Deaths: ${d.deaths}`))
 
     addLegends('v1', true, false, true, width1, height1, size, deathsRange)
 
@@ -140,7 +141,10 @@ getData().then(datasets => {
     const [chart2, width2, height2] = getSvgChart('scatterplot-v2-chart', { left: 32, bottom: 64, top: 32 })
     const [x2, y2] = getXY(data, width2, height2)
 
-    scatterplotV2(chart2, height2, data, groupSymbol, size, colour, x2, y2)
+    scatterplotV2(chart2, height2, data, groupSymbol, size, colour, x2, y2,
+        buildTooltip('scatterplot-v2-container', (d) =>
+            `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
+        ))
 
     addLegends('v2', true, true, true, width2, height2, size, deathsRange)
 
@@ -148,9 +152,10 @@ getData().then(datasets => {
     // V3
     const [chart3, width3, height3] = getSvgChart('scatterplot-v3-chart', { left: 0, top: 0 })
 
-    scatterplotV3(chart3, width3, height3, data, cities, geo,
-        buildTooltip('scatterplot-v3-container', (d) => `Deaths: ${d.deaths}`),
-        groupSymbol, size, colour)
+    scatterplotV3(chart3, width3, height3, data, cities, geo, groupSymbol, size, colour,
+        buildTooltip('scatterplot-v3-container', (d) =>
+            `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
+        ))
 
     addLegends('v3', true, true, true, width3, height3, size, deathsRange, 25)
 })

@@ -1,6 +1,6 @@
-import { colours } from "../../constants.js"
+import { colours } from '../../constants.js'
 
-export const scatterplotV3 = (chart, width, height, data, cities, geo, tooltips, groupSymbol, size, colour) => {
+export const scatterplotV3 = (chart, width, height, data, cities, geo, groupSymbol, size, colour, tooltips) => {
     const { showTooltip, moveTooltip, hideTooltip } = tooltips
 
     const fontSize = d3
@@ -45,7 +45,7 @@ export const scatterplotV3 = (chart, width, height, data, cities, geo, tooltips,
         .style('fill-opacity', 0.4)
         .style('stroke', d => colour(d.direction))
         .attr('stroke-width', 0.5)
-        .on("mouseover", showTooltip)
-        .on("mousemove", moveTooltip)
-        .on("mouseleave", hideTooltip)
+        .on('mouseover', showTooltip)
+        .on('mousemove', moveTooltip)
+        .on('mouseleave', hideTooltip)
 }

@@ -77,7 +77,19 @@ getData().then(datasets => {
         ['Group1', 'Group2', 'Group3', 'Temperature'],
         ['#54A24B', '#F58518', '#B279A2', '#cbd5e1']
     )
-    addAxis(chart1, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, d => `${d}°`, d3.format('.1s'))
+    addAxis({
+        chart: chart1,
+        height: height,
+        width: width,
+        margin: marginDefault,
+        x: x,
+        y: ySurvivors,
+        xLabel: 'Longitude',
+        yLabel: 'Survivors',
+        xFormat: d => `${d}°`,
+        yFormat: d3.format('.1s'),
+        colour: colours.text
+    })
 
     // V2
     const [chart2, width2, height2] = getSvgChart('line-v2-chart')
@@ -111,5 +123,17 @@ getData().then(datasets => {
         }
     )
 
-    addAxis(chart2, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, d => `${d}°`, d3.format('.1s'))
+    addAxis({
+        chart: chart2,
+        height: height,
+        width: width,
+        margin: marginDefault,
+        x: x,
+        y: ySurvivors,
+        xLabel: 'Longitude',
+        yLabel: 'Survivors',
+        xFormat: d => `${d}°`,
+        yFormat: d3.format('.1s'),
+        colour: colours.text
+    })
 })

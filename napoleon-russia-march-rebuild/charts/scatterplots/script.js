@@ -77,7 +77,17 @@ const getXY = (data, width, height) => {
     return [x, y]
 }
 
-const addLegends = (chartId, colour = false, group = false, deaths = false, width, height, size, deathsRange, circlesYfix = 0) => {
+const addLegends = ({
+    chartId,
+    colour = false,
+    group = false,
+    deaths = false,
+    width,
+    height,
+    size,
+    deathsRange,
+    circlesYfix = 0
+}) => {
     if (colour) {
         addLegend(
             `scatterplot-${chartId}-legend`,
@@ -144,8 +154,28 @@ getData().then(datasets => {
     scatterplotV1(chart1, data, size, colour, x1, y1,
         buildTooltip('scatterplot-v1-container', (d) => `Deaths: ${d.deaths}`))
 
-    addAxis(chart1, height1, width1, v1v2Margin, x1, y1, 'Longitude', 'Latitude', colours.text)
-    addLegends('v1', true, false, true, width1, height1, size, deathsRange)
+    addAxis({
+        chart: chart1,
+        height: height1,
+        width: width1,
+        margin: v1v2Margin,
+        x: x1,
+        y: y1,
+        xLabel: 'Longitude',
+        yLabel: 'Latitude',
+        xFormat: d => `${d}°`,
+        yFormat: d => `${d}°`,
+        colour: colours.text
+    })
+    addLegends({
+        chartId: 'v1',
+        colour: true,
+        deaths: true,
+        width: width1,
+        height: height1,
+        size: size,
+        deathsRange: deathsRange
+    })
 
 
     // V2
@@ -157,8 +187,29 @@ getData().then(datasets => {
             `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
         ))
 
-    addAxis(chart2, height2, width2, v1v2Margin, x2, y2, 'Longitude', 'Latitude', colours.text)
-    addLegends('v2', true, true, true, width2, height2, size, deathsRange)
+    addAxis({
+        chart: chart2,
+        height: height2,
+        width: width2,
+        margin: v1v2Margin,
+        x: x2,
+        y: y2,
+        xLabel: 'Longitude',
+        yLabel: 'Latitude',
+        xFormat: d => `${d}°`,
+        yFormat: d => `${d}°`,
+        colour: colours.text
+    })
+    addLegends({
+        chartId: 'v2',
+        colour: true,
+        deaths: true,
+        group: true,
+        width: width2,
+        height: height2,
+        size: size,
+        deathsRange: deathsRange
+    })
 
 
     // V3
@@ -169,5 +220,15 @@ getData().then(datasets => {
             `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
         ))
 
-    addLegends('v3', true, true, true, width3, height3, size, deathsRange, 25)
+    addLegends({
+        chartId: 'v3',
+        colour: true,
+        deaths: true,
+        group: true,
+        width: width3,
+        height: height3,
+        size: size,
+        deathsRange: deathsRange,
+        circlesYfix: 25
+    })
 })

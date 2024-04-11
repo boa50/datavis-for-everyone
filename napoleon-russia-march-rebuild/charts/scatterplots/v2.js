@@ -1,5 +1,5 @@
 export const scatterplotV2 = (chart, data, groupSymbol, size, colour, x, y, tooltips) => {
-    const { showTooltip, moveTooltip, hideTooltip } = tooltips
+    const { mouseover, mousemove, mouseleave } = tooltips
 
     chart
         .selectAll('.dt-points')
@@ -11,7 +11,7 @@ export const scatterplotV2 = (chart, data, groupSymbol, size, colour, x, y, tool
         .style('stroke', d => colour(d.direction))
         .attr('stroke-width', 0.5)
         .attr('transform', d => `translate(${[x(d.long), y(d.lat)]})`)
-        .on('mouseover', showTooltip)
-        .on('mousemove', moveTooltip)
-        .on('mouseleave', hideTooltip)
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave)
 }

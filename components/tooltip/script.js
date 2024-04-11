@@ -9,10 +9,10 @@ export const buildTooltip = (id, htmlText) => {
         .style('color', 'white')
         .style('position', 'fixed')
 
-    const showTooltip = (event, d) => {
+    const mouseover = (event, d) => {
         tooltip
-            .interrupt('hideTooltip')
-            .transition('showTooltip')
+            .interrupt('mouseleave')
+            .transition('mouseover')
             .duration(200)
         tooltip
             .html(htmlText(d))
@@ -20,18 +20,20 @@ export const buildTooltip = (id, htmlText) => {
             .style('top', `${event.y + 30}px`)
             .style('opacity', 1)
     }
-    const moveTooltip = event => {
+    const mousemove = event => {
         tooltip
             .style('left', `${event.x - 30}px`)
             .style('top', `${event.y + 30}px`)
     }
-    const hideTooltip = () => {
+    const mouseleave = () => {
         tooltip
-            .interrupt('showTooltip')
-            .transition('hideTooltip')
+            .interrupt('mouseover')
+            .style('left', '-1000px')
+            .style('top', '-1000px')
+            .transition('mouseleave')
             .duration(200)
             .style('opacity', 0)
     }
 
-    return { showTooltip, moveTooltip, hideTooltip }
+    return { mouseover, mousemove, mouseleave }
 }

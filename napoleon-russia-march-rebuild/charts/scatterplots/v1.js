@@ -1,5 +1,5 @@
 export const scatterplotV1 = (chart, data, radius, colour, x, y, tooltips) => {
-    const { showTooltip, moveTooltip, hideTooltip } = tooltips
+    const { mouseover, mousemove, mouseleave } = tooltips
 
     chart
         .selectAll('circle')
@@ -10,7 +10,7 @@ export const scatterplotV1 = (chart, data, radius, colour, x, y, tooltips) => {
         .attr('r', d => radius(d.deaths))
         .style('fill', d => colour(d.direction))
         .style('opacity', 0.5)
-        .on('mouseover', showTooltip)
-        .on('mousemove', moveTooltip)
-        .on('mouseleave', hideTooltip)
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave)
 }

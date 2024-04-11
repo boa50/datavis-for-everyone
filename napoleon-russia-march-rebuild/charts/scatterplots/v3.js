@@ -1,7 +1,7 @@
 import { colours } from '../../constants.js'
 
 export const scatterplotV3 = (chart, width, height, data, cities, geo, groupSymbol, size, colour, tooltips) => {
-    const { showTooltip, moveTooltip, hideTooltip } = tooltips
+    const { mouseover, mousemove, mouseleave } = tooltips
 
     const fontSize = d3
         .scaleOrdinal()
@@ -45,7 +45,7 @@ export const scatterplotV3 = (chart, width, height, data, cities, geo, groupSymb
         .style('fill-opacity', 0.4)
         .style('stroke', d => colour(d.direction))
         .attr('stroke-width', 0.5)
-        .on('mouseover', showTooltip)
-        .on('mousemove', moveTooltip)
-        .on('mouseleave', hideTooltip)
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave)
 }

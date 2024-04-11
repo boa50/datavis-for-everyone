@@ -1,10 +1,5 @@
-export const lineV2 = (chart, width, height, data, temperatures, x, ySurvivors) => {
+export const lineV2 = (chart, width, height, data, temperatures, x, ySurvivors, temperatureColours) => {
     // Temperatures
-    const temperatureColours = d3
-        .scaleSequential()
-        .domain(d3.extent(temperatures, d => d['temp C']))
-        .range(['#17709c', '#d6dae6'])
-
     // Based on: https://stackoverflow.com/questions/70866817/d3-js-area-filled-with-lineargradient-color-interpolation-bledning-in-chrome
     chart
         .append('defs')
@@ -16,7 +11,7 @@ export const lineV2 = (chart, width, height, data, temperatures, x, ySurvivors) 
         .selectAll('stop')
         .data(temperatures)
         .join('stop')
-        .attr('offset', d => x(d.long) / 1080)
+        .attr('offset', d => x(d.long) / width)
         .attr('stop-color', d => temperatureColours(d['temp C']))
         .attr('stop-opacity', 0.7)
 

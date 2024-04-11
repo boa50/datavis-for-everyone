@@ -1,5 +1,6 @@
 import { addAxis } from '../axis.js'
 import { addLegend } from '../../../components/legend/script.js'
+import { addLegend as addColourLegend } from '../../../components/colour-legend/script.js'
 import { colours } from '../../constants.js'
 import { lineV1 } from './v1.js'
 import { lineV2 } from './v2.js'
@@ -80,13 +81,35 @@ getData().then(datasets => {
 
     // V2
     const [chart2, width2, height2] = getSvgChart('line-v2-chart')
+    const temperatureColours = d3
+        .scaleSequential()
+        .domain(d3.extent(temperatures, d => d['temp C']))
+        .range(['#17709c', '#d6dae6'])
+    const temperatureColourOpacity = 0.7
 
-    lineV2(chart2, width2, height2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors)
+    lineV2(chart2, width2, height2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors, temperatureColours)
 
-    addLegend(
-        'line-v2-legend',
-        ['Survivors'],
-        ['#b45309']
+    addLegend('line-v2-legend', ['Survivors'], ['#b45309'])
+
+    const colourLegendWidth = 200
+    const colourAxis = d3
+        .scaleLinear()
+        .domain(d3.extent(temperatures, d => d['temp C']))
+        .range([0, colourLegendWidth])
+    addColourLegend(
+        {
+            id: 'line-v2-legend',
+            title: 'Temperature',
+            colourScale: temperatureColours,
+            colourOpacity: temperatureColourOpacity,
+            xPos: width + marginDefault.left - colourLegendWidth - 8,
+            yPos: 0,
+            width: colourLegendWidth,
+            axis: colourAxis,
+            textColour: colours.text,
+            axisTickFormat: d => `${d}°C`
+        }
     )
+
     addAxis(chart2, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, d => `${d}°`, d3.format('.1s'))
 })

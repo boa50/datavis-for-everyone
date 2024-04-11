@@ -81,12 +81,12 @@ getData().then(datasets => {
     // V2
     const [chart2, width2, height2] = getSvgChart('line-v2-chart')
 
-    lineV2(chart2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors, yTemperature)
+    lineV2(chart2, width2, height2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors)
 
     addLegend(
         'line-v2-legend',
-        ['Survivors', 'Temperature'],
-        ['#54A24B', '#cbd5e1']
+        ['Survivors'],
+        ['#b45309']
     )
     addAxis(chart2, height, width, marginDefault, x, ySurvivors, 'Longitude', 'Survivors', colours.text, d => `${d}°`, d3.format('.1s'))
 })

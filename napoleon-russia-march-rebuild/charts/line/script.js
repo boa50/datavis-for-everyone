@@ -23,7 +23,7 @@ const svgWidth = 1080
 const svgHeight = 720
 const marginDefault = {
     left: 64,
-    right: 64,
+    right: 72,
     top: 16,
     bottom: 64
 }

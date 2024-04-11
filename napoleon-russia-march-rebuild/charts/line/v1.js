@@ -33,11 +33,12 @@ export const lineV1 = (chart, width, height, dataPerGroup, temperatures, x, ySur
         .join('path')
         .attr('fill', 'none')
         .attr('stroke', d => lineColours(d[0]))
-        .attr('stroke-width', 1.5)
+        .attr('stroke-width', 3)
         .attr('d', d => line(d[1]))
 
     chart
         .append('g')
+        .style('font-size', '0.8rem')
         .attr('transform', `translate(${width}, 0)`)
         .call(
             d3
@@ -49,8 +50,7 @@ export const lineV1 = (chart, width, height, dataPerGroup, temperatures, x, ySur
         .call(g => g
             .append('text')
             .attr('x', ((height - marginBottom) / 2))
-            .attr('y', -50)
-            .attr('font-size', 12)
+            .attr('y', -60)
             .attr('transform', 'rotate(90)')
             .attr('text-anchor', 'middle')
             .text('Temperature'))

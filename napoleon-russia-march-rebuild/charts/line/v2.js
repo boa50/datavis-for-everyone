@@ -1,3 +1,5 @@
+import { addTooltip } from "./tooltip.js"
+
 export const lineV2 = (chart, width, height, data, temperatures, x, ySurvivors, temperatureColours) => {
     // Temperatures
     // Based on: https://stackoverflow.com/questions/70866817/d3-js-area-filled-with-lineargradient-color-interpolation-bledning-in-chrome
@@ -36,4 +38,15 @@ export const lineV2 = (chart, width, height, data, temperatures, x, ySurvivors, 
         .attr('stroke', '#b45309')
         .attr('stroke-width', 5)
         .attr('d', d => line(d))
+
+    addTooltip({
+        containerId: 'line-v2-container',
+        chart: chart,
+        data: data,
+        cx: d => x(d.long),
+        cy: d => ySurvivors(d.survivors),
+        radius: 6,
+        colour: '#b45309',
+        htmlText: d => `Survivors: ${d.survivors}`
+    })
 }

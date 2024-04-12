@@ -49,7 +49,6 @@ const getSvgChart = (id, marginCustom = {}) => {
 getData().then(datasets => {
     const data = datasets[0]
     const temperatures = datasets[1]
-    const dataPerGroup = d3.group(data, d => d.group)
 
     const [chart1, width, height] = getSvgChart('line-v1-chart')
 
@@ -70,7 +69,7 @@ getData().then(datasets => {
 
 
     // V1
-    lineV1(chart1, width, height, dataPerGroup, temperatures, x, ySurvivors, yTemperature, marginDefault.bottom, colours.text)
+    lineV1(chart1, width, height, data, temperatures, x, ySurvivors, yTemperature, marginDefault.bottom, colours.text)
 
     addLegend(
         'line-v1-legend',
@@ -101,7 +100,7 @@ getData().then(datasets => {
 
     lineV2(chart2, width2, height2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors, temperatureColours)
 
-    addLegend('line-v2-legend', ['Survivors'], ['#b45309'])
+    addLegend('line-v2-legend', ['Group 1 Survivors'], ['#b45309'])
 
     const colourLegendWidth = 200
     const colourAxis = d3

@@ -1,4 +1,4 @@
-import { buildTooltip } from "../../../components/tooltip/script.js"
+import { addTooltip } from "../../../components/tooltip/script.js"
 import { addLegend } from "../../../components/legend/script.js"
 import { addLegend as addCircleLegend } from "../../../components/circle-legend/script.js"
 import { addAxis } from "../axis.js"
@@ -152,7 +152,7 @@ getData().then(datasets => {
     const [x1, y1] = getXY(data, width1, height1)
 
     scatterplotV1(chart1, data, size, colour, x1, y1,
-        buildTooltip('scatterplot-v1-container', (d) => `Deaths: ${d.deaths}`))
+        addTooltip('scatterplot-v1-container', (d) => `Deaths: ${d.deaths}`))
 
     addAxis({
         chart: chart1,
@@ -183,7 +183,7 @@ getData().then(datasets => {
     const [x2, y2] = getXY(data, width2, height2)
 
     scatterplotV2(chart2, data, groupSymbol, size, colour, x2, y2,
-        buildTooltip('scatterplot-v2-container', (d) =>
+        addTooltip('scatterplot-v2-container', (d) =>
             `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
         ))
 
@@ -216,7 +216,7 @@ getData().then(datasets => {
     const [chart3, width3, height3] = getSvgChart('scatterplot-v3-chart', { left: 0, top: 16 })
 
     scatterplotV3(chart3, width3, height3, data, cities, geo, groupSymbol, size, colour,
-        buildTooltip('scatterplot-v3-container', (d) =>
+        addTooltip('scatterplot-v3-container', (d) =>
             `${d.direction} - Group ${d.group} </br> Deaths: ${d.deaths}`
         ))
 

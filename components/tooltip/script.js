@@ -1,4 +1,4 @@
-export const buildTooltip = (id, htmlText) => {
+export const addTooltip = (id, htmlText) => {
     const tooltip = d3.select(`#${id}`)
         .append('div')
         .style('opacity', 0)
@@ -36,4 +36,19 @@ export const buildTooltip = (id, htmlText) => {
     }
 
     return { mouseover, mousemove, mouseleave }
+}
+
+export const addLineTooltip = (id, htmlText, colour) => {
+    const { mouseover, mousemove, mouseleave } = addTooltip(id, htmlText)
+
+    const customMouseOver = function (event, d) {
+        d3.select(this).attr('fill', colour)
+        mouseover(event, d)
+    }
+    const customMouseLeave = function (event, d) {
+        d3.select(this).attr('fill', 'transparent')
+        mouseleave(event, d)
+    }
+
+    return { mouseover: customMouseOver, mousemove, mouseleave: customMouseLeave }
 }

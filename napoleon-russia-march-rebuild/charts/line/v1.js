@@ -1,7 +1,7 @@
 import { adjustColours } from '../axis.js'
-import { buildTooltip } from '../../../components/tooltip/script.js'
+import { addTooltip } from './tooltip.js'
 
-export const lineV1 = (chart, width, height, dataPerGroup, temperatures, x, ySurvivors, yTemperature, marginBottom, axisColour) => {
+export const lineV1 = (chart, width, height, data, temperatures, x, ySurvivors, yTemperature, marginBottom, axisColour) => {
     // Temperatures
     const area = d3
         .area()
@@ -20,33 +20,19 @@ export const lineV1 = (chart, width, height, dataPerGroup, temperatures, x, ySur
         .attr('fill-opacity', 0.5)
         .attr('d', d => area(d))
 
-    const { mouseover, mousemove, mouseleave } = buildTooltip('line-v1-container', (d) => `Temperature: ${d['temp C']}°C`)
-    const customMouseOver = function (event, d) {
-        d3.select(this).attr('fill', temperatureColour)
-        mouseover(event, d)
-    }
-    const customMouseLeave = function (event, d) {
-        d3.select(this).attr('fill', 'transparent')
-        mouseleave(event, d)
-    }
-
-    chart
-        .append('g')
-        .selectAll('.dot')
-        .data(temperatures)
-        .join('circle')
-        .attr('cx', d => x(d.long))
-        .attr('cy', d => yTemperature(d['temp C']))
-        .attr('r', 4)
-        .attr('stroke', 'transparent')
-        .attr('stroke-width', 12)
-        .attr('fill', 'transparent')
-        .on('mouseover', customMouseOver)
-        .on('mousemove', mousemove)
-        .on('mouseleave', customMouseLeave)
+    addTooltip({
+        containerId: 'line-v1-container',
+        chart: chart,
+        data: temperatures,
+        cx: d => x(d.long),
+        cy: d => yTemperature(d['temp C']),
+        colour: temperatureColour,
+        htmlText: d => `Temperature: ${d['temp C']}°C`
+    })
 
 
     // Survivors
+    const dataPerGroup = d3.group(data, d => d.group)
     const lineColours = d3
         .scaleOrdinal()
         .range(['#54A24B', '#F58518', '#B279A2'])
@@ -65,21 +51,15 @@ export const lineV1 = (chart, width, height, dataPerGroup, temperatures, x, ySur
         .attr('stroke-width', 3)
         .attr('d', d => line(d[1]))
 
-    chart
-        .append('g')
-        .selectAll('.dot')
-        .data(dataPerGroup)
-        .join('circle')
-        .attr('class', 'crazydot')
-        .attr('cx', d => { console.log(d); return x(d.long) })
-        .attr('cy', d => ySurvivors(d.survivors))
-        .attr('r', 4)
-        .attr('stroke', 'transparent')
-        .attr('stroke-width', 12)
-        .attr('fill', 'transparent')
-        .on('mouseover', customMouseOver)
-        .on('mousemove', mousemove)
-        .on('mouseleave', customMouseLeave)
+    addTooltip({
+        containerId: 'line-v1-container',
+        chart: chart,
+        data: data,
+        cx: d => x(d.long),
+        cy: d => ySurvivors(d.survivors),
+        colour: d => lineColours(d.group),
+        htmlText: d => `Group ${d.group} </br> Survivors: ${d.survivors}`
+    })
 
     chart
         .append('g')

@@ -19,7 +19,19 @@
 
     <div class="container">
 
-        <div id="scatterplot-v1-container" class="chart-container">
+        <div id="original-container" class="mb-8 w-3/4">
+            <h3 id="chart-title" class="font-sans text-xl text-gray-700">Charles Minard's chart</h3>
+            <h4 id="subtitle" class="font-sans text-sm text-gray-400">Chart created by Charles Minard representing the
+                shrinking size of Napoleon’s army as he marches from France all the way to Moscow, and
+                then back home. The width of the line shows the number of French soldiers; the map shows
+                their position as well as the date the army passed each location; other dimensions included in the
+                visual are the temperatures during the winter portion of the army’s march, the geographic features (such
+                as rivers) affecting travel, and the moments when the army split into multiple forces of varying sizes.
+            </h4>
+            <img src="original.png" />
+        </div>
+
+        <div id="scatterplot-v1-container">
             <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V1)</h3>
             <h4 id="subtitle" class="font-sans text-sm text-gray-400">The first version represented soldiers' deaths in
                 a simple scatterplot with a linear proportion between latitude and longitude</h4>
@@ -27,7 +39,7 @@
             <svg id="scatterplot-v1-chart"></svg>
         </div>
 
-        <div id="scatterplot-v2-container" class="chart-container">
+        <div id="scatterplot-v2-container">
             <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V2)</h3>
             <h4 id="subtitle" class="font-sans text-sm text-gray-400">The second version brought group division to the
                 troops</h4>
@@ -35,7 +47,7 @@
             <svg id="scatterplot-v2-chart"></svg>
         </div>
 
-        <div id="scatterplot-v3-container" class="chart-container">
+        <div id="scatterplot-v3-container">
             <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V3)</h3>
             <h4 id="subtitle" class="font-sans text-sm text-gray-400">The third one rescaled the point to put them in a
                 geographic space and show correctly the places where troops marched through</h4>
@@ -43,13 +55,13 @@
             <svg id="scatterplot-v3-chart"></svg>
         </div>
 
-        <div id="line-v1-container" class="chart-container">
+        <div id="line-v1-container">
             <h3 id="chart-title" class="font-sans text-xl text-gray-700">The freezing retreat (V1)</h3>
             <svg id="line-v1-legend"></svg>
             <svg id="line-v1-chart"></svg>
         </div>
 
-        <div id="line-v2-container" class="chart-container">
+        <div id="line-v2-container">
             <h3 id="chart-title" class="font-sans text-xl text-gray-700">The freezing retreat (V2)</h3>
             <svg id="line-v2-legend"></svg>
             <svg id="line-v2-chart"></svg>

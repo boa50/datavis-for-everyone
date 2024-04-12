@@ -213,7 +213,7 @@ getData().then(datasets => {
 
 
     // V3
-    const [chart3, width3, height3] = getSvgChart('scatterplot-v3-chart', { left: 0, top: 16 })
+    const [chart3, width3, height3] = getSvgChart('scatterplot-v3-chart', { left: 0, bottom: 32 })
 
     scatterplotV3(chart3, width3, height3, data, cities, geo, groupSymbol, size, colour,
         addTooltip('scatterplot-v3-container', (d) =>

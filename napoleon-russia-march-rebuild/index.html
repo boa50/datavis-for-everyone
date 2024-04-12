@@ -12,16 +12,17 @@
 
 <body>
     <div id="header" class="flex flex-col m-4">
-        <h1 id="title" class="font-sans text-3xl text-gray-700">The road to Moscow</h1>
-        <h2 id="subtitle" class="font-sans text-base text-gray-500">Different approaches to represent the data used by
+        <h1 id="title" class="title font-sans text-3xl text-gray-700">The road to Moscow</h1>
+        <h2 class="subtitle font-sans text-base text-gray-500">Different approaches to represent the data
+            used by
             Charles Minard to illustrate Napoleon's catastrophic march to Moscow in 1812</h2>
     </div>
 
     <div class="container">
 
         <div id="original-container" class="mb-8 w-3/4">
-            <h3 id="chart-title" class="font-sans text-xl text-gray-700">Charles Minard's chart</h3>
-            <h4 id="subtitle" class="font-sans text-sm text-gray-400">Chart created by Charles Minard representing the
+            <h3 class="font-sans text-xl text-gray-700">Charles Minard's chart</h3>
+            <h4 class="font-sans text-sm text-gray-400">Chart created by Charles Minard representing the
                 shrinking size of Napoleon’s army as he marches from France all the way to Moscow, and
                 then back home. The width of the line shows the number of French soldiers; the map shows
                 their position as well as the date the army passed each location; other dimensions included in the
@@ -32,37 +33,43 @@
         </div>
 
         <div id="scatterplot-v1-container">
-            <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V1)</h3>
-            <h4 id="subtitle" class="font-sans text-sm text-gray-400">The first version represented soldiers' deaths in
+            <h3 class="font-sans text-xl text-gray-700">Where troops died? (V1)</h3>
+            <h4 class="font-sans text-sm text-gray-400">The first version represented soldiers' deaths in
                 a simple scatterplot with a linear proportion between latitude and longitude</h4>
             <svg id="scatterplot-v1-legend"></svg>
             <svg id="scatterplot-v1-chart"></svg>
         </div>
 
         <div id="scatterplot-v2-container">
-            <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V2)</h3>
-            <h4 id="subtitle" class="font-sans text-sm text-gray-400">The second version brought group division to the
+            <h3 class="font-sans text-xl text-gray-700">Where troops died? (V2)</h3>
+            <h4 class="font-sans text-sm text-gray-400">The second version brought group division to the
                 troops</h4>
             <svg id="scatterplot-v2-legend"></svg>
             <svg id="scatterplot-v2-chart"></svg>
         </div>
 
         <div id="scatterplot-v3-container">
-            <h3 id="chart-title" class="font-sans text-xl text-gray-700">Where troops died? (V3)</h3>
-            <h4 id="subtitle" class="font-sans text-sm text-gray-400">The third one rescaled the point to put them in a
+            <h3 class="font-sans text-xl text-gray-700">Where troops died? (V3)</h3>
+            <h4 class="font-sans text-sm text-gray-400">The third one rescaled the point to put them in a
                 geographic space and show correctly the places where troops marched through</h4>
             <svg id="scatterplot-v3-legend"></svg>
             <svg id="scatterplot-v3-chart"></svg>
         </div>
 
         <div id="line-v1-container">
-            <h3 id="chart-title" class="font-sans text-xl text-gray-700">The freezing retreat (V1)</h3>
+            <h3 class="font-sans text-xl text-gray-700">The freezing retreat (V1)</h3>
+            <h4 class="font-sans text-sm text-gray-400">Tried to represent each group, diminishing their
+                number of soldiers and showing the impact of the temperature on this process.</h4>
             <svg id="line-v1-legend"></svg>
             <svg id="line-v1-chart"></svg>
         </div>
 
         <div id="line-v2-container">
-            <h3 id="chart-title" class="font-sans text-xl text-gray-700">The freezing retreat (V2)</h3>
+            <h3 class="font-sans text-xl text-gray-700">The freezing retreat (V2)</h3>
+            <h4 class="font-sans text-sm text-gray-400">Changed the way temperature changes were shown to
+                make it easier to compare with the falling number of soldiers. </h4>
+            <h4 class="font-sans text-sm text-gray-400">Focused only on soldiers in group 1, the
+                more representative group.</h4>
             <svg id="line-v2-legend"></svg>
             <svg id="line-v2-chart"></svg>
         </div>

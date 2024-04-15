@@ -1,0 +1,1 @@
+Put all the raw data into this folder and execute the etl.py file to get the standardised dataset

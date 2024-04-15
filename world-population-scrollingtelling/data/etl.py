@@ -6,6 +6,12 @@ def get_path(file_name):
     return path.join(path.dirname(path.realpath(__file__)), file_name)
 
 
+def printNa(df):
+    print("Number of NaN records")
+    print(df.isna().sum())
+
+
+### START: Reading data
 regions_file = get_path(
     "Data Geographies - v2 - by Gapminder - list-of-countries-etc.csv"
 )
@@ -35,7 +41,9 @@ df_gdp = pd.read_csv(
     usecols=["geo", "time", "Income per person"],
 )
 df_gdp.columns = ["code", "year", "gdp_per_capita"]
+### END: Reading data
 
+### START: Joining data
 df = pd.merge(df_regions, df_population, how="outer", on="code")
 df = pd.merge(df, df_life_expectancy, how="outer", on=["code", "year"])
 df = pd.merge(df, df_gdp, how="outer", on=["code", "year"])
@@ -44,7 +52,27 @@ df.drop("code", axis=1, inplace=True)
 assert (
     df_population.shape[0] == df.shape[0]
 ), f"Actual size ({df.shape[0]}) different from initial size ({df_population.shape[0]})"
+### END: Joining data
 
-print((df.isna() == True).sum())
+### START: Cleaning data
+printNa(df)
+print()
 
-df.to_csv(get_path("dataset.csv"), index=False)
+# Getting only useful years
+df = df[df["year"] <= 2023]
+
+# Removed countries with NaN values in their columns to simplify the visualisation
+print("Countries to be excluded from the dataset")
+print(set(df[df.isna().any(axis=1)]["country"].values))
+print()
+df.drop(
+    index=df[
+        (df["country"].isin(set(df[df.isna().any(axis=1)]["country"].values)))
+    ].index,
+    inplace=True,
+)
+
+printNa(df)
+### END: Cleaning data
+
+# df.to_csv(get_path("dataset.csv"), index=False)

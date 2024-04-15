@@ -34,13 +34,13 @@ df_population.columns = ["code", "year", "population"]
 df_life_expectancy = pd.read_csv(
     life_expectancy_file, usecols=["geo", "time", "Life expectancy "]
 )
-df_life_expectancy.columns = ["code", "year", "life_expectancy"]
+df_life_expectancy.columns = ["code", "year", "lifeExpectancy"]
 
 df_gdp = pd.read_csv(
     gdp_file,
     usecols=["geo", "time", "Income per person"],
 )
-df_gdp.columns = ["code", "year", "gdp_per_capita"]
+df_gdp.columns = ["code", "year", "gdpPerCapita"]
 ### END: Reading data
 
 ### START: Joining data

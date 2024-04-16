@@ -73,6 +73,11 @@ df.drop(
 )
 
 printNa(df)
+
+# Replacing 0 values on life expectancy with the value of a previous year
+df["lifeExpectancy"] = df.groupby("country")["lifeExpectancy"].transform(
+    lambda x: x.replace(to_replace=0, method="ffill")
+)
 ### END: Cleaning data
 
-# df.to_csv(get_path("dataset.csv"), index=False)
+df.to_csv(get_path("dataset.csv"), index=False)

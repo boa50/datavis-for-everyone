@@ -1,89 +1,78 @@
-import { addAxis } from "../components/axis/script.js"
+import { updateChart } from "./chart.js"
 
-const getData = () =>
-    d3.csv('./data/dataset.csv')
-        .then(d => d.map(v => {
-            return {
-                ...v,
-                population: +v.population,
-                lifeExpectancy: +v.lifeExpectancy,
-                gdpPerCapita: +v.gdpPerCapita
-            }
-        }))
+const scrolly = d3.select('#scrolly')
+const svg = scrolly.select('#chart')
+const article = scrolly.select('article')
+const steps = article.selectAll('.step')
 
-const colours = {
-    text: '#737373',
-    africa: '#0ea5e9',
-    americas: '#22c55e',
-    asia: '#ef4444',
-    europe: '#f59e0b'
+const scroller = scrollama()
+
+let svgWidth
+let svgHeight
+let svgCenterWidth
+let svgCenterHeight
+
+const handleResize = () => {
+    const windowHeight = window.innerHeight
+
+    const stepHeight = Math.floor(windowHeight)
+    steps.style('height', `${stepHeight}px`)
+
+    svgHeight = windowHeight
+    const svgMarginTop = (windowHeight - svgHeight) / 2
+
+    svg
+        .attr('height', `${svgHeight}px`)
+        .style('top', `${svgMarginTop}px`)
+
+    svgWidth = +svg.style('width').replace('px', '')
+    svgCenterWidth = svgWidth / 2
+    svgCenterHeight = svgHeight / 2
+
+    d3.select('#outro').style('height', `${stepHeight}px`)
+
+    scroller.resize()
 }
 
-const svgWidth = 1080
-const svgHeight = 720
-const margin = {
-    left: 64,
-    right: 16,
-    top: 16,
-    bottom: 64
+const handleDirection = (currentDirection, funcDown, funcUp) => {
+    currentDirection === 'down' ? funcDown() : funcUp()
 }
-const width = svgWidth - margin.left - margin.right
-const height = svgHeight - margin.top - margin.bottom
 
-const chart = d3
-    .select(`#chart`)
-    .attr('width', svgWidth)
-    .attr('height', svgHeight)
-    .append('g')
-    .attr('transform', `translate(${[margin.left, margin.top]})`)
+let lastIndex = 0
+let lastProgress = 0
 
-getData().then(data => {
-    const dataFiletered = data.filter(d => d.year === "2023")
+const handleStepProgress = (response) => {
+    const currentIndex = response.index
+    const currentProgress = response.progress
+    const currentDirection = currentIndex > lastIndex ? 'down' : currentProgress > lastProgress ? 'down' : 'up'
 
-    const x = d3
-        .scaleLog()
-        .domain(d3.extent(data, d => d.gdpPerCapita).map((d, i) => d * [0.99, 1.01][i]))
-        .range([0, width])
+    const yearStep = 10
+    const startYear = 1800 + (yearStep * currentIndex)
+    let endYear = startYear + yearStep
+    endYear = endYear > 2023 ? 2023 : endYear
 
-    const y = d3
-        .scaleLinear()
-        .domain(d3.extent(data, d => d.lifeExpectancy).map((d, i) => d * [0.999, 1.001][i]))
-        .range([height, 0])
+    if (startYear < endYear) {
+        updateChart(startYear, endYear, currentProgress)
+    }
 
-    const radius = d3
-        .scaleSqrt()
-        .domain(d3.extent(data, d => d.population))
-        .range([2, 40])
+    lastIndex = response.index
+    lastProgress = response.progress
+}
 
-    const uniqueRegions = [...new Set(data.map(d => d.region))].sort()
-    const colour = d3
-        .scaleOrdinal()
-        .domain(uniqueRegions)
-        .range([colours.africa, colours.americas, colours.asia, colours.europe])
+const init = () => {
+    handleResize()
 
+    scroller
+        .setup({
+            step: '#scrolly article .step',
+            // debug: true,
+            progress: true,
+            offset: 0.5
+        })
+        // .onStepEnter(handleStepEnter)
+        .onStepProgress(handleStepProgress)
 
-    chart
-        .selectAll('circle')
-        .data(dataFiletered)
-        .join('circle')
-        .attr('cx', d => x(d.gdpPerCapita))
-        .attr('cy', d => y(d.lifeExpectancy))
-        .attr('r', d => radius(d.population))
-        .style('fill', d => colour(d.region))
-        .style('opacity', 0.75)
+    window.addEventListener('resize', handleResize())
+}
 
-    addAxis({
-        chart: chart,
-        height: height,
-        width: width,
-        margin: margin,
-        x: x,
-        y: y,
-        xLabel: 'GDP per capita',
-        yLabel: 'Life expectancy',
-        xFormat: d => `$${(d >= 10000) ? d3.format('.3s')(d).replace('.0', '') : d
-            }`,
-        colour: colours.text,
-        xTickValues: [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000]
-    })
-})
+init()

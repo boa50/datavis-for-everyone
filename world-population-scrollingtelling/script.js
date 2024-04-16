@@ -1,4 +1,6 @@
-import { updateChart } from "./chart.js"
+import { initChart, updateChart } from "./chart.js"
+import { createNumber, numberChangeValue } from "../components/animation/number.js"
+import { colours } from "./constants.js"
 
 const scrolly = d3.select('#scrolly')
 const svg = scrolly.select('#chart')
@@ -7,56 +9,49 @@ const steps = article.selectAll('.step')
 
 const scroller = scrollama()
 
-let svgWidth
-let svgHeight
-let svgCenterWidth
-let svgCenterHeight
+const pxToInt = pxStr => +pxStr.replace('px', '')
+
+let visualisationsWidth
+let windowHeight
+let yearNumber
 
 const handleResize = () => {
-    const windowHeight = window.innerHeight
+    windowHeight = window.innerHeight
 
     const stepHeight = Math.floor(windowHeight)
     steps.style('height', `${stepHeight}px`)
 
-    svgHeight = windowHeight
-    const svgMarginTop = (windowHeight - svgHeight) / 2
-
     svg
-        .attr('height', `${svgHeight}px`)
-        .style('top', `${svgMarginTop}px`)
-
-    svgWidth = +svg.style('width').replace('px', '')
-    svgCenterWidth = svgWidth / 2
-    svgCenterHeight = svgHeight / 2
+        .attr('height', `${windowHeight}px`)
+        .style('top', '0px')
 
     d3.select('#outro').style('height', `${stepHeight}px`)
+
+    visualisationsWidth = window.innerWidth - pxToInt(article.select('.step').style('width'))
 
     scroller.resize()
 }
 
-const handleDirection = (currentDirection, funcDown, funcUp) => {
-    currentDirection === 'down' ? funcDown() : funcUp()
-}
-
-let lastIndex = 0
-let lastProgress = 0
-
 const handleStepProgress = (response) => {
     const currentIndex = response.index
     const currentProgress = response.progress
-    const currentDirection = currentIndex > lastIndex ? 'down' : currentProgress > lastProgress ? 'down' : 'up'
 
-    const yearStep = 10
+    const yearStep = 20
     const startYear = 1800 + (yearStep * currentIndex)
     let endYear = startYear + yearStep
     endYear = endYear > 2023 ? 2023 : endYear
 
     if (startYear < endYear) {
         updateChart(startYear, endYear, currentProgress)
-    }
 
-    lastIndex = response.index
-    lastProgress = response.progress
+        numberChangeValue({
+            number: yearNumber,
+            initial: startYear,
+            end: endYear,
+            progress: currentProgress,
+            numberFormat: d3.format('d')
+        })
+    }
 }
 
 const init = () => {
@@ -65,14 +60,27 @@ const init = () => {
     scroller
         .setup({
             step: '#scrolly article .step',
-            // debug: true,
             progress: true,
             offset: 0.5
         })
-        // .onStepEnter(handleStepEnter)
         .onStepProgress(handleStepProgress)
 
     window.addEventListener('resize', handleResize())
+
+    initChart({
+        svg: svg,
+        width: 1080,
+        height: 720,
+        xPosition: 100,
+        yPosition: 100
+    })
+
+    yearNumber = createNumber({
+        svg: svg,
+        textColour: colours.text,
+        x: visualisationsWidth - 250,
+        y: windowHeight - 100
+    })
 }
 
 init()

@@ -1,4 +1,5 @@
 import { addAxis } from "../components/axis/script.js"
+import { colours } from "./constants.js"
 
 const getData = () =>
     d3.csv('./data/dataset.csv')
@@ -11,32 +12,14 @@ const getData = () =>
             }
         }))
 
-const colours = {
-    text: '#737373',
-    africa: '#0ea5e9',
-    americas: '#22c55e',
-    asia: '#ef4444',
-    europe: '#f59e0b'
-}
-
-const svgWidth = 1080
-const svgHeight = 720
 const margin = {
-    left: 64,
+    left: 16,
     right: 16,
     top: 16,
-    bottom: 64
+    bottom: 16
 }
-const width = svgWidth - margin.left - margin.right
-const height = svgHeight - margin.top - margin.bottom
 
-const chart = d3
-    .select(`#chart`)
-    .attr('width', svgWidth)
-    .attr('height', svgHeight)
-    .append('g')
-    .attr('transform', `translate(${[margin.left, margin.top]})`)
-
+let chart
 let fullData
 let x
 let y
@@ -57,47 +40,60 @@ const addUpdateChart = year => {
         .style('opacity', 0.75)
 }
 
-getData().then(data => {
-    fullData = data
+export const initChart = ({
+    svg,
+    width,
+    height,
+    xPosition,
+    yPosition
+}) => {
+    chart = svg
+        .append('g')
+        .attr('transform', `translate(${[xPosition, yPosition]})`)
 
-    x = d3
-        .scaleLog()
-        .domain(d3.extent(data, d => d.gdpPerCapita).map((d, i) => d * [0.99, 1.01][i]))
-        .range([0, width])
+    getData().then(data => {
+        fullData = data
 
-    y = d3
-        .scaleLinear()
-        .domain(d3.extent(data, d => d.lifeExpectancy).map((d, i) => d * [0.999, 1.001][i]))
-        .range([height, 0])
+        x = d3
+            .scaleLog()
+            .domain(d3.extent(data, d => d.gdpPerCapita).map((d, i) => d * [0.99, 1.01][i]))
+            .range([0, width])
 
-    radius = d3
-        .scaleSqrt()
-        .domain(d3.extent(data, d => d.population))
-        .range([2, 40])
+        y = d3
+            .scaleLinear()
+            .domain(d3.extent(data, d => d.lifeExpectancy).map((d, i) => d * [0.999, 1.001][i]))
+            .range([height, 0])
 
-    const uniqueRegions = [...new Set(data.map(d => d.region))].sort()
-    colour = d3
-        .scaleOrdinal()
-        .domain(uniqueRegions)
-        .range([colours.africa, colours.americas, colours.asia, colours.europe])
+        radius = d3
+            .scaleSqrt()
+            .domain(d3.extent(data, d => d.population))
+            .range([2, 40])
 
-    addUpdateChart("1800")
+        const uniqueRegions = [...new Set(data.map(d => d.region))].sort()
+        colour = d3
+            .scaleOrdinal()
+            .domain(uniqueRegions)
+            .range([colours.africa, colours.americas, colours.asia, colours.europe])
 
-    addAxis({
-        chart: chart,
-        height: height,
-        width: width,
-        margin: margin,
-        x: x,
-        y: y,
-        xLabel: 'GDP per capita',
-        yLabel: 'Life expectancy',
-        xFormat: d => `$${(d >= 10000) ? d3.format('.3s')(d).replace('.0', '') : d
-            }`,
-        colour: colours.text,
-        xTickValues: [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000]
+        addUpdateChart("1800")
+
+        addAxis({
+            chart: chart,
+            height: height,
+            width: width,
+            margin: margin,
+            x: x,
+            y: y,
+            xLabel: 'GDP per capita',
+            yLabel: 'Life expectancy',
+            xFormat: d => `$${(d >= 10000) ? d3.format('.3s')(d).replace('.0', '') : d
+                }`,
+            colour: colours.text,
+            xTickValues: [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000]
+        })
     })
-})
+}
+
 
 const getYear = (start, end, progress) => {
     return Math.floor(start + ((end - start) * progress))

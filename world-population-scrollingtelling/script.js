@@ -1,4 +1,4 @@
-import { initChart, updateChart } from "./chart.js"
+import { getYear, initChart, updateChart } from "./chart.js"
 import { createNumber, numberChangeValue } from "../components/animation/number.js"
 import { colours } from "./constants.js"
 import { addStep } from "./html-utils.js"
@@ -15,6 +15,7 @@ const pxToInt = pxStr => +pxStr.replace('px', '')
 let visualisationsWidth
 let windowHeight
 let yearNumber
+let currentYear = '1800'
 
 const handleResize = () => {
     const steps = article.selectAll('.step')
@@ -44,6 +45,7 @@ const handleStepProgress = (response) => {
     endYear = endYear > 2023 ? 2023 : endYear
 
     if (startYear < endYear) {
+        currentYear = getYear(startYear, endYear, currentProgress)
         updateChart(startYear, endYear, currentProgress)
 
         numberChangeValue({
@@ -95,7 +97,9 @@ const init = () => {
         height: chartHeight,
         xPosition: (visualisationsWidth - chartWidth) / 2,
         yPosition: (windowHeight - chartHeight) / 2
-    })
+    }).then(() => updateChart(currentYear, currentYear, 1))
+
+
     svg
         .append('text')
         .attr('transform', `translate(${[visualisationsWidth - 75, windowHeight - 25]})`)

@@ -49,13 +49,14 @@ export const initChart = ({
     width,
     height,
     xPosition,
-    yPosition
+    yPosition,
+    year = '1800'
 }) => {
     chart = svg
         .append('g')
         .attr('transform', `translate(${[xPosition, yPosition]})`)
 
-    getData().then(data => {
+    return getData().then(data => {
         fullData = data
 
         x = d3
@@ -80,7 +81,7 @@ export const initChart = ({
             .domain(uniqueRegions)
             .range(continentColours)
 
-        addUpdateChart("1800")
+        addUpdateChart(year)
 
         addAxis({
             chart: chart,
@@ -118,7 +119,7 @@ export const initChart = ({
 }
 
 
-const getYear = (start, end, progress) => {
+export const getYear = (start, end, progress) => {
     return Math.floor(start + ((end - start) * progress))
 }
 

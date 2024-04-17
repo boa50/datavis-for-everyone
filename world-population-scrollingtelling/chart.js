@@ -33,11 +33,13 @@ const addUpdateChart = year => {
         .selectAll('circle')
         .data(dataFiletered)
         .join('circle')
+        .style('fill', d => colour(d.region))
+        .style('opacity', 0.75)
+        .transition('updateChart')
+        .duration(100)
         .attr('cx', d => x(d.gdpPerCapita))
         .attr('cy', d => y(d.lifeExpectancy))
         .attr('r', d => radius(d.population))
-        .style('fill', d => colour(d.region))
-        .style('opacity', 0.75)
 }
 
 export const initChart = ({

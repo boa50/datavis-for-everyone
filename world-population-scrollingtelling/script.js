@@ -1,13 +1,14 @@
 import { initChart, updateChart } from "./chart.js"
 import { createNumber, numberChangeValue } from "../components/animation/number.js"
 import { colours } from "./constants.js"
+import { addStep } from "./html-utils.js"
 
 const scrolly = d3.select('#scrolly')
 const svg = scrolly.select('#chart')
 const article = scrolly.select('article')
-const steps = article.selectAll('.step')
-
 const scroller = scrollama()
+
+const nSteps = 13
 
 const pxToInt = pxStr => +pxStr.replace('px', '')
 
@@ -16,6 +17,7 @@ let windowHeight
 let yearNumber
 
 const handleResize = () => {
+    const steps = article.selectAll('.step')
     windowHeight = window.innerHeight
 
     const stepHeight = Math.floor(windowHeight)
@@ -55,6 +57,15 @@ const handleStepProgress = (response) => {
 }
 
 const init = () => {
+    for (let i = 0; i < nSteps; i++) {
+        let text = i
+        if (i === nSteps - 1) {
+            text = 'FINAL STEP!!!'
+        }
+
+        addStep(article, text)
+    }
+
     handleResize()
 
     scroller
@@ -67,19 +78,21 @@ const init = () => {
 
     window.addEventListener('resize', handleResize())
 
+    const chartWidth = 1080
+    const chartHeight = 720
     initChart({
         svg: svg,
-        width: 1080,
-        height: 720,
-        xPosition: 100,
-        yPosition: 100
+        width: chartWidth,
+        height: chartHeight,
+        xPosition: (visualisationsWidth - chartWidth) / 2,
+        yPosition: (windowHeight - chartHeight) / 2
     })
 
     yearNumber = createNumber({
         svg: svg,
         textColour: colours.text,
-        x: visualisationsWidth - 250,
-        y: windowHeight - 100
+        x: ((visualisationsWidth - chartWidth) / 2) + 150,
+        y: ((windowHeight - chartHeight) / 2) + 100
     })
 }
 

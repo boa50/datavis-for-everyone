@@ -8,14 +8,16 @@ const svg = scrolly.select('#chart')
 const article = scrolly.select('article')
 const scroller = scrollama()
 
-const nSteps = 13
+const nSteps = 16
 
 const pxToInt = pxStr => +pxStr.replace('px', '')
 
 let visualisationsWidth
 let windowHeight
 let yearNumber
-let currentYear = '1800'
+const initialYear = 1800
+const finalYear = 2023
+let currentYear = initialYear
 
 const handleResize = () => {
     const steps = article.selectAll('.step')
@@ -38,13 +40,17 @@ const handleResize = () => {
 const handleStepProgress = (response) => {
     const currentIndex = response.index
     const currentProgress = response.progress
+    const yearStep = 16
+    let startYear = initialYear
+    let endYear = initialYear
 
-    const yearStep = 10
-    const startYear = 1800 + (yearStep * currentIndex)
-    let endYear = startYear + yearStep
-    endYear = endYear > 2023 ? 2023 : endYear
+    if (currentIndex > 0) {
+        startYear = initialYear + (yearStep * (currentIndex - 1))
+        endYear = startYear + yearStep
+        endYear = endYear > finalYear ? finalYear : endYear
+    }
 
-    if (startYear < endYear) {
+    if (startYear <= endYear) {
         currentYear = getYear(startYear, endYear, currentProgress)
         updateChart(startYear, endYear, currentProgress)
 

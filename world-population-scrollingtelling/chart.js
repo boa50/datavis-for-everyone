@@ -82,7 +82,7 @@ export const initChart = async ({
     height,
     xPosition,
     yPosition,
-    year = '1800'
+    year = 1800
 }) => {
     chart = svg
         .append('g')
@@ -113,7 +113,7 @@ export const initChart = async ({
             .domain(uniqueRegions)
             .range(continentColours)
 
-        addUpdateChart(year)
+        addUpdateChart(year.toString())
 
         addAxis({
             chart: chart,

@@ -1,9 +1,19 @@
 // Based on: https://d3-graph-gallery.com/graph/bubble_legend.html
-export const addLegend = (id, sizeScale, valuesToShow, position, colour, title = '') => {
+export const addLegend = ({
+    id,
+    sizeScale,
+    valuesToShow,
+    position = [0, 0],
+    colour = 'black',
+    title = '',
+    textFormat = d => d
+}) => {
     const svg = d3.select(`#${id}`)
         .append('g')
 
-    const xLabel = position[0] + 50
+
+    const scaleMargin = sizeScale(Math.max(...valuesToShow))
+    const xLabel = position[0] + scaleMargin + 20
 
     const getYpadding = i => {
         let min = 0
@@ -13,11 +23,12 @@ export const addLegend = (id, sizeScale, valuesToShow, position, colour, title =
             max = 2
         }
 
+        const margin = 2 * (scaleMargin / 10)
         switch (i) {
             case min:
-                return 10
+                return margin
             case max:
-                return -10
+                return -margin
             default:
                 return 0
         }
@@ -27,7 +38,7 @@ export const addLegend = (id, sizeScale, valuesToShow, position, colour, title =
     svg
         .append('text')
         .attr('x', position[0])
-        .attr('y', position[1] - 85)
+        .attr('y', position[1] - scaleMargin * 2 - 10)
         .attr('font-size', 15)
         .attr('text-anchor', 'middle')
         .attr('fill', colour)
@@ -63,7 +74,7 @@ export const addLegend = (id, sizeScale, valuesToShow, position, colour, title =
         .join('text')
         .attr('x', xLabel)
         .attr('y', (d, i) => position[1] + getYpadding(i) - sizeScale(d))
-        .text(d => d)
+        .text(d => textFormat(d))
         .attr('font-size', 10.5)
         .attr('fill', colour)
 }

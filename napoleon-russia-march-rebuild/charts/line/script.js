@@ -71,11 +71,11 @@ getData().then(datasets => {
     // V1
     lineV1(chart1, width, height, data, temperatures, x, ySurvivors, yTemperature, marginDefault.bottom, colours.text)
 
-    addLegend(
-        'line-v1-legend',
-        ['Group1', 'Group2', 'Group3', 'Temperature'],
-        ['#54A24B', '#F58518', '#B279A2', '#cbd5e1']
-    )
+    addLegend({
+        id: 'line-v1-legend',
+        legends: ['Group1', 'Group2', 'Group3', 'Temperature'],
+        colours: ['#54A24B', '#F58518', '#B279A2', '#cbd5e1']
+    })
     addAxis({
         chart: chart1,
         height: height,
@@ -100,7 +100,11 @@ getData().then(datasets => {
 
     lineV2(chart2, width2, height2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors, temperatureColours)
 
-    addLegend('line-v2-legend', ['Group 1 Survivors'], ['#b45309'])
+    addLegend({
+        id: 'line-v2-legend',
+        legends: ['Group 1 Survivors'],
+        colours: ['#b45309']
+    })
 
     const colourLegendWidth = 200
     const colourAxis = d3

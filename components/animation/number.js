@@ -10,13 +10,15 @@ export const createNumber = ({
     x = 0,
     y = 0,
     textColour = 'black',
-    fontSize = '7rem'
+    fontSize = '7rem',
+    alignVertical = 'auto'
 }) => {
     return svg
         .append('g')
         .attr('transform', `translate(${[x, y]})`)
         .style('font-size', fontSize)
         .style('text-anchor', 'middle')
+        .style('dominant-baseline', alignVertical)
         .style('fill', textColour)
         .call(g => g
             .append('text')

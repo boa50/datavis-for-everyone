@@ -78,8 +78,17 @@ const init = () => {
 
     window.addEventListener('resize', handleResize())
 
-    const chartWidth = 1080
-    const chartHeight = 720
+    yearNumber = createNumber({
+        svg: svg,
+        textColour: colours.yearText,
+        fontSize: '15rem',
+        alignVertical: 'middle',
+        x: visualisationsWidth / 2,
+        y: windowHeight / 2
+    })
+
+    const chartWidth = 1080 < visualisationsWidth - 150 ? 1080 : visualisationsWidth - 150
+    const chartHeight = chartWidth / 1.5
     initChart({
         svg: svg,
         width: chartWidth,
@@ -87,13 +96,14 @@ const init = () => {
         xPosition: (visualisationsWidth - chartWidth) / 2,
         yPosition: (windowHeight - chartHeight) / 2
     })
+    svg
+        .append('text')
+        .attr('transform', `translate(${[visualisationsWidth - 75, windowHeight - 25]})`)
+        .attr('class', 'text-sm')
+        .attr('fill', '#6b7280')
+        .style('text-anchor', 'end')
+        .text('Data extracted from: https://www.gapminder.org/data/documentation/gd000/')
 
-    yearNumber = createNumber({
-        svg: svg,
-        textColour: colours.text,
-        x: ((visualisationsWidth - chartWidth) / 2) + 150,
-        y: ((windowHeight - chartHeight) / 2) + 100
-    })
 }
 
 init()

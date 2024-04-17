@@ -89,33 +89,33 @@ const addLegends = ({
     circlesYfix = 0
 }) => {
     if (colour) {
-        addLegend(
-            `scatterplot-${chartId}-legend`,
-            ['Advancing', 'Retreating'],
-            [colours.advancing, colours.retreating]
-        )
+        addLegend({
+            id: `scatterplot-${chartId}-legend`,
+            legends: ['Advancing', 'Retreating'],
+            colours: [colours.advancing, colours.retreating]
+        })
     }
 
     if (group) {
-        addLegend(
-            `scatterplot-${chartId}-legend`,
-            ['Group 1', 'Group 2', 'Group 3'],
-            colours.text,
-            [d3.symbol(d3.symbolCircle), d3.symbol(d3.symbolSquare), d3.symbol(d3.symbolTriangle)],
-            0,
-            width - 235
-        )
+        addLegend({
+            id: `scatterplot-${chartId}-legend`,
+            legends: ['Group 1', 'Group 2', 'Group 3'],
+            colours: colours.text,
+            shapes: [d3.symbol(d3.symbolCircle), d3.symbol(d3.symbolSquare), d3.symbol(d3.symbolTriangle)],
+            xPos: 0,
+            yPos: width - 235
+        })
     }
 
     if (deaths) {
-        addCircleLegend(
-            `scatterplot-${chartId}-chart`,
-            size,
-            [d3.quantile(deathsRange, 0.2), d3.quantile(deathsRange, 0.5), d3.quantile(deathsRange, 1)],
-            [width - 110, height - circlesYfix],
-            colours.text,
-            'Deaths'
-        )
+        addCircleLegend({
+            id: `scatterplot-${chartId}-chart`,
+            sizeScale: size,
+            valuesToShow: [d3.quantile(deathsRange, 0.2), d3.quantile(deathsRange, 0.5), d3.quantile(deathsRange, 1)],
+            position: [width - 110, height - circlesYfix],
+            colour: colours.text,
+            title: 'Deaths'
+        })
     }
 }
 

@@ -18,7 +18,15 @@ const getTextWidth = txt => {
     return width
 }
 
-export const addLegend = (id, legends, colours = 'black', shapes = undefined, xPadding = 0, xPos = 1, yPos = 15) => {
+export const addLegend = ({
+    id,
+    legends,
+    colours = 'black',
+    shapes = undefined,
+    xPadding = 0,
+    xPos = 1,
+    yPos = 15
+}) => {
     const legend = d3
         .select(`#${id}`)
         .attr('height', 20)

@@ -1,5 +1,7 @@
-import { addAxis } from "../components/axis/script.js"
 import { colours } from "./constants.js"
+import { addAxis } from "../components/axis/script.js"
+import { addLegend } from "../components/legend/script.js"
+import { addLegend as addCircleLegend } from "../components/circle-legend/script.js"
 
 const getData = () =>
     d3.csv('./data/dataset.csv')
@@ -69,13 +71,14 @@ export const initChart = ({
         radius = d3
             .scaleSqrt()
             .domain(d3.extent(data, d => d.population))
-            .range([2, 40])
+            .range([3, 50])
 
         const uniqueRegions = [...new Set(data.map(d => d.region))].sort()
+        const continentColours = [colours.africa, colours.americas, colours.asia, colours.europe]
         colour = d3
             .scaleOrdinal()
             .domain(uniqueRegions)
-            .range([colours.africa, colours.americas, colours.asia, colours.europe])
+            .range(continentColours)
 
         addUpdateChart("1800")
 
@@ -86,12 +89,30 @@ export const initChart = ({
             margin: margin,
             x: x,
             y: y,
-            xLabel: 'GDP per capita',
-            yLabel: 'Life expectancy',
+            xLabel: 'GDP per capita (PPP$2017)',
+            yLabel: 'Life expectancy (years, at birth)',
             xFormat: d => `$${(d >= 10000) ? d3.format('.3s')(d).replace('.0', '') : d
                 }`,
             colour: colours.text,
-            xTickValues: [500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 128000]
+            xTickValues: [...Array(9).keys()].map(i => 500 * Math.pow(2, i))
+        })
+        addLegend({
+            id: 'chart-legend',
+            legends: uniqueRegions.map(d => d.charAt(0).toUpperCase() + d.substr(1)),
+            colours: continentColours,
+            xPos: xPosition + 8,
+            yPos: yPosition + 16
+        })
+
+        const maxPopulation = d3.max(data, d => d.population)
+        addCircleLegend({
+            id: 'chart',
+            sizeScale: radius,
+            valuesToShow: [maxPopulation * 0.1, maxPopulation * 0.4, maxPopulation],
+            position: [xPosition + width - 125, yPosition + height - 25],
+            colour: colours.text,
+            title: 'Population',
+            textFormat: d => d3.format('.2s')(d).replace('G', 'B')
         })
     })
 }

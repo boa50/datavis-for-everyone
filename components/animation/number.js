@@ -36,6 +36,7 @@ export const numberChangeValue = ({
     initial = 0,
     end,
     progress = 1,
+    transitionDuration = 50,
     numberFormat = d3.format('.2f')
 }) => {
     const numberElement = number.select('.el-number')
@@ -45,8 +46,8 @@ export const numberChangeValue = ({
 
     numberElement
         .transition('numberChangeValue')
-        .duration(50)
-        .tween('text', d => textTweenNumber(currentNumber, nextNumber, numberFormat))
+        .duration(transitionDuration)
+        .tween('text', () => textTweenNumber(currentNumber, nextNumber, numberFormat))
 
     return nextNumber
 }

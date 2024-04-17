@@ -39,7 +39,7 @@ const handleStepProgress = (response) => {
     const currentIndex = response.index
     const currentProgress = response.progress
 
-    const yearStep = 20
+    const yearStep = 10
     const startYear = 1800 + (yearStep * currentIndex)
     let endYear = startYear + yearStep
     endYear = endYear > 2023 ? 2023 : endYear
@@ -50,9 +50,9 @@ const handleStepProgress = (response) => {
 
         numberChangeValue({
             number: yearNumber,
-            initial: startYear,
-            end: endYear,
-            progress: currentProgress,
+            initial: currentYear,
+            end: currentYear,
+            transitionDuration: 0,
             numberFormat: d3.format('d')
         })
     }

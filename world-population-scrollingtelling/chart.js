@@ -2,6 +2,7 @@ import { colours } from "./constants.js"
 import { addAxis } from "../components/axis/script.js"
 import { addLegend } from "../components/legend/script.js"
 import { addLegend as addCircleLegend } from "../components/circle-legend/script.js"
+import { addTooltip } from "../components/tooltip/script.js"
 
 const getData = () =>
     d3.csv('./data/dataset.csv')
@@ -27,6 +28,24 @@ let x
 let y
 let radius
 let colour
+const { mouseover, mousemove, mouseleave } = addTooltip(
+    'scrolly',
+    d => `
+    <strong>${d.country}</strong>   
+    <div style="display: flex; justify-content: space-between">
+        <span>Population:&emsp;&emsp;</span>
+        <span>${d3.formatLocale({ thousands: ' ', grouping: [3] }).format(',')(d.population)}</span>
+    </div>
+    <div style="display: flex; justify-content: space-between">
+        <span>Life Expectancy:&emsp;&emsp;</span>
+        <span>${d.lifeExpectancy} years</br></span>
+    </div>
+    <div style="display: flex; justify-content: space-between">
+        <span>GDP per Capita:&emsp;&emsp;</span>
+        <span>$${d.gdpPerCapita}</span>
+    </div>
+    `
+)
 
 const addUpdateChart = year => {
     const dataFiletered = fullData.filter(d => d.year === year)
@@ -37,6 +56,9 @@ const addUpdateChart = year => {
         .join('circle')
         .style('fill', d => colour(d.region))
         .style('opacity', 0.75)
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave)
         .transition('updateChart')
         .duration(100)
         .attr('cx', d => x(d.gdpPerCapita))
@@ -44,7 +66,7 @@ const addUpdateChart = year => {
         .attr('r', d => radius(d.population))
 }
 
-export const initChart = ({
+export const initChart = async ({
     svg,
     width,
     height,
@@ -115,6 +137,8 @@ export const initChart = ({
             title: 'Population',
             textFormat: d => d3.format('.2s')(d).replace('G', 'B')
         })
+
+
     })
 }
 

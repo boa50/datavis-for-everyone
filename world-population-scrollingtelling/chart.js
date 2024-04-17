@@ -55,6 +55,8 @@ const addUpdateChart = year => {
         .data(dataFiletered)
         .join('circle')
         .style('fill', d => colour(d.region))
+        .attr('stroke', '#6b7280')
+        .attr('stroke-width', 0.5)
         .style('opacity', 0.75)
         .on('mouseover', mouseover)
         .on('mousemove', mousemove)

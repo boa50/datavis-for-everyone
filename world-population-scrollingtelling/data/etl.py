@@ -80,4 +80,12 @@ df["lifeExpectancy"] = df.groupby("country")["lifeExpectancy"].transform(
 )
 ### END: Cleaning data
 
+
+# Sorting countries to make it easier for the visualisation tool
+df["country"] = pd.Categorical(
+    df["country"], df.groupby("country")["population"].mean().sort_values().keys()
+)
+df.sort_values(by=["year", "country"], ascending=False, inplace=True)
+
+
 df.to_csv(get_path("dataset.csv"), index=False)

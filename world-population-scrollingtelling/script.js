@@ -62,11 +62,11 @@ const handleStepProgress = (response) => {
             break;
         case 1:
             changeText(explanationText, `
-            In the beginning, everything was running smoothly.
+            In the beginning, everything was running smoothly
             </br>&nbsp;</br>
-            Countries were improving little by little, with some fallbacks in the meantime.
+            Countries were improving little by little, with some fallbacks in the meantime
             `)
-            showHideExplanationText(0.9, false)
+            showHideExplanationText(0.7, false)
             startYear = 1800
             endYear = 1914
             break;
@@ -77,20 +77,58 @@ const handleStepProgress = (response) => {
             endYear = 1917
             break;
         case 3:
-            changeText(explanationText, 'Coming the Great Influenza epidemic, which killed arround 50 million people.')
+            changeText(explanationText, 'Coming the Great Influenza epidemic, which killed arround 50 million people')
             showHideExplanationText()
             startYear = 1918
             endYear = 1918
             break;
         case 4:
+            changeText(explanationText, 'And then we started improving again')
+            showHideExplanationText()
             startYear = 1919
             endYear = 1921
             break;
         case 5:
             startYear = 1922
-            endYear = 2023
+            endYear = 1935
             break;
         case 6:
+            startYear = 1936
+            endYear = 1938
+            break;
+        case 7:
+            startYear = 1939
+            endYear = 1945
+            break;
+        case 8:
+            startYear = 1946
+            endYear = 1948
+            break;
+        case 9:
+            startYear = 1949
+            endYear = 1990
+            break;
+        case 10:
+            startYear = 1991
+            endYear = 1993
+            break;
+        case 11:
+            startYear = 1994
+            endYear = 1994
+            break;
+        case 12:
+            startYear = 1995
+            endYear = 1997
+            break;
+        case 13:
+            startYear = 1998
+            endYear = 2018
+            break;
+        case 14:
+            startYear = 2019
+            endYear = 2023
+            break;
+        case 15:
             startYear = defaultFinalYear
             endYear = defaultFinalYear
             break;
@@ -114,8 +152,12 @@ const handleStepProgress = (response) => {
 }
 
 const init = () => {
-    const nSteps = 7
-    const stepsSizes = [1, 5, 1, 1, 1, 5, 1]
+    const nSteps = 16
+    const stepsSizes = {}
+    for (let i = 0; i < nSteps; i++)  stepsSizes[i] = 1
+    stepsSizes[1] = 5
+    stepsSizes[5] = 5
+
     for (let i = 0; i < nSteps; i++) {
         let text = i
         if (i === nSteps - 1) {

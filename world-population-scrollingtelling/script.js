@@ -2,7 +2,7 @@ import { getYear, initChart, updateChart } from "./chart.js"
 import { createNumber, numberChangeValue } from "../components/animation/number.js"
 import { colours } from "./constants.js"
 import { addStep } from "./html-utils.js"
-import { createText } from "../components/animation/text.js"
+import { changeText, createText, hideText, showText } from "../components/animation/text.js"
 
 const scrolly = d3.select('#scrolly')
 const svg = scrolly.select('#chart')
@@ -29,7 +29,6 @@ const handleResize = () => {
     steps.each(function () {
         const step = d3.select(this)
         step.style('height', `${stepHeight * step.attr('data-step-size')}px`)
-        console.log(step);
     })
 
     svg
@@ -49,6 +48,12 @@ const handleStepProgress = (response) => {
     let startYear
     let endYear
 
+    const showHideExplanationText = (hideStartsAt = 0.8, show = true) => {
+        const divisor = 1 - hideStartsAt
+        if (show && (currentProgress <= hideStartsAt)) showText(explanationText, currentProgress / divisor)
+        if (currentProgress > hideStartsAt) hideText(explanationText, (currentProgress - hideStartsAt) / divisor)
+    }
+
     // Start the animation only after the first step
     switch (currentIndex) {
         case 0:
@@ -56,14 +61,36 @@ const handleStepProgress = (response) => {
             endYear = defaultInitialYear
             break;
         case 1:
+            changeText(explanationText, `
+            In the beginning, everything was running smoothly.
+            </br>&nbsp;</br>
+            Countries were improving little by little, with some fallbacks in the meantime.
+            `)
+            showHideExplanationText(0.9, false)
             startYear = 1800
-            endYear = 1915
+            endYear = 1914
             break;
         case 2:
-            startYear = 1916
+            changeText(explanationText, 'Until...')
+            showHideExplanationText()
+            startYear = 1915
             endYear = 1917
             break;
         case 3:
+            changeText(explanationText, 'Coming the Great Influenza epidemic, which killed arround 50 million people.')
+            showHideExplanationText()
+            startYear = 1918
+            endYear = 1918
+            break;
+        case 4:
+            startYear = 1919
+            endYear = 1921
+            break;
+        case 5:
+            startYear = 1922
+            endYear = 2023
+            break;
+        case 6:
             startYear = defaultFinalYear
             endYear = defaultFinalYear
             break;
@@ -87,8 +114,8 @@ const handleStepProgress = (response) => {
 }
 
 const init = () => {
-    const nSteps = 4
-    const stepsSizes = [1, 5, 1, 1]
+    const nSteps = 7
+    const stepsSizes = [1, 5, 1, 1, 1, 5, 1]
     for (let i = 0; i < nSteps; i++) {
         let text = i
         if (i === nSteps - 1) {

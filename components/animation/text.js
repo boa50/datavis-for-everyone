@@ -30,3 +30,15 @@ export const createText = ({
             .html(htmlText)
         )
 }
+
+export const hideText = (textNode, progress = 1) => {
+    textNode.select('div').style('opacity', 1 - progress)
+}
+
+export const showText = (textNode, progress = 1) => {
+    textNode.select('div').style('opacity', progress)
+}
+
+export const changeText = (textNode, htmlText) => {
+    textNode.select('div').html(htmlText)
+}

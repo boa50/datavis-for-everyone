@@ -7,7 +7,7 @@ export const createText = ({
     textColour = 'black',
     fontSize = '1rem',
     alignVertical = 'auto',
-    text = ''
+    htmlText = ''
 }) => {
     return svg
         .append('foreignObject')
@@ -23,9 +23,10 @@ export const createText = ({
             .style('color', textColour)
             .style('font-size', fontSize)
             .style('display', 'flex')
+            .style('flex-direction', 'column')
             .style('justify-content', 'center')
             .style('align-items', alignVertical)
             .style('text-align', 'center')
-            .html(text)
+            .html(htmlText)
         )
 }

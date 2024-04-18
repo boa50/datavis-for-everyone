@@ -9,24 +9,28 @@ const svg = scrolly.select('#chart')
 const article = scrolly.select('article')
 const scroller = scrollama()
 
-const nSteps = 16
-
 const pxToInt = pxStr => +pxStr.replace('px', '')
 
 let visualisationsWidth
 let windowHeight
 let yearNumber
 let explanationText
-const initialYear = 1800
-const finalYear = 2023
-let currentYear = initialYear
+const defaultInitialYear = 1800
+const defaultFinalYear = 2023
+let currentYear = defaultInitialYear
 
 const handleResize = () => {
     const steps = article.selectAll('.step')
     windowHeight = window.innerHeight
 
     const stepHeight = Math.floor(windowHeight)
-    steps.style('height', `${stepHeight}px`)
+
+    // Dynamic step sizes to facilitate the animation speed control
+    steps.each(function () {
+        const step = d3.select(this)
+        step.style('height', `${stepHeight * step.attr('data-step-size')}px`)
+        console.log(step);
+    })
 
     svg
         .attr('height', `${windowHeight}px`)
@@ -42,14 +46,30 @@ const handleResize = () => {
 const handleStepProgress = (response) => {
     const currentIndex = response.index
     const currentProgress = response.progress
-    const yearStep = 16
-    let startYear = initialYear
-    let endYear = initialYear
+    let startYear
+    let endYear
 
-    if (currentIndex > 0) {
-        startYear = initialYear + (yearStep * (currentIndex - 1))
-        endYear = startYear + yearStep
-        endYear = endYear > finalYear ? finalYear : endYear
+    // Start the animation only after the first step
+    switch (currentIndex) {
+        case 0:
+            startYear = defaultInitialYear
+            endYear = defaultInitialYear
+            break;
+        case 1:
+            startYear = 1800
+            endYear = 1915
+            break;
+        case 2:
+            startYear = 1916
+            endYear = 1917
+            break;
+        case 3:
+            startYear = defaultFinalYear
+            endYear = defaultFinalYear
+            break;
+
+        default:
+            break;
     }
 
     if (startYear <= endYear) {
@@ -67,13 +87,15 @@ const handleStepProgress = (response) => {
 }
 
 const init = () => {
+    const nSteps = 4
+    const stepsSizes = [1, 5, 1, 1]
     for (let i = 0; i < nSteps; i++) {
         let text = i
         if (i === nSteps - 1) {
             text = 'FINAL STEP!!!'
         }
 
-        addStep(article, text)
+        addStep(article, text, stepsSizes[i])
     }
 
     handleResize()
@@ -107,9 +129,13 @@ const init = () => {
         x: chartXposition + chartWidth + 16,
         width: visualisationsWidth - chartWidth - chartXposition - 78,
         textColour: colours.text,
-        fontSize: '3rem',
+        fontSize: '1.75rem',
         alignVertical: 'center',
-        text: 'Some text to test if everything is gonna run smoothly'
+        htmlText: `
+        In the beginning, everything was running smoothly.
+        </br>&nbsp;</br>
+        Countries were improving little by little, with some fallbacks in the meantime.
+        `
     })
 
     initChart({

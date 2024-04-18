@@ -154,7 +154,8 @@ export const initChart = async ({
 
 
 export const getYear = (start, end, progress) => {
-    return Math.floor(start + ((end - start) * progress))
+    const calculatedYear = Math.round(start + ((end - start) * progress))
+    return calculatedYear <= end ? calculatedYear : end
 }
 
 export const updateChart = (yearStart, yearEnd, progress) => {

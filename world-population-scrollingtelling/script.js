@@ -2,6 +2,7 @@ import { getYear, initChart, updateChart } from "./chart.js"
 import { createNumber, numberChangeValue } from "../components/animation/number.js"
 import { colours } from "./constants.js"
 import { addStep } from "./html-utils.js"
+import { createText } from "../components/animation/text.js"
 
 const scrolly = d3.select('#scrolly')
 const svg = scrolly.select('#chart')
@@ -15,6 +16,7 @@ const pxToInt = pxStr => +pxStr.replace('px', '')
 let visualisationsWidth
 let windowHeight
 let yearNumber
+let explanationText
 const initialYear = 1800
 const finalYear = 2023
 let currentYear = initialYear
@@ -86,25 +88,37 @@ const init = () => {
 
     window.addEventListener('resize', handleResize())
 
+    const chartWidth = 1080 < visualisationsWidth - 450 ? 1080 : visualisationsWidth - 450
+    const chartHeight = chartWidth / 1.5
+    const chartXposition = 64
+    const chartYposition = (windowHeight - chartHeight) / 2
+
     yearNumber = createNumber({
         svg: svg,
         textColour: colours.yearText,
         fontSize: '15rem',
         alignVertical: 'middle',
-        x: visualisationsWidth / 2,
+        x: chartXposition + (chartWidth / 2),
         y: windowHeight / 2
     })
 
-    const chartWidth = 1080 < visualisationsWidth - 150 ? 1080 : visualisationsWidth - 150
-    const chartHeight = chartWidth / 1.5
+    explanationText = createText({
+        svg: svg,
+        x: chartXposition + chartWidth + 16,
+        width: visualisationsWidth - chartWidth - chartXposition - 78,
+        textColour: colours.text,
+        fontSize: '3rem',
+        alignVertical: 'center',
+        text: 'Some text to test if everything is gonna run smoothly'
+    })
+
     initChart({
         svg: svg,
         width: chartWidth,
         height: chartHeight,
-        xPosition: (visualisationsWidth - chartWidth) / 2,
-        yPosition: (windowHeight - chartHeight) / 2
+        xPosition: chartXposition,
+        yPosition: chartYposition
     }).then(() => updateChart(currentYear, currentYear, 1))
-
 
     svg
         .append('text')
@@ -113,7 +127,6 @@ const init = () => {
         .attr('fill', '#6b7280')
         .style('text-anchor', 'end')
         .text('Data extracted from: https://www.gapminder.org/data/documentation/gd000/')
-
 }
 
 init()

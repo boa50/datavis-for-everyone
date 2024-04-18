@@ -29,7 +29,8 @@ body {
 article {
     position: relative;
     padding: 0 1rem;
-    max-width: 20rem;
+    /* Controlling steps width */
+    max-width: 1rem;
 }
 
 .step {

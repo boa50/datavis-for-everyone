@@ -19,6 +19,12 @@ const defaultInitialYear = 1800
 const defaultFinalYear = 2023
 let currentYear = defaultInitialYear
 
+const nSteps = 16
+const stepsSizes = {}
+for (let i = 0; i < nSteps; i++)  stepsSizes[i] = 1
+stepsSizes[1] = 5
+stepsSizes[5] = 5
+
 const handleResize = () => {
     const steps = article.selectAll('.step')
     windowHeight = window.innerHeight
@@ -48,10 +54,10 @@ const handleStepProgress = (response) => {
     let startYear
     let endYear
 
-    const showHideExplanationText = (hideStartsAt = 0.8, show = true) => {
-        const divisor = 1 - hideStartsAt
-        if (show && (currentProgress <= hideStartsAt)) showText(explanationText, currentProgress / divisor)
-        if (currentProgress > hideStartsAt) hideText(explanationText, (currentProgress - hideStartsAt) / divisor)
+    const showHideExplanationText = (hideStartsAt = 0.5, executeShow = true) => {
+        const speed = (1 / 0.5) * stepsSizes[currentIndex]
+        if (executeShow && (currentProgress <= hideStartsAt)) showText(explanationText, currentProgress * speed)
+        if (currentProgress > hideStartsAt) hideText(explanationText, (currentProgress - hideStartsAt) * speed)
     }
 
     // Start the animation only after the first step
@@ -66,7 +72,7 @@ const handleStepProgress = (response) => {
             </br>&nbsp;</br>
             Countries were improving little by little, with some fallbacks in the meantime
             `)
-            showHideExplanationText(0.7, false)
+            showHideExplanationText(0.5, false)
             startYear = 1800
             endYear = 1914
             break;
@@ -152,12 +158,6 @@ const handleStepProgress = (response) => {
 }
 
 const init = () => {
-    const nSteps = 16
-    const stepsSizes = {}
-    for (let i = 0; i < nSteps; i++)  stepsSizes[i] = 1
-    stepsSizes[1] = 5
-    stepsSizes[5] = 5
-
     for (let i = 0; i < nSteps; i++) {
         let text = i
         if (i === nSteps - 1) {

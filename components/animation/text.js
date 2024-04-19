@@ -7,6 +7,7 @@ export const createText = ({
     textColour = 'black',
     fontSize = '1rem',
     alignVertical = 'auto',
+    alignHorizontal = 'inherit',
     htmlText = ''
 }) => {
     return svg
@@ -26,7 +27,7 @@ export const createText = ({
             .style('flex-direction', 'column')
             .style('justify-content', 'center')
             .style('align-items', alignVertical)
-            .style('text-align', 'center')
+            .style('text-align', alignHorizontal)
             .html(htmlText)
         )
 }

@@ -1,5 +1,5 @@
 body {
-    background-color: #FFFFF0;
+    background-color: #FFFFF0 !important;
 }
 
 .container {
@@ -8,8 +8,9 @@ body {
     align-items: center;
 }
 
-#header {
-    margin-bottom: 90vh !important;
+#header>img {
+    width: 100vw;
+    height: 100vh;
 }
 
 #scrolly {

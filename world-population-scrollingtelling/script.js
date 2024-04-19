@@ -66,6 +66,7 @@ const handleStepProgress = (response) => {
     // Start the animation only after the first step
     switch (currentIndex) {
         case 0:
+            showText(explanationText)
             startYear = defaultInitialYear
             endYear = defaultInitialYear
             break;
@@ -137,6 +138,7 @@ const handleStepProgress = (response) => {
             endYear = 2023
             break;
         case 10:
+            showText(explanationText)
             startYear = defaultFinalYear
             endYear = defaultFinalYear
             break;
@@ -195,11 +197,24 @@ const init = () => {
         textColour: colours.text,
         fontSize: '1.75rem',
         alignVertical: 'center',
+        alignHorizontal: 'center',
         htmlText: `
             In the beginning, everything was running smoothly.
             </br>&nbsp;</br>
             Countries were improving little by little, with some fallbacks in the meantime.
         `
+    })
+
+
+    createText({
+        svg: svg,
+        x: chartXposition - 60,
+        y: chartYposition - 50,
+        width: 200,
+        height: 50,
+        textColour: colours.text,
+        fontSize: '1.75rem',
+        htmlText: `<span class="font-medium">World Health</span>`
     })
 
     initChart({

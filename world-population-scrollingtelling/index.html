@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>World population</title>
+    <title>World Health</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
@@ -11,8 +11,8 @@
 </head>
 
 <body>
-    <div id="header" class="flex flex-col m-4">
-        <h1 id="title" class="title font-sans text-3xl text-gray-700">World Population</h1>
+    <div id="header" class="flex flex-col">
+        <img src="./img/cover.webp" />
     </div>
 
     <section id="scrolly">
@@ -24,7 +24,15 @@
         </svg>
     </section>
 
-    <section id="outro"></section>
+    <section id="outro">
+        <div class="flex justify-center items-center h-screen">
+            <span class="font-medium text-sky-900/85 text-7xl italic font-sans text-center">
+                History is fated to repeat itself.
+                </br></br>
+                Are we ready for the subsequent changes?
+            </span>
+        </div>
+    </section>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"

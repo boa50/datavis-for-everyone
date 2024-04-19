@@ -19,11 +19,14 @@ const defaultInitialYear = 1800
 const defaultFinalYear = 2023
 let currentYear = defaultInitialYear
 
-const nSteps = 16
+const nSteps = 11
 const stepsSizes = {}
-for (let i = 0; i < nSteps; i++)  stepsSizes[i] = 1
-stepsSizes[1] = 5
-stepsSizes[5] = 5
+const eventSteps = new Set([2, 3, 5, 7, 9])
+for (let i = 0; i < nSteps; i++) {
+    if (eventSteps.has(i)) stepsSizes[i] = 2
+    else stepsSizes[i] = 1
+}
+stepsSizes[1] = 4
 
 const handleResize = () => {
     const steps = article.selectAll('.step')
@@ -54,10 +57,10 @@ const handleStepProgress = (response) => {
     let startYear
     let endYear
 
-    const showHideExplanationText = (hideStartsAt = 0.5, executeShow = true) => {
+    const showHideExplanationText = ({ hideStartsAt = 0.5, executeShow = true, executeHide = true } = {}) => {
         const speed = (1 / 0.5) * stepsSizes[currentIndex]
         if (executeShow && (currentProgress <= hideStartsAt)) showText(explanationText, currentProgress * speed)
-        if (currentProgress > hideStartsAt) hideText(explanationText, (currentProgress - hideStartsAt) * speed)
+        if (executeHide && (currentProgress > hideStartsAt)) hideText(explanationText, (currentProgress - hideStartsAt) * speed)
     }
 
     // Start the animation only after the first step
@@ -68,73 +71,72 @@ const handleStepProgress = (response) => {
             break;
         case 1:
             changeText(explanationText, `
-            In the beginning, everything was running smoothly
-            </br>&nbsp;</br>
-            Countries were improving little by little, with some fallbacks in the meantime
+                In the beginning, everything was running smoothly
+                </br>&nbsp;</br>
+                Countries were improving little by little, with some fallbacks in the meantime
             `)
-            showHideExplanationText(0.5, false)
+            showHideExplanationText({ executeShow: false })
             startYear = 1800
-            endYear = 1914
+            endYear = 1906
             break;
         case 2:
             changeText(explanationText, 'Until...')
             showHideExplanationText()
-            startYear = 1915
-            endYear = 1917
+            startYear = 1907
+            endYear = 1914
             break;
         case 3:
-            changeText(explanationText, 'Coming the Great Influenza epidemic, which killed arround 50 million people')
+            changeText(explanationText, `
+                The Great Influenza Epidemic (1918), killing around 50 million people and 
+                reducing the world's life expectancy in a way never seen before
+            `)
             showHideExplanationText()
-            startYear = 1918
-            endYear = 1918
-            break;
-        case 4:
-            changeText(explanationText, 'And then we started improving again')
-            showHideExplanationText()
-            startYear = 1919
+            startYear = 1915
             endYear = 1921
             break;
-        case 5:
+        case 4:
+            changeText(explanationText, 'After that, we continued to move forward')
+            showHideExplanationText()
             startYear = 1922
             endYear = 1935
             break;
-        case 6:
+        case 5:
+            changeText(explanationText, `
+                And again, people started killing each other during the Second World War (1939 - 1945), 
+                killing around 85 million people.
+            `)
+            showHideExplanationText()
             startYear = 1936
-            endYear = 1938
-            break;
-        case 7:
-            startYear = 1939
-            endYear = 1945
-            break;
-        case 8:
-            startYear = 1946
             endYear = 1948
             break;
-        case 9:
+        case 6:
             startYear = 1949
             endYear = 1990
             break;
-        case 10:
+        case 7:
+            changeText(explanationText, `
+                In 1994, Rwanda suffered a terrible genocide, 
+                making its life expectancy reach a miserable 9.5 years
+            `)
+            showHideExplanationText()
             startYear = 1991
-            endYear = 1993
-            break;
-        case 11:
-            startYear = 1994
-            endYear = 1994
-            break;
-        case 12:
-            startYear = 1995
             endYear = 1997
             break;
-        case 13:
-            startYear = 1998
+        case 8:
+            startYear = 1995
             endYear = 2018
             break;
-        case 14:
+        case 9:
+            changeText(explanationText, `
+                Compared to other catastrophes in our world, 
+                COVID-19 haven't brought our life expectancy down 
+                besides killing around 7 million people
+            `)
+            showHideExplanationText({ executeHide: false })
             startYear = 2019
             endYear = 2023
             break;
-        case 15:
+        case 10:
             startYear = defaultFinalYear
             endYear = defaultFinalYear
             break;
@@ -158,14 +160,7 @@ const handleStepProgress = (response) => {
 }
 
 const init = () => {
-    for (let i = 0; i < nSteps; i++) {
-        let text = i
-        if (i === nSteps - 1) {
-            text = 'FINAL STEP!!!'
-        }
-
-        addStep(article, text, stepsSizes[i])
-    }
+    for (let i = 0; i < nSteps; i++) addStep(article, '', stepsSizes[i])
 
     handleResize()
 
@@ -201,9 +196,9 @@ const init = () => {
         fontSize: '1.75rem',
         alignVertical: 'center',
         htmlText: `
-        In the beginning, everything was running smoothly.
-        </br>&nbsp;</br>
-        Countries were improving little by little, with some fallbacks in the meantime.
+            In the beginning, everything was running smoothly.
+            </br>&nbsp;</br>
+            Countries were improving little by little, with some fallbacks in the meantime.
         `
     })
 

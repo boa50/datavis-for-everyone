@@ -193,7 +193,7 @@ const init = () => {
     explanationText = createText({
         svg: svg,
         x: chartXposition + chartWidth + 16,
-        width: visualisationsWidth - chartWidth - chartXposition - 78,
+        width: visualisationsWidth - chartWidth - chartXposition - 100,
         textColour: colours.text,
         fontSize: '1.75rem',
         alignVertical: 'center',

@@ -21,11 +21,11 @@ const getData = () =>
             }))
     ])
 
-const svgWidth = Math.floor(window.innerWidth / 2)
-const svgHeight = Math.floor(window.innerHeight / 2)
+const svgWidth = Math.floor(window.innerWidth / 3.15)
+const svgHeight = Math.floor(window.innerHeight / 2.3)
 const margin = {
     left: 64,
-    right: 72,
+    right: 16,
     top: 16,
     bottom: 64
 }
@@ -33,7 +33,7 @@ const margin = {
 const width = svgWidth - margin.left - margin.right
 const height = svgHeight - margin.top - margin.bottom
 
-const getChart = id => d3
+const getChart = (id, svgWidth) => d3
     .select(`#chart${id}`)
     .attr('width', svgWidth)
     .attr('height', svgHeight)
@@ -48,7 +48,7 @@ getData().then(datasets => {
 
     addSalaryByDepartment({
         data: salaries,
-        chart: getChart(1),
+        chart: getChart(1, svgWidth),
         width: width,
         height: height,
         margin: margin,
@@ -57,7 +57,7 @@ getData().then(datasets => {
 
     addSalaryByGender({
         data: salaries,
-        chart: getChart(2),
+        chart: getChart(2, svgWidth),
         width: width,
         height: height,
         margin: margin,
@@ -66,8 +66,8 @@ getData().then(datasets => {
 
     addWeightByHeight({
         data: obesity,
-        chart: getChart(3),
-        width: width,
+        chart: getChart(3, svgWidth * 2.025),
+        width: width * 2.15,
         height: height,
         margin: margin,
         xAxisSelect: xAxisSelect

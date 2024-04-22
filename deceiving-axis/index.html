@@ -13,11 +13,22 @@
         <h1 id="title" class="title font-sans text-3xl text-gray-700">Deceiving Axis</h1>
     </div>
 
-    <div class="container">
+    <div class="grid grid-cols-3 gap-4 mx-8">
 
-        <div id="chart1-container" class="columns-2">
-            <svg id="chart1"></svg>
-            <div id="chart1-controls">
+        <div id="charts" class="grid grid-cols-2 col-span-2 gap-4">
+            <div id="chart1-container">
+                <svg id="chart1"></svg>
+            </div>
+            <div id="chart2-container">
+                <svg id="chart2"></svg>
+            </div>
+            <div id="chart3-container" class="col-span-2">
+                <svg id="chart3"></svg>
+            </div>
+        </div>
+
+        <div id="sidebar">
+            <div id="controls">
                 <label for="chart-xaxis">Select an X axis type:</label>
                 <select name="chart-xaxis" id="chart-xaxis">
                     <option value="linear">Linear</option>
@@ -25,18 +36,15 @@
                     <option value="pow">Exponential</option>
                 </select>
             </div>
-        </div>
 
-        <div id="chart2-container" class="columns-2">
-            <svg id="chart2"></svg>
-        </div>
-
-        <div id="chart3-container" class="columns-2">
-            <svg id="chart3"></svg>
+            <div id="caption" class="flex justify-end h-full items-end pb-6">
+                <span class="text-sm text-gray-500 max-w-xl">Data extracted from:
+                    https://www.kaggle.com/datasets/sahirmaharajj/employee-salaries-analysis and
+                    https://www.kaggle.com/datasets/fatemehmehrparvar/obesity-levels</span>
+            </div>
         </div>
     </div>
 
-    <p id="caption" class="flex justify-end text-sm text-gray-500 m-4">Data extracted from:</p>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
     <script type="module" src="./script.js"></script>

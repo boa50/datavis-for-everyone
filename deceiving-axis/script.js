@@ -1,6 +1,6 @@
-import { addAxis } from '../components/axis/script.js'
 import { addChart as addSalaryByDepartment } from './charts/salary-by-department.js'
 import { addChart as addSalaryByGender } from './charts/salary-by-gender.js'
+import { addChart as addWeightByHeight } from './charts/weight-by-height.js'
 
 const getData = () =>
     Promise.all([
@@ -40,8 +40,6 @@ const getChart = id => d3
     .append('g')
     .attr('transform', `translate(${[margin.left, margin.top]})`)
 
-const chart3 = getChart(3)
-
 const xAxisSelect = document.getElementById('chart-xaxis')
 
 getData().then(datasets => {
@@ -66,40 +64,12 @@ getData().then(datasets => {
         xAxisSelect: xAxisSelect
     })
 
-
-
-
-
-
-    //Chart 3
-    const x3 = d3
-        .scaleLinear()
-        .domain(d3.extent(obesity, d => d.Weight))
-        .range([0, width])
-
-    const y3 = d3
-        .scaleLinear()
-        .domain(d3.extent(obesity, d => d.Height))
-        .range([height, 0])
-
-    chart3
-        .selectAll('.points')
-        .data(obesity)
-        .join('circle')
-        .attr('cx', d => x3(d.Weight))
-        .attr('cy', d => y3(d.Height))
-        .attr('r', 3)
-        .attr('fill', '#69b3a2')
-        .style('opacity', 0.75)
-        .attr('stroke', '#6b7280')
-        .attr('stroke-width', 0.5)
-
-    addAxis({
-        chart: chart3,
-        height: height,
+    addWeightByHeight({
+        data: obesity,
+        chart: getChart(3),
         width: width,
+        height: height,
         margin: margin,
-        x: x3,
-        y: y3
+        xAxisSelect: xAxisSelect
     })
 })

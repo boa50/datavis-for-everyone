@@ -8,7 +8,7 @@ export const addAxis = (
         chart,
         height,
         width,
-        margin,
+        margin = {},
         x,
         y,
         xLabel = '',
@@ -34,7 +34,7 @@ export const addAxis = (
         )
         .call(g => g
             .append('text')
-            .attr('x', (width + margin.right) / 2)
+            .attr('x', width / 2)
             .attr('y', 45)
             .attr('text-anchor', 'middle')
             .text(xLabel))
@@ -53,7 +53,7 @@ export const addAxis = (
         )
         .call(g => g
             .append('text')
-            .attr('x', -((height - margin.bottom) / 2))
+            .attr('x', -(height / 2))
             .attr('y', -50)
             .attr('transform', 'rotate(270)')
             .attr('text-anchor', 'middle')

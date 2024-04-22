@@ -21,6 +21,7 @@ export const addAxis = (
 ) => {
     chart
         .append('g')
+        .attr('class', 'x-axis-group')
         .style('font-size', '0.8rem')
         .attr('transform', `translate(0, ${height})`)
         .call(
@@ -41,6 +42,7 @@ export const addAxis = (
 
     chart
         .append('g')
+        .attr('class', 'y-axis-group')
         .style('font-size', '0.8rem')
         .call(
             d3
@@ -56,5 +58,51 @@ export const addAxis = (
             .attr('transform', 'rotate(270)')
             .attr('text-anchor', 'middle')
             .text(yLabel))
+        .call(g => adjustColours(g, colour))
+}
+
+export const updateXaxis = ({
+    chart,
+    x,
+    format = undefined,
+    tickValues = undefined
+}) => {
+    const colour = chart
+        .select('.x-axis-group')
+        .selectAll('text').attr('fill')
+
+    chart
+        .select('.x-axis-group')
+        .transition()
+        .call(
+            d3
+                .axisBottom(x)
+                .tickSize(0)
+                .tickPadding(10)
+                .tickFormat(format)
+                .tickValues(tickValues)
+        )
+        .call(g => adjustColours(g, colour))
+}
+
+export const updateYaxis = ({
+    chart,
+    y,
+    format = undefined
+}) => {
+    const colour = chart
+        .select('.y-axis-group')
+        .selectAll('text').attr('fill')
+
+    chart
+        .select('.y-axis-group')
+        .transition()
+        .call(
+            d3
+                .axisLeft(y)
+                .tickSize(0)
+                .tickPadding(10)
+                .tickFormat(format)
+        )
         .call(g => adjustColours(g, colour))
 }

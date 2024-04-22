@@ -1,4 +1,5 @@
 import { addAxis } from '../components/axis/script.js'
+import { addChart as addSalaryDepartment } from './charts/salary-by-department.js'
 
 const getData = () =>
     Promise.all([
@@ -38,18 +39,23 @@ const getChart = id => d3
     .append('g')
     .attr('transform', `translate(${[margin.left, margin.top]})`)
 
-
-const chart1 = getChart(1)
 const chart2 = getChart(2)
 const chart3 = getChart(3)
 
-
-let x1
-const chart1Axis = document.getElementById('chart1-axis')
+const xAxisSelect = document.getElementById('chart-xaxis')
 
 getData().then(datasets => {
     const salaries = datasets[0]
     const obesity = datasets[1]
+
+    addSalaryDepartment({
+        data: salaries,
+        chart: getChart(1),
+        width: width,
+        height: height,
+        margin: margin,
+        xAxisSelect: xAxisSelect
+    })
 
 
 

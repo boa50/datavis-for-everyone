@@ -1,5 +1,6 @@
 import { addAxis } from '../components/axis/script.js'
-import { addChart as addSalaryDepartment } from './charts/salary-by-department.js'
+import { addChart as addSalaryByDepartment } from './charts/salary-by-department.js'
+import { addChart as addSalaryByGender } from './charts/salary-by-gender.js'
 
 const getData = () =>
     Promise.all([
@@ -39,7 +40,6 @@ const getChart = id => d3
     .append('g')
     .attr('transform', `translate(${[margin.left, margin.top]})`)
 
-const chart2 = getChart(2)
 const chart3 = getChart(3)
 
 const xAxisSelect = document.getElementById('chart-xaxis')
@@ -48,9 +48,18 @@ getData().then(datasets => {
     const salaries = datasets[0]
     const obesity = datasets[1]
 
-    addSalaryDepartment({
+    addSalaryByDepartment({
         data: salaries,
         chart: getChart(1),
+        width: width,
+        height: height,
+        margin: margin,
+        xAxisSelect: xAxisSelect
+    })
+
+    addSalaryByGender({
+        data: salaries,
+        chart: getChart(2),
         width: width,
         height: height,
         margin: margin,
@@ -60,41 +69,6 @@ getData().then(datasets => {
 
 
 
-    //Chart 2
-    const groupedData2 = d3
-        .flatRollup(salaries, v => d3.median(v, x => x.Base_Salary), d => d.Gender)
-        .sort((a, b) => a[1] - b[1])
-
-    const x2 = d3
-        .scalePow()
-        .domain([0, d3.max(groupedData2, d => d[1])])
-        .range([0, width])
-        .exponent(10)
-
-    const y2 = d3
-        .scaleBand()
-        .domain(groupedData2.map(d => d[0]))
-        .range([height, 0])
-        .padding(0.2)
-
-    chart2
-        .selectAll('.bars')
-        .data(groupedData2)
-        .join('rect')
-        .attr('x', x2(0))
-        .attr('y', d => y2(d[0]))
-        .attr('width', d => x2(d[1]))
-        .attr('height', y2.bandwidth())
-        .attr('fill', '#69b3a2')
-
-    addAxis({
-        chart: chart2,
-        height: height,
-        width: width,
-        margin: margin,
-        x: x2,
-        y: y2
-    })
 
 
     //Chart 3

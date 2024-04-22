@@ -25,6 +25,7 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
         ...groupedData.slice(groupedData.length - 4, groupedData.length - 1)
     ]
 
+
     let x = d3
         .scaleLinear()
         .domain([0, d3.max(groupedDataFiltered, d => d[1])])
@@ -35,6 +36,8 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
         .domain(groupedDataFiltered.map(d => d[0]))
         .range([height, 0])
         .padding(0.2)
+
+    const xFormat = d3.format('$.2s')
 
     xAxisSelect.addEventListener('change', event => {
         const scale = event.target.value
@@ -63,7 +66,8 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
         plotChart(chart, groupedDataFiltered, x, y)
         updateXaxis({
             chart: chart,
-            x: x
+            x: x,
+            format: xFormat
         })
     })
 
@@ -77,6 +81,7 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
         y: y,
         colour: colours.axis,
         xLabel: 'Salary',
-        yLabel: 'Department'
+        yLabel: 'Department',
+        xFormat: xFormat
     })
 }

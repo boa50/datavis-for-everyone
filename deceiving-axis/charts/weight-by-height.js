@@ -3,9 +3,10 @@ import { colours } from "../constants.js"
 
 const plotChart = (chart, data, x, y) => {
     chart
-        .selectAll('.points')
+        .selectAll('.data-points')
         .data(data)
         .join('circle')
+        .attr('class', 'data-points')
         .attr('cx', d => x(d.Weight))
         .attr('cy', d => y(d.Height))
         .attr('r', 3)
@@ -25,6 +26,8 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
         .scaleLinear()
         .domain(d3.extent(data, d => d.Height))
         .range([height, 0])
+
+    const xFormat = d => `${d}kg`
 
     xAxisSelect.addEventListener('change', event => {
         const scale = event.target.value
@@ -53,7 +56,8 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
         plotChart(chart, data, x, y)
         updateXaxis({
             chart: chart,
-            x: x
+            x: x,
+            format: xFormat
         })
     })
 
@@ -67,6 +71,7 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
         y: y,
         colour: colours.axis,
         xLabel: 'Weight',
-        yLabel: 'Height'
+        yLabel: 'Height (m)',
+        xFormat: xFormat
     })
 }

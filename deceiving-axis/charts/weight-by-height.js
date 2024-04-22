@@ -7,16 +7,27 @@ const plotChart = (chart, data, x, y) => {
         .data(data)
         .join('circle')
         .attr('class', 'data-points')
-        .attr('cx', d => x(d.Weight))
-        .attr('cy', d => y(d.Height))
         .attr('r', 3)
         .attr('fill', '#69b3a2')
         .style('opacity', 0.75)
         .attr('stroke', '#6b7280')
         .attr('stroke-width', 0.5)
+        .transition()
+        .attr('cx', d => x(d.Weight))
+        .attr('cy', d => y(d.Height))
 }
 
-export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) => {
+export const addChart = ({
+    data,
+    chart,
+    width,
+    height,
+    margin,
+    xAxis = {
+        type,
+        exponent
+    }
+}) => {
     let x = d3
         .scaleLinear()
         .domain(d3.extent(data, d => d.Weight))
@@ -29,8 +40,9 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
 
     const xFormat = d => `${d}kg`
 
-    xAxisSelect.addEventListener('change', event => {
-        const scale = event.target.value
+    const updateChart = () => {
+        const scale = xAxis.type.value
+        const exponent = xAxis.exponent.value
 
         switch (scale) {
             case 'linear':
@@ -44,12 +56,14 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
                     .scaleLog()
                     .domain(d3.extent(data, d => d.Weight))
                     .range([0, width])
+                    .base(2)
                 break;
             case 'pow':
                 x = d3
                     .scalePow()
                     .domain(d3.extent(data, d => d.Weight))
                     .range([0, width])
+                    .exponent(exponent)
                 break;
         }
 
@@ -59,7 +73,10 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
             x: x,
             format: xFormat
         })
-    })
+    }
+
+    xAxis.type.addEventListener('change', () => { updateChart() })
+    xAxis.exponent.addEventListener('change', () => { updateChart() })
 
     plotChart(chart, data, x, y)
     addAxis({

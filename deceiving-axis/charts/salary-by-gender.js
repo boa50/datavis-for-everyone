@@ -9,12 +9,23 @@ const plotChart = (chart, data, x, y) => {
         .attr('class', 'bars')
         .attr('x', x(0))
         .attr('y', d => y(d[0]))
-        .attr('width', d => x(d[1]))
         .attr('height', y.bandwidth())
         .attr('fill', '#69b3a2')
+        .transition()
+        .attr('width', d => x(d[1]))
 }
 
-export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) => {
+export const addChart = ({
+    data,
+    chart,
+    width,
+    height,
+    margin,
+    xAxis = {
+        type,
+        exponent
+    }
+}) => {
     const groupedData = d3
         .flatRollup(data, v => d3.median(v, z => z.Base_Salary), d => d.Gender)
         .sort((a, b) => a[1] - b[1])
@@ -33,8 +44,9 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
 
     const xFormat = d3.format('$.2s')
 
-    xAxisSelect.addEventListener('change', event => {
-        const scale = event.target.value
+    const updateChart = () => {
+        const scale = xAxis.type.value
+        const exponent = xAxis.exponent.value
 
         switch (scale) {
             case 'linear':
@@ -48,12 +60,14 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
                     .scaleLog()
                     .domain([1, d3.max(groupedData, d => d[1])])
                     .range([0, width])
+                    .base(2)
                 break;
             case 'pow':
                 x = d3
                     .scalePow()
-                    .domain([10, d3.max(groupedData, d => d[1])])
+                    .domain([0, d3.max(groupedData, d => d[1])])
                     .range([0, width])
+                    .exponent(exponent)
                 break;
         }
 
@@ -63,7 +77,11 @@ export const addChart = ({ data, chart, width, height, margin, xAxisSelect }) =>
             x: x,
             format: xFormat
         })
-    })
+
+    }
+
+    xAxis.type.addEventListener('change', () => { updateChart() })
+    xAxis.exponent.addEventListener('change', () => { updateChart() })
 
     plotChart(chart, groupedData, x, y)
     addAxis({

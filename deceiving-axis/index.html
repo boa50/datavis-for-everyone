@@ -29,12 +29,17 @@
 
         <div id="sidebar">
             <div id="controls">
-                <label for="chart-xaxis">Select an X axis type:</label>
-                <select name="chart-xaxis" id="chart-xaxis">
+                <label for="chart-xaxis-type">Select an X axis type:</label>
+                <select name="chart-xaxis-type" id="chart-xaxis-type">
                     <option value="linear">Linear</option>
                     <option value="log">Logarithmic</option>
                     <option value="pow">Exponential</option>
                 </select>
+
+                </br>
+
+                <label for="chart-xaxis-exponent">Define the exponent (2 - 10):</label>
+                <input type="number" id="chart-xaxis-exponent" name="chart-xaxis-exponent" min="2" max="10" value="2" />
             </div>
 
             <div id="caption" class="flex justify-end h-full items-end pb-6">

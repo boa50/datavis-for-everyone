@@ -40,7 +40,8 @@ const getChart = (id, svgWidth) => d3
     .append('g')
     .attr('transform', `translate(${[margin.left, margin.top]})`)
 
-const xAxisSelect = document.getElementById('chart-xaxis')
+const xAxisType = document.getElementById('chart-xaxis-type')
+const xAxisExponent = document.getElementById('chart-xaxis-exponent')
 
 getData().then(datasets => {
     const salaries = datasets[0]
@@ -52,7 +53,10 @@ getData().then(datasets => {
         width: width,
         height: height,
         margin: margin,
-        xAxisSelect: xAxisSelect
+        xAxis: {
+            type: xAxisType,
+            exponent: xAxisExponent
+        }
     })
 
     addSalaryByGender({
@@ -61,7 +65,10 @@ getData().then(datasets => {
         width: width,
         height: height,
         margin: margin,
-        xAxisSelect: xAxisSelect
+        xAxis: {
+            type: xAxisType,
+            exponent: xAxisExponent
+        }
     })
 
     addWeightByHeight({
@@ -70,6 +77,9 @@ getData().then(datasets => {
         width: width * 2.15,
         height: height,
         margin: margin,
-        xAxisSelect: xAxisSelect
+        xAxis: {
+            type: xAxisType,
+            exponent: xAxisExponent
+        }
     })
 })

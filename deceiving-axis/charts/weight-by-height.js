@@ -1,5 +1,6 @@
 import { addAxis, updateXaxis } from "../../components/axis/script.js"
 import { colours } from "../constants.js"
+import { addHighlightTooltip } from "../../components/tooltip/script.js"
 
 const plotChart = (chart, data, x, y) => {
     chart
@@ -15,6 +16,8 @@ const plotChart = (chart, data, x, y) => {
         .transition()
         .attr('cx', d => x(d.Weight))
         .attr('cy', d => y(d.Height))
+
+    return chart.selectAll('.data-points')
 }
 
 export const addChart = ({
@@ -78,7 +81,28 @@ export const addChart = ({
     xAxis.type.addEventListener('change', () => { updateChart() })
     xAxis.exponent.addEventListener('change', () => { updateChart() })
 
-    plotChart(chart, data, x, y)
+    const chartElements = plotChart(chart, data, x, y)
+
+    const { mouseover, mousemove, mouseleave } = addHighlightTooltip(
+        'charts',
+        d => `  
+        <div style="display: flex; justify-content: space-between">
+            <span>Height:&emsp;</span>
+            <span>${d3.format('.2f')(d.Height)}m</span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+            <span>Weight:&emsp;</span>
+            <span>${d3.format('.0f')(d.Weight)}kg</span>
+        </div>
+        `,
+        chartElements,
+        { initial: 0.75, faded: 0.5, highlighted: 1 },
+    )
+    chartElements
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave)
+
     addAxis({
         chart: chart,
         height: height,

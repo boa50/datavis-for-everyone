@@ -52,3 +52,24 @@ export const addLineTooltip = (id, htmlText, colour) => {
 
     return { mouseover: customMouseOver, mousemove, mouseleave: customMouseLeave }
 }
+
+export const addHighlightTooltip = (
+    id, htmlText, elements,
+    opacity = {
+        initial: 0.75, highlighted: 1, faded: 0.25
+    }
+) => {
+    const { mouseover, mousemove, mouseleave } = addTooltip(id, htmlText)
+
+    const customMouseOver = function (event, d) {
+        elements.style('opacity', opacity.faded)
+        d3.select(this).style('opacity', opacity.highlighted)
+        mouseover(event, d)
+    }
+    const customMouseLeave = function (event, d) {
+        elements.style('opacity', opacity.initial)
+        mouseleave(event, d)
+    }
+
+    return { mouseover: customMouseOver, mousemove, mouseleave: customMouseLeave }
+}

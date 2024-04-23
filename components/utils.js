@@ -1,3 +1,4 @@
+// Based on: https://www.geeksforgeeks.org/calculate-the-width-of-the-text-in-javascript/
 export const getTextWidth = (txt, fontSize = '1rem') => {
     const text = document.createElement('span');
     document.body.appendChild(text);
@@ -18,3 +19,13 @@ export const getTextWidth = (txt, fontSize = '1rem') => {
 
 export const getTransformTranslate = transform =>
     transform.substring(transform.indexOf('(') + 1, transform.indexOf(')')).split(/[ ,]/).map(d => +d)
+
+export const formatCurrency = (value, decimals = false) =>
+    d3
+        .formatLocale({
+            thousands: ' ',
+            grouping: [3],
+            currency: ['$', '']
+        })
+        .format(decimals ? '$,.2f' : '$,.0f')
+        (value)

@@ -1,5 +1,7 @@
 import { addAxis, updateXaxis } from "../../components/axis/script.js"
 import { colours } from "../constants.js"
+import { addHighlightTooltip } from "../../components/tooltip/script.js"
+import { formatCurrency } from "../../components/utils.js"
 
 const plotChart = (chart, data, x, y) => {
     chart
@@ -13,6 +15,8 @@ const plotChart = (chart, data, x, y) => {
         .attr('fill', '#69b3a2')
         .transition()
         .attr('width', d => x(d[1]))
+
+    return chart.selectAll('.bars')
 }
 
 export const addChart = ({
@@ -83,7 +87,25 @@ export const addChart = ({
     xAxis.type.addEventListener('change', () => { updateChart() })
     xAxis.exponent.addEventListener('change', () => { updateChart() })
 
-    plotChart(chart, groupedData, x, y)
+    const chartElements = plotChart(chart, groupedData, x, y)
+
+    const { mouseover, mousemove, mouseleave } = addHighlightTooltip(
+        'charts',
+        d => `
+        <strong>${d[0] === 'M' ? 'Male' : 'Female'}</strong>   
+        <div style="display: flex; justify-content: space-between">
+            <span>Average Salary:&emsp;</span>
+            <span>${formatCurrency(d[1])}</span>
+        </div>
+        `,
+        chartElements,
+        { initial: 1, faded: 0.5, highlighted: 1 },
+    )
+    chartElements
+        .on('mouseover', mouseover)
+        .on('mousemove', mousemove)
+        .on('mouseleave', mouseleave)
+
     addAxis({
         chart: chart,
         height: height,
@@ -92,7 +114,7 @@ export const addChart = ({
         x: x,
         y: y,
         colour: colours.axis,
-        xLabel: 'Salary',
+        xLabel: 'Average Salary',
         yLabel: 'Gender',
         xFormat: xFormat
     })

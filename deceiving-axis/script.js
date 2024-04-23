@@ -26,19 +26,19 @@ const svgHeight = Math.floor(window.innerHeight / 2.3)
 const margin = {
     left: 64,
     right: 16,
-    top: 16,
-    bottom: 64
+    top: 8,
+    bottom: 56
 }
 
 const width = svgWidth - margin.left - margin.right
 const height = svgHeight - margin.top - margin.bottom
 
-const getChart = (id, svgWidth) => d3
+const getChart = (id, svgWidth, customMargin = margin) => d3
     .select(`#chart${id}`)
     .attr('width', svgWidth)
     .attr('height', svgHeight)
     .append('g')
-    .attr('transform', `translate(${[margin.left, margin.top]})`)
+    .attr('transform', `translate(${[customMargin.left, customMargin.top]})`)
 
 const xAxisType = document.getElementById('chart-xaxis-type')
 const xAxisExponent = document.getElementById('chart-xaxis-exponent')
@@ -71,12 +71,18 @@ getData().then(datasets => {
         }
     })
 
+    const chart3margin = {
+        ...margin,
+        top: 32
+    }
+    const chart3height = svgHeight - chart3margin.top - chart3margin.bottom
+
     addWeightByHeight({
         data: obesity,
-        chart: getChart(3, svgWidth * 2.025),
+        chart: getChart(3, svgWidth * 2.025, chart3margin),
         width: width * 2.15,
-        height: height,
-        margin: margin,
+        height: chart3height,
+        margin: chart3margin,
         xAxis: {
             type: xAxisType,
             exponent: xAxisExponent

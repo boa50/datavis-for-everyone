@@ -124,7 +124,10 @@ export const addChart = ({
     })
 
     const legendId = 'salary-by-department-legend'
-    chart.append('g').attr('id', legendId)
+    chart
+        .append('g')
+        .attr('id', legendId)
+        .attr('transform', 'translate(-64, -24)')
 
     addLegend({
         id: legendId,

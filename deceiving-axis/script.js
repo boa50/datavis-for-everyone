@@ -22,7 +22,7 @@ const getData = () =>
     ])
 
 const svgWidth = Math.floor(window.innerWidth / 3.15)
-const svgHeight = Math.floor(window.innerHeight / 2.3)
+const svgHeight = Math.floor(window.innerHeight / 2.35)
 const margin = {
     left: 64,
     right: 16,

@@ -1,15 +1,21 @@
 import { addAxis, updateXaxis } from "../../components/axis/script.js"
 import { colours } from "../constants.js"
 import { addHighlightTooltip } from "../../components/tooltip/script.js"
+import { addLegend } from "../../components/legend/script.js"
 
 const plotChart = (chart, data, x, y) => {
+    const colour = d3
+        .scaleOrdinal()
+        .domain(['Male', 'Female'])
+        .range([colours.male, colours.female])
+
     chart
         .selectAll('.data-points')
         .data(data)
         .join('circle')
         .attr('class', 'data-points')
         .attr('r', 3)
-        .attr('fill', '#69b3a2')
+        .attr('fill', d => colour(d.Gender))
         .style('opacity', 0.75)
         .attr('stroke', '#6b7280')
         .attr('stroke-width', 0.5)
@@ -86,6 +92,7 @@ export const addChart = ({
     const { mouseover, mousemove, mouseleave } = addHighlightTooltip(
         'charts',
         d => `  
+        <strong>${d.Gender}</strong>
         <div style="display: flex; justify-content: space-between">
             <span>Height:&emsp;</span>
             <span>${d3.format('.2f')(d.Height)}m</span>
@@ -114,5 +121,14 @@ export const addChart = ({
         xLabel: 'Weight',
         yLabel: 'Height (m)',
         xFormat: xFormat
+    })
+
+    const legendId = 'salary-by-department-legend'
+    chart.append('g').attr('id', legendId)
+
+    addLegend({
+        id: legendId,
+        legends: ['Male', 'Female'],
+        colours: [colours.male, colours.female]
     })
 }

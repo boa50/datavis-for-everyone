@@ -12,7 +12,7 @@ const plotChart = (chart, data, x, y) => {
         .attr('x', x(0))
         .attr('y', d => y(d[0]))
         .attr('height', y.bandwidth())
-        .attr('fill', '#69b3a2')
+        .attr('fill', colours.default)
         .transition()
         .attr('width', d => x(d[1]))
 

@@ -1,22 +1,4 @@
-// Based on: https://www.geeksforgeeks.org/calculate-the-width-of-the-text-in-javascript/
-const getTextWidth = txt => {
-
-    const text = document.createElement('span');
-    document.body.appendChild(text);
-
-    text.style.font = 'times new roman';
-    text.style.fontSize = 16 + 'px';
-    text.style.height = 'auto';
-    text.style.width = 'auto';
-    text.style.position = 'absolute';
-    text.style.whiteSpace = 'no-wrap';
-    text.innerHTML = txt;
-
-    const width = Math.ceil(text.clientWidth);
-    document.body.removeChild(text);
-
-    return width
-}
+import { getTextWidth } from "../utils.js"
 
 export const addLegend = ({
     id,

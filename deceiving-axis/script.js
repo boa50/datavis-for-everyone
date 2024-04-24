@@ -21,7 +21,7 @@ const getData = () =>
             }))
     ])
 
-const svgHeight = (window.innerHeight - document.getElementById("header").offsetHeight) / 2 - 56
+const svgHeight = (window.innerHeight - document.getElementById("header").offsetHeight) / 2 - 72
 const defaultMargin = {
     left: 64,
     right: 16,

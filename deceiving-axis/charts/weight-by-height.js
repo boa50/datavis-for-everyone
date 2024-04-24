@@ -26,14 +26,7 @@ const plotChart = (chart, data, x, y) => {
     return chart.selectAll('.data-points')
 }
 
-export const addChart = ({
-    data,
-    chartProps,
-    xAxis = {
-        type,
-        exponent
-    }
-}) => {
+export const addChart = (data, chartProps) => {
     const { chart, width, height, margin } = chartProps
 
     let x = d3
@@ -47,44 +40,6 @@ export const addChart = ({
         .range([height, 0])
 
     const xFormat = d => `${d}kg`
-
-    const updateChart = () => {
-        const scale = xAxis.type.value
-        const exponent = xAxis.exponent.value
-
-        switch (scale) {
-            case 'linear':
-                x = d3
-                    .scaleLinear()
-                    .domain(d3.extent(data, d => d.Weight))
-                    .range([0, width])
-                break;
-            case 'log':
-                x = d3
-                    .scaleLog()
-                    .domain(d3.extent(data, d => d.Weight))
-                    .range([0, width])
-                    .base(2)
-                break;
-            case 'pow':
-                x = d3
-                    .scalePow()
-                    .domain(d3.extent(data, d => d.Weight))
-                    .range([0, width])
-                    .exponent(exponent)
-                break;
-        }
-
-        plotChart(chart, data, x, y)
-        updateXaxis({
-            chart: chart,
-            x: x,
-            format: xFormat
-        })
-    }
-
-    xAxis.type.addEventListener('change', () => { updateChart() })
-    xAxis.exponent.addEventListener('change', () => { updateChart() })
 
     const chartElements = plotChart(chart, data, x, y)
 
@@ -133,4 +88,36 @@ export const addChart = ({
         legends: ['Male', 'Female'],
         colours: [colours.male, colours.female]
     })
+
+    return (scale, exponent) => {
+        switch (scale) {
+            case 'linear':
+                x = d3
+                    .scaleLinear()
+                    .domain(d3.extent(data, d => d.Weight))
+                    .range([0, width])
+                break;
+            case 'log':
+                x = d3
+                    .scaleLog()
+                    .domain(d3.extent(data, d => d.Weight))
+                    .range([0, width])
+                    .base(2)
+                break;
+            case 'pow':
+                x = d3
+                    .scalePow()
+                    .domain(d3.extent(data, d => d.Weight))
+                    .range([0, width])
+                    .exponent(exponent)
+                break;
+        }
+
+        plotChart(chart, data, x, y)
+        updateXaxis({
+            chart: chart,
+            x: x,
+            format: xFormat
+        })
+    }
 }

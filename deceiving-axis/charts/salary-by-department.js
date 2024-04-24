@@ -19,14 +19,7 @@ const plotChart = (chart, data, x, y) => {
     return chart.selectAll('.bars')
 }
 
-export const addChart = ({
-    data,
-    chartProps,
-    xAxis = {
-        type,
-        exponent
-    }
-}) => {
+export const addChart = (data, chartProps) => {
     const { chart, width, height, margin } = chartProps
 
     const groupedData = d3
@@ -51,44 +44,6 @@ export const addChart = ({
         .padding(0.2)
 
     const xFormat = d3.format('$.2s')
-
-    const updateChart = () => {
-        const scale = xAxis.type.value
-        const exponent = xAxis.exponent.value
-
-        switch (scale) {
-            case 'linear':
-                x = d3
-                    .scaleLinear()
-                    .domain([0, d3.max(groupedDataFiltered, d => d[1])])
-                    .range([0, width])
-                break;
-            case 'log':
-                x = d3
-                    .scaleLog()
-                    .domain([1, d3.max(groupedDataFiltered, d => d[1])])
-                    .range([0, width])
-                    .base(2)
-                break;
-            case 'pow':
-                x = d3
-                    .scalePow()
-                    .domain([0, d3.max(groupedDataFiltered, d => d[1])])
-                    .range([0, width])
-                    .exponent(exponent)
-                break;
-        }
-
-        plotChart(chart, groupedDataFiltered, x, y)
-        updateXaxis({
-            chart: chart,
-            x: x,
-            format: xFormat
-        })
-    }
-
-    xAxis.type.addEventListener('change', () => { updateChart() })
-    xAxis.exponent.addEventListener('change', () => { updateChart() })
 
     const chartElements = plotChart(chart, groupedDataFiltered, x, y)
 
@@ -121,4 +76,36 @@ export const addChart = ({
         yLabel: 'Department',
         xFormat: xFormat
     })
+
+    return (scale, exponent) => {
+        switch (scale) {
+            case 'linear':
+                x = d3
+                    .scaleLinear()
+                    .domain([0, d3.max(groupedDataFiltered, d => d[1])])
+                    .range([0, width])
+                break;
+            case 'log':
+                x = d3
+                    .scaleLog()
+                    .domain([1, d3.max(groupedDataFiltered, d => d[1])])
+                    .range([0, width])
+                    .base(2)
+                break;
+            case 'pow':
+                x = d3
+                    .scalePow()
+                    .domain([0, d3.max(groupedDataFiltered, d => d[1])])
+                    .range([0, width])
+                    .exponent(exponent)
+                break;
+        }
+
+        plotChart(chart, groupedDataFiltered, x, y)
+        updateXaxis({
+            chart: chart,
+            x: x,
+            format: xFormat
+        })
+    }
 }

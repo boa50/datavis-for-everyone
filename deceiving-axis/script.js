@@ -54,35 +54,29 @@ getData().then(datasets => {
     const salaries = datasets[0]
     const obesity = datasets[1]
 
-    addSalaryByDepartment({
-        data: salaries,
-        chartProps: getChart(1, 'chart1-container'),
-        xAxis: {
-            type: xAxisType,
-            exponent: xAxisExponent
-        }
-    })
+    const updateSalaryByDepartment = addSalaryByDepartment(
+        salaries, getChart(1, 'chart1-container')
+    )
 
-    addSalaryByGender({
-        data: salaries,
-        chartProps: getChart(2, 'chart2-container'),
-        xAxis: {
-            type: xAxisType,
-            exponent: xAxisExponent
-        }
-    })
+    const updateSalaryByGender = addSalaryByGender(
+        salaries, getChart(2, 'chart2-container')
+    )
 
     const chart3margin = {
         ...defaultMargin,
         top: 32
     }
 
-    addWeightByHeight({
-        data: obesity,
-        chartProps: getChart(3, 'chart3-container', chart3margin),
-        xAxis: {
-            type: xAxisType,
-            exponent: xAxisExponent
-        }
-    })
+    const updateWeightByHeight = addWeightByHeight(
+        obesity, getChart(3, 'chart3-container', chart3margin)
+    )
+
+    const updateCharts = () => {
+        updateSalaryByDepartment(xAxisType.value, xAxisExponent.value)
+        updateSalaryByGender(xAxisType.value, xAxisExponent.value)
+        updateWeightByHeight(xAxisType.value, xAxisExponent.value)
+    }
+
+    xAxisType.addEventListener('change', () => { updateCharts() })
+    xAxisExponent.addEventListener('change', () => { xAxisType.value === 'pow' ? updateCharts() : null })
 })

@@ -21,15 +21,14 @@ const plotChart = (chart, data, x, y) => {
 
 export const addChart = ({
     data,
-    chart,
-    width,
-    height,
-    margin,
+    chartProps,
     xAxis = {
         type,
         exponent
     }
 }) => {
+    const { chart, width, height, margin } = chartProps
+
     const groupedData = d3
         .flatRollup(data, v => d3.median(v, z => z.Base_Salary), d => d.Gender)
         .sort((a, b) => a[1] - b[1])
@@ -99,7 +98,7 @@ export const addChart = ({
         </div>
         `,
         chartElements,
-        { initial: 1, faded: 0.5, highlighted: 1 },
+        { initial: 0.9, faded: 0.5, highlighted: 1 },
     )
     chartElements
         .on('mouseover', mouseover)

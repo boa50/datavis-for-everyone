@@ -28,15 +28,14 @@ const plotChart = (chart, data, x, y) => {
 
 export const addChart = ({
     data,
-    chart,
-    width,
-    height,
-    margin,
+    chartProps,
     xAxis = {
         type,
         exponent
     }
 }) => {
+    const { chart, width, height, margin } = chartProps
+
     let x = d3
         .scaleLinear()
         .domain(d3.extent(data, d => d.Weight))

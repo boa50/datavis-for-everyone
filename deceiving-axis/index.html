@@ -4,65 +4,66 @@
     <meta charset="utf-8">
     <title>Deceiving Axis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../components/slider/style.css">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100">
-    <div id="header" class="flex flex-col m-4">
-        <h1 id="title" class="title font-sans text-3xl text-gray-700">Deceiving Axis</h1>
-    </div>
+<body class="bg-gray-100 font-sans">
+    <div id="header" class="flex flex-row p-4 mb-4 bg-slate-800">
+        <h1 id="title" class="text-3xl text-gray-100">Deceiving Axis</h1>
 
-    <div class="grid grid-cols-3 gap-x-16 mx-8">
+        <div class="flex-auto"></div>
 
-        <div id="charts" class="grid grid-cols-2 col-span-2 gap-4">
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart1-container">
-                    <h3 class="font-sans text-base text-gray-700">Average Salary by Department (high variance)</h3>
-                    <svg id="chart1"></svg>
-                </div>
-            </div>
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart2-container">
-                    <h3 class="font-sans text-base text-gray-700">Average Salary by Gender (low variance)</h3>
-                    <svg id="chart2"></svg>
-                </div>
-            </div>
-            <div class="bg-white/75 px-4 py-2 rounded-sm col-span-2">
-                <div id="chart3-container">
-                    <h3 class="font-sans text-base text-gray-700">Weight by Height (correlation)</h3>
-                    <svg id="chart3"></svg>
-                </div>
-            </div>
-        </div>
-
-        <div id="sidebar" class="flex flex-col h-full">
-            <div id="controls">
-                <h3 class="font-sans text-base text-gray-700 mb-4">Controls</h3>
-
-                <label for="chart-xaxis-type">Select an X axis type:</label>
+        <div id="controls" class="flex flex-row space-x-8">
+            <div class="flex flex-col">
+                <label for="chart-xaxis-type" class="text-sm text-gray-100 mb-1">X axis type</label>
                 <select name="chart-xaxis-type" id="chart-xaxis-type">
                     <option value="linear">Linear</option>
                     <option value="log">Logarithmic</option>
                     <option value="pow">Exponential</option>
                 </select>
-
-                </br>
-
-                <label for="chart-xaxis-exponent">Define the exponent (2 - 10):</label>
-                <input type="number" id="chart-xaxis-exponent" name="chart-xaxis-exponent" min="2" max="10" value="2" />
             </div>
 
-            <div class="flex-auto"></div>
-
-            <div id="caption" class="leading-none">
-                <span class="text-sm text-gray-500 max-w-xl">Data extracted from:
-                    https://www.kaggle.com/datasets/sahirmaharajj/employee-salaries-analysis and
-                    https://www.kaggle.com/datasets/fatemehmehrparvar/obesity-levels</span>
+            <div class="flex flex-col">
+                <label for="chart-xaxis-exponent" class="text-sm text-gray-100 mb-1">Exponential scale exponent</label>
+                <div class="flex-auto"></div>
+                <input type="range" id="chart-xaxis-exponent" name="chart-xaxis-exponent" class="mb-1.5" min="2"
+                    max="10" value="5" />
             </div>
         </div>
     </div>
 
+    <div class="mx-8">
+        <div id="charts" class="grid grid-cols-2 col-span-2 gap-4">
+            <div class="bg-white/75 px-4 py-2 rounded-sm">
+                <div id="chart1-container">
+                    <h3 class="text-base text-gray-700">Average Salary by Department (high variance)</h3>
+                    <svg id="chart1"></svg>
+                </div>
+            </div>
+            <div class="bg-white/75 px-4 py-2 rounded-sm">
+                <div id="chart2-container">
+                    <h3 class="text-base text-gray-700">Average Salary by Gender (low variance)</h3>
+                    <svg id="chart2"></svg>
+                </div>
+            </div>
+            <div class="bg-white/75 px-4 py-2 rounded-sm col-span-2">
+                <div id="chart3-container">
+                    <h3 class="text-base text-gray-700">Weight by Height (correlation)</h3>
+                    <svg id="chart3"></svg>
+                </div>
+            </div>
+        </div>
+
+        <div id="caption" class="leading-none flex justify-end m-2">
+            <span class="text-sm text-gray-400">Data extracted from:
+                https://www.kaggle.com/datasets/sahirmaharajj/employee-salaries-analysis and
+                https://www.kaggle.com/datasets/fatemehmehrparvar/obesity-levels</span>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script type="module" src="../components/slider/script.js"></script>
     <script type="module" src="./script.js"></script>
 </body>

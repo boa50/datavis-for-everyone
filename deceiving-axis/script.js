@@ -1,6 +1,7 @@
 import { addChart as addSalaryByDepartment } from './charts/salary-by-department.js'
 import { addChart as addSalaryByGender } from './charts/salary-by-gender.js'
 import { addChart as addWeightByHeight } from './charts/weight-by-height.js'
+import { handleInputChange } from '../components/slider/script.js'
 
 const getData = () =>
     Promise.all([
@@ -21,7 +22,7 @@ const getData = () =>
             }))
     ])
 
-const svgHeight = (window.innerHeight - document.getElementById("header").offsetHeight) / 2 - 72
+const svgHeight = (window.innerHeight - document.getElementById("header").offsetHeight) / 2 - 74
 const defaultMargin = {
     left: 64,
     right: 16,
@@ -47,6 +48,7 @@ const getChart = (id, containerId, margin = defaultMargin) => {
 
 const xAxisType = document.getElementById('chart-xaxis-type')
 const xAxisExponent = document.getElementById('chart-xaxis-exponent')
+handleInputChange({ target: xAxisExponent })
 
 getData().then(datasets => {
     const salaries = datasets[0]

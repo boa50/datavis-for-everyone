@@ -71,5 +71,8 @@ export const addHighlightTooltip = (
         mouseleave(event, d)
     }
 
-    return { mouseover: customMouseOver, mousemove, mouseleave: customMouseLeave }
+    elements
+        .on('mouseover', customMouseOver)
+        .on('mousemove', mousemove)
+        .on('mouseleave', customMouseLeave)
 }

@@ -43,9 +43,9 @@ export const addChart = (data, chartProps) => {
 
     const chartElements = plotChart(chart, data, x, y)
 
-    const { mouseover, mousemove, mouseleave } = addHighlightTooltip(
+    addHighlightTooltip(
         'charts',
-        d => `  
+        d => `
         <strong>${d.Gender}</strong>
         <div style="display: flex; justify-content: space-between">
             <span>Height:&emsp;</span>
@@ -59,10 +59,6 @@ export const addChart = (data, chartProps) => {
         chartElements,
         { initial: 0.75, faded: 0.5, highlighted: 1 },
     )
-    chartElements
-        .on('mouseover', mouseover)
-        .on('mousemove', mousemove)
-        .on('mouseleave', mouseleave)
 
     addAxis({
         chart: chart,

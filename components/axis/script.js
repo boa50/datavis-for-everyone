@@ -119,7 +119,8 @@ export const updateXaxis = ({
                 .duration(transitionDuration * 0.1)
                 .style('opacity', 0)
         })
-        .on('end', () => { hideOverlappingTicks(axis, transitionDuration * 0.9) })
+        .end()
+        .then(() => { hideOverlappingTicks(axis, transitionDuration * 0.9) })
 }
 
 export const updateYaxis = ({

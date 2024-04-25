@@ -49,6 +49,7 @@ export const getChart = (
         .attr('width', svgWidth)
         .attr('height', svgHeight)
         .append('g')
+        .attr('id', `${id}-main-g`)
         .attr('transform', `translate(${[margin.left, margin.top]})`)
 
     return { chart, width, height, margin }

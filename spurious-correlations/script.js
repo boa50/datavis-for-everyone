@@ -1,7 +1,6 @@
 import { getChart } from "../components/utils.js";
 import { plotChart } from "./charts/awards-by-searches.js";
 
-const svgWidth = 1080
 const svgHeight = window.innerHeight / 2
 
 plotChart(getChart(

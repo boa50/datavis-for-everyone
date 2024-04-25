@@ -23,9 +23,9 @@ df = df[(df["year"] >= 2010) & (df["year"] <= 2021)]
 
 df = df.sort_values(by=["country", "year"])
 
-df["continent"] = df.groupby("country")["continent"].transform(
-    lambda x: x.replace(to_replace=None, method="ffill")
-)
+df[["continent", "lifeSatisfaction", "gdpPerCapita"]] = df.groupby("country")[
+    ["continent", "lifeSatisfaction", "gdpPerCapita"]
+].transform(lambda x: x.replace(to_replace=None, method="ffill"))
 
 df = df[df["year"] == 2021]
 

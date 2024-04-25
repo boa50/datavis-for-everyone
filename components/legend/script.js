@@ -56,6 +56,28 @@ export const addLegend = ({
             .attr('fill', colour)
             .text(legendText)
 
-        xSpace += getTextWidth(legendText)
+        xSpace += getTextWidth(legendText, '0.875rem') + 10
+    })
+}
+
+export const addLegendV2 = ({
+    chart,
+    legends,
+    colours = 'black',
+    shapes = undefined,
+    xPos = 0,
+    yPos = 0
+}) => {
+    const legendId = chart.attr('id') + '-legend'
+    chart
+        .append('g')
+        .attr('id', legendId)
+        .attr('transform', `translate(${[xPos, yPos]})`)
+
+    addLegend({
+        id: legendId,
+        legends: legends,
+        colours: colours,
+        shapes: shapes
     })
 }

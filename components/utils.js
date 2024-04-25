@@ -29,3 +29,27 @@ export const formatCurrency = (value, decimals = false) =>
         })
         .format(decimals ? '$,.2f' : '$,.0f')
         (value)
+
+export const getChart = (
+    id,
+    svgWidth,
+    svgHeight,
+    margin = {
+        left: 64,
+        right: 16,
+        top: 8,
+        bottom: 56
+    }
+) => {
+    const width = svgWidth - margin.left - margin.right
+    const height = svgHeight - margin.top - margin.bottom
+
+    const chart = d3
+        .select(`#${id}`)
+        .attr('width', svgWidth)
+        .attr('height', svgHeight)
+        .append('g')
+        .attr('transform', `translate(${[margin.left, margin.top]})`)
+
+    return { chart, width, height, margin }
+}

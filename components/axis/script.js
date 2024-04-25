@@ -1,7 +1,9 @@
 import { getTextWidth, getTransformTranslate } from "../utils.js"
 
-export const adjustColours = (g, colour) => {
-    g.select('.domain').attr('stroke', colour)
+export const adjustColours = (g, colour, hideYdomain) => {
+    if (hideYdomain) g.select('.domain').attr('stroke', 'transparent')
+    else g.select('.domain').attr('stroke', colour)
+
     g.selectAll('text').attr('fill', colour)
 }
 
@@ -13,12 +15,16 @@ export const addAxis = (
         margin = {},
         x,
         y,
+        yRight = undefined,
         xLabel = '',
         yLabel = '',
+        yRightLabel = '',
         colour = 'black',
         xFormat = undefined,
         yFormat = undefined,
-        xTickValues = undefined
+        yRightFormat = undefined,
+        xTickValues = undefined,
+        hideYdomain = false
     }
 ) => {
     chart
@@ -60,7 +66,30 @@ export const addAxis = (
             .attr('transform', 'rotate(270)')
             .attr('text-anchor', 'middle')
             .text(yLabel))
-        .call(g => adjustColours(g, colour))
+        .call(g => adjustColours(g, colour, hideYdomain))
+
+    if (yRight !== undefined) {
+        chart
+            .append('g')
+            .attr('class', 'yRight-axis-group')
+            .style('font-size', '0.8rem')
+            .attr('transform', `translate(${width}, 0)`)
+            .call(
+                d3
+                    .axisRight(yRight)
+                    .tickSize(0)
+                    .tickPadding(10)
+                    .tickFormat(yRightFormat)
+            )
+            .call(g => g
+                .append('text')
+                .attr('x', height / 2)
+                .attr('y', -50)
+                .attr('transform', 'rotate(90)')
+                .attr('text-anchor', 'middle')
+                .text(yRightLabel))
+            .call(g => adjustColours(g, colour, hideYdomain))
+    }
 }
 
 const hideOverlappingTicks = (axis, transitionDuration) => {

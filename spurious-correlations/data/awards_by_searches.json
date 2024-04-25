@@ -1,0 +1,57 @@
+[
+    {
+        "awards": 1644,
+        "searches": 0,
+        "year": 2011
+    },
+    {
+        "awards": 1529,
+        "searches": 1,
+        "year": 2012
+    },
+    {
+        "awards": 1801,
+        "searches": 3.25,
+        "year": 2013
+    },
+    {
+        "awards": 2148,
+        "searches": 5.75,
+        "year": 2014
+    },
+    {
+        "awards": 2697,
+        "searches": 16.0833,
+        "year": 2015
+    },
+    {
+        "awards": 3027,
+        "searches": 30.75,
+        "year": 2016
+    },
+    {
+        "awards": 3454,
+        "searches": 45.8333,
+        "year": 2017
+    },
+    {
+        "awards": 4135,
+        "searches": 56.8333,
+        "year": 2018
+    },
+    {
+        "awards": 4632,
+        "searches": 69.1667,
+        "year": 2019
+    },
+    {
+        "awards": 4851,
+        "searches": 72.5,
+        "year": 2020
+    },
+    {
+        "awards": 4842,
+        "searches": 66.9167,
+        "year": 2021
+    }
+]

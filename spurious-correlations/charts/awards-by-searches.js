@@ -16,13 +16,13 @@ export const plotChart = chartProps => {
 
         const yLeft = d3
             .scaleLinear()
-            .domain(d3.extent(data, d => d.awards))
-            .range([height, 0])
+            .domain(d3.extent(data, d => d.awards).map((d, i) => d * [0.95, 1.01][i]))
+            .range([height - 8, 0])
 
         const yRight = d3
             .scaleLinear()
-            .domain(d3.extent(data, d => d.searches))
-            .range([height, 0])
+            .domain(d3.extent(data, d => d.searches).map((d, i) => d * [1, 1.01][i]))
+            .range([height - 8, 0])
 
         const lineAwards = d3
             .line()
@@ -44,11 +44,13 @@ export const plotChart = chartProps => {
             xLabel: 'Year',
             yLabel: 'Degrees awarded',
             yRightLabel: 'Relative search volume',
+            xFormat: d3.format(''),
+            yFormat: d3.format('.2s'),
             colour: colours.axis,
             hideYdomain: true
         })
 
-        const strokeWidth = 3
+        const strokeWidth = 5
         chart
             .append('path')
             .datum(data)
@@ -68,7 +70,9 @@ export const plotChart = chartProps => {
         addLegend({
             chart: chart,
             legends: ['Degrees awarded', 'Search volume'],
-            colours: [colours.line1, colours.line2]
+            colours: [colours.line1, colours.line2],
+            xPos: -64,
+            yPos: -8
         })
     })
 }

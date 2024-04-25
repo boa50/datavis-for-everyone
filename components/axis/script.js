@@ -1,6 +1,6 @@
 import { getTextWidth, getTransformTranslate } from "../utils.js"
 
-export const adjustColours = (g, colour, hideYdomain) => {
+export const adjustColours = (g, colour, hideYdomain = false) => {
     if (hideYdomain) g.select('.domain').attr('stroke', 'transparent')
     else g.select('.domain').attr('stroke', colour)
 
@@ -155,7 +155,8 @@ export const updateXaxis = ({
 export const updateYaxis = ({
     chart,
     y,
-    format = undefined
+    format = undefined,
+    hideDomain = false
 }) => {
     const colour = chart
         .select('.y-axis-group')
@@ -171,5 +172,5 @@ export const updateYaxis = ({
                 .tickPadding(10)
                 .tickFormat(format)
         )
-        .call(g => adjustColours(g, colour))
+        .call(g => adjustColours(g, colour, hideDomain))
 }

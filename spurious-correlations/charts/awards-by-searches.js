@@ -1,6 +1,7 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../components/axis/script.js"
 import { addLegendV2 as addLegend } from "../../components/legend/script.js"
+import { addLineTooltip } from "../../components/tooltip/script.js"
 
 const getData = () =>
     d3.json('./data/awards_by_searches.json')
@@ -66,6 +67,51 @@ export const plotChart = chartProps => {
             .attr('stroke', colours.line2)
             .attr('stroke-width', strokeWidth)
             .attr('d', d => lineSearches(d))
+
+
+        addLineTooltip(
+            'charts',
+            d => `
+            <div style="display: flex; justify-content: space-between">
+                <span>Year:&emsp;</span>
+                <span>${d.year}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Degrees Awarded:&emsp;</span>
+                <span>${d.awards}</span>
+            </div>
+            `,
+            colours.line1,
+            {
+                chart: chart,
+                data: data,
+                cx: d => x(d.year),
+                cy: d => yLeft(d.awards),
+                radius: 5
+            }
+        )
+
+        addLineTooltip(
+            'charts',
+            d => `
+            <div style="display: flex; justify-content: space-between">
+                <span>Year:&emsp;</span>
+                <span>${d.year}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Search Volume:&emsp;</span>
+                <span>${d3.format('.1f')(d.searches)}</span>
+            </div>
+            `,
+            colours.line2,
+            {
+                chart: chart,
+                data: data,
+                cx: d => x(d.year),
+                cy: d => yRight(d.searches),
+                radius: 5
+            }
+        )
 
         addLegend({
             chart: chart,

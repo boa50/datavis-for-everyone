@@ -20,6 +20,27 @@ plotGdpVsHappiness(
     getChart(
         'chart2',
         document.getElementById('chart2-container').offsetWidth,
-        svgHeight
+        svgHeight,
+        {
+            left: 64,
+            right: 16,
+            top: 32,
+            bottom: 56
+        }
+    ),
+    false
+)
+
+plotGdpVsHappiness(
+    getChart(
+        'chart3',
+        document.getElementById('chart2-container').offsetWidth,
+        svgHeight,
+        {
+            left: 64,
+            right: 16,
+            top: 32,
+            bottom: 56
+        }
     )
 )

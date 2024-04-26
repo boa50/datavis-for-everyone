@@ -38,7 +38,13 @@ export const addTooltip = (id, htmlText) => {
     return { mouseover, mousemove, mouseleave }
 }
 
-export const addLineTooltip = (id, htmlText, colour) => {
+export const addLineTooltip = (id, htmlText, colour, elements = {
+    chart: undefined,
+    data,
+    cx,
+    cy,
+    radius: 4
+}) => {
     const { mouseover, mousemove, mouseleave } = addTooltip(id, htmlText)
 
     const customMouseOver = function (event, d) {
@@ -48,6 +54,23 @@ export const addLineTooltip = (id, htmlText, colour) => {
     const customMouseLeave = function (event, d) {
         d3.select(this).attr('fill', 'transparent')
         mouseleave(event, d)
+    }
+
+    if (elements.chart !== undefined) {
+        elements.chart
+            .append('g')
+            .selectAll('.dot')
+            .data(elements.data)
+            .join('circle')
+            .attr('cx', elements.cx)
+            .attr('cy', elements.cy)
+            .attr('r', elements.radius)
+            .attr('stroke', 'transparent')
+            .attr('stroke-width', 12)
+            .attr('fill', 'transparent')
+            .on('mouseover', customMouseOver)
+            .on('mousemove', mousemove)
+            .on('mouseleave', customMouseLeave)
     }
 
     return { mouseover: customMouseOver, mousemove, mouseleave: customMouseLeave }

@@ -5,14 +5,16 @@ import { formatCurrency } from "../../components/utils.js"
 import { addHighlightTooltip } from "../../components/tooltip/script.js"
 
 const getData = () =>
-    d3.csv('./data/gdp-vs-happiness-2021.csv')
-        .then(d => d.map(v => {
-            return {
-                ...v,
-                gdpPerCapita: +v.gdpPerCapita,
-                lifeSatisfaction: +v.lifeSatisfaction
-            }
-        }))
+    d3.csv('./data/gdp-vs-happiness-cleansed.csv')
+        .then(d => d
+            .filter(v => v.year === '2021')
+            .map(v => {
+                return {
+                    ...v,
+                    gdpPerCapita: +v.gdpPerCapita,
+                    lifeSatisfaction: +v.lifeSatisfaction
+                }
+            }))
 
 const getScales = (data, height, width, linearScales = true) => {
     let x, y

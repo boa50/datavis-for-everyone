@@ -23,18 +23,16 @@ df = df[(df["year"] >= 2010) & (df["year"] <= 2021)]
 
 df = df.sort_values(by=["country", "year"])
 
+df["continent"] = df.groupby("country")["continent"].transform(
+    lambda x: x.replace(to_replace=None, method="bfill")
+)
+
 df[["continent", "lifeSatisfaction", "gdpPerCapita"]] = df.groupby("country")[
     ["continent", "lifeSatisfaction", "gdpPerCapita"]
 ].transform(lambda x: x.replace(to_replace=None, method="ffill"))
 
-df = df[df["year"] == 2021]
-
 df = df[~df.isna().any(axis=1)]
 
-df = (
-    df[["continent", "country", "lifeSatisfaction", "gdpPerCapita"]]
-    .sort_values(by=["continent", "country"])
-    .reset_index(drop=True)
-)
+df = df.sort_values(by=["year", "continent", "country"]).reset_index(drop=True)
 
-df.to_csv(get_path("gdp-vs-happiness-2021.csv"), index=False)
+df.to_csv(get_path("gdp-vs-happiness-cleansed.csv"), index=False)

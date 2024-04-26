@@ -25,6 +25,7 @@ export const addAxis = (
         yRightFormat = undefined,
         xTickValues = undefined,
         yTickValues = undefined,
+        yRightTickValues = undefined,
         hideYdomain = false
     }
 ) => {
@@ -82,6 +83,7 @@ export const addAxis = (
                     .tickSize(0)
                     .tickPadding(10)
                     .tickFormat(yRightFormat)
+                    .tickValues(yRightTickValues)
             )
             .call(g => g
                 .append('text')

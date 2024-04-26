@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Spurious Correlations</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
@@ -60,9 +61,34 @@
                         World in Data</span>
                 </div>
             </div>
+            <div class="bg-white/75 px-4 py-2 rounded-sm">
+                <div id="chart4-container">
+                    <div class="flex flex-row">
+                        <h3 class="text-base text-gray-700 font-medium">Life Satisfaction and GDP per Capita per Year
+                        </h3>
+
+                        <div class="flex-auto"></div>
+
+                        <div id="chart4-countries-select" class="flex flex-row self-center items-center text-sm">
+                            <label for="chart4-countries" class="text-gray-600 mb-px">Countries:&emsp;</label>
+                            <select name="chart4-countries" id="chart4-countries" multiple multiselect-search="true"
+                                multiselect-hide-x="true" multiselect-select-all="true" multiselect-max-items="2">
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <svg id="chart4"></svg>
+            </div>
+            <div id="chart4-caption" class="leading-none flex justify-end mx-2">
+                <span class="text-sm text-gray-400">World Happiness Report (2023) – processed by Our
+                    World in Data</span>
+            </div>
         </div>
+    </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script type="module" src="../components/html/select/multiselect-dropdown.js"></script>
     <script type="module" src="./script.js"></script>
 </body>

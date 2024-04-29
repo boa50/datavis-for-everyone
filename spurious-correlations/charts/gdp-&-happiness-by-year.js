@@ -2,13 +2,20 @@ import { colours } from "../constants.js"
 import { addAxis } from "../../components/axis/script.js"
 import { addLegendV2, addLegend } from "../../components/legend/script.js"
 import { formatCurrency } from "../../components/utils.js"
+import { addLineTooltip } from "../../components/tooltip/script.js"
 
-const drawChart = ({
+export const updateChart = ({
     data,
     chart,
     lineLifeSatisfaction,
     lineGdp,
-    countries
+    x,
+    yLeft,
+    yRight,
+    countries,
+    mouseover,
+    mousemove,
+    mouseleave
 }) => {
     const dataFiltered = data.filter(d => countries.includes(d.country))
     const dataGrouped = d3.group(dataFiltered, d => d.country)
@@ -65,23 +72,27 @@ const drawChart = ({
         legends: countries,
         colours: countries.map(country => colourLifeSatisfaction(country))
     })
-}
 
+    const drawTooltipDots = (dotsClass, cy) => {
+        chart
+            .select('.tooltipDots')
+            .selectAll(`.${dotsClass}`)
+            .data(dataFiltered)
+            .join('circle')
+            .attr('class', dotsClass)
+            .attr('cx', d => x(d.year))
+            .attr('cy', cy)
+            .attr('r', 4)
+            .attr('stroke', 'transparent')
+            .attr('stroke-width', 12)
+            .attr('fill', 'transparent')
+            .on('mouseover', mouseover)
+            .on('mousemove', mousemove)
+            .on('mouseleave', mouseleave)
+    }
 
-export const updateChart = ({
-    data,
-    chart,
-    lineLifeSatisfaction,
-    lineGdp,
-    countries
-}) => {
-    drawChart({
-        data,
-        chart,
-        lineLifeSatisfaction,
-        lineGdp,
-        countries
-    })
+    drawTooltipDots('dotLifeSatisfaction', d => yLeft(d.lifeSatisfaction))
+    drawTooltipDots('dotGdpPerCapita', d => yRight(d.gdpPerCapita))
 }
 
 export const plotChart = (data, chartProps, countries) => {
@@ -132,60 +143,45 @@ export const plotChart = (data, chartProps, countries) => {
         yRightTickValues: gdpAxisTicks
     })
 
+    chart
+        .append('g')
+        .attr('class', 'tooltipDots')
+
+    const { mouseover, mousemove, mouseleave } = addLineTooltip(
+        'charts',
+        d => `
+            <strong>${d.country}</strong>
+            <div style="display: flex; justify-content: space-between">
+                <span>Year:&emsp;</span>
+                <span>${d.year}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Life Satisfaction:&emsp;</span>
+                <span>${d3.format('.2f')(d.lifeSatisfaction)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>GDP per Capita:&emsp;</span>
+                <span>${formatCurrency(d.gdpPerCapita)}k</span>
+            </div>
+            `,
+        colours.tootipDotBright
+    )
+
     const chartObject = {
         data,
         chart,
         lineLifeSatisfaction,
         lineGdp,
-        countries
+        x,
+        yLeft,
+        yRight,
+        countries,
+        mouseover,
+        mousemove,
+        mouseleave
     }
 
-    drawChart(chartObject)
+    updateChart(chartObject)
 
     return chartObject
-
-
-    // addLineTooltip(
-    //     'charts',
-    //     d => `
-    //     <div style="display: flex; justify-content: space-between">
-    //         <span>Year:&emsp;</span>
-    //         <span>${d.year}</span>
-    //     </div>
-    //     <div style="display: flex; justify-content: space-between">
-    //         <span>Degrees Awarded:&emsp;</span>
-    //         <span>${d.awards}</span>
-    //     </div>
-    //     `,
-    //     colours.line1,
-    //     {
-    //         chart: chart,
-    //         data: data,
-    //         cx: d => x(d.year),
-    //         cy: d => yLeft(d.awards),
-    //         radius: 5
-    //     }
-    // )
-
-    // addLineTooltip(
-    //     'charts',
-    //     d => `
-    //     <div style="display: flex; justify-content: space-between">
-    //         <span>Year:&emsp;</span>
-    //         <span>${d.year}</span>
-    //     </div>
-    //     <div style="display: flex; justify-content: space-between">
-    //         <span>Search Volume:&emsp;</span>
-    //         <span>${d3.format('.1f')(d.searches)}</span>
-    //     </div>
-    //     `,
-    //     colours.line2,
-    //     {
-    //         chart: chart,
-    //         data: data,
-    //         cx: d => x(d.year),
-    //         cy: d => yRight(d.searches),
-    //         radius: 5
-    //     }
-    // )
 }

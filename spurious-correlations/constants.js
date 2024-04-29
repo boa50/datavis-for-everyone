@@ -1,5 +1,6 @@
 export const colours = {
     axis: '#737373',
+    tootipDotBright: '#94a3b8',
     line1: '#0369a1',
     line2: '#c2410c',
     africa: '#f59e0b',

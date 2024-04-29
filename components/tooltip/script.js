@@ -40,9 +40,9 @@ export const addTooltip = (id, htmlText) => {
 
 export const addLineTooltip = (id, htmlText, colour, elements = {
     chart: undefined,
-    data,
-    cx,
-    cy,
+    data: undefined,
+    cx: undefined,
+    cy: undefined,
     radius: 4
 }) => {
     const { mouseover, mousemove, mouseleave } = addTooltip(id, htmlText)

@@ -34,7 +34,13 @@ df.columns = ["dt_txt", "unemploymentRate"]
 
 df["year"] = df["dt_txt"].str.split(expand=True).iloc[:, 1]
 
-df["month"] = df["dt_txt"].str.split("-", expand=True).iloc[:, 0]
+df["month"] = (
+    df["dt_txt"]
+    .str.split("-", expand=True)
+    .iloc[:, 2]
+    .str.split(expand=True)
+    .iloc[:, 0]
+)
 
 df["month_num"] = df["month"].apply(get_month_number)
 

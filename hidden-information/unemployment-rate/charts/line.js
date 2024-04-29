@@ -11,7 +11,7 @@ export const plotChart = (chartProps, data) => {
 
     const y = d3
         .scaleLinear()
-        .domain(d3.extent(data, d => d.unemploymentRate))
+        .domain(d3.extent(data, d => d.unemploymentRate).map((d, i) => d * [0, 1.2][i]))
         .range([height, 0])
 
     addAxis({
@@ -20,6 +20,9 @@ export const plotChart = (chartProps, data) => {
         width,
         x,
         y,
+        xLabel: 'Year',
+        yLabel: 'Unemployment rate',
+        yFormat: d => d3.format('.0%')(d / 100),
         colour: colours.axis,
         hideYdomain: true
     })

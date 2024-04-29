@@ -67,7 +67,7 @@ getData().then(gdpVsHappinesData => {
         {
             left: 64,
             right: 64,
-            top: 32,
+            top: 48,
             bottom: 56
         }
     )

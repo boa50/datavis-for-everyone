@@ -1,6 +1,6 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../components/axis/script.js"
-import { addLegendV2 as addLegend } from "../../components/legend/script.js"
+import { addLegendV2, addLegend } from "../../components/legend/script.js"
 import { formatCurrency } from "../../components/utils.js"
 
 const drawChart = ({
@@ -42,12 +42,28 @@ const drawChart = ({
         .attr('stroke-width', strokeWidth)
         .attr('d', d => lineGdp(d[1]))
 
+
+    if (chart.select(`#${chart.attr('id') + '-legend'}`).empty()) {
+        addLegendV2({
+            chart: chart,
+            legends: ['Life satisfaction', 'GDP per capita'],
+            colours: [colourLifeSatisfaction(countries[0]), colourGdp(countries[0])],
+            xPos: -64,
+            yPos: -52
+        })
+    }
+
+    const legendId = chart.attr('id') + '-legend-countries'
+    chart.select(`#${legendId}`).remove()
+    chart
+        .append('g')
+        .attr('id', legendId)
+        .attr('transform', `translate(-64, -30)`)
+
     addLegend({
-        chart: chart,
-        legends: ['Life satisfaction', 'GDP per capita'],
-        colours: [colourLifeSatisfaction(countries[0]), colourGdp(countries[0])],
-        xPos: -64,
-        yPos: -32
+        id: legendId,
+        legends: countries,
+        colours: countries.map(country => colourLifeSatisfaction(country))
     })
 }
 
@@ -59,9 +75,6 @@ export const updateChart = ({
     lineGdp,
     countries
 }) => {
-    const legendId = chart.attr('id') + '-legend'
-    chart.select(`#${legendId}`).remove()
-
     drawChart({
         data,
         chart,

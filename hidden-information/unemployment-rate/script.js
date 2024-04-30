@@ -3,7 +3,12 @@ import { plotChart } from "./charts/line.js";
 
 const getData = () =>
     d3.csv('./data/unemployment.csv')
-        .then(d => d.map(v => { return { unemploymentRate: +v.notWorking / +v.working, measureDate: new Date(v.isoDate) } }))
+        .then(d => d.map(v => {
+            return {
+                unemploymentRate: +v.notWorking / (+v.working + +v.notWorking),
+                measureDate: new Date(v.isoDate + 'T03:00:00Z')
+            }
+        }))
 
 const svgHeight = window.innerHeight - document.getElementById('header').offsetHeight - document.getElementById('caption').offsetHeight - 72
 

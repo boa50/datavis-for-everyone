@@ -30,6 +30,23 @@ export const formatCurrency = (value, decimals = false) =>
         .format(decimals ? '$,.2f' : '$,.0f')
         (value)
 
+export const formatDate = (value, year = true, month = true, day = false) => {
+    let options = {
+        year: "numeric",
+        month: "long",
+        day: "numeric"
+    }
+
+    if (year && month && !day) {
+        options = {
+            year: "numeric",
+            month: "long"
+        }
+    }
+
+    return new Intl.DateTimeFormat('en-AU', options).format(value)
+}
+
 export const getChart = (
     id,
     svgWidth,

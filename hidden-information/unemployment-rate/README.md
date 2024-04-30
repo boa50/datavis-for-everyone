@@ -4,3 +4,10 @@ Sources:
  - https://courses.lumenlearning.com/wm-macroeconomics/chapter/calculating-the-unemployment-rate/#:~:text=We%20can%20calculate%20the%20unemployment,force%2C%20then%20multiplying%20by%20100.
  - https://www.ibge.gov.br/explica/desemprego.php (in Portuguese)
  - https://www.ibge.gov.br/estatisticas/sociais/trabalho/9173-pesquisa-nacional-por-amostra-de-domicilios-continua-trimestral.html?=&t=series-historicas (dataset, in Portuguese)
+ - https://sidra.ibge.gov.br/tabela/4093 (tabela4093.csv)
+
+Variables used to extrct data:
+ - Pessoas de 14 anos ou mais de idade (Mil pessoas)
+ - Pessoas de 14 anos ou mais de idade ocupadas na semana de referência (Mil pessoas)
+ - Pessoas de 14 anos ou mais de idade, desocupadas na semana de referência (Mil pessoas)
+ - Pessoas de 14 anos ou mais de idade, fora da força de trabalho, na semana de referência (Mil pessoas)

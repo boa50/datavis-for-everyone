@@ -7,48 +7,40 @@ def get_path(file_name):
     return path.join(path.dirname(path.realpath(__file__)), file_name)
 
 
-def get_month_number(month):
-    month_to_num_dict = {
-        "jan": "01",
-        "fev": "02",
-        "mar": "03",
-        "abr": "04",
-        "mai": "05",
-        "jun": "06",
-        "jul": "07",
-        "ago": "08",
-        "set": "09",
-        "out": "10",
-        "nov": "11",
-        "dez": "12",
-    }
+def get_dt_from_quarter(quarter):
+    year = quarter[-4:]
+    month = str(int(quarter[:1]) * 3).rjust(2, "0")
 
-    return month_to_num_dict[month]
+    return year + "-" + month + "-01"
 
 
-df = pd.read_csv(get_path("unemployment_raw.csv"))
+df_total = pd.read_csv(get_path("tabela4093.csv"), skiprows=3, nrows=2)
+df_working = pd.read_csv(get_path("tabela4093.csv"), skiprows=11, nrows=2)
+df_not_working = pd.read_csv(get_path("tabela4093.csv"), skiprows=19, nrows=2)
+df_out_workforce = pd.read_csv(get_path("tabela4093.csv"), skiprows=27, nrows=2)
 
-df = df.transpose().reset_index()
+df_total = df_total.transpose().reset_index().iloc[1:, [0, 2]]
+df_working = df_working.transpose().reset_index().iloc[1:, [0, 2]]
+df_not_working = df_not_working.transpose().reset_index().iloc[1:, [0, 2]]
+df_out_workforce = df_out_workforce.transpose().reset_index().iloc[1:, [0, 2]]
 
-df.columns = ["dt_txt", "unemploymentRate"]
+df_total.columns = ["quarter", "total"]
+df_working.columns = ["quarter", "working"]
+df_not_working.columns = ["quarter", "notWorking"]
+df_out_workforce.columns = ["quarter", "outOfWorkforce"]
 
-df["year"] = df["dt_txt"].str.split(expand=True).iloc[:, 1]
-
-df["month"] = (
-    df["dt_txt"]
-    .str.split("-", expand=True)
-    .iloc[:, 2]
-    .str.split(expand=True)
-    .iloc[:, 0]
+df = (
+    df_total.merge(df_working, on="quarter")
+    .merge(df_not_working, on="quarter")
+    .merge(df_out_workforce, on="quarter")
 )
 
-df["month_num"] = df["month"].apply(get_month_number)
+df["isoDate"] = df["quarter"].apply(get_dt_from_quarter)
+df = df.iloc[:, 1:]
 
-df["isoDate"] = df["year"] + "-" + df["month_num"] + "-01"
-
-df = df[["isoDate", "unemploymentRate"]]
+assert df_total.shape[0] == df.shape[0]
 
 print("Number of NaN")
-print(df.isna().sum())
+print(df.isnull().sum())
 
 df.to_csv(get_path("unemployment.csv"), index=False)

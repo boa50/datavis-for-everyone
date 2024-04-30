@@ -22,7 +22,7 @@ export const plotChart = (chartProps, data) => {
         y,
         xLabel: 'Year',
         yLabel: 'Unemployment rate',
-        yFormat: d => d3.format('.0%')(d / 100),
+        yFormat: d3.format('.0%'),
         colour: colours.axis,
         hideYdomain: true
     })

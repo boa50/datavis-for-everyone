@@ -7,9 +7,9 @@ const getData = () =>
         .then(d => d.map(v => {
             return {
                 measureDate: new Date(v.isoDate + 'T03:00:00Z'),
-                working: +v.working,
-                notWorking: +v.notWorking,
-                outOfWorkforce: +v.outOfWorkforce,
+                working: +v.working * 1e3,
+                notWorking: +v.notWorking * 1e3,
+                outOfWorkforce: +v.outOfWorkforce * 1e3,
                 unemploymentRate: +v.notWorking / (+v.working + +v.notWorking)
             }
         }))

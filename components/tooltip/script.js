@@ -20,10 +20,12 @@ export const addTooltip = (id, htmlText) => {
             .style('top', `${event.y + 30}px`)
             .style('opacity', 1)
     }
-    const mousemove = event => {
+    const mousemove = (event, d) => {
         tooltip
             .style('left', `${event.x - 30}px`)
             .style('top', `${event.y + 30}px`)
+
+        if (d !== undefined) tooltip.html(htmlText(d))
     }
     const mouseleave = () => {
         tooltip

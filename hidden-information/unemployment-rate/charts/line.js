@@ -50,7 +50,7 @@ export const plotChart = (chartProps, data) => {
             <span>Unemployment Rate:&emsp;</span>
             <span>${d3.format('.2%')(d.unemploymentRate)}</span>
         </div>
-`,
+        `,
         colours.line,
         {
             chart,

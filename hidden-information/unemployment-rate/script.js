@@ -1,23 +1,45 @@
 import { getChart } from "../../components/utils.js";
-import { plotChart } from "./charts/line.js";
+import { plotChart as plotLine } from "./charts/line.js";
+import { plotChart as plotStackedArea } from "./charts/stacked-area.js";
 
 const getData = () =>
     d3.csv('./data/unemployment.csv')
         .then(d => d.map(v => {
             return {
-                unemploymentRate: +v.notWorking / (+v.working + +v.notWorking),
-                measureDate: new Date(v.isoDate + 'T03:00:00Z')
+                measureDate: new Date(v.isoDate + 'T03:00:00Z'),
+                working: +v.working,
+                notWorking: +v.notWorking,
+                outOfWorkforce: +v.outOfWorkforce,
+                unemploymentRate: +v.notWorking / (+v.working + +v.notWorking)
             }
         }))
 
-const svgHeight = window.innerHeight - document.getElementById('header').offsetHeight - document.getElementById('caption').offsetHeight - 72
+const svgHeight = (window.innerHeight
+    - document.getElementById('header').offsetHeight
+    - document.getElementById('caption').offsetHeight) / 2
+    - 64
 
 getData().then(data => {
-    plotChart(
+    plotLine(
         getChart(
             'chart1',
             document.getElementById('chart1-container').offsetWidth,
             svgHeight
+        ),
+        data
+    )
+
+    plotStackedArea(
+        getChart(
+            'chart2',
+            document.getElementById('chart2-container').offsetWidth,
+            svgHeight,
+            {
+                left: 64,
+                right: 16,
+                top: 32,
+                bottom: 56
+            }
         ),
         data
     )

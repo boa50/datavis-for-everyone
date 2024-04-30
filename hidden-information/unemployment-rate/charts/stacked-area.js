@@ -74,43 +74,56 @@ export const plotChart = (chartProps, data) => {
         const x_real_val = data[idx].measureDate
         const key = x_real_val.getTime()
 
-        return tooltipData[key]
+        return [tooltipData[key], key]
     }
 
     const { mouseover, mousemove, mouseleave } = addTooltip('charts', d => formatDate(d.x))
 
     const customMouseOver = function (event, d) {
-        const tooltipData = getTooltipDataPoint(event)
-        mouseover(event, tooltipData)
+        mouseover(event, "")
     }
     const customMouseMove = function (event, d) {
-        const tooltipData = getTooltipDataPoint(event)
+        const [tooltipData, key] = getTooltipDataPoint(event)
+        chart
+            .select('.tooltips')
+            .selectAll('line')
+            .attr('stroke', 'transparent')
+
+        chart
+            .select('.tooltips')
+            .select(`.tooltip${key}`)
+            .attr('stroke', 'black')
 
         mousemove(event, tooltipData)
     }
     const customMouseLeave = function (event, d) {
-        const tooltipData = getTooltipDataPoint(event)
-        // d3.select(this).attr('stroke', 'black')
+        chart
+            .select('.tooltips')
+            .selectAll('line')
+            .attr('stroke', 'transparent')
+
         mouseleave(event, d)
     }
 
-
-
-
     chart
         .append('g')
-        .selectAll('.dot')
-        .data(tooltipData)
-        .join('line')
-        .attr('x1', d => x(d.x))
-        .attr('x2', d => x(d.x))
-        .attr('y1', 0)
-        .attr('y2', height)
-        .attr('stroke', 'black')
-        .attr('stroke-width', 3)
+        .attr('class', 'tooltips')
+
+    for (let tooltip of Object.entries(tooltipData)) {
+        chart
+            .select('.tooltips')
+            .append('line')
+            .attr('class', 'tooltip' + tooltip[0])
+            .attr('x1', x(tooltip[1].x))
+            .attr('x2', x(tooltip[1].x))
+            .attr('y1', 0)
+            .attr('y2', height)
+            .attr('stroke', 'transparent')
+            .attr('stroke-width', 3)
+    }
 
     chart
-        .append('g')
+        .select('.tooltips')
         .append('rect')
         .attr('x', 0)
         .attr('y', 0)

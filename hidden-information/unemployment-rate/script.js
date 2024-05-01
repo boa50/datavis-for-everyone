@@ -1,6 +1,7 @@
 import { getChart } from "../../components/utils.js";
 import { plotChart as plotLine } from "./charts/line.js";
 import { plotChart as plotStackedArea } from "./charts/stacked-area.js";
+import { handleInputChange } from "../../components/html/slider/script.js";
 
 const getData = () =>
     d3.csv('./data/unemployment.csv')
@@ -18,6 +19,12 @@ const svgHeight = (window.innerHeight
     - document.getElementById('header').offsetHeight
     - document.getElementById('caption').offsetHeight) / 2
     - 64
+
+const percentReallyWorking = document.getElementById('percent-really-working')
+handleInputChange({ target: percentReallyWorking })
+
+const percentReallyOutOfWork = document.getElementById('percent-really-out-of-work')
+handleInputChange({ target: percentReallyOutOfWork })
 
 getData().then(data => {
     plotLine(

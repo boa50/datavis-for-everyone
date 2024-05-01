@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Unemployment Rate</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../components/html/slider/style.css">
     <!-- <link rel="stylesheet" href="./style.css"> -->
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
@@ -15,12 +16,6 @@
             <!-- PAGE LOGO -->
             <!-- <img src="./img/logo.svg" alt="dashboard logo" class="max-h-10 mx-4" /> -->
             <h1 id="title" class="text-3xl text-gray-600 self-center font-medium">Unemployment Rate</h1>
-        </div>
-
-        <div class="flex-auto"></div>
-
-        <!-- RIGHT SIDE HEADER -->
-        <div id="controls" class="flex flex-row space-x-8 mr-8">
         </div>
     </div>
 
@@ -41,6 +36,16 @@
             </div>
         </div>
 
+        <div id="controls" class="col-span-1 flex flex-col gap-4">
+            <label for="percent-really-working" class="text-sm text-gray-600 mb-px">Percentage of people really
+                working</label>
+            <input type="range" id="percent-really-working" name="percent-really-working" class="mb-2.5" min="0"
+                max="100" value="100" />
+            <label for="percent-really-out-of-work" class="text-sm text-gray-600 mb-px">Percentage of people really
+                unable to work</label>
+            <input type="range" id="percent-really-out-of-work" name="percent-really-out-of-work" class="mb-2.5" min="0"
+                max="100" value="100" />
+        </div>
     </div>
     <!-- CAPTION -->
     <div id="caption" class="leading-none flex justify-end m-2 mx-4">
@@ -49,5 +54,6 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+    <script type="module" src="../../components/html/slider/script.js"></script>
     <script type="module" src="./script.js"></script>
 </body>

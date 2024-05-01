@@ -99,8 +99,8 @@ export const plotChart = (chartProps, data) => {
 
     addLegend({
         chart,
-        legends: ['Out of Workforce', 'Working', 'Not Working'],
-        colours: [colours.outOfWorkforce, colours.working, colours.notWorking],
+        legends: ['Not Working', 'Working', 'Out of Workforce'],
+        colours: [colours.notWorking, colours.working, colours.outOfWorkforce],
         xPos: -64,
         yPos: -32
     })

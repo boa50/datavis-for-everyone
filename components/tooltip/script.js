@@ -131,7 +131,7 @@ export const addVerticalTooltip = ({
 
     const tooltips = chart
         .append('g')
-        .attr('class', 'tooltips')
+        .attr('class', 'vertical-tooltip')
 
     const { mouseover, mousemove, mouseleave } = addTooltip(id, htmlText)
 
@@ -191,4 +191,8 @@ export const addVerticalTooltip = ({
         .on('mouseover', customMouseOver)
         .on('mousemove', customMouseMove)
         .on('mouseleave', customMouseLeave)
+}
+
+export const removeVerticalTooltip = chart => {
+    chart.select('.vertical-tooltip').remove()
 }

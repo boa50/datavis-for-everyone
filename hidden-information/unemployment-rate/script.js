@@ -1,6 +1,6 @@
 import { getChart } from "../../components/utils.js";
 import { addChart as addLine, updateChart as updateLine } from "./charts/line.js";
-import { addChart as addStackedArea } from "./charts/stacked-area.js";
+import { addChart as addStackedArea, updateChart as updateStackedArea } from "./charts/stacked-area.js";
 import { handleInputChange } from "../../components/html/slider/script.js";
 
 const getData = () =>
@@ -36,7 +36,7 @@ getData().then(data => {
         data
     )
 
-    addStackedArea(
+    const stackedAreaChartObject = addStackedArea(
         getChart(
             'chart2',
             document.getElementById('chart2-container').offsetWidth,
@@ -65,5 +65,6 @@ getData().then(data => {
         })
 
         updateLine({ ...lineChartObject, data: newData })
+        updateStackedArea({ ...stackedAreaChartObject, data: newData })
     })
 })

@@ -35,15 +35,32 @@
             </div>
         </div>
 
-        <div id="controls" class="col-span-1 flex flex-col gap-4">
-            <label for="percent-really-working" class="text-sm text-gray-600 mb-px">Percentage of people really
-                working</label>
-            <input type="range" id="percent-really-working" name="percent-really-working" class="mb-2.5" min="0"
-                max="100" value="100" />
-            <label for="percent-really-out-of-workforce" class="text-sm text-gray-600 mb-px">Percentage of people really
-                unable to work</label>
-            <input type="range" id="percent-really-out-of-workforce" name="percent-really-out-of-workforce"
-                class="mb-2.5" min="0" max="100" value="100" />
+        <div id="controls" class="flex flex-col gap-4">
+            <div class="flex flex-row justify-center">
+                <div class="flex flex-col gap-2 w-3/4">
+                    <label for="percent-working" class="text-sm text-gray-600">Percentage of people really
+                        working</label>
+
+                    <div class="flex flex-row gap-4 items-center">
+                        <input type="range" id="percent-working" name="percent-working" class="w-full" min="0" max="100"
+                            value="100" oninput="percentWorkingText.value=`${value}%`" />
+                        <output id="percentWorkingText" class="range-output min-w-16">100%</output>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-row justify-center">
+                <div class="flex flex-col gap-2 w-3/4">
+                    <label for="percent-out-of-workforce" class="text-sm text-gray-600">Percentage of people really
+                        unable to work</label>
+
+                    <div class="flex flex-row gap-4 items-center">
+                        <input type="range" id="percent-out-of-workforce" name="percent-out-of-workforce" class="w-full"
+                            min="0" max="100" value="100" oninput="percentOutOfWorkforceText.value=`${value}%`" />
+                        <output id="percentOutOfWorkforceText" class="range-output min-w-16">100%</output>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <!-- CAPTION -->

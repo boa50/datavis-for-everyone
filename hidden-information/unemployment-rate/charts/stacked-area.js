@@ -77,53 +77,68 @@ export const plotChart = (chartProps, data) => {
         return [tooltipData[key], key]
     }
 
+
+    const tooltips = chart
+        .append('g')
+        .attr('class', 'tooltips')
+
     const { mouseover, mousemove, mouseleave } = addTooltip('charts', d => formatDate(d.x))
+
+    const clearTooltips = () => {
+        tooltips
+            .selectAll('line')
+            .attr('stroke', 'transparent')
+        tooltips
+            .selectAll('circle')
+            .attr('fill', 'transparent')
+    }
+    const fillTooltips = key => {
+        tooltips
+            .selectAll(`.tooltip-line-${key}`)
+            .attr('stroke', '#a21caf')
+        tooltips
+            .selectAll(`.tooltip-circle-${key}`)
+            .attr('fill', '#a21caf')
+    }
 
     const customMouseOver = function (event, d) {
         mouseover(event, "")
     }
     const customMouseMove = function (event, d) {
         const [tooltipData, key] = getTooltipDataPoint(event)
-        chart
-            .select('.tooltips')
-            .selectAll('line')
-            .attr('stroke', 'transparent')
-
-        chart
-            .select('.tooltips')
-            .select(`.tooltip${key}`)
-            .attr('stroke', 'black')
-
+        clearTooltips()
+        fillTooltips(key)
         mousemove(event, tooltipData)
     }
     const customMouseLeave = function (event, d) {
-        chart
-            .select('.tooltips')
-            .selectAll('line')
-            .attr('stroke', 'transparent')
-
+        clearTooltips()
         mouseleave(event, d)
     }
 
-    chart
-        .append('g')
-        .attr('class', 'tooltips')
-
     for (let tooltip of Object.entries(tooltipData)) {
-        chart
-            .select('.tooltips')
+        tooltips
             .append('line')
-            .attr('class', 'tooltip' + tooltip[0])
+            .attr('class', `tooltip-line-${tooltip[0]}`)
             .attr('x1', x(tooltip[1].x))
             .attr('x2', x(tooltip[1].x))
             .attr('y1', 0)
             .attr('y2', height)
             .attr('stroke', 'transparent')
-            .attr('stroke-width', 3)
+            .attr('stroke-width', 1)
+            .attr('stroke-dasharray', 7)
+
+        for (let yPosition of tooltip[1]['ys']) {
+            tooltips
+                .append('circle')
+                .attr('class', `tooltip-circle-${tooltip[0]}`)
+                .attr('cx', x(tooltip[1].x))
+                .attr('cy', y(yPosition))
+                .attr('r', 3)
+                .attr('fill', 'transparent')
+        }
     }
 
-    chart
-        .select('.tooltips')
+    tooltips
         .append('rect')
         .attr('x', 0)
         .attr('y', 0)
@@ -133,21 +148,6 @@ export const plotChart = (chartProps, data) => {
         .on('mouseover', customMouseOver)
         .on('mousemove', customMouseMove)
         .on('mouseleave', customMouseLeave)
-
-    // chart
-    //     .append('g')
-    //     .selectAll('.dot')
-    //     .data(tooltipData)
-    //     .join('circle')
-    //     .attr('cx', d => x(d.x))
-    //     .attr('cy', d => y(d.y))
-    //     .attr('r', 3)
-    //     .attr('stroke', 'transparent')
-    //     .attr('stroke-width', 12)
-    //     .attr('fill', 'transparent')
-    //     .on('mouseover', customMouseOver)
-    //     .on('mousemove', mousemove)
-    //     .on('mouseleave', customMouseLeave)
 
 
     addLegend({

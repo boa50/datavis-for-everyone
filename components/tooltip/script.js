@@ -21,7 +21,6 @@ export const addTooltip = (id, htmlText) => {
             .style('opacity', 1)
     }
     const mousemove = (event, d) => {
-        console.log(htmlText(d));
         tooltip
             .style('left', `${event.x - 30}px`)
             .style('top', `${event.y + 30}px`)
@@ -62,6 +61,7 @@ export const addLineTooltip = (id, htmlText, colour, elements = {
     if (elements.chart !== undefined) {
         elements.chart
             .append('g')
+            .attr('class', 'line-tooltip')
             .selectAll('.dot')
             .data(elements.data)
             .join('circle')
@@ -77,6 +77,10 @@ export const addLineTooltip = (id, htmlText, colour, elements = {
     }
 
     return { mouseover: customMouseOver, mousemove, mouseleave: customMouseLeave }
+}
+
+export const removeLineTooltip = chart => {
+    chart.select('.line-tooltip').remove()
 }
 
 export const addHighlightTooltip = (

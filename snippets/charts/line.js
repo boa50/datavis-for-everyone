@@ -5,8 +5,10 @@ const SINGLE_LINE = () => {
         .y(d => yScale(d.Y_VALUE))
 
     chart
-        .append('path')
-        .datum(data)
+        .selectAll('.line-path')
+        .data([data])
+        .join('path')
+        .attr('class', 'line-path')
         .attr('fill', 'none')
         .attr('stroke', '#000000')
         .attr('stroke-width', 1)

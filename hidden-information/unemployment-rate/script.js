@@ -1,6 +1,6 @@
 import { getChart } from "../../components/utils.js";
-import { plotChart as plotLine } from "./charts/line.js";
-import { plotChart as plotStackedArea } from "./charts/stacked-area.js";
+import { addChart as addLine, updateChart as updateLine } from "./charts/line.js";
+import { addChart as addStackedArea } from "./charts/stacked-area.js";
 import { handleInputChange } from "../../components/html/slider/script.js";
 
 const getData = () =>
@@ -27,7 +27,7 @@ const percentReallyOutOfWork = document.getElementById('percent-really-out-of-wo
 handleInputChange({ target: percentReallyOutOfWork })
 
 getData().then(data => {
-    plotLine(
+    const lineChartObject = addLine(
         getChart(
             'chart1',
             document.getElementById('chart1-container').offsetWidth,
@@ -36,7 +36,7 @@ getData().then(data => {
         data
     )
 
-    plotStackedArea(
+    addStackedArea(
         getChart(
             'chart2',
             document.getElementById('chart2-container').offsetWidth,
@@ -50,4 +50,20 @@ getData().then(data => {
         ),
         data
     )
+
+    percentReallyWorking.addEventListener('change', (event) => {
+        const newData = data.map(d => {
+            const newWorking = d.working * event.target.value / 100
+            const newNotWorking = d.notWorking + d.working - newWorking
+
+            return {
+                ...d,
+                working: newWorking,
+                notWorking: newNotWorking,
+                unemploymentRate: newNotWorking / (newWorking + newNotWorking)
+            }
+        })
+
+        updateLine({ ...lineChartObject, data: newData })
+    })
 })

@@ -4,7 +4,7 @@ import { addLegendV2 as addLegend } from "../../../components/legend/script.js"
 import { addVerticalTooltip as addTooltip } from "../../../components/tooltip/script.js"
 import { formatDate } from "../../../components/utils.js"
 
-export const plotChart = (chartProps, data) => {
+export const addChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
 
     const x = d3

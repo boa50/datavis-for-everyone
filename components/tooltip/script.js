@@ -21,6 +21,7 @@ export const addTooltip = (id, htmlText) => {
             .style('opacity', 1)
     }
     const mousemove = (event, d) => {
+        console.log(htmlText(d));
         tooltip
             .style('left', `${event.x - 30}px`)
             .style('top', `${event.y + 30}px`)
@@ -99,5 +100,91 @@ export const addHighlightTooltip = (
     elements
         .on('mouseover', customMouseOver)
         .on('mousemove', mousemove)
+        .on('mouseleave', customMouseLeave)
+}
+
+export const addVerticalTooltip = ({
+    id,
+    htmlText,
+    chart,
+    width,
+    height,
+    x,
+    y,
+    colour,
+    data,
+    xVariable,
+    tooltipData = {},
+    keyFunction = d => d
+}) => {
+    const getTooltipDataPoint = event => {
+        const x_val = x.invert(d3.pointer(event)[0])
+        const idx = d3.bisector(d => d[xVariable]).center(data, x_val)
+        const key = keyFunction(data[idx][xVariable])
+
+        return [tooltipData[key], key]
+    }
+
+    const tooltips = chart
+        .append('g')
+        .attr('class', 'tooltips')
+
+    const { mouseover, mousemove, mouseleave } = addTooltip(id, htmlText)
+
+    const clearTooltips = () => {
+        tooltips.selectAll('line').attr('stroke', 'transparent')
+        tooltips.selectAll('circle').attr('fill', 'transparent')
+    }
+    const fillTooltips = key => {
+        tooltips.selectAll(`.tooltip-line-${key}`).attr('stroke', colour)
+        tooltips.selectAll(`.tooltip-circle-${key}`).attr('fill', colour)
+    }
+
+    const customMouseOver = function (event) {
+        mouseover(event, "")
+    }
+    const customMouseMove = function (event) {
+        const [tooltipData, key] = getTooltipDataPoint(event)
+        clearTooltips()
+        fillTooltips(key)
+        mousemove(event, tooltipData)
+    }
+    const customMouseLeave = function (event, d) {
+        clearTooltips()
+        mouseleave(event, d)
+    }
+
+    for (let tooltip of Object.entries(tooltipData)) {
+        tooltips
+            .append('line')
+            .attr('class', `tooltip-line-${tooltip[0]}`)
+            .attr('x1', x(tooltip[1].x))
+            .attr('x2', x(tooltip[1].x))
+            .attr('y1', 0)
+            .attr('y2', height)
+            .attr('stroke', 'transparent')
+            .attr('stroke-width', 1)
+            .attr('stroke-dasharray', [7, 5])
+
+        for (let yPosition of tooltip[1]['ys']) {
+            tooltips
+                .append('circle')
+                .attr('class', `tooltip-circle-${tooltip[0]}`)
+                .attr('cx', x(tooltip[1].x))
+                .attr('cy', y(yPosition))
+                .attr('r', 3)
+                .attr('fill', 'transparent')
+        }
+    }
+
+    tooltips
+        .append('rect')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('height', height)
+        .attr('width', width)
+        .attr('fill', 'transparent')
+        .on('mouseover', customMouseOver)
+        .on('mousemove', customMouseMove)
         .on('mouseleave', customMouseLeave)
 }

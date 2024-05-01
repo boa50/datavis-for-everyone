@@ -1,11 +1,11 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../../components/axis/script.js"
 import { addLegendV2 as addLegend } from "../../../components/legend/script.js"
-import { addTooltip } from "../../../components/tooltip/script.js"
+import { addVerticalTooltip as addTooltip } from "../../../components/tooltip/script.js"
 import { formatDate } from "../../../components/utils.js"
 
 export const plotChart = (chartProps, data) => {
-    const { chart, width, height, margin } = chartProps
+    const { chart, width, height } = chartProps
 
     const x = d3
         .scaleTime()
@@ -68,87 +68,34 @@ export const plotChart = (chartProps, data) => {
         }
     }
 
-    const getTooltipDataPoint = (event) => {
-        const x_val = x.invert(d3.pointer(event)[0])
-        const idx = d3.bisector(d => d.measureDate).center(data, x_val)
-        const x_real_val = data[idx].measureDate
-        const key = x_real_val.getTime()
-
-        return [tooltipData[key], key]
-    }
-
-
-    const tooltips = chart
-        .append('g')
-        .attr('class', 'tooltips')
-
-    const { mouseover, mousemove, mouseleave } = addTooltip('charts', d => formatDate(d.x))
-
-    const clearTooltips = () => {
-        tooltips
-            .selectAll('line')
-            .attr('stroke', 'transparent')
-        tooltips
-            .selectAll('circle')
-            .attr('fill', 'transparent')
-    }
-    const fillTooltips = key => {
-        tooltips
-            .selectAll(`.tooltip-line-${key}`)
-            .attr('stroke', '#a21caf')
-        tooltips
-            .selectAll(`.tooltip-circle-${key}`)
-            .attr('fill', '#a21caf')
-    }
-
-    const customMouseOver = function (event, d) {
-        mouseover(event, "")
-    }
-    const customMouseMove = function (event, d) {
-        const [tooltipData, key] = getTooltipDataPoint(event)
-        clearTooltips()
-        fillTooltips(key)
-        mousemove(event, tooltipData)
-    }
-    const customMouseLeave = function (event, d) {
-        clearTooltips()
-        mouseleave(event, d)
-    }
-
-    for (let tooltip of Object.entries(tooltipData)) {
-        tooltips
-            .append('line')
-            .attr('class', `tooltip-line-${tooltip[0]}`)
-            .attr('x1', x(tooltip[1].x))
-            .attr('x2', x(tooltip[1].x))
-            .attr('y1', 0)
-            .attr('y2', height)
-            .attr('stroke', 'transparent')
-            .attr('stroke-width', 1)
-            .attr('stroke-dasharray', 7)
-
-        for (let yPosition of tooltip[1]['ys']) {
-            tooltips
-                .append('circle')
-                .attr('class', `tooltip-circle-${tooltip[0]}`)
-                .attr('cx', x(tooltip[1].x))
-                .attr('cy', y(yPosition))
-                .attr('r', 3)
-                .attr('fill', 'transparent')
-        }
-    }
-
-    tooltips
-        .append('rect')
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('height', height)
-        .attr('width', width)
-        .attr('fill', 'transparent')
-        .on('mouseover', customMouseOver)
-        .on('mousemove', customMouseMove)
-        .on('mouseleave', customMouseLeave)
-
+    addTooltip({
+        id: 'charts',
+        htmlText: d => `
+        <strong>${formatDate(d.x)}</strong> 
+        <div style="display: flex; justify-content: space-between">
+            <span>Not Working:&emsp;</span>
+            <span>${d3.format('.2s')(d.notWorking)}</span>
+        </div>  
+        <div style="display: flex; justify-content: space-between">
+            <span>Working:&emsp;</span>
+            <span>${d3.format('.2s')(d.working)}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+            <span>Out of Workforce:&emsp;</span>
+            <span>${d3.format('.2s')(d.outOfWorkforce)}</span>
+        </div>
+        `,
+        chart,
+        width,
+        height,
+        x,
+        y,
+        colour: colours.lineTooltip,
+        data,
+        xVariable: 'measureDate',
+        tooltipData,
+        keyFunction: d => d.getTime()
+    })
 
     addLegend({
         chart,

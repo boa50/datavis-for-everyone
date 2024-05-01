@@ -23,8 +23,8 @@ const svgHeight = (window.innerHeight
 const percentReallyWorking = document.getElementById('percent-really-working')
 handleInputChange({ target: percentReallyWorking })
 
-const percentReallyOutOfWork = document.getElementById('percent-really-out-of-work')
-handleInputChange({ target: percentReallyOutOfWork })
+const percentReallyOutOfWorkforce = document.getElementById('percent-really-out-of-workforce')
+handleInputChange({ target: percentReallyOutOfWorkforce })
 
 getData().then(data => {
     const lineChartObject = addLine(
@@ -51,20 +51,28 @@ getData().then(data => {
         data
     )
 
-    percentReallyWorking.addEventListener('change', (event) => {
-        const newData = data.map(d => {
-            const newWorking = d.working * event.target.value / 100
-            const newNotWorking = d.notWorking + d.working - newWorking
+    const updateData = data => {
+        return data.map(d => {
+            const newWorking = d.working * percentReallyWorking.value / 100
+            const newOutOfWorkforce = d.outOfWorkforce * percentReallyOutOfWorkforce.value / 100
+            const newNotWorking = d.notWorking + d.working - newWorking + d.outOfWorkforce - newOutOfWorkforce
 
             return {
                 ...d,
                 working: newWorking,
                 notWorking: newNotWorking,
+                outOfWorkforce: newOutOfWorkforce,
                 unemploymentRate: newNotWorking / (newWorking + newNotWorking)
             }
         })
+    }
 
+    const updateCharts = () => {
+        const newData = updateData(data)
         updateLine({ ...lineChartObject, data: newData })
         updateStackedArea({ ...stackedAreaChartObject, data: newData })
-    })
+    }
+
+    percentReallyWorking.addEventListener('change', () => { updateCharts() })
+    percentReallyOutOfWorkforce.addEventListener('change', () => { updateCharts() })
 })

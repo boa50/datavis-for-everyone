@@ -96,17 +96,17 @@ export const addChart = (chartProps, data) => {
         hideYdomain: true
     })
 
-    const keys = ['outOfWorkforce', 'working', 'notWorking']
+    const keys = ['outOfWorkforce', 'notWorking', 'working']
 
     const colour = d3
         .scaleOrdinal()
         .domain(keys)
-        .range([colours.outOfWorkforce, colours.working, colours.notWorking])
+        .range([colours.outOfWorkforce, colours.notWorking, colours.working])
 
     addLegend({
         chart,
-        legends: ['Not Working', 'Working', 'Out of Workforce'],
-        colours: [colours.notWorking, colours.working, colours.outOfWorkforce],
+        legends: ['Working', 'Not Working', 'Out of Workforce'],
+        colours: [colours.working, colours.notWorking, colours.outOfWorkforce],
         xPos: -64,
         yPos: -32
     })

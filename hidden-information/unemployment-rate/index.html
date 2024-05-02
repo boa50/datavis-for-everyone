@@ -13,7 +13,7 @@
     <div id="header" class="flex flex-row p-4 mb-4 bg-slate-50">
         <div class="flex flex-row self-center items-center">
             <!-- PAGE LOGO -->
-            <!-- <img src="./img/logo.svg" alt="dashboard logo" class="max-h-10 mx-4" /> -->
+            <img src="./img/logo.svg" alt="dashboard logo" class="max-h-10 mx-4" />
             <h1 id="title" class="text-3xl text-gray-600 self-center font-medium">Unemployment Rate</h1>
         </div>
     </div>
@@ -35,7 +35,7 @@
             </div>
         </div>
 
-        <div id="sidebar" class="flex flex-col gap-4 text-sm mx-4">
+        <div id="sidebar" class="flex flex-col gap-4 text-sm mx-4 text-gray-700">
             <p>
                 Calculating the unemployment rate in many countries is somehow tricky, not because the equation is very
                 complex but because the underlying data makes it very hard to reach a reasonable conclusion from it.
@@ -64,8 +64,9 @@
             </p>
             <ul class="ml-12 list-disc">
                 <li>Only people who are part of the workforce are considered for this calculation</li>
-                <li>People not working are only the ones without a job that are currently <strong>looking for a
-                        job</strong></li>
+                <li>People not working are only the ones without a job that are currently <span
+                        class="font-semibold">looking for a
+                        job</span></li>
             </ul>
             <p>
                 So, people who don't want to work and those who are working only sporadically are not considered
@@ -77,11 +78,11 @@
             </p>
             <p>
                 For example, if we would make some changes in the numbers for Brazil's case, we could take the following
-                considerations:
+                considerations to the out-of-workforce population:
             </p>
             <ul class="ml-12 list-disc">
                 <li>Leave out of the workforce only people who receive benefits from our social security system (38M
-                    people, change value to 58%)</li>
+                    people; change value to 58%)</li>
                 <li>Let's say that at least one person of the families that receive money from our social programs is
                     entirely unable to work (plus 21M people; change value to 89%)</li>
             </ul>
@@ -98,8 +99,8 @@
                 <div class="flex flex-row justify-center">
                     <div class="flex flex-col gap-2 w-3/4">
                         <div class="flex flex-row gap-4 items-center">
-                            <label for="percent-working" class="text-sm text-gray-600">Working people percentage working
-                                full-time</label>
+                            <label for="percent-working" class="text-sm text-gray-600 font-medium">Working people
+                                percentage working full-time</label>
                             <output id="percentWorkingText" class="range-output min-w-16">100%</output>
                         </div>
 
@@ -111,8 +112,9 @@
                 <div class="flex flex-row justify-center">
                     <div class="flex flex-col gap-2 w-3/4">
                         <div class="flex flex-row gap-4 items-center">
-                            <label for="percent-out-of-workforce" class="text-sm text-gray-600">Out of workforce people
-                                percentage unable to work</label>
+                            <label for="percent-out-of-workforce"
+                                class="text-sm text-gray-600 font-medium">Out-of-workforce people percentage unable to
+                                work</label>
                             <output id="percentOutOfWorkforceText" class="range-output min-w-16">100%</output>
                         </div>
 

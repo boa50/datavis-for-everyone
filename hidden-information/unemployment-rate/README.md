@@ -11,3 +11,7 @@ Variables used to extrct data:
  - Pessoas de 14 anos ou mais de idade ocupadas na semana de referência (Mil pessoas)
  - Pessoas de 14 anos ou mais de idade, desocupadas na semana de referência (Mil pessoas)
  - Pessoas de 14 anos ou mais de idade, fora da força de trabalho, na semana de referência (Mil pessoas)
+
+Other numbers source:
+ - https://www.gov.br/previdencia/pt-br/assuntos/previdencia-social/arquivos/beps012023_final.pdf
+ - https://www.gov.br/mds/pt-br/noticias-e-conteudos/desenvolvimento-social/noticias-desenvolvimento-social/bolsa-familia-tem-em-2023-a-maior-media-de-familias-atendidas-de-investimento-federal-e-de-valor-de-beneficio-da-historia-do-programa

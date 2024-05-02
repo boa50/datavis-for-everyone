@@ -35,29 +35,89 @@
             </div>
         </div>
 
-        <div id="controls" class="flex flex-col gap-4">
-            <div class="flex flex-row justify-center">
-                <div class="flex flex-col gap-2 w-3/4">
-                    <label for="percent-working" class="text-sm text-gray-600">Percentage of people really
-                        working</label>
+        <div id="sidebar" class="flex flex-col gap-4 text-sm mx-4">
+            <p>
+                Calculating the unemployment rate in many countries is somehow tricky, not because the equation is very
+                complex but because the underlying data makes it very hard to reach a reasonable conclusion from it.
+            </p>
+            <p>
+                For instance, in Brazil, to get the unemployment rate, we can use the following formula:
+            </p>
+            <div class="flex justify-center my-4">
+                <math class="font-sans text-lg">
+                    <mrow>
+                        <mi>Unemployment Rate</mi>
+                        <mo>=</mo>
+                        <mfrac>
+                            <mn>Not Working Population</mn>
+                            <mrow>
+                                <mn>Not Working Population</mn>
+                                <mo>+</mo>
+                                <mn>Working Population</mn>
+                            </mrow>
+                        </mfrac>
+                    </mrow>
+                </math>
+            </div>
+            <p>
+                However, this formula takes into consideration some premises:
+            </p>
+            <ul class="ml-12 list-disc">
+                <li>Only people who are part of the workforce are considered for this calculation</li>
+                <li>People not working are only the ones without a job that are currently <strong>looking for a
+                        job</strong></li>
+            </ul>
+            <p>
+                So, people who don't want to work and those who are working only sporadically are not considered
+                unemployed, making the final number a bit less worrisome.
+            </p>
+            <p>
+                You can play with the controls below to make the numbers more enjoyable for your presentation or to
+                check how manipulative this information could be.
+            </p>
+            <p>
+                For example, if we would make some changes in the numbers for Brazil's case, we could take the following
+                considerations:
+            </p>
+            <ul class="ml-12 list-disc">
+                <li>Leave out of the workforce only people who receive benefits from our social security system (38M
+                    people, change value to 58%)</li>
+                <li>Let's say that at least one person of the families that receive money from our social programs is
+                    entirely unable to work (plus 21M people; change value to 89%)</li>
+            </ul>
+            <p>
+                This shows a slight change in the result and how anyone with power can change the unemployment rate,
+                distorting the real purpose of the metric.
+            </p>
+            <p>
+                So, be careful whenever you see any metric exposed to you; it might contain some grey zones created to
+                deceive you into thinking you know the truth.
+            </p>
 
-                    <div class="flex flex-row gap-4 items-center">
+            <div id="controls" class="flex flex-col gap-4 my-4">
+                <div class="flex flex-row justify-center">
+                    <div class="flex flex-col gap-2 w-3/4">
+                        <div class="flex flex-row gap-4 items-center">
+                            <label for="percent-working" class="text-sm text-gray-600">Working people percentage working
+                                full-time</label>
+                            <output id="percentWorkingText" class="range-output min-w-16">100%</output>
+                        </div>
+
                         <input type="range" id="percent-working" name="percent-working" class="w-full" min="0" max="100"
                             value="100" oninput="percentWorkingText.value=`${value}%`" />
-                        <output id="percentWorkingText" class="range-output min-w-16">100%</output>
                     </div>
                 </div>
-            </div>
 
-            <div class="flex flex-row justify-center">
-                <div class="flex flex-col gap-2 w-3/4">
-                    <label for="percent-out-of-workforce" class="text-sm text-gray-600">Percentage of people really
-                        unable to work</label>
+                <div class="flex flex-row justify-center">
+                    <div class="flex flex-col gap-2 w-3/4">
+                        <div class="flex flex-row gap-4 items-center">
+                            <label for="percent-out-of-workforce" class="text-sm text-gray-600">Out of workforce people
+                                percentage unable to work</label>
+                            <output id="percentOutOfWorkforceText" class="range-output min-w-16">100%</output>
+                        </div>
 
-                    <div class="flex flex-row gap-4 items-center">
                         <input type="range" id="percent-out-of-workforce" name="percent-out-of-workforce" class="w-full"
                             min="0" max="100" value="100" oninput="percentOutOfWorkforceText.value=`${value}%`" />
-                        <output id="percentOutOfWorkforceText" class="range-output min-w-16">100%</output>
                     </div>
                 </div>
             </div>

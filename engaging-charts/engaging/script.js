@@ -1,5 +1,6 @@
 import { getChart } from "../../components/utils.js";
 import { addChart as addExpectancyByGender } from "./charts/lollipop-expectancy-by-gender.js";
+import { addChart as addExpectancyGap } from "./charts/ridgeline-life-expectancy-gap.js";
 
 const getData = () =>
     d3.csv('../data/life-expectancy.csv')
@@ -8,7 +9,8 @@ const getData = () =>
                 ...v,
                 female: +v.female,
                 male: +v.male,
-                average: (+v.female + +v.male) / 2
+                average: (+v.female + +v.male) / 2,
+                gap: Math.abs(+v.female - +v.male)
             }
         }))
 
@@ -31,5 +33,20 @@ getData().then(data => {
             }
         ),
         data.filter(d => d.year === '2021')
+    )
+
+    addExpectancyGap(
+        getChart(
+            'chart2',
+            document.getElementById('chart2-container').offsetWidth,
+            svgHeight,
+            {
+                left: 110,
+                right: 16,
+                top: 64,
+                bottom: 56
+            }
+        ),
+        data
     )
 })

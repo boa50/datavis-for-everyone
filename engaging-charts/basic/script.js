@@ -24,7 +24,7 @@ getData().then(data => {
             document.getElementById('chart1-container').offsetWidth,
             svgHeight,
             {
-                left: 128,
+                left: 140,
                 right: 16,
                 top: 24,
                 bottom: 56

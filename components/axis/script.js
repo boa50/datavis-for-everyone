@@ -62,13 +62,24 @@ export const addAxis = (
                 .tickFormat(yFormat)
                 .tickValues(yTickValues)
         )
-        .call(g => g
-            .append('text')
-            .attr('x', -(height / 2))
-            .attr('y', -50)
-            .attr('transform', 'rotate(270)')
-            .attr('text-anchor', 'middle')
-            .text(yLabel))
+        .call(g => {
+            let maxTickWidth = 0
+            g
+                .selectAll('.tick>text')
+                .each(d => {
+                    if (getTextWidth(d, '0.8rem') > maxTickWidth)
+                        maxTickWidth = getTextWidth(d, '0.8rem')
+                })
+            maxTickWidth += 30
+
+            g
+                .append('text')
+                .attr('x', -(height / 2))
+                .attr('y', -maxTickWidth)
+                .attr('transform', 'rotate(270)')
+                .attr('text-anchor', 'middle')
+                .text(yLabel)
+        })
         .call(g => adjustColours(g, colour, hideYdomain))
 
     if (yRight !== undefined) {

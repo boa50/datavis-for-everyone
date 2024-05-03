@@ -62,6 +62,14 @@ export const addChart = (chartProps, data) => {
         colour: colours.axis
     })
 
+    console.log(
+        // chart.selectAll('.y-axis-group .tick>text').each(d => console.log(d))
+        // d3
+        //     .axisLeft(y)
+        //     .tickSize(0)
+        //     .tickPadding(10).ticks()
+    )
+
     addLegend({
         chart,
         legends: ['Women', 'Men'],

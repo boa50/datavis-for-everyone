@@ -13,7 +13,7 @@ df = pd.read_csv(
     skiprows=1,
 )
 
-df = df[(df["year"] >= 2010) & (df["code"].notnull())]
+df = df[(df["year"] >= 1960) & (df["code"].notnull())]
 
 df = df[["year", "country", "female", "male"]]
 

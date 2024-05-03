@@ -22,7 +22,13 @@ getData().then(data => {
         getChart(
             'chart1',
             document.getElementById('chart1-container').offsetWidth,
-            svgHeight
+            svgHeight,
+            {
+                left: 128,
+                right: 16,
+                top: 24,
+                bottom: 56
+            }
         ),
         data
     )

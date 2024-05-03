@@ -30,6 +30,6 @@ getData().then(data => {
                 bottom: 56
             }
         ),
-        data
+        data.filter(d => d.year === '2021')
     )
 })

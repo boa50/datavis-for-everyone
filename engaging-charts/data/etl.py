@@ -13,9 +13,9 @@ df = pd.read_csv(
     skiprows=1,
 )
 
-df = df[(df["year"] == 2021) & (df["code"].notnull())]
+df = df[(df["year"] >= 2010) & (df["code"].notnull())]
 
-df = df[["country", "female", "male"]]
+df = df[["year", "country", "female", "male"]]
 
 print(df.head())
 print(df.isnull().sum())

@@ -50,7 +50,6 @@ df = df[(df["year"] >= 2000) & (df["country"] == "World")]
 
 df = df[
     [
-        "country",
         "year",
         "agriculture",
         "buildings",

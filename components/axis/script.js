@@ -7,6 +7,33 @@ export const adjustColours = (g, colour, hideYdomain = false) => {
     g.selectAll('text').attr('fill', colour)
 }
 
+const getBeautifulTicks = (nticks, scale) => {
+    let extremities = scale.domain()
+    const numberLength = extremities[1].toString().length
+    const getIncrement = () => (extremities[1] - extremities[0]) / (nticks - 1)
+
+    if (numberLength <= 4) {
+        let increment = getIncrement()
+
+        for (let i = 0; i <= 10; i++) {
+            if (Number.isInteger(increment)) {
+                return [...Array(nticks).keys()].map(d => extremities[0] + increment * d)
+            }
+
+            const extremityChange = i % 2
+            if (extremityChange === 0) {
+                extremities[extremityChange] += 1
+            } else {
+                extremities[extremityChange] -= 1
+            }
+
+            increment = getIncrement()
+        }
+
+        return null
+    }
+}
+
 export const addAxis = (
     {
         chart,
@@ -26,9 +53,16 @@ export const addAxis = (
         xTickValues = undefined,
         yTickValues = undefined,
         yRightTickValues = undefined,
+        xNumTicks = undefined,
+        yNumTicks = undefined,
+        yRightNumTicks = undefined,
         hideYdomain = false
     }
 ) => {
+    if ((xTickValues === undefined) && (xNumTicks !== undefined)) {
+        xTickValues = getBeautifulTicks(xNumTicks, x)
+    }
+
     chart
         .append('g')
         .attr('class', 'x-axis-group')

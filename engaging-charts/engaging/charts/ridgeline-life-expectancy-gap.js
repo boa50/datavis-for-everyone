@@ -48,21 +48,22 @@ export const addChart = (chartProps, data) => {
         .attr('stroke-width', 1)
         .attr('d', area)
         .attr('custom-tooltip', (d, i) => {
+            const ridgeLaneStart = height * i / (selectedCountries.length - 1)
             const y = d3
                 .scaleLinear()
                 .domain(d3.extent(d, v => v.gap))
-                .range([height * i / (selectedCountries.length - 1), (height * i / (selectedCountries.length - 1)) - (height - (height * 0.85))])
+                .range([ridgeLaneStart, ridgeLaneStart - (height - (height * 0.85))])
 
             addTooltip(
                 `${chart.attr('id').split('-')[0]}-container`,
                 d => `
-                <strong>${d.country}</strong>
+                <strong>${d.country} - ${d.year}</strong>
                 <div style="display: flex; justify-content: space-between">
                     <span>Life expectancy gap:&emsp;</span>
                     <span>${d3.format('.1f')(d.gap)} years</span>
                 </div>
                 `,
-                'black',
+                colours.axis,
                 {
                     chart,
                     data: d,

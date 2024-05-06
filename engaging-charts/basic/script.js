@@ -1,7 +1,7 @@
 import { getChart } from "../../components/utils.js";
 import { addChart as addExpectancyByGender } from "./charts/bar-expectancy-by-gender.js";
 import { addChart as addExpectancyGap } from "./charts/line-life-expectancy-gap.js";
-import { addChart as addExpectancyScatter } from "./charts/scatter-life-expectancy.js";
+import { addChart as addExpectancyScatter } from "./charts/scatter-expectancy-distribution.js";
 
 const getData = () =>
     d3.csv('../data/life-expectancy.csv')

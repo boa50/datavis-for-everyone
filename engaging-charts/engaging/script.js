@@ -1,6 +1,7 @@
 import { getChart } from "../../components/utils.js";
 import { addChart as addExpectancyByGender } from "./charts/lollipop-expectancy-by-gender.js";
 import { addChart as addExpectancyGap } from "./charts/ridgeline-life-expectancy-gap.js";
+import { addChart as addExpectancyDistribution } from "./charts/hexbin-expectancy-distribution.js";
 
 const getData = () =>
     d3.csv('../data/life-expectancy.csv')
@@ -46,6 +47,15 @@ getData().then(data => {
                 top: 64,
                 bottom: 56
             }
+        ),
+        data
+    )
+
+    addExpectancyDistribution(
+        getChart(
+            'chart3',
+            document.getElementById('chart3-container').offsetWidth,
+            svgHeight
         ),
         data
     )

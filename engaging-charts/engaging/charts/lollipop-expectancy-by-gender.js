@@ -7,7 +7,7 @@ export const addChart = (chartProps, data) => {
     const { chart, width, height, margin } = chartProps
 
     let filteredData = d3.sort(data, (a, b) => d3.descending(a.average, b.average))
-    filteredData = [0, 3, 7, 33, 82, 176, 223].map(i => filteredData[i])
+    filteredData = [0, 3, 7, 33, 82, 176, 224].map(i => filteredData[i])
     const maxLifeExpectancy = Math.max(d3.max(filteredData, d => d.female), d3.max(data, d => d.male))
     const groups = filteredData.map(d => d.country)
 

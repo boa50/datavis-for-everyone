@@ -55,6 +55,8 @@ export const addChart = (chartProps) => {
             xFormat: d => d,
             yFormat: d => `${d3.format('.2s')(d).replace('G', ' billion').replace('.0', '')}`,
             xNumTicks: 5,
+            yNumTicks: 5,
+            yNumTicksForceInitial: true,
             colour: colours.axis
         })
     })

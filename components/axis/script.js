@@ -7,31 +7,42 @@ export const adjustColours = (g, colour, hideYdomain = false) => {
     g.selectAll('text').attr('fill', colour)
 }
 
-const getBeautifulTicks = (nticks, scale) => {
+const getBeautifulTicks = (nticks, scale, forceInitial) => {
     let extremities = scale.domain()
     const numberLength = extremities[1].toString().length
+    let extremityIncrement = 1
+
+    if (numberLength > 4) {
+        extremityIncrement = Math.pow(10, numberLength - 2)
+        const maxTruncated = Math.trunc(extremities[1] / Math.pow(10, numberLength - 2))
+        const maxRounded = maxTruncated - (maxTruncated % 5)
+        extremities[1] = maxRounded * extremityIncrement
+    }
+
     const getIncrement = () => (extremities[1] - extremities[0]) / (nticks - 1)
 
-    if (numberLength <= 4) {
-        let increment = getIncrement()
+    let increment = getIncrement()
 
-        for (let i = 0; i <= 10; i++) {
-            if (Number.isInteger(increment)) {
-                return [...Array(nticks).keys()].map(d => extremities[0] + increment * d)
-            }
-
-            const extremityChange = i % 2
-            if (extremityChange === 0) {
-                extremities[extremityChange] += 1
-            } else {
-                extremities[extremityChange] -= 1
-            }
-
-            increment = getIncrement()
+    for (let i = 0; i <= 10; i++) {
+        if (Number.isInteger(increment)) {
+            return [...Array(nticks).keys()].map(d => extremities[0] + increment * d)
         }
 
-        return null
+        if (forceInitial) {
+            extremities[1] -= extremityIncrement
+        } else {
+            const extremityChange = i % 2
+            if (extremityChange === 0) {
+                extremities[extremityChange] += extremityIncrement
+            } else {
+                extremities[extremityChange] -= extremityIncrement
+            }
+        }
+
+        increment = getIncrement()
     }
+
+    return null
 }
 
 export const addAxis = (
@@ -54,13 +65,22 @@ export const addAxis = (
         yTickValues = undefined,
         yRightTickValues = undefined,
         xNumTicks = undefined,
+        xNumTicksForceInitial = false,
         yNumTicks = undefined,
+        yNumTicksForceInitial = false,
         yRightNumTicks = undefined,
+        yRightNumTicksForceInitial = false,
         hideYdomain = false
     }
 ) => {
     if ((xTickValues === undefined) && (xNumTicks !== undefined)) {
-        xTickValues = getBeautifulTicks(xNumTicks, x)
+        xTickValues = getBeautifulTicks(xNumTicks, x, xNumTicksForceInitial)
+    }
+    if ((yTickValues === undefined) && (yNumTicks !== undefined)) {
+        yTickValues = getBeautifulTicks(yNumTicks, y, yNumTicksForceInitial)
+    }
+    if ((yRightTickValues === undefined) && (yRightNumTicks !== undefined)) {
+        yRightTickValues = getBeautifulTicks(yRightNumTicks, yRight, yRightNumTicksForceInitial)
     }
 
     chart
@@ -101,8 +121,9 @@ export const addAxis = (
             g
                 .selectAll('.tick>text')
                 .each(d => {
-                    if (getTextWidth(d, '0.8rem') > maxTickWidth)
-                        maxTickWidth = getTextWidth(d, '0.8rem')
+                    const widthValue = getTextWidth(yFormat !== undefined ? yFormat(d) : d, '0.8rem')
+                    if (widthValue > maxTickWidth)
+                        maxTickWidth = widthValue
                 })
             maxTickWidth += 30
 

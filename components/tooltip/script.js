@@ -19,7 +19,6 @@ export const addTooltip = (id, htmlText, options = { chartWidth: 500, chartHeigh
         (event.y + tooltipPadding)
 
     const mouseover = (event, d) => {
-        console.log(options.chartWidth, options.chartHeight);
         tooltip
             .interrupt('mouseleave')
             .transition('mouseover')

@@ -8,7 +8,7 @@ const getData = () =>
     d3.csv('../data/greenhouse-emissions.csv')
 
 export const addChart = (chartProps) => {
-    const { chart, width, height } = chartProps
+    const { chart, width, height, margin } = chartProps
 
     getData().then(data => {
         const x = d3
@@ -60,6 +60,14 @@ export const addChart = (chartProps) => {
             yNumTicks: 6,
             yNumTicksForceInitial: true,
             colour: colours.axis
+        })
+
+        addLegend({
+            chart,
+            legends: ['Electricity and Heat', 'Transport', 'Manufacturing and Construction', 'Agriculture', 'Buildings', 'Industry'],
+            colours: d3.schemeTableau10,
+            xPos: -margin.left,
+            yPos: -margin.top
         })
 
         const tooltipData = {}

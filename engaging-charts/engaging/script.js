@@ -2,6 +2,7 @@ import { getChart } from "../../components/utils.js";
 import { addChart as addExpectancyByGender } from "./charts/lollipop-expectancy-by-gender.js";
 import { addChart as addExpectancyGap } from "./charts/ridgeline-life-expectancy-gap.js";
 import { addChart as addExpectancyDistribution } from "./charts/hexbin-expectancy-distribution.js";
+import { addChart as addGreenhouseEmissions } from "./charts/circular-bar-greenhouse-emissions.js";
 
 const getData = () =>
     d3.csv('../data/life-expectancy.csv')
@@ -58,5 +59,13 @@ getData().then(data => {
             svgHeight
         ),
         data
+    )
+
+    addGreenhouseEmissions(
+        getChart(
+            'chart4',
+            document.getElementById('chart4-container').offsetWidth,
+            svgHeight
+        )
     )
 })

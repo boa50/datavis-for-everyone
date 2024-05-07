@@ -3,11 +3,10 @@ import { addAxis } from "../../../components/axis/script.js"
 import { addLegendV2 as addLegend } from "../../../components/legend/script.js"
 import { addVerticalTooltip as addTooltip } from "../../../components/tooltip/script.js"
 
-
 const getData = () =>
     d3.csv('../data/greenhouse-emissions.csv')
 
-export const addChart = (chartProps) => {
+export const addChart = chartProps => {
     const { chart, width, height, margin } = chartProps
 
     getData().then(data => {

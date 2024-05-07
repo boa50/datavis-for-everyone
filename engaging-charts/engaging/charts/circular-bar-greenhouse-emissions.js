@@ -1,7 +1,11 @@
 import { colours } from "../../constants.js"
+import { addHighlightTooltip as addTooltip } from "../../../components/tooltip/script.js"
+
+const keys = ['electricityAndHeat', 'transport', 'manufacturingAndConstruction', 'agriculture', 'buildings', 'industry']
 
 const getData = () =>
     d3.csv('../data/greenhouse-emissions.csv')
+        .then(d => d.map(v => { return { ...v, total: keys.reduce((tot, key) => tot + +v[key], 0) } }))
 
 export const addChart = chartProps => {
     const { chart, width, height } = chartProps
@@ -20,12 +24,10 @@ export const addChart = chartProps => {
             .range([0, 2 * Math.PI])
             .domain(data.map(d => d.year))
 
-        const keys = ['electricityAndHeat', 'transport', 'manufacturingAndConstruction', 'agriculture', 'buildings', 'industry']
-
         const y = d3
             .scaleRadial()
             .range([innerRadius, outerRadius])
-            .domain([0, d3.max(data, d => keys.reduce((total, key) => total + +d[key], 0))])
+            .domain([0, d3.max(data, d => d.total)])
 
         const stackedData = d3
             .stack()
@@ -74,5 +76,67 @@ export const addChart = chartProps => {
                 )
                 .text(d => d.year)
             )
+
+        centeredChart
+            .append('g')
+            .attr('id', 'tooltip')
+            .selectAll('g')
+            .data(data)
+            .join('path')
+            .attr('class', 'year-bar')
+            .attr('fill', 'white')
+            .style('opacity', 0)
+            .attr('d', d3
+                .arc()
+                .innerRadius(innerRadius)
+                .outerRadius(d => y(d.total))
+                .startAngle(d => x(d.year))
+                .endAngle(d => x(d.year) + x.bandwidth())
+                .padAngle(padAngle)
+                .padRadius(innerRadius))
+
+        const tooltipFormat = d => `${d3
+            .formatLocale({ thousands: ' ', grouping: [3] })
+            .format(',.0f')
+            (Math.round(d / 1e6))
+            } million`
+
+        addTooltip(
+            `${chart.attr('id').split('-')[0]}-container`,
+            d => `
+            <strong>${d.year}</strong> <span>(in tonnes)</span>
+            <div style="display: flex; justify-content: space-between">
+                <strong>Total:&emsp;</strong>
+                <span>${tooltipFormat(d.total)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Industry:&emsp;</span>
+                <span>${tooltipFormat(d.industry)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+            <span>Buildings:&emsp;</span>
+                <span>${tooltipFormat(d.buildings)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Agriculture:&emsp;</span>
+                <span>${tooltipFormat(d.agriculture)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Manufacturing and Construction:&emsp;</span>
+                <span>${tooltipFormat(d.manufacturingAndConstruction)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Transport:&emsp;</span>
+                <span>${tooltipFormat(d.transport)}</span>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <span>Electricity and Heat:&emsp;</span>
+                <span>${tooltipFormat(d.electricityAndHeat)}</span>
+            </div>
+            `,
+            d3.selectAll('.year-bar'),
+            { initial: 0, highlighted: 0, faded: 0.75 },
+            { width: 0, height: 0 }
+        )
     })
 }

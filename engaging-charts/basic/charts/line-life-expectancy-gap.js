@@ -49,6 +49,7 @@ export const addChart = (chartProps, data) => {
         xLabel: 'Year',
         yLabel: 'Life expectancy gap (years)',
         xFormat: d => d,
+        xNumTicks: 6,
         colour: colours.axis
     })
 

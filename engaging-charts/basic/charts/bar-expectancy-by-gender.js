@@ -57,8 +57,10 @@ export const addChart = (chartProps, data) => {
         width,
         x,
         y,
-        xLabel: 'Life Expectancy (in years)',
+        xLabel: 'Life Expectancy (years)',
         yLabel: 'Country',
+        xNumTicks: 7,
+        xNumTicksForceInitial: true,
         colour: colours.axis
     })
 

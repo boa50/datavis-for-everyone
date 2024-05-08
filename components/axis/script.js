@@ -16,6 +16,11 @@ const getBeautifulTicks = (nticks, scale, forceInitial) => {
     const maxRounded = maxTruncated - (maxTruncated % 5)
     extremities[1] = maxRounded * extremityIncrement
 
+    const minTruncated = Math.trunc(extremities[0] / extremityIncrement)
+    const minRounded = minTruncated + (minTruncated % 5)
+    extremities[0] = minRounded * extremityIncrement
+
+
     const getIncrement = () => (extremities[1] - extremities[0]) / (nticks - 1)
 
     let increment = getIncrement()

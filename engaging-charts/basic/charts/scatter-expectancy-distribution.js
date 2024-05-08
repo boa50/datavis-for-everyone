@@ -37,8 +37,10 @@ export const addChart = (chartProps, data) => {
         width,
         x,
         y,
-        xLabel: 'Men',
-        yLabel: 'Women',
+        xLabel: 'Men (years)',
+        yLabel: 'Women (years)',
+        xNumTicks: 5,
+        yNumTicks: 5,
         colour: colours.axis
     })
 

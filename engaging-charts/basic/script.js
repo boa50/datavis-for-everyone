@@ -57,13 +57,7 @@ getData().then(data => {
         getChart(
             'chart3',
             document.getElementById('chart3-container').offsetWidth,
-            svgHeight,
-            {
-                left: 64,
-                right: 16,
-                top: 24,
-                bottom: 56
-            }
+            svgHeight
         ),
         data
     )

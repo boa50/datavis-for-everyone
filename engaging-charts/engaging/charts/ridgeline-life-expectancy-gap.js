@@ -83,6 +83,7 @@ export const addChart = (chartProps, data) => {
         xLabel: 'Year',
         yLabel: 'Country',
         xFormat: d => d,
+        xNumTicks: 6,
         colour: colours.axis
     })
 }

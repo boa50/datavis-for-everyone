@@ -52,7 +52,7 @@ export const addChart = chartProps => {
             x,
             y,
             xLabel: 'Year',
-            yLabel: 'Greenhouse emissions (in tonnes)',
+            yLabel: 'Greenhouse emissions (tonnes)',
             xFormat: d => d,
             yFormat: d => `${d3.format('.2s')(d).replace('G', ' billion').replace('.0', '')}`,
             xNumTicks: 5,

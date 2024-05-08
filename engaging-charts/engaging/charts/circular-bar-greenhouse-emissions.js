@@ -1,5 +1,6 @@
 import { colours } from "../../constants.js"
 import { addHighlightTooltip as addTooltip } from "../../../components/tooltip/script.js"
+import { addVerticalLegend as addLegend } from "../../../components/legend/script.js"
 
 const keys = ['electricityAndHeat', 'transport', 'manufacturingAndConstruction', 'agriculture', 'buildings', 'industry']
 
@@ -8,7 +9,7 @@ const getData = () =>
         .then(d => d.map(v => { return { ...v, total: keys.reduce((tot, key) => tot + +v[key], 0) } }))
 
 export const addChart = chartProps => {
-    const { chart, width, height } = chartProps
+    const { chart, width, height, margin } = chartProps
 
     const innerRadius = 100
     const outerRadius = Math.min(width, height) / 2
@@ -16,7 +17,7 @@ export const addChart = chartProps => {
 
     const centeredChart = chart
         .append('g')
-        .attr('transform', `translate(${[width / 2, height / 2]})`)
+        .attr('transform', `translate(${[width / 3, height / 2]})`)
 
     getData().then(data => {
         const x = d3
@@ -76,6 +77,14 @@ export const addChart = chartProps => {
                 )
                 .text(d => d.year)
             )
+
+        addLegend({
+            chart,
+            legends: ['Electricity and Heat', 'Transport', 'Manufacturing and Construction', 'Agriculture', 'Buildings', 'Industry'],
+            colours: colours.greenhouseSectorsScheme,
+            xPosition: width / 1.55,
+            yPosition: height / 3
+        })
 
         centeredChart
             .append('g')

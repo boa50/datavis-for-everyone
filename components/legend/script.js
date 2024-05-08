@@ -81,3 +81,42 @@ export const addLegendV2 = ({
         shapes: shapes
     })
 }
+
+export const addVerticalLegend = ({
+    chart,
+    legends,
+    colours = 'black',
+    shapes = undefined,
+    xPosition = 0,
+    yPosition = 0
+}) => {
+    const legendId = chart.attr('id') + '-legend'
+    const legend = chart
+        .append('g')
+        .attr('id', legendId)
+        .attr('transform', `translate(${[xPosition, yPosition]})`)
+
+    let ySpace = 0
+    legends.forEach((legendText, idx) => {
+        const colour = Array.isArray(colours) === true ? colours[idx] : colours
+
+        if (shapes !== undefined) {
+            legend
+                .append('path')
+                .attr('d', shapes[idx])
+                .attr('transform', `translate(0, ${ySpace - 4})`)
+                .attr('fill', colour)
+        }
+
+        legend
+            .append('text')
+            .attr('x', shapes !== undefined ? 7 : 0)
+            .attr('y', ySpace)
+            .attr('font-weight', 700)
+            .attr('font-size', '0.875rem')
+            .attr('fill', colour)
+            .text(legendText)
+
+        ySpace += 26
+    })
+}

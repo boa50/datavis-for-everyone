@@ -1,4 +1,4 @@
-import { colours } from "../../constants.js"
+import { colours, palette } from "../../constants.js"
 import { addHighlightTooltip as addTooltip } from "../../../components/tooltip/script.js"
 import { addVerticalLegend as addLegend } from "../../../components/legend/script.js"
 
@@ -9,7 +9,7 @@ const getData = () =>
         .then(d => d.map(v => { return { ...v, total: keys.reduce((tot, key) => tot + +v[key], 0) } }))
 
 export const addChart = chartProps => {
-    const { chart, width, height, margin } = chartProps
+    const { chart, width, height } = chartProps
 
     const innerRadius = 100
     const outerRadius = Math.min(width, height) / 2
@@ -38,7 +38,7 @@ export const addChart = chartProps => {
         const colour = d3
             .scaleOrdinal()
             .domain(keys)
-            .range(colours.greenhouseSectorsScheme)
+            .range(palette)
 
         const arc = d3
             .arc()
@@ -81,7 +81,7 @@ export const addChart = chartProps => {
         addLegend({
             chart,
             legends: ['Electricity and Heat', 'Transport', 'Manufacturing and Construction', 'Agriculture', 'Buildings', 'Industry'],
-            colours: colours.greenhouseSectorsScheme,
+            colours: palette,
             xPosition: width / 1.55,
             yPosition: height / 3
         })

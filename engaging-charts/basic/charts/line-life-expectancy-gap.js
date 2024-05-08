@@ -1,4 +1,4 @@
-import { colours } from "../../constants.js"
+import { colours, palette } from "../../constants.js"
 import { addAxis } from "../../../components/axis/script.js"
 import { addLegendV2 as addLegend } from "../../../components/legend/script.js"
 import { addLineTooltip as addTooltip } from "../../../components/tooltip/script.js"
@@ -23,7 +23,7 @@ export const addChart = (chartProps, data) => {
     const colour = d3
         .scaleOrdinal()
         .domain(selectedCountries)
-        .range(d3.schemeTableau10)
+        .range(palette)
 
     const line = d3
         .line()
@@ -55,7 +55,7 @@ export const addChart = (chartProps, data) => {
     addLegend({
         chart,
         legends: selectedCountries,
-        colours: d3.schemeTableau10,
+        colours: palette,
         xPos: -margin.left,
         yPos: -margin.top
     })

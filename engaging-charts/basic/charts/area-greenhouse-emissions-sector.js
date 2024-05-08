@@ -1,4 +1,4 @@
-import { colours } from "../../constants.js"
+import { colours, palette } from "../../constants.js"
 import { addAxis } from "../../../components/axis/script.js"
 import { addLegendV2 as addLegend } from "../../../components/legend/script.js"
 import { addVerticalTooltip as addTooltip } from "../../../components/tooltip/script.js"
@@ -20,7 +20,7 @@ export const addChart = chartProps => {
         const colour = d3
             .scaleOrdinal()
             .domain(keys)
-            .range(colours.greenhouseSectorsScheme)
+            .range(palette)
 
         const stackedData = d3
             .stack()
@@ -64,7 +64,7 @@ export const addChart = chartProps => {
         addLegend({
             chart,
             legends: ['Electricity and Heat', 'Transport', 'Manufacturing and Construction', 'Agriculture', 'Buildings', 'Industry'],
-            colours: colours.greenhouseSectorsScheme,
+            colours: palette,
             xPos: -margin.left,
             yPos: -margin.top
         })

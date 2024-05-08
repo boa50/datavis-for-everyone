@@ -1,9 +1,10 @@
+export const palette = ['#6E85B7', '#414756', '#a5abbd', '#B76E85', '#80404d', '#6EB77B']
+
 export const colours = {
     axis: '#737373',
-    male: '#93c5fd',
-    female: '#fda4af',
-    default: '#0891b2',
-    ridges: '#c4b5fd',
-    lineTooltip: '#344a53',
-    greenhouseSectorsScheme: ['#0891b2', '#344a53', '#97afb9', '#a276a8', '#6e4574', '#58ae9e']
+    male: palette[0],
+    female: palette[3],
+    default: palette[0],
+    ridges: palette[2],
+    lineTooltip: palette[1]
 }

@@ -89,7 +89,8 @@ export const addChart = chartProps => {
                 initial: 1,
                 highlighted: 1,
                 faded: 0.25
-            }
+            },
+            { width, height }
         )
     })
 

@@ -21,13 +21,13 @@ export const addChart = chartProps => {
     getData().then(data => {
         const x = d3
             .scaleBand()
-            .range([0, 2 * Math.PI])
             .domain(data.map(d => d.year))
+            .range([0, 2 * Math.PI])
 
         const y = d3
             .scaleRadial()
-            .range([innerRadius, outerRadius])
             .domain([0, d3.max(data, d => d.total)])
+            .range([innerRadius, outerRadius])
 
         const stackedData = d3
             .stack()
@@ -36,8 +36,8 @@ export const addChart = chartProps => {
 
         const colour = d3
             .scaleOrdinal()
-            .range(d3.schemeTableau10)
             .domain(keys)
+            .range(colours.greenhouseSectorsScheme)
 
         const arc = d3
             .arc()

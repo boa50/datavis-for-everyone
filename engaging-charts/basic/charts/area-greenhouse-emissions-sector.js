@@ -20,7 +20,7 @@ export const addChart = chartProps => {
         const colour = d3
             .scaleOrdinal()
             .domain(keys)
-            .range(d3.schemeTableau10)
+            .range(colours.greenhouseSectorsScheme)
 
         const stackedData = d3
             .stack()
@@ -64,7 +64,7 @@ export const addChart = chartProps => {
         addLegend({
             chart,
             legends: ['Electricity and Heat', 'Transport', 'Manufacturing and Construction', 'Agriculture', 'Buildings', 'Industry'],
-            colours: d3.schemeTableau10,
+            colours: colours.greenhouseSectorsScheme,
             xPos: -margin.left,
             yPos: -margin.top
         })

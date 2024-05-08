@@ -4,5 +4,6 @@ export const colours = {
     female: '#fda4af',
     default: '#0891b2',
     ridges: '#c4b5fd',
-    lineTooltip: '#a21caf'
+    lineTooltip: '#344a53',
+    greenhouseSectorsScheme: ['#0891b2', '#344a53', '#97afb9', '#a276a8', '#6e4574', '#58ae9e']
 }

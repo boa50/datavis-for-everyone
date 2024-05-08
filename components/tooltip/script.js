@@ -161,11 +161,11 @@ export const addVerticalTooltip = ({
 
     const clearTooltips = () => {
         tooltips.selectAll('line').attr('stroke', 'transparent')
-        tooltips.selectAll('circle').attr('fill', 'transparent')
+        tooltips.selectAll('circle').attr('fill', 'transparent').attr('stroke', 'transparent')
     }
     const fillTooltips = key => {
         tooltips.selectAll(`.tooltip-line-${key}`).attr('stroke', colour)
-        tooltips.selectAll(`.tooltip-circle-${key}`).attr('fill', colour)
+        tooltips.selectAll(`.tooltip-circle-${key}`).attr('fill', colour).attr('stroke', 'white')
     }
 
     const customMouseOver = function (event) {

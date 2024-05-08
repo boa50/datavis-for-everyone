@@ -9,15 +9,12 @@ export const adjustColours = (g, colour, hideYdomain = false) => {
 
 const getBeautifulTicks = (nticks, scale, forceInitial) => {
     let extremities = scale.domain()
-    const numberLength = extremities[1].toString().length
-    let extremityIncrement = 1
+    const numberLength = Math.trunc(extremities[1]).toString().length
+    const extremityIncrement = numberLength > 4 ? Math.pow(10, numberLength - 2) : 1
 
-    if (numberLength > 4) {
-        extremityIncrement = Math.pow(10, numberLength - 2)
-        const maxTruncated = Math.trunc(extremities[1] / Math.pow(10, numberLength - 2))
-        const maxRounded = maxTruncated - (maxTruncated % 5)
-        extremities[1] = maxRounded * extremityIncrement
-    }
+    const maxTruncated = Math.trunc(extremities[1] / extremityIncrement)
+    const maxRounded = maxTruncated - (maxTruncated % 5)
+    extremities[1] = maxRounded * extremityIncrement
 
     const getIncrement = () => (extremities[1] - extremities[0]) / (nticks - 1)
 
@@ -75,6 +72,7 @@ export const addAxis = (
 ) => {
     if ((xTickValues === undefined) && (xNumTicks !== undefined)) {
         xTickValues = getBeautifulTicks(xNumTicks, x, xNumTicksForceInitial)
+        console.log(xTickValues);
     }
     if ((yTickValues === undefined) && (yNumTicks !== undefined)) {
         yTickValues = getBeautifulTicks(yNumTicks, y, yNumTicksForceInitial)

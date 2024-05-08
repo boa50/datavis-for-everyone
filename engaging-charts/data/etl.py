@@ -64,3 +64,24 @@ print(df.head())
 print(df.isnull().sum())
 
 df.to_csv(get_path("greenhouse-emissions.csv"), index=False)
+
+
+### Greenhouse gases food data
+df = pd.read_csv(
+    get_path("ghg-per-kg-poore.csv"),
+    names=["food", "code", "year", "emissionsPerKg"],
+    skiprows=1,
+)
+
+df = df[["food", "emissionsPerKg"]]
+
+df = df[(df["food"] != "Beef (dairy herd)") & (~df["food"].str.startswith("Other"))]
+
+df["food"] = df["food"].str.replace(" \(([^\)]+)\)", "", regex=True)
+df["food"] = df["food"].str.replace(" Meat", "")
+df["food"] = df["food"].str.replace("Dark Chocolate", "Chocolate")
+
+print(df)
+print(df.isnull().sum())
+
+df.to_csv(get_path("greenhouse-emissions-food.csv"), index=False)

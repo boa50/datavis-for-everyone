@@ -72,7 +72,6 @@ export const addAxis = (
 ) => {
     if ((xTickValues === undefined) && (xNumTicks !== undefined)) {
         xTickValues = getBeautifulTicks(xNumTicks, x, xNumTicksForceInitial)
-        console.log(xTickValues);
     }
     if ((yTickValues === undefined) && (yNumTicks !== undefined)) {
         yTickValues = getBeautifulTicks(yNumTicks, y, yNumTicksForceInitial)

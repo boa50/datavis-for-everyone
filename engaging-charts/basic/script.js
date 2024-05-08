@@ -3,6 +3,7 @@ import { addChart as addExpectancyByGender } from "./charts/bar-expectancy-by-ge
 import { addChart as addExpectancyGap } from "./charts/line-life-expectancy-gap.js";
 import { addChart as addExpectancyScatter } from "./charts/scatter-expectancy-distribution.js";
 import { addChart as addGreenhouseBySector } from "./charts/area-greenhouse-emissions-sector.js";
+import { addChart as addGreenhousePerFood } from "./charts/bar-food-emissions.js";
 
 const getData = () =>
     d3.csv('../data/life-expectancy.csv')
@@ -76,6 +77,20 @@ getData().then(data => {
                 left: 96,
                 right: 16,
                 top: 24,
+                bottom: 56
+            }
+        )
+    )
+
+    addGreenhousePerFood(
+        getChart(
+            'chart5',
+            document.getElementById('chart5-container').offsetWidth,
+            svgHeight,
+            {
+                left: 132,
+                right: 16,
+                top: 8,
                 bottom: 56
             }
         )

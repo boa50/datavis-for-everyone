@@ -3,6 +3,7 @@ import { addChart as addExpectancyByGender } from "./charts/lollipop-expectancy-
 import { addChart as addExpectancyGap } from "./charts/ridgeline-life-expectancy-gap.js";
 import { addChart as addExpectancyDistribution } from "./charts/hexbin-expectancy-distribution.js";
 import { addChart as addGreenhouseEmissions } from "./charts/circular-bar-greenhouse-emissions.js";
+import { addChart as addFoodEmissions } from "./charts/word-cloud-food-emissions.js";
 
 const getData = () =>
     d3.csv('../data/life-expectancy.csv')
@@ -70,6 +71,20 @@ getData().then(data => {
                 left: 16,
                 right: 16,
                 top: 16,
+                bottom: 8
+            }
+        )
+    )
+
+    addFoodEmissions(
+        getChart(
+            'chart5',
+            document.getElementById('chart5-container').offsetWidth,
+            svgHeight,
+            {
+                left: 0,
+                right: 0,
+                top: 8,
                 bottom: 8
             }
         )

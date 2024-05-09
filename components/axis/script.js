@@ -86,59 +86,63 @@ export const addAxis = (
         yRightTickValues = getBeautifulTicks(yRightNumTicks, yRight, yRightNumTicksForceInitial)
     }
 
-    chart
-        .append('g')
-        .attr('class', 'x-axis-group')
-        .style('font-size', '0.8rem')
-        .attr('transform', `translate(0, ${height})`)
-        .call(
-            d3
-                .axisBottom(x)
-                .tickSize(0)
-                .tickPadding(10)
-                .tickFormat(xFormat)
-                .tickValues(xTickValues)
-        )
-        .call(g => g
-            .append('text')
-            .attr('x', width / 2)
-            .attr('y', 45)
-            .attr('text-anchor', 'middle')
-            .text(xLabel))
-        .call(g => adjustColours(g, colour, hideXdomain))
-
-    chart
-        .append('g')
-        .attr('class', 'y-axis-group')
-        .style('font-size', '0.8rem')
-        .call(
-            d3
-                .axisLeft(y)
-                .tickSize(0)
-                .tickPadding(10)
-                .tickFormat(yFormat)
-                .tickValues(yTickValues)
-        )
-        .call(g => {
-            let maxTickWidth = 0
-            g
-                .selectAll('.tick>text')
-                .each(d => {
-                    const widthValue = getTextWidth(yFormat !== undefined ? yFormat(d) : d, '0.8rem')
-                    if (widthValue > maxTickWidth)
-                        maxTickWidth = widthValue
-                })
-            maxTickWidth += 30
-
-            g
+    if (x !== undefined) {
+        chart
+            .append('g')
+            .attr('class', 'x-axis-group')
+            .style('font-size', '0.8rem')
+            .attr('transform', `translate(0, ${height})`)
+            .call(
+                d3
+                    .axisBottom(x)
+                    .tickSize(0)
+                    .tickPadding(10)
+                    .tickFormat(xFormat)
+                    .tickValues(xTickValues)
+            )
+            .call(g => g
                 .append('text')
-                .attr('x', -(height / 2))
-                .attr('y', -maxTickWidth)
-                .attr('transform', 'rotate(270)')
+                .attr('x', width / 2)
+                .attr('y', 45)
                 .attr('text-anchor', 'middle')
-                .text(yLabel)
-        })
-        .call(g => adjustColours(g, colour, hideYdomain))
+                .text(xLabel))
+            .call(g => adjustColours(g, colour, hideXdomain))
+    }
+
+    if (y !== undefined) {
+        chart
+            .append('g')
+            .attr('class', 'y-axis-group')
+            .style('font-size', '0.8rem')
+            .call(
+                d3
+                    .axisLeft(y)
+                    .tickSize(0)
+                    .tickPadding(10)
+                    .tickFormat(yFormat)
+                    .tickValues(yTickValues)
+            )
+            .call(g => {
+                let maxTickWidth = 0
+                g
+                    .selectAll('.tick>text')
+                    .each(d => {
+                        const widthValue = getTextWidth(yFormat !== undefined ? yFormat(d) : d, '0.8rem')
+                        if (widthValue > maxTickWidth)
+                            maxTickWidth = widthValue
+                    })
+                maxTickWidth += 30
+
+                g
+                    .append('text')
+                    .attr('x', -(height / 2))
+                    .attr('y', -maxTickWidth)
+                    .attr('transform', 'rotate(270)')
+                    .attr('text-anchor', 'middle')
+                    .text(yLabel)
+            })
+            .call(g => adjustColours(g, colour, hideYdomain))
+    }
 
     if (yRight !== undefined) {
         chart

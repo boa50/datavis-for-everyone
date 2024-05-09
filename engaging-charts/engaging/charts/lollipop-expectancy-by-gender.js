@@ -52,6 +52,17 @@ export const addChart = (chartProps, data) => {
                 .attr('cy', getYposition)
                 .attr('r', 5)
                 .style('fill', colours.female)
+
+            g
+                .append('text')
+                .attr('x', d => x(Math.min(d.male, d.female)) - 12)
+                .attr('y', getYposition)
+                .attr('text-anchor', 'end')
+                .attr('dominant-baseline', 'middle')
+                .attr('cursor', 'default')
+                .style('font-size', '0.85rem')
+                .attr('fill', colours.axis)
+                .text(d => d.country)
         })
 
 
@@ -60,12 +71,9 @@ export const addChart = (chartProps, data) => {
         height,
         width,
         x,
-        y,
         xLabel: 'Life Expectancy (years)',
-        yLabel: 'Country',
         xNumTicks: 7,
         xNumTicksForceInitial: true,
-        hideXdomain: true,
         colour: colours.axis
     })
 

@@ -18,7 +18,7 @@ export const getTextWidth = (txt, fontSize = '1rem') => {
 }
 
 export const getTransformTranslate = transform =>
-    transform.substring(transform.indexOf('(') + 1, transform.indexOf(')')).split(/[ ,]/).map(d => +d)
+    transform.substring(transform.indexOf('(') + 1, transform.indexOf(')')).split(/[,]/).map(d => +d)
 
 export const formatCurrency = (value, decimals = false) =>
     d3

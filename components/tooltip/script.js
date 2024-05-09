@@ -1,3 +1,5 @@
+import { getTransformTranslate } from "../utils.js"
+
 export const addTooltip = (id, htmlText, options = { chartWidth: 500, chartHeight: 500 }) => {
     const tooltip = d3.select(`#${id}`)
         .append('div')
@@ -9,14 +11,24 @@ export const addTooltip = (id, htmlText, options = { chartWidth: 500, chartHeigh
         .style('color', 'white')
         .style('position', 'fixed')
 
-    const tooltipPadding = 15
 
-    const xPosition = event => d3.pointer(event)[0] >= (options.chartWidth / 2) ?
-        (event.x - tooltip.node().getBoundingClientRect().width - tooltipPadding) :
-        (event.x + tooltipPadding)
-    const yPosition = event => d3.pointer(event)[1] >= (options.chartHeight / 2) ?
-        (event.y - tooltip.node().getBoundingClientRect().height - tooltipPadding) :
-        (event.y + tooltipPadding)
+    const getPosition = (event, axis) => {
+        const tooltipPadding = 15
+        const pointerPosition = d3.pointer(event)[axis === 'y' ? 1 : 0]
+        const transformPosition = d3.select(event.target).attr('transform') !== null ?
+            getTransformTranslate(d3.select(event.target).attr('transform'))[axis === 'y' ? 1 : 0] :
+            0
+        const eventPosition = Math.max(pointerPosition, transformPosition)
+
+        if (eventPosition >= (options[axis === 'y' ? 'chartHeight' : 'chartWidth'] / 2)) {
+            return event[axis] - tooltip.node().getBoundingClientRect()[axis === 'y' ? 'height' : 'width'] - tooltipPadding
+        } else {
+            return event[axis] + tooltipPadding
+        }
+    }
+
+    const xPosition = event => `${getPosition(event, 'x')}px`
+    const yPosition = event => `${getPosition(event, 'y')}px`
 
     const mouseover = (event, d) => {
         tooltip
@@ -25,14 +37,14 @@ export const addTooltip = (id, htmlText, options = { chartWidth: 500, chartHeigh
             .duration(200)
         tooltip
             .html(htmlText(d))
-            .style('left', `${xPosition(event)}px`)
-            .style('top', `${yPosition(event)}px`)
+            .style('left', xPosition(event))
+            .style('top', yPosition(event))
             .style('opacity', 1)
     }
     const mousemove = (event, d) => {
         tooltip
-            .style('left', `${xPosition(event)}px`)
-            .style('top', `${yPosition(event)}px`)
+            .style('left', xPosition(event))
+            .style('top', yPosition(event))
 
         if (d !== undefined) tooltip.html(htmlText(d))
     }

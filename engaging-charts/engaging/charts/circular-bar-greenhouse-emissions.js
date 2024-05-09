@@ -145,7 +145,7 @@ export const addChart = chartProps => {
             `,
             d3.selectAll('.year-bar'),
             { initial: 0, highlighted: 0, faded: 0.75 },
-            { width: 0, height: 0 }
+            { width: width / 3, height: height / 2 }
         )
     })
 }

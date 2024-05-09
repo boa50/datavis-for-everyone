@@ -61,7 +61,9 @@ export const addChart = (chartProps, data) => {
         yLabel: 'Country',
         xNumTicks: 7,
         xNumTicksForceInitial: true,
-        colour: colours.axis
+        colour: colours.axis,
+        hideXdomain: true,
+        hideYdomain: true,
     })
 
     addLegend({

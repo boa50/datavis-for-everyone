@@ -48,7 +48,7 @@ export const addChart = chartProps => {
             <strong>${d.text}</strong>   
             <div style="display: flex; justify-content: space-between">
                 <span>Emissions:&emsp;</span>
-                <span>${d3.format('.2f')(d.emissionsPerKg)} (Kg of CO₂)</span>
+                <span>${d3.format('.2f')(d.emissionsPerKg)} (kg of CO₂)</span>
             </div>
             `,
             chart.selectAll('.food-word'),

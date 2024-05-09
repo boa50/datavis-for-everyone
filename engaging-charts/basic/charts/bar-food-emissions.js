@@ -27,7 +27,7 @@ export const addChart = chartProps => {
 
         const colour = d3
             .scaleSequential()
-            .domain([0, d3.max(dataFiltered, d => d.emissionsPerKg)])
+            .domain(x.domain().map(d => d - d % 5))
             .range([`${colours.default}30`, colours.default])
 
         const chartRects = chart
@@ -46,10 +46,12 @@ export const addChart = chartProps => {
             width,
             x,
             y,
-            xLabel: 'Greenhouse gas emissions (Kg of CO₂)',
+            xLabel: 'Greenhouse gas emissions (kg of CO₂)',
             yLabel: 'Food',
             xNumTicks: 5,
             xNumTicksForceInitial: true,
+            hideXdomain: true,
+            hideYdomain: true,
             colour: colours.axis
         })
 
@@ -66,7 +68,7 @@ export const addChart = chartProps => {
 
         addLegend({
             id: 'colour-legend',
-            title: 'Emissions (Kg of CO₂)',
+            title: 'Emissions (kg of CO₂)',
             colourScale: colour,
             axis: colourLegendAxis,
             width: colourLegendWidth,
@@ -81,7 +83,7 @@ export const addChart = chartProps => {
             <strong>${d.food}</strong>   
             <div style="display: flex; justify-content: space-between">
                 <span>Emissions:&emsp;</span>
-                <span>${d3.format('.2f')(d.emissionsPerKg)} (Kg of CO₂)</span>
+                <span>${d3.format('.2f')(d.emissionsPerKg)} (kg of CO₂)</span>
             </div>
             `,
             chartRects,

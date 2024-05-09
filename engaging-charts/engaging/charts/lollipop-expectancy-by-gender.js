@@ -65,6 +65,7 @@ export const addChart = (chartProps, data) => {
         yLabel: 'Country',
         xNumTicks: 7,
         xNumTicksForceInitial: true,
+        hideXdomain: true,
         colour: colours.axis
     })
 

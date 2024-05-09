@@ -1,7 +1,7 @@
 import { getTextWidth, getTransformTranslate } from "../utils.js"
 
-export const adjustColours = (g, colour, hideYdomain = false) => {
-    if (hideYdomain) g.select('.domain').attr('stroke', 'transparent')
+export const adjustColours = (g, colour, hideDomain = false) => {
+    if (hideDomain) g.select('.domain').attr('stroke', 'transparent')
     else g.select('.domain').attr('stroke', colour)
 
     g.selectAll('text').attr('fill', colour)
@@ -72,6 +72,7 @@ export const addAxis = (
         yNumTicksForceInitial = false,
         yRightNumTicks = undefined,
         yRightNumTicksForceInitial = false,
+        hideXdomain = false,
         hideYdomain = false
     }
 ) => {
@@ -104,7 +105,7 @@ export const addAxis = (
             .attr('y', 45)
             .attr('text-anchor', 'middle')
             .text(xLabel))
-        .call(g => adjustColours(g, colour))
+        .call(g => adjustColours(g, colour, hideXdomain))
 
     chart
         .append('g')

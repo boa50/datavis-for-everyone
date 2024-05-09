@@ -41,6 +41,8 @@ export const addChart = (chartProps, data) => {
         yLabel: 'Women (years)',
         xNumTicks: 5,
         yNumTicks: 5,
+        hideXdomain: true,
+        hideYdomain: true,
         colour: colours.axis
     })
 

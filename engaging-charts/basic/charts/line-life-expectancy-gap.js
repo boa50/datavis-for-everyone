@@ -16,7 +16,7 @@ export const addChart = (chartProps, data) => {
 
     const y = d3
         .scaleLinear()
-        .domain(d3.extent(filteredData, d => d.gap).map((d, i) => d * [0.95, 1.05][i]))
+        .domain(d3.extent(filteredData, d => d.gap).map((d, i) => d * [0, 1.1][i]))
         .range([height, 0])
 
     const dataPerGroup = d3.group(filteredData, d => d.country)
@@ -50,7 +50,10 @@ export const addChart = (chartProps, data) => {
         yLabel: 'Life expectancy gap (years)',
         xFormat: d => d,
         xNumTicks: 6,
-        colour: colours.axis
+        yNumTicks: 6,
+        yNumTicksForceInitial: true,
+        colour: colours.axis,
+        hideYdomain: true
     })
 
     addLegend({

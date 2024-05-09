@@ -57,6 +57,8 @@ export const addChart = chartProps => {
             yFormat: d => `${d3.format('.2s')(d).replace('G', ' billion').replace('.0', '')}`,
             xNumTicks: 5,
             yNumTicks: 6,
+            hideXdomain: true,
+            hideYdomain: true,
             yNumTicksForceInitial: true,
             colour: colours.axis
         })
@@ -88,12 +90,12 @@ export const addChart = chartProps => {
             .formatLocale({ thousands: ' ', grouping: [3] })
             .format(',.0f')
             (Math.round(d / 1e6))
-            } million`
+            } million t`
 
         addTooltip({
             id: `${chart.attr('id').split('-')[0]}-container`,
             htmlText: d => `
-            <strong>${d.x}</strong> <span>(in tonnes)</span>
+            <strong>${d.x}</strong>
             <div style="display: flex; justify-content: space-between">
                 <strong>Total:&emsp;</strong>
                 <span>${tooltipFormat(keys.reduce((total, key) => total + +d[key], 0))}</span>

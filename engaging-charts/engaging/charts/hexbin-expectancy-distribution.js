@@ -94,6 +94,14 @@ export const addChart = (chartProps, data) => {
             <span>Countries:&emsp;</span>
             <span>${d.length}</span>
         </div>
+        <div style="display: flex; justify-content: space-between">
+            <span>Men:&emsp;</span>
+            <span>${d3.format('.1f')(x.invert(d.x))} years</span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+            <span>Women:&emsp;</span>
+            <span>${d3.format('.1f')(y.invert(d.y))} years</span>
+        </div>
         `,
         chart.selectAll('.hexbin-point'),
         { initial: 1, highlighted: 1, faded: 0.25 }

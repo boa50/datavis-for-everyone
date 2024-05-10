@@ -145,7 +145,7 @@ function pieOuter(d, xRadius, yRadius, height, rotation) {
 }
 
 function getPercent(d) {
-    return d.endAngle - d.startAngle > 0.2 ?
+    return d.endAngle - d.startAngle > 0 ?
         Math.round(1000 * (d.endAngle - d.startAngle) / (Math.PI * 2)) / 10 + '%' :
         ''
 }

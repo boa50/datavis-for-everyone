@@ -23,9 +23,9 @@ addBar(
         svgHeight,
         {
             left: 128,
-            right: 16,
+            right: 8,
             top: 8,
-            bottom: 56
+            bottom: 16
         }
     ),
     data
@@ -38,9 +38,9 @@ addBar(
         svgHeight,
         {
             left: 128,
-            right: 16,
+            right: 8,
             top: 8,
-            bottom: 56
+            bottom: 16
         }
     ),
     data,

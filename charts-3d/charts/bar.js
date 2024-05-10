@@ -1,13 +1,12 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../components/axis/script.js"
-import { addHighlightTooltip as addTooltip } from "../../components/tooltip/script.js"
 
 export const addChart = (chartProps, data, highlighted) => {
     const { chart, width, height } = chartProps
 
     const x = d3
         .scaleLinear()
-        .domain([0, d3.max(Object.values(data))])
+        .domain([0, d3.max(Object.values(data)) * 1.1])
         .range([0, width])
 
     const y = d3
@@ -25,7 +24,7 @@ export const addChart = (chartProps, data, highlighted) => {
         return colours.default
     }
 
-    const bars = chart
+    chart
         .selectAll('.my-bars')
         .data(Object.entries(data))
         .join('rect')
@@ -35,29 +34,24 @@ export const addChart = (chartProps, data, highlighted) => {
         .attr('height', y.bandwidth())
         .attr('fill', d => colour(d[0]))
 
+    chart
+        .selectAll('.my-bars')
+        .data(Object.entries(data))
+        .join('text')
+        .attr('x', d => x(d[1]) + 8)
+        .attr('y', d => y(d[0]) + y.bandwidth() / 2)
+        .attr('class', 'font-medium text-base')
+        .attr('text-anchor', 'start')
+        .attr('dominant-baseline', 'middle')
+        .attr('fill', colours.axis)
+        .text(d => `${d[1]}%`)
+
     addAxis({
         chart,
         height,
         width,
-        x,
         y,
-        xLabel: 'Marketshare (%)',
-        hideXdomain: true,
         hideYdomain: true,
         colour: colours.axis
     })
-
-    addTooltip(
-        `${chart.attr('id').split('-')[0]}-container`,
-        d => `
-        <strong>${d[0]}</strong>
-        <div style="display: flex; justify-content: space-between">
-            <span>Marketshare:&emsp;</span>
-            <span>${d[1]}%</span>
-        </div>
-        `,
-        bars,
-        { initial: 4, highlighted: 1, faded: 1 },
-        { width, height }
-    )
 }

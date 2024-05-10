@@ -1,4 +1,5 @@
 import { getChart } from "../components/utils.js"
+import { addChart as addBar } from "./charts/bar.js"
 import { addChart as add3dPie } from "./charts/3d-pie.js"
 
 const data = {
@@ -7,16 +8,31 @@ const data = {
     'Company C': 9.8,
     'Company D': 7.4,
     'Company E': 3.1,
-    'Others Company': 21.2
+    'Other Companies': 21.2
 }
 
 const svgHeight = (window.innerHeight
     - document.getElementById('header').offsetHeight) / 2
     - 64
 
+addBar(
+    getChart(
+        'chart1',
+        document.getElementById('chart1-container').offsetWidth,
+        svgHeight,
+        {
+            left: 128,
+            right: 16,
+            top: 8,
+            bottom: 56
+        }
+    ),
+    data
+)
+
 const pie3dProps = getChart(
-    'chart1',
-    document.getElementById('chart1-container').offsetWidth,
+    'chart4',
+    document.getElementById('chart4-container').offsetWidth,
     svgHeight,
     {
         left: 8,

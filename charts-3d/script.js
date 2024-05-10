@@ -30,6 +30,22 @@ addBar(
     data
 )
 
+addBar(
+    getChart(
+        'chart2',
+        document.getElementById('chart2-container').offsetWidth,
+        svgHeight,
+        {
+            left: 128,
+            right: 16,
+            top: 8,
+            bottom: 56
+        }
+    ),
+    data,
+    'Our Company'
+)
+
 const pie3dProps = getChart(
     'chart4',
     document.getElementById('chart4-container').offsetWidth,

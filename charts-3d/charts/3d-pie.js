@@ -1,3 +1,6 @@
+import { piePalette } from "../constants.js"
+import { addVerticalLegend as addLegend } from "../../components/legend/script.js"
+
 // Based on: https://jsfiddle.net/qkHK6/2987/
 export const addChart = ({
     chartProps,
@@ -10,16 +13,17 @@ export const addChart = ({
 }) => {
     const { chart, width, height } = chartProps
 
-    chart.attr('transform', `translate(${[width / 2, height / 2.5]})`)
+    chart.attr('transform', `translate(${[width / 1.5, height / 2.5]})`)
 
     const pieData = d3
         .pie()
         .value(d => d[1])
+        .sort((a, b) => (a, b))
         (Object.entries(data))
 
     const colour = d3
         .scaleOrdinal()
-        .range(d3.schemeTableau10)
+        .range(piePalette)
 
     chart
         .selectAll('.innerSlice')
@@ -50,10 +54,22 @@ export const addChart = ({
         .selectAll('.percent')
         .data(pieData)
         .join('text')
-        .attr('class', 'percent')
+        .attr('class', 'percent font-bold text-lg')
+        .attr('fill', 'white')
+        .attr('text-anchor', 'middle')
+        .attr('dominant-baseline', 'middle')
         .attr('x', d => 0.7 * xRadius * Math.cos(0.5 * (d.startAngle + d.endAngle + rotation * 2)))
         .attr('y', d => 0.7 * yRadius * Math.sin(0.5 * (d.startAngle + d.endAngle + rotation * 2)))
         .text(getPercent)
+
+
+    addLegend({
+        chart,
+        legends: Object.keys(data),
+        colours: piePalette,
+        xPosition: -width / 1.7,
+        yPosition: -height / 8
+    })
 }
 
 function getAngles(startAngle, endAngle, rotation, cutPoint) {

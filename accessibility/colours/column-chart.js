@@ -63,7 +63,7 @@ export const addChart = (chartProps, data, colourPalleteType) => {
         .domain(years)
 
     chart
-        .selectAll('g')
+        .selectAll('.data-point')
         .data(filteredData)
         .join('rect')
         .attr('class', 'data-point')
@@ -106,7 +106,7 @@ export const addChart = (chartProps, data, colourPalleteType) => {
             <span>${d3.format('.2f')(d.temperature)} °C</span>
         </div>
         `,
-        d3.selectAll('.data-point'),
+        chart.selectAll('.data-point'),
         { initial: 1, highlighted: 1, faded: 0.5 },
         { width, height }
     )

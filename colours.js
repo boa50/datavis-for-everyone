@@ -8,3 +8,8 @@ export const palette = {
     vermillion: '#D55E00',
     reddishPurple: '#CC79A7'
 }
+
+export const defaultColours = {
+    axis: '#737373',
+    primary: palette.blue
+}

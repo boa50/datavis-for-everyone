@@ -5,35 +5,29 @@ const getData = () =>
     d3.csv('../data/average-surface-temperature.csv')
         .then(d => d.map(v => { return { ...v, month: +v.month, temperature: +v.temperature } }))
 
+const getChartByNumber = number => {
+    return getChart(
+        `chart${number}`,
+        document.getElementById(`chart${number}-container`).offsetWidth,
+        document.getElementById(`chart${number}-container`).offsetHeight - document.getElementById(`chart${number}-title`).offsetHeight,
+        {
+            left: 64,
+            right: 16,
+            top: 24,
+            bottom: 56
+        }
+    )
+}
+
 getData().then(data => {
     addChart(
-        getChart(
-            'chart1',
-            document.getElementById('chart1-container').offsetWidth,
-            document.getElementById('chart1-container').offsetHeight - document.getElementById('chart1-title').offsetHeight,
-            {
-                left: 64,
-                right: 16,
-                top: 16,
-                bottom: 56
-            }
-        ),
+        getChartByNumber(1),
         data,
         'rgb'
     )
 
     addChart(
-        getChart(
-            'chart3',
-            document.getElementById('chart3-container').offsetWidth,
-            document.getElementById('chart3-container').offsetHeight - document.getElementById('chart3-title').offsetHeight,
-            {
-                left: 64,
-                right: 16,
-                top: 16,
-                bottom: 56
-            }
-        ),
+        getChartByNumber(3),
         data,
         'accessible'
     )

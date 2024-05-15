@@ -16,7 +16,7 @@ export const addChart = (chartProps, data, colourPalleteType) => {
             break;
     }
 
-    const filteredData = data.filter(d => d.year >= 2021)
+    const filteredData = data.filter(d => (d.year >= 2021) && (d.month <= 6))
 
     const years = [...new Set(filteredData.map(d => d.year))].reverse()
 
@@ -63,6 +63,7 @@ export const addChart = (chartProps, data, colourPalleteType) => {
         xLabel: 'Month',
         yLabel: 'Temperature (°C)',
         xFormat: d => getMonthName(d, 'short'),
+        yNumTicks: 4,
         hideXdomain: true,
         hideYdomain: true,
         colour: colours.axis

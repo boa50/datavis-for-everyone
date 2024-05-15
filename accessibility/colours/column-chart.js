@@ -1,9 +1,20 @@
 import { palette, defaultColours as colours } from "../../colours.js"
 import { addAxis } from "../../components/axis/script.js"
 import { addHighlightTooltip as addTooltip } from "../../components/tooltip/script.js"
+import { addLegendV2 as addLegend } from "../../components/legend/script.js"
 
-export const addChart = (chartProps, data) => {
-    const { chart, width, height } = chartProps
+export const addChart = (chartProps, data, colourPalleteType) => {
+    const { chart, width, height, margin } = chartProps
+    let colourPalette = Object.values(palette).splice(3).map(d => d3.hsl(d).darker(0.2))
+
+    switch (colourPalleteType) {
+        case 'accessible':
+            colourPalette = Object.values(palette).splice(3).map(d => d3.hsl(d).darker(0.2))
+            break;
+        case 'rgb':
+            colourPalette = ['#dc2626', '#16a34a', '#2563eb'].map(d => d3.hsl(d).darker(0.2))
+            break;
+    }
 
     const filteredData = data.filter(d => d.year >= 2021)
 
@@ -28,7 +39,7 @@ export const addChart = (chartProps, data) => {
 
     const colour = d3
         .scaleOrdinal()
-        .range(Object.values(palette).splice(3).map(d => d3.hsl(d).darker(0.2)))
+        .range(colourPalette)
         .domain(years)
 
     chart
@@ -55,6 +66,14 @@ export const addChart = (chartProps, data) => {
         hideXdomain: true,
         hideYdomain: true,
         colour: colours.axis
+    })
+
+    addLegend({
+        chart,
+        legends: years,
+        colours: colour.range(),
+        xPos: -margin.left,
+        yPos: -margin.top
     })
 
     addTooltip(

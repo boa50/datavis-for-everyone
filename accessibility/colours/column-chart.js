@@ -5,16 +5,36 @@ import { addLegendV2 as addLegend } from "../../components/legend/script.js"
 
 export const addChart = (chartProps, data, colourPalleteType) => {
     const { chart, width, height, margin } = chartProps
-    let colourPalette = Object.values(palette).splice(3).map(d => d3.hsl(d).darker(0.2))
+    let colourPalette = Object.values(palette).splice(3)
 
     switch (colourPalleteType) {
         case 'accessible':
-            colourPalette = Object.values(palette).splice(3).map(d => d3.hsl(d).darker(0.2))
+            colourPalette = Object.values(palette).splice(3)
+            break;
+        case 'accessible-protanopia':
+            colourPalette = ['#E6CB19', '#536AAB', '#928112']
+            break;
+        case 'accessible-deuteranopia':
+            colourPalette = ['#FFC142', '#3C6DB2', '#A47A00']
+            break;
+        case 'accessible-tritanopia':
+            colourPalette = ['#FFB8C6', '#007880', '#D7585D']
             break;
         case 'rgb':
-            colourPalette = ['#dc2626', '#16a34a', '#2563eb'].map(d => d3.hsl(d).darker(0.2))
+            colourPalette = ['#dc2626', '#16a34a', '#2563eb']
+            break;
+        case 'rgb-protanopia':
+            colourPalette = ['#7D713B', '#9C8C45', '#0069DB']
+            break;
+        case 'rgb-deuteranopia':
+            colourPalette = ['#906B1A', '#AB8655', '#0070BC']
+            break;
+        case 'rgb-tritanopia':
+            colourPalette = ['#DB2A2A', '#4898A4', '#007880']
             break;
     }
+
+    colourPalette = colourPalette.map(d => d3.hsl(d).darker(0.1))
 
     const filteredData = data.filter(d => (d.year >= 2021) && (d.month <= 6))
 

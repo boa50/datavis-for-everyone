@@ -42,23 +42,20 @@ export const addChart = chartProps => {
 
         layout.start()
 
-        addTooltip(
-            `${chart.attr('id').split('-')[0]}-container`,
-            d => `
+        addTooltip({
+            chart,
+            htmlText: d => `
             <strong>${d.text}</strong>   
             <div style="display: flex; justify-content: space-between">
                 <span>Emissions:&emsp;</span>
                 <span>${d3.format('.2f')(d.emissionsPerKg)} (kg of CO₂)</span>
             </div>
             `,
-            chart.selectAll('.food-word'),
-            {
-                initial: 1,
-                highlighted: 1,
-                faded: 0.25
-            },
-            { width: width / 3, height: height / 3 }
-        )
+            elements: chart.selectAll('.food-word'),
+            initialOpacity: 1,
+            chartWidth: width / 3,
+            chartHeight: height / 3
+        })
     })
 
 }

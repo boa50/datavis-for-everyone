@@ -77,23 +77,20 @@ export const addChart = chartProps => {
             textColour: colours.axis
         })
 
-        addTooltip(
-            `${chart.attr('id').split('-')[0]}-container`,
-            d => `
+        addTooltip({
+            chart,
+            htmlText: d => `
             <strong>${d.food}</strong>   
             <div style="display: flex; justify-content: space-between">
                 <span>Emissions:&emsp;</span>
                 <span>${d3.format('.2f')(d.emissionsPerKg)} (kg of CO₂)</span>
             </div>
             `,
-            chartRects,
-            {
-                initial: 1,
-                highlighted: 1,
-                faded: 0.25
-            },
-            { width, height }
-        )
+            elements: chartRects,
+            initialOpacity: 1,
+            chartWidth: width,
+            chartHeight: height
+        })
     })
 
 }

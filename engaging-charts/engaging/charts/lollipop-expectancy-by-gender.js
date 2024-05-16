@@ -85,9 +85,9 @@ export const addChart = (chartProps, data) => {
         yPos: -margin.top
     })
 
-    addTooltip(
-        `${chart.attr('id').split('-')[0]}-container`,
-        d => `
+    addTooltip({
+        chart,
+        htmlText: d => `
         <strong>${d.country}</strong>
         <div style='display: flex; justify-content: space-between'>
             <span>Men:&emsp;</span>
@@ -98,11 +98,7 @@ export const addChart = (chartProps, data) => {
             <span>${d3.format('.1f')(d.female)} years</span>
         </div>
         `,
-        lollipopGroups,
-        {
-            initial: 1,
-            highlighted: 1,
-            faded: 0.25
-        }
-    )
+        elements: lollipopGroups,
+        initialOpacity: 1
+    })
 }

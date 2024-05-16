@@ -110,26 +110,33 @@ export const removeLineTooltip = chart => {
     chart.select('.line-tooltip').remove()
 }
 
-export const addHighlightTooltip = (
-    id, htmlText, elements,
-    opacity = {
-        initial: 0.75, highlighted: 1, faded: 0.25
-    },
-    options = { width: 500, height: 500 }
-) => {
+export const addHighlightTooltip = ({
+    id,
+    chart,
+    htmlText,
+    elements,
+    initialOpacity = 0.75,
+    highlightedOpacity = 1,
+    fadedOpacity = 0.25,
+    chartWidth = 500,
+    chartHeight = 500
+}) => {
+    if ((id === undefined) && (chart !== undefined))
+        id = `${chart.attr('id').split('-')[0]}-container`
+
     const { mouseover, mousemove, mouseleave } = addTooltip(
         id,
         htmlText,
-        { chartWidth: options.width, chartHeight: options.height }
+        { chartWidth, chartHeight }
     )
 
     const customMouseOver = function (event, d) {
-        elements.style('opacity', opacity.faded)
-        d3.select(this).style('opacity', opacity.highlighted)
+        elements.style('opacity', fadedOpacity)
+        d3.select(this).style('opacity', highlightedOpacity)
         mouseover(event, d)
     }
     const customMouseLeave = function (event, d) {
-        elements.style('opacity', opacity.initial)
+        elements.style('opacity', initialOpacity)
         mouseleave(event, d)
     }
 

@@ -97,19 +97,21 @@ export const addChart = (chartProps, data, colourPalleteType) => {
         yPos: -margin.top
     })
 
-    addTooltip(
-        `${chart.attr('id').split('-')[0]}-container`,
-        d => `
+    addTooltip({
+        chart,
+        htmlText: d => `
         <strong>${getMonthName(d.month)} ${d.year}</strong>
         <div style="display: flex; justify-content: space-between">
             <span>Average temperature:&emsp;</span>
             <span>${d3.format('.2f')(d.temperature)} °C</span>
         </div>
         `,
-        chart.selectAll('.data-point'),
-        { initial: 1, highlighted: 1, faded: 0.5 },
-        { width, height }
-    )
+        elements: chart.selectAll('.data-point'),
+        initialOpacity: 1,
+        fadedOpacity: 0.5,
+        chartWidth: width,
+        chartHeight: height
+    })
 }
 
 function getMonthName(month, type = 'long') {

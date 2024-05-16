@@ -43,9 +43,9 @@ export const addChart = (data, chartProps) => {
 
     const chartElements = plotChart(chart, data, x, y)
 
-    addHighlightTooltip(
-        'charts',
-        d => `
+    addHighlightTooltip({
+        id: 'charts',
+        htmlText: d => `
         <strong>${d.Gender}</strong>
         <div style="display: flex; justify-content: space-between">
             <span>Height:&emsp;</span>
@@ -56,9 +56,9 @@ export const addChart = (data, chartProps) => {
             <span>${d3.format('.0f')(d.Weight)}kg</span>
         </div>
         `,
-        chartElements,
-        { initial: 0.75, faded: 0.5, highlighted: 1 },
-    )
+        elements: chartElements,
+        fadedOpacity: 0.5
+    })
 
     addAxis({
         chart: chart,

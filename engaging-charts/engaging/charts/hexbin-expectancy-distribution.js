@@ -87,9 +87,9 @@ export const addChart = (chartProps, data) => {
         textColour: colours.axis
     })
 
-    addTooltip(
-        `${chart.attr('id').split('-')[0]}-container`,
-        d => `
+    addTooltip({
+        chart,
+        htmlText: d => `
         <div style="display: flex; justify-content: space-between">
             <span>Countries:&emsp;</span>
             <span>${d.length}</span>
@@ -103,7 +103,7 @@ export const addChart = (chartProps, data) => {
             <span>${d3.format('.1f')(y.invert(d.y))} years</span>
         </div>
         `,
-        chart.selectAll('.hexbin-point'),
-        { initial: 1, highlighted: 1, faded: 0.25 }
-    )
+        elements: chart.selectAll('.hexbin-point'),
+        initialOpacity: 1
+    })
 }

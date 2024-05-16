@@ -47,18 +47,19 @@ export const addChart = (data, chartProps) => {
 
     const chartElements = plotChart(chart, groupedDataFiltered, x, y)
 
-    addHighlightTooltip(
-        'charts',
-        d => `
+    addHighlightTooltip({
+        id: 'charts',
+        htmlText: d => `
         <strong>${d[0]}</strong>   
         <div style="display: flex; justify-content: space-between">
             <span>Average Salary:&emsp;</span>
             <span>${formatCurrency(d[1])}</span>
         </div>
         `,
-        chartElements,
-        { initial: 0.9, faded: 0.5, highlighted: 1 },
-    )
+        elements: chartElements,
+        initialOpacity: 0.9,
+        fadedOpacity: 0.5
+    })
 
     addAxis({
         chart: chart,

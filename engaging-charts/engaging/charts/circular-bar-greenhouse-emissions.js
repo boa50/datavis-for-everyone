@@ -110,9 +110,9 @@ export const addChart = chartProps => {
             (Math.round(d / 1e6))
             } million`
 
-        addTooltip(
-            `${chart.attr('id').split('-')[0]}-container`,
-            d => `
+        addTooltip({
+            chart,
+            htmlText: d => `
             <strong>${d.year}</strong> <span>(in tonnes)</span>
             <div style="display: flex; justify-content: space-between">
                 <strong>Total:&emsp;</strong>
@@ -143,9 +143,12 @@ export const addChart = chartProps => {
                 <span>${tooltipFormat(d.electricityAndHeat)}</span>
             </div>
             `,
-            d3.selectAll('.year-bar'),
-            { initial: 0, highlighted: 0, faded: 0.75 },
-            { width: width / 3, height: height / 2 }
-        )
+            elements: d3.selectAll('.year-bar'),
+            initialOpacity: 0,
+            highlightedOpacity: 0,
+            fadedOpacity: 0.75,
+            chartWidth: width / 3,
+            chartHeight: height / 2
+        })
     })
 }

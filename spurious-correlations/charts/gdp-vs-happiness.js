@@ -97,9 +97,9 @@ export const plotChart = (chartProps, linearScales = true) => {
             yPos: -32
         })
 
-        addHighlightTooltip(
-            'charts',
-            d => `
+        addHighlightTooltip({
+            id: 'charts',
+            htmlText: d => `
             <strong>${d.country}</strong>   
             <div style="display: flex; justify-content: space-between">
                 <span>Life Satisfaction:&emsp;</span>
@@ -110,8 +110,8 @@ export const plotChart = (chartProps, linearScales = true) => {
                 <span>${formatCurrency(d.gdpPerCapita)}</span>
             </div>
             `,
-            chart.selectAll('.data-points')
-        )
+            elements: chart.selectAll('.data-points')
+        })
 
     })
 }

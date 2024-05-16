@@ -14,7 +14,7 @@
             <!-- PAGE LOGO -->
             <img src="./img/logo.svg" alt="dashboard logo" class="max-h-10 mx-4" />
             <h1 id="title" class="text-3xl text-gray-600 self-center font-medium">
-                Colours - Average temperatures by year
+                Colours
             </h1>
         </div>
 
@@ -27,83 +27,97 @@
 
     <!-- CONTENT -->
     <div class="mx-8">
-        <div id="charts" class="grid grid-cols-4 gap-4">
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart1-container" class="h-[40vh]">
-                    <h3 id="chart1-title" class="text-base text-gray-700 font-medium">
-                        Rgb palette
-                    </h3>
-                    <svg id="chart1"></svg>
+        <div id="charts" class="grid grid-cols-2 gap-8">
+            <div class="grid grid-cols-2 gap-2">
+                <h2 id="chart-group-title1" class="text-xl text-gray-600 justify-self-center font-medium col-span-2">
+                    Rgb palette - Average temperatures by year and month
+                </h2>
+
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart1-container" class="h-[40vh]">
+                        <h3 id="chart1-title" class="text-base text-gray-700 font-medium">
+                            No Colour Blindness
+                        </h3>
+                        <svg id="chart1"></svg>
+                    </div>
                 </div>
+
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart2-container" class="h-[40vh]">
+                        <h3 id="chart2-title" class="text-base text-gray-700 font-medium">
+                            Protanopia
+                        </h3>
+                        <svg id="chart2"></svg>
+                    </div>
+                </div>
+
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart3-container" class="h-[40vh]">
+                        <h3 id="chart3-title" class="text-base text-gray-700 font-medium">
+                            Deuteranopia
+                        </h3>
+                        <svg id="chart3"></svg>
+                    </div>
+                </div>
+
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart4-container" class="h-[40vh]">
+                        <h3 id="chart4-title" class="text-base text-gray-700 font-medium">
+                            Tritanopia
+                        </h3>
+                        <svg id="chart4"></svg>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart2-container" class="h-[40vh]">
-                    <h3 id="chart2-title" class="text-base text-gray-700 font-medium">
-                        Rgb palette - Protanopia
-                    </h3>
-                    <svg id="chart2"></svg>
-                </div>
-            </div>
+            <div class="grid grid-cols-2 gap-2">
+                <h2 id="chart-group-title1" class="text-xl text-gray-600 justify-self-center font-medium col-span-2">
+                    Accessible palette - Average temperatures by year and month
+                </h2>
 
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart3-container" class="h-[40vh]">
-                    <h3 id="chart3-title" class="text-base text-gray-700 font-medium">
-                        Accessible palette
-                    </h3>
-                    <svg id="chart3"></svg>
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart5-container" class="h-[40vh]">
+                        <h3 id="chart5-title" class="text-base text-gray-700 font-medium">
+                            No Colour Blindness
+                        </h3>
+                        <svg id="chart5"></svg>
+                    </div>
                 </div>
-            </div>
 
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart4-container" class="h-[40vh]">
-                    <h3 id="chart4-title" class="text-base text-gray-700 font-medium">
-                        Accessible palette - Protanopia
-                    </h3>
-                    <svg id="chart4"></svg>
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart6-container" class="h-[40vh]">
+                        <h3 id="chart6-title" class="text-base text-gray-700 font-medium">
+                            Protanopia
+                        </h3>
+                        <svg id="chart6"></svg>
+                    </div>
                 </div>
-            </div>
 
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart5-container" class="h-[40vh]">
-                    <h3 id="chart5-title" class="text-base text-gray-700 font-medium">
-                        Rgb palette - Deuteranopia
-                    </h3>
-                    <svg id="chart5"></svg>
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart7-container" class="h-[40vh]">
+                        <h3 id="chart7-title" class="text-base text-gray-700 font-medium">
+                            Deuteranopia
+                        </h3>
+                        <svg id="chart7"></svg>
+                    </div>
                 </div>
-            </div>
 
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart6-container" class="h-[40vh]">
-                    <h3 id="chart6-title" class="text-base text-gray-700 font-medium">
-                        Rgb palette - Tritanopia
-                    </h3>
-                    <svg id="chart6"></svg>
-                </div>
-            </div>
-
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart7-container" class="h-[40vh]">
-                    <h3 id="chart7-title" class="text-base text-gray-700 font-medium">
-                        Accessible palette - Deuteranopia
-                    </h3>
-                    <svg id="chart7"></svg>
-                </div>
-            </div>
-
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
-                <div id="chart8-container" class="h-[40vh]">
-                    <h3 id="chart8-title" class="text-base text-gray-700 font-medium">
-                        Accessible palette - Tritanopia
-                    </h3>
-                    <svg id="chart8"></svg>
+                <div class="bg-white/75 px-4 py-2 rounded-sm">
+                    <div id="chart8-container" class="h-[40vh]">
+                        <h3 id="chart8-title" class="text-base text-gray-700 font-medium">
+                            Tritanopia
+                        </h3>
+                        <svg id="chart8"></svg>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- CAPTION -->
         <div id="caption" class="leading-none flex justify-end m-2">
-            <span class="text-sm text-gray-400">Source:</span>
+            <span class="text-sm text-gray-400">Source: Copernicus Climate Change Service (2019) – with major processing
+                by Our World in Data ; https://davidmathlogic.com/colorblind</span>
         </div>
     </div>
 

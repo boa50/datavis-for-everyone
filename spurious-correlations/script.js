@@ -15,62 +15,60 @@ const getData = () =>
 
 const svgHeight = window.innerHeight / 2
 
-plotAwardsBySearches(getChart(
-    'chart1',
-    document.getElementById('chart1-container').offsetWidth,
-    svgHeight,
-    {
-        left: 64,
-        right: 64,
-        top: 8,
-        bottom: 56
-    }
-))
+plotAwardsBySearches(
+    getChart({
+        id: 'chart1',
+        svgHeight,
+        margin: {
+            left: 64,
+            right: 64,
+            top: 8,
+            bottom: 56
+        }
+    })
+)
 
 plotGdpVsHappiness(
-    getChart(
-        'chart2',
-        document.getElementById('chart2-container').offsetWidth,
+    getChart({
+        id: 'chart2',
         svgHeight,
-        {
+        margin: {
             left: 64,
             right: 16,
             top: 32,
             bottom: 56
         }
-    ),
+    }),
     false
 )
 
 plotGdpVsHappiness(
-    getChart(
-        'chart3',
-        document.getElementById('chart3-container').offsetWidth,
+    getChart({
+        id: 'chart3',
         svgHeight,
-        {
+        margin: {
             left: 64,
             right: 16,
             top: 32,
             bottom: 56
         }
-    )
+    })
 )
 
 const countriesSelector = document.getElementById('chart4-countries')
 const countries = ['China']
 
 getData().then(gdpVsHappinesData => {
-    const gdpHappinessByYearChart = getChart(
-        'chart4',
-        document.getElementById('chart4-container').offsetWidth,
+    const gdpHappinessByYearChart = getChart({
+        id: 'chart4',
         svgHeight,
-        {
+        margin: {
             left: 64,
             right: 64,
             top: 48,
             bottom: 56
         }
-    )
+    })
 
     const gdpHappinessByYearObject = plotGdpHappinessByYear(
         gdpVsHappinesData,

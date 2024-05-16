@@ -17,47 +17,44 @@ const svgHeight = (window.innerHeight
     - 64
 
 addBar(
-    getChart(
-        'chart1',
-        document.getElementById('chart1-container').offsetWidth,
+    getChart({
+        id: 'chart1',
         svgHeight,
-        {
+        margin: {
             left: 128,
             right: 8,
             top: 8,
             bottom: 16
         }
-    ),
+    }),
     data
 )
 
 addBar(
-    getChart(
-        'chart2',
-        document.getElementById('chart2-container').offsetWidth,
+    getChart({
+        id: 'chart2',
         svgHeight,
-        {
+        margin: {
             left: 128,
             right: 8,
             top: 8,
             bottom: 16
         }
-    ),
+    }),
     data,
     'Our Company'
 )
 
-const pieProps = getChart(
-    'chart3',
-    document.getElementById('chart3-container').offsetWidth,
+const pieProps = getChart({
+    id: 'chart3',
     svgHeight,
-    {
+    margin: {
         left: 8,
         right: 8,
         top: 8,
         bottom: 8
     }
-)
+})
 
 addPie({
     chartProps: pieProps,
@@ -65,17 +62,16 @@ addPie({
     radius: pieProps.height / 2.2
 })
 
-const pie3dProps = getChart(
-    'chart4',
-    document.getElementById('chart4-container').offsetWidth,
+const pie3dProps = getChart({
+    id: 'chart4',
     svgHeight,
-    {
+    margin: {
         left: 8,
         right: 8,
         top: 8,
         bottom: 8
     }
-)
+})
 
 add3dPie({
     chartProps: pie3dProps,

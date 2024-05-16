@@ -28,26 +28,24 @@ handleInputChange({ target: percentOutOfWorkforce })
 
 getData().then(data => {
     const lineChartObject = addLine(
-        getChart(
-            'chart1',
-            document.getElementById('chart1-container').offsetWidth,
+        getChart({
+            id: 'chart1',
             svgHeight
-        ),
+        }),
         data
     )
 
     const stackedAreaChartObject = addStackedArea(
-        getChart(
-            'chart2',
-            document.getElementById('chart2-container').offsetWidth,
+        getChart({
+            id: 'chart2',
             svgHeight,
-            {
+            margin: {
                 left: 64,
                 right: 16,
                 top: 32,
                 bottom: 56
             }
-        ),
+        }),
         data
     )
 

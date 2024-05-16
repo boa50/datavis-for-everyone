@@ -47,17 +47,26 @@ export const formatDate = (value, year = true, month = true, day = false) => {
     return new Intl.DateTimeFormat('en-AU', options).format(value)
 }
 
-export const getChart = (
+export const getMargin = ({
+    left = 64,
+    right = 16,
+    top = 8,
+    bottom = 56
+}) => { return { left, right, top, bottom } }
+
+export const getChart = ({
     id,
     svgWidth,
     svgHeight,
-    margin = {
-        left: 64,
-        right: 16,
-        top: 8,
-        bottom: 56
+    margin = getMargin({})
+}) => {
+    if (svgWidth === undefined)
+        svgWidth = document.getElementById(`${id}-container`).offsetWidth
+    if (svgHeight === undefined) {
+        const title = document.getElementById(`${id}-title`)
+        svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
     }
-) => {
+
     const width = svgWidth - margin.left - margin.right
     const height = svgHeight - margin.top - margin.bottom
 

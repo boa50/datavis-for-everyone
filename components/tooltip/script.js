@@ -61,19 +61,25 @@ export const addTooltip = (id, htmlText, options = { chartWidth: 500, chartHeigh
     return { mouseover, mousemove, mouseleave }
 }
 
-export const addLineTooltip = (id, htmlText, colour, elements = {
-    chart: undefined,
-    data: undefined,
-    cx: undefined,
-    cy: undefined,
-    radius: 4
-},
-    options = { width: 500, height: 500 }
-) => {
+export const addLineTooltip = ({
+    id,
+    htmlText,
+    colour,
+    chart,
+    data,
+    cx,
+    cy,
+    radius = 4,
+    chartWidth = 500,
+    chartHeight = 500
+}) => {
+    if ((id === undefined) && (chart !== undefined))
+        id = `${chart.attr('id').split('-')[0]}-container`
+
     const { mouseover, mousemove, mouseleave } = addTooltip(
         id,
         htmlText,
-        { chartWidth: options.width, chartHeight: options.height }
+        { chartWidth, chartHeight }
     )
 
     const customMouseOver = function (event, d) {
@@ -85,16 +91,16 @@ export const addLineTooltip = (id, htmlText, colour, elements = {
         mouseleave(event, d)
     }
 
-    if (elements.chart !== undefined) {
-        elements.chart
+    if (chart !== undefined) {
+        chart
             .append('g')
             .attr('class', 'line-tooltip')
             .selectAll('.dot')
-            .data(elements.data)
+            .data(data)
             .join('circle')
-            .attr('cx', elements.cx)
-            .attr('cy', elements.cy)
-            .attr('r', elements.radius)
+            .attr('cx', cx)
+            .attr('cy', cy)
+            .attr('r', radius)
             .attr('stroke', 'transparent')
             .attr('stroke-width', 12)
             .attr('fill', 'transparent')

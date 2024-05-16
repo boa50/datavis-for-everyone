@@ -30,24 +30,20 @@ export const updateChart = ({ chart, data, x, height }) => {
         .transition()
         .attr('d', line)
 
-    addTooltip(
-        'chart1-container',
-        d => `
+    addTooltip({
+        chart,
+        htmlText: d => `
         <strong>${formatDate(d.measureDate)}</strong>
         <div style="display: flex; justify-content: space-between">
             <span>Unemployment Rate:&emsp;</span>
             <span>${d3.format('.2%')(d.unemploymentRate)}</span>
         </div>
         `,
-        colours.line,
-        {
-            chart,
-            data,
-            cx: d => x(d.measureDate),
-            cy: d => y(d.unemploymentRate),
-            radius: 4
-        }
-    )
+        colour: colours.line,
+        data,
+        cx: d => x(d.measureDate),
+        cy: d => y(d.unemploymentRate)
+    })
 
     updateYaxis({
         chart,

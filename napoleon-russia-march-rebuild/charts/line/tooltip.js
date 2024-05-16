@@ -1,7 +1,7 @@
 import { addLineTooltip } from "../../../components/tooltip/script.js"
 
 export const addTooltip = ({ containerId, chart, data, cx, cy, radius = 4, htmlText, colour }) => {
-    const { mouseover, mousemove, mouseleave } = addLineTooltip(containerId, htmlText, colour)
+    const { mouseover, mousemove, mouseleave } = addLineTooltip({ id: containerId, htmlText, colour })
 
     chart
         .append('g')

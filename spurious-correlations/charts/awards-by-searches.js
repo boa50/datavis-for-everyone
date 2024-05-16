@@ -69,9 +69,9 @@ export const plotChart = chartProps => {
             .attr('d', d => lineSearches(d))
 
 
-        addLineTooltip(
-            'charts',
-            d => `
+        addLineTooltip({
+            chart,
+            htmlText: d => `
             <div style="display: flex; justify-content: space-between">
                 <span>Year:&emsp;</span>
                 <span>${d.year}</span>
@@ -81,19 +81,16 @@ export const plotChart = chartProps => {
                 <span>${d.awards}</span>
             </div>
             `,
-            colours.line1,
-            {
-                chart: chart,
-                data: data,
-                cx: d => x(d.year),
-                cy: d => yLeft(d.awards),
-                radius: 5
-            }
-        )
+            colour: colours.line1,
+            data,
+            cx: d => x(d.year),
+            cy: d => yLeft(d.awards),
+            radius: 5
+        })
 
-        addLineTooltip(
-            'charts',
-            d => `
+        addLineTooltip({
+            chart,
+            htmlText: d => `
             <div style="display: flex; justify-content: space-between">
                 <span>Year:&emsp;</span>
                 <span>${d.year}</span>
@@ -103,15 +100,12 @@ export const plotChart = chartProps => {
                 <span>${d3.format('.1f')(d.searches)}</span>
             </div>
             `,
-            colours.line2,
-            {
-                chart: chart,
-                data: data,
-                cx: d => x(d.year),
-                cy: d => yRight(d.searches),
-                radius: 5
-            }
-        )
+            colour: colours.line2,
+            data,
+            cx: d => x(d.year),
+            cy: d => yRight(d.searches),
+            radius: 5
+        })
 
         addLegend({
             chart: chart,

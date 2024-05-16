@@ -54,24 +54,20 @@ export const addChart = (chartProps, data) => {
                 .domain(d3.extent(d, v => v.gap))
                 .range([ridgeLaneStart, ridgeLaneStart - (height - (height * 0.85))])
 
-            addTooltip(
-                `${chart.attr('id').split('-')[0]}-container`,
-                d => `
+            addTooltip({
+                chart,
+                htmlText: d => `
                 <strong>${d.country} - ${d.year}</strong>
                 <div style="display: flex; justify-content: space-between">
                     <span>Life expectancy gap:&emsp;</span>
                     <span>${d3.format('.1f')(d.gap)} years</span>
                 </div>
                 `,
-                colours.axis,
-                {
-                    chart,
-                    data: d,
-                    cx: d => x(d.year),
-                    cy: d => y(d.gap),
-                    radius: 4
-                }
-            )
+                colour: colours.axis,
+                data: d,
+                cx: d => x(d.year),
+                cy: d => y(d.gap)
+            })
         })
 
     addAxis({

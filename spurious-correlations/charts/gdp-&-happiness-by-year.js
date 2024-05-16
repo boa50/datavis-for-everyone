@@ -147,9 +147,9 @@ export const plotChart = (data, chartProps, countries) => {
         .append('g')
         .attr('class', 'tooltipDots')
 
-    const { mouseover, mousemove, mouseleave } = addLineTooltip(
-        'charts',
-        d => `
+    const { mouseover, mousemove, mouseleave } = addLineTooltip({
+        id: 'charts',
+        htmlText: d => `
             <strong>${d.country}</strong>
             <div style="display: flex; justify-content: space-between">
                 <span>Year:&emsp;</span>
@@ -164,8 +164,8 @@ export const plotChart = (data, chartProps, countries) => {
                 <span>${formatCurrency(d.gdpPerCapita)}k</span>
             </div>
             `,
-        colours.tootipDotBright
-    )
+        colour: colours.tootipDotBright
+    })
 
     const chartObject = {
         data,

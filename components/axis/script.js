@@ -7,193 +7,68 @@ export const adjustColours = (g, colour, hideDomain = false) => {
     g.selectAll('text').attr('fill', colour)
 }
 
-const getBeautifulTicks = (nticks, scale, forceInitial) => {
-    let extremities = scale.domain()
-    const numberLength = Math.trunc(extremities[1]).toString().length
-    const extremityIncrement = numberLength > 4 ? Math.pow(10, numberLength - 2) : 1
-
-    const maxTruncated = Math.trunc(extremities[1] / extremityIncrement)
-    const maxRounded = maxTruncated - (maxTruncated % 5)
-    extremities[1] = maxRounded * extremityIncrement
-
-    const minTruncated = Math.trunc(extremities[0] / extremityIncrement)
-    const minRounded = minTruncated + (minTruncated % 5)
-    extremities[0] = minRounded * extremityIncrement
-
-
-    const getIncrement = () => (extremities[1] - extremities[0]) / (nticks - 1)
-
-    let increment = getIncrement()
-
-    for (let i = 0; i <= 10; i++) {
-        if (Number.isInteger(increment)) {
-            return [...Array(nticks).keys()].map(d => extremities[0] + increment * d)
-        }
-
-        if (forceInitial) {
-            extremities[1] -= extremityIncrement
-        } else {
-            const extremityChange = i % 2
-            if (extremityChange === 0) {
-                extremities[extremityChange] += extremityIncrement
-            } else {
-                extremities[extremityChange] -= extremityIncrement
-            }
-        }
-
-        increment = getIncrement()
-    }
-
-    return null
-}
-
-export const addAxis = (
-    {
-        chart,
-        height,
-        width,
-        margin = {},
-        x,
-        y,
-        yRight = undefined,
-        xLabel = '',
-        yLabel = '',
-        yRightLabel = '',
-        colour = 'black',
-        xFormat = undefined,
-        yFormat = undefined,
-        yRightFormat = undefined,
-        xTickValues = undefined,
-        yTickValues = undefined,
-        yRightTickValues = undefined,
-        xNumTicks = undefined,
-        xNumTicksForceInitial = false,
-        yNumTicks = undefined,
-        yNumTicksForceInitial = false,
-        yRightNumTicks = undefined,
-        yRightNumTicksForceInitial = false,
-        hideXdomain = false,
-        hideYdomain = false
-    }
-) => {
-    if ((xTickValues === undefined) && (xNumTicks !== undefined)) {
-        xTickValues = getBeautifulTicks(xNumTicks, x, xNumTicksForceInitial)
-    }
-    if ((yTickValues === undefined) && (yNumTicks !== undefined)) {
-        yTickValues = getBeautifulTicks(yNumTicks, y, yNumTicksForceInitial)
-    }
-    if ((yRightTickValues === undefined) && (yRightNumTicks !== undefined)) {
-        yRightTickValues = getBeautifulTicks(yRightNumTicks, yRight, yRightNumTicksForceInitial)
-    }
-
+export const addAxis = ({
+    chart, height, width, colour = 'black',
+    x, xLabel = '', xFormat, xTickValues, xNumTicks, xNumTicksForceInitial = false, hideXdomain = false,
+    y, yLabel = '', yFormat, yTickValues, yNumTicks, yNumTicksForceInitial = false, hideYdomain = false,
+    yRight, yRightLabel = '', yRightFormat, yRightTickValues, yRightNumTicks, yRightNumTicksForceInitial = false
+}) => {
     if (x !== undefined) {
-        chart
-            .append('g')
-            .attr('class', 'x-axis-group')
-            .style('font-size', '0.8rem')
-            .attr('transform', `translate(0, ${height})`)
-            .call(
-                d3
-                    .axisBottom(x)
-                    .tickSize(0)
-                    .tickPadding(10)
-                    .tickFormat(xFormat)
-                    .tickValues(xTickValues)
-            )
-            .call(g => g
-                .append('text')
-                .attr('x', width / 2)
-                .attr('y', 45)
-                .attr('text-anchor', 'middle')
-                .text(xLabel))
-            .call(g => adjustColours(g, colour, hideXdomain))
+        if ((xTickValues === undefined) && (xNumTicks !== undefined))
+            xTickValues = getBeautifulTicks(xNumTicks, x, xNumTicksForceInitial)
+
+        addSingleAxis({
+            chart,
+            width,
+            height,
+            colour,
+            group: 'x',
+            scale: x,
+            position: 'bottom',
+            format: xFormat,
+            label: xLabel,
+            hideDomain: hideXdomain,
+            tickValues: xTickValues
+        })
     }
 
     if (y !== undefined) {
-        chart
-            .append('g')
-            .attr('class', 'y-axis-group')
-            .style('font-size', '0.8rem')
-            .call(
-                d3
-                    .axisLeft(y)
-                    .tickSize(0)
-                    .tickPadding(10)
-                    .tickFormat(yFormat)
-                    .tickValues(yTickValues)
-            )
-            .call(g => {
-                let maxTickWidth = 0
-                g
-                    .selectAll('.tick>text')
-                    .each(d => {
-                        const widthValue = getTextWidth(yFormat !== undefined ? yFormat(d) : d, '0.8rem')
-                        if (widthValue > maxTickWidth)
-                            maxTickWidth = widthValue
-                    })
-                maxTickWidth += 30
+        if ((yTickValues === undefined) && (yNumTicks !== undefined))
+            yTickValues = getBeautifulTicks(yNumTicks, y, yNumTicksForceInitial)
 
-                g
-                    .append('text')
-                    .attr('x', -(height / 2))
-                    .attr('y', -maxTickWidth)
-                    .attr('transform', 'rotate(270)')
-                    .attr('text-anchor', 'middle')
-                    .text(yLabel)
-            })
-            .call(g => adjustColours(g, colour, hideYdomain))
+        addSingleAxis({
+            chart,
+            width,
+            height,
+            colour,
+            group: 'y',
+            scale: y,
+            position: 'left',
+            format: yFormat,
+            label: yLabel,
+            hideDomain: hideYdomain,
+            tickValues: yTickValues
+        })
     }
 
     if (yRight !== undefined) {
-        chart
-            .append('g')
-            .attr('class', 'yRight-axis-group')
-            .style('font-size', '0.8rem')
-            .attr('transform', `translate(${width}, 0)`)
-            .call(
-                d3
-                    .axisRight(yRight)
-                    .tickSize(0)
-                    .tickPadding(10)
-                    .tickFormat(yRightFormat)
-                    .tickValues(yRightTickValues)
-            )
-            .call(g => g
-                .append('text')
-                .attr('x', height / 2)
-                .attr('y', -50)
-                .attr('transform', 'rotate(90)')
-                .attr('text-anchor', 'middle')
-                .text(yRightLabel))
-            .call(g => adjustColours(g, colour, hideYdomain))
+        if ((yRightTickValues === undefined) && (yRightNumTicks !== undefined))
+            yRightTickValues = getBeautifulTicks(yRightNumTicks, yRight, yRightNumTicksForceInitial)
+
+        addSingleAxis({
+            chart,
+            width,
+            height,
+            colour,
+            group: 'yRight',
+            scale: yRight,
+            position: 'right',
+            format: yRightFormat,
+            label: yRightLabel,
+            hideDomain: hideYdomain,
+            tickValues: yRightTickValues
+        })
     }
-}
-
-const hideOverlappingTicks = (axis, transitionDuration) => {
-    const showTick = tick => {
-        tick
-            .transition('axis-show')
-            .duration(transitionDuration)
-            .style('opacity', 1)
-    }
-
-    axis.selectAll('.tick').each(function () {
-        const previousTick = d3.select(this.previousElementSibling)
-        if (previousTick.attr('class') === 'tick') {
-            const previousTickTxtLength = getTextWidth(previousTick.select('text').text(), '0.9rem')
-            const previousTickX = getTransformTranslate(previousTick.attr('transform'))[0]
-            const tick = d3.select(this)
-            const tickTxtLength = getTextWidth(tick.select('text').text(), '0.9rem')
-            const tickX = getTransformTranslate(tick.attr('transform'))[0]
-
-            const hideCondition = (previousTickX + (previousTickTxtLength / 2)) + 4 >= (tickX - (tickTxtLength / 2))
-
-            if (hideCondition) tick.remove()
-            else showTick(tick)
-        } else {
-            showTick(d3.select(this))
-        }
-    })
 }
 
 export const updateXaxis = ({
@@ -250,4 +125,147 @@ export const updateYaxis = ({
                 .tickFormat(format)
         )
         .call(g => adjustColours(g, colour, hideDomain))
+}
+
+function addSingleAxis({
+    chart,
+    width,
+    height,
+    colour,
+    group,
+    scale,
+    position,
+    format,
+    label,
+    hideDomain,
+    tickFontSize = '0.8rem',
+    tickValues
+}) {
+    let d3Axis, labelXposition, labelYposition, labelRotation, groupTransform
+    switch (position) {
+        case 'bottom':
+            d3Axis = d3.axisBottom(scale)
+            labelXposition = width / 2
+            labelYposition = () => 45
+            labelRotation = 0
+            groupTransform = `translate(0, ${height})`
+            break;
+        case 'left':
+            d3Axis = d3.axisLeft(scale)
+            labelXposition = -(height / 2)
+            labelYposition = g => -(getTicksMaxWidth(g, format, tickFontSize) + 30)
+            labelRotation = 270
+            groupTransform = `translate(0, 0)`
+            break;
+        case 'right':
+            d3Axis = d3.axisRight(scale)
+            labelXposition = height / 2
+            labelYposition = g => -(getTicksMaxWidth(g, format, tickFontSize) + 30)
+            labelRotation = 90
+            groupTransform = `translate(${width}, 0)`
+            break;
+    }
+
+    chart
+        .append('g')
+        .attr('class', `${group}-axis-group`)
+        .style('font-size', tickFontSize)
+        .attr('transform', groupTransform)
+        .call(
+            d3Axis
+                .tickSize(0)
+                .tickPadding(10)
+                .tickFormat(format)
+                .tickValues(tickValues)
+        )
+        .call(g => {
+            g
+                .append('text')
+                .attr('x', labelXposition)
+                .attr('y', labelYposition(g))
+                .attr('transform', `rotate(${labelRotation})`)
+                .attr('text-anchor', 'middle')
+                .text(label)
+        })
+        .call(g => adjustColours(g, colour, hideDomain))
+}
+
+function getTicksMaxWidth(g, format, tickFontSize) {
+    let maxTickWidth = 0
+    g
+        .selectAll('.tick>text')
+        .each(d => {
+            const widthValue = getTextWidth(format !== undefined ? format(d) : d, tickFontSize)
+            if (widthValue > maxTickWidth)
+                maxTickWidth = widthValue
+        })
+
+    return maxTickWidth
+}
+
+function getBeautifulTicks(nticks, scale, forceInitial) {
+    let extremities = scale.domain()
+    const numberLength = Math.trunc(extremities[1]).toString().length
+    const extremityIncrement = numberLength > 4 ? Math.pow(10, numberLength - 2) : 1
+
+    const maxTruncated = Math.trunc(extremities[1] / extremityIncrement)
+    const maxRounded = maxTruncated - (maxTruncated % 5)
+    extremities[1] = maxRounded * extremityIncrement
+
+    const minTruncated = Math.trunc(extremities[0] / extremityIncrement)
+    const minRounded = minTruncated + (minTruncated % 5)
+    extremities[0] = minRounded * extremityIncrement
+
+
+    const getIncrement = () => (extremities[1] - extremities[0]) / (nticks - 1)
+
+    let increment = getIncrement()
+
+    for (let i = 0; i <= 10; i++) {
+        if (Number.isInteger(increment)) {
+            return [...Array(nticks).keys()].map(d => extremities[0] + increment * d)
+        }
+
+        if (forceInitial) {
+            extremities[1] -= extremityIncrement
+        } else {
+            const extremityChange = i % 2
+            if (extremityChange === 0) {
+                extremities[extremityChange] += extremityIncrement
+            } else {
+                extremities[extremityChange] -= extremityIncrement
+            }
+        }
+
+        increment = getIncrement()
+    }
+
+    return null
+}
+
+function hideOverlappingTicks(axis, transitionDuration) {
+    const showTick = tick => {
+        tick
+            .transition('axis-show')
+            .duration(transitionDuration)
+            .style('opacity', 1)
+    }
+
+    axis.selectAll('.tick').each(function () {
+        const previousTick = d3.select(this.previousElementSibling)
+        if (previousTick.attr('class') === 'tick') {
+            const previousTickTxtLength = getTextWidth(previousTick.select('text').text(), '0.9rem')
+            const previousTickX = getTransformTranslate(previousTick.attr('transform'))[0]
+            const tick = d3.select(this)
+            const tickTxtLength = getTextWidth(tick.select('text').text(), '0.9rem')
+            const tickX = getTransformTranslate(tick.attr('transform'))[0]
+
+            const hideCondition = (previousTickX + (previousTickTxtLength / 2)) + 4 >= (tickX - (tickTxtLength / 2))
+
+            if (hideCondition) tick.remove()
+            else showTick(tick)
+        } else {
+            showTick(d3.select(this))
+        }
+    })
 }

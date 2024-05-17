@@ -1,7 +1,7 @@
 import { palette, defaultColours as colours } from "../../colours.js"
 import { addAxis } from "../../components/axis/script.js"
 import { addHighlightTooltip as addTooltip } from "../../components/tooltip/script.js"
-import { addLegendV2 as addLegend } from "../../components/legend/script.js"
+import { addLegend } from "../../components/legend/script.js"
 
 export const addChart = (chartProps, data, colourPalleteType) => {
     const { chart, width, height, margin } = chartProps
@@ -93,8 +93,7 @@ export const addChart = (chartProps, data, colourPalleteType) => {
         chart,
         legends: years,
         colours: colour.range(),
-        xPos: -margin.left,
-        yPos: -margin.top
+        xPosition: -margin.left,
     })
 
     addTooltip({

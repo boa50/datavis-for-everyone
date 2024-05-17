@@ -1,6 +1,5 @@
 import { addAxis } from '../axis.js'
-import { addLegend } from '../../../components/legend/script.js'
-import { addLegend as addColourLegend } from '../../../components/colour-legend/script.js'
+import { addLegend, addColourLegend } from '../../../components/legend/script.js'
 import { colours } from '../../constants.js'
 import { lineV1 } from './v1.js'
 import { lineV2 } from './v2.js'
@@ -24,7 +23,7 @@ const svgHeight = 720
 const marginDefault = {
     left: 64,
     right: 72,
-    top: 16,
+    top: 32,
     bottom: 64
 }
 
@@ -52,12 +51,12 @@ getData().then(datasets => {
 
     const [chart1, width, height] = getSvgChart('line-v1-chart')
 
-    const x = d3
+    let x = d3
         .scaleLinear()
         .domain(d3.extent(data, d => d.long).map((d, i) => d * [0.995, 1.005][i]).reverse())
         .range([0, width])
 
-    const ySurvivors = d3
+    let ySurvivors = d3
         .scaleLinear()
         .domain(d3.extent(data, d => d.survivors).map((d, i) => d * 1.05 * i))
         .range([height, 0])
@@ -72,9 +71,11 @@ getData().then(datasets => {
     lineV1(chart1, width, height, data, temperatures, x, ySurvivors, yTemperature, marginDefault.bottom, colours.text)
 
     addLegend({
-        id: 'line-v1-legend',
+        chart: chart1,
         legends: ['Group1', 'Group2', 'Group3', 'Temperature'],
-        colours: ['#54A24B', '#F58518', '#B279A2', '#cbd5e1']
+        colours: ['#54A24B', '#F58518', '#B279A2', '#cbd5e1'],
+        xPosition: -marginDefault.left,
+        yPosition: -15
     })
     addAxis({
         chart: chart1,
@@ -91,19 +92,38 @@ getData().then(datasets => {
     })
 
     // V2
-    const [chart2, width2, height2] = getSvgChart('line-v2-chart')
+    const margin2 = {
+        left: 64,
+        right: 72,
+        top: 52,
+        bottom: 64
+    }
+
+    const [chart2, width2, height2] = getSvgChart('line-v2-chart', margin2)
     const temperatureColours = d3
         .scaleSequential()
         .domain(d3.extent(temperatures, d => d['temp C']))
         .range(['#17709c', '#d6dae6'])
     const temperatureColourOpacity = 0.7
 
+    x = d3
+        .scaleLinear()
+        .domain(d3.extent(data, d => d.long).map((d, i) => d * [0.995, 1.005][i]).reverse())
+        .range([0, width2])
+
+    ySurvivors = d3
+        .scaleLinear()
+        .domain(d3.extent(data, d => d.survivors).map((d, i) => d * 1.05 * i))
+        .range([height2, 0])
+
     lineV2(chart2, width2, height2, data.filter(d => d.group === '1'), temperatures, x, ySurvivors, temperatureColours)
 
     addLegend({
-        id: 'line-v2-legend',
+        chart: chart2,
         legends: ['Group 1 Survivors'],
-        colours: ['#b45309']
+        colours: ['#b45309'],
+        xPosition: -margin2.left,
+        yPosition: -margin2.top + 15
     })
 
     const colourLegendWidth = 200
@@ -113,12 +133,12 @@ getData().then(datasets => {
         .range([0, colourLegendWidth])
     addColourLegend(
         {
-            id: 'line-v2-legend',
+            chart: chart2,
             title: 'Temperature',
             colourScale: temperatureColours,
             colourOpacity: temperatureColourOpacity,
-            xPos: width + marginDefault.left - colourLegendWidth - 8,
-            yPos: 0,
+            xPosition: width - colourLegendWidth - 16,
+            yPosition: -52,
             width: colourLegendWidth,
             axis: colourAxis,
             textColour: colours.text,
@@ -128,9 +148,9 @@ getData().then(datasets => {
 
     addAxis({
         chart: chart2,
-        height: height,
-        width: width,
-        margin: marginDefault,
+        height: height2,
+        width: width2,
+        margin: margin2,
         x: x,
         y: ySurvivors,
         xLabel: 'Longitude',

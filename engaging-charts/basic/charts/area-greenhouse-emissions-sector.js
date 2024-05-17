@@ -1,6 +1,6 @@
 import { colours, palette } from "../../constants.js"
 import { addAxis } from "../../../components/axis/script.js"
-import { addLegendV2 as addLegend } from "../../../components/legend/script.js"
+import { addLegend } from "../../../components/legend/script.js"
 import { addVerticalTooltip as addTooltip } from "../../../components/tooltip/script.js"
 
 const getData = () =>
@@ -67,8 +67,7 @@ export const addChart = chartProps => {
             chart,
             legends: ['Electricity and Heat', 'Transport', 'Manufacturing and Construction', 'Agriculture', 'Buildings', 'Industry'],
             colours: palette,
-            xPos: -margin.left,
-            yPos: -margin.top
+            xPosition: -margin.left
         })
 
         const tooltipData = {}

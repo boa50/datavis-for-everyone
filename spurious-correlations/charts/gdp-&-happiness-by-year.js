@@ -1,6 +1,6 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../components/axis/script.js"
-import { addLegendV2, addLegend } from "../../components/legend/script.js"
+import { addLegend } from "../../components/legend/script.js"
 import { formatCurrency } from "../../components/utils.js"
 import { addLineTooltip } from "../../components/tooltip/script.js"
 
@@ -51,26 +51,25 @@ export const updateChart = ({
 
 
     if (chart.select(`#${chart.attr('id') + '-legend'}`).empty()) {
-        addLegendV2({
+        addLegend({
             chart: chart,
             legends: ['Life satisfaction', 'GDP per capita'],
             colours: [colourLifeSatisfaction(countries[0]), colourGdp(countries[0])],
-            xPos: -64,
-            yPos: -52
+            xPosition: -64,
+            yPosition: -36
         })
     }
 
     const legendId = chart.attr('id') + '-legend-countries'
     chart.select(`#${legendId}`).remove()
-    chart
-        .append('g')
-        .attr('id', legendId)
-        .attr('transform', `translate(-64, -30)`)
 
     addLegend({
-        id: legendId,
+        chart,
+        customId: legendId,
         legends: countries,
-        colours: countries.map(country => colourLifeSatisfaction(country))
+        colours: countries.map(country => colourLifeSatisfaction(country)),
+        xPosition: -64,
+        yPosition: -14
     })
 
     const drawTooltipDots = (dotsClass, cy) => {

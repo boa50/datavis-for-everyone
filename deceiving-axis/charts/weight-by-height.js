@@ -80,9 +80,11 @@ export const addChart = (data, chartProps) => {
         .attr('transform', 'translate(-64, -24)')
 
     addLegend({
-        id: legendId,
+        chart,
         legends: ['Male', 'Female'],
-        colours: [colours.male, colours.female]
+        colours: [colours.male, colours.female],
+        xPosition: 5,
+        yPosition: 15
     })
 
     return (scale, exponent) => {

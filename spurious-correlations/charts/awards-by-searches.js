@@ -1,6 +1,6 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../components/axis/script.js"
-import { addLegendV2 as addLegend } from "../../components/legend/script.js"
+import { addLegend } from "../../components/legend/script.js"
 import { addLineTooltip } from "../../components/tooltip/script.js"
 
 const getData = () =>
@@ -108,11 +108,11 @@ export const plotChart = chartProps => {
         })
 
         addLegend({
-            chart: chart,
+            chart,
             legends: ['Degrees awarded', 'Search volume'],
             colours: [colours.line1, colours.line2],
-            xPos: -64,
-            yPos: -8
+            xPosition: -64,
+            yPosition: 8
         })
     })
 }

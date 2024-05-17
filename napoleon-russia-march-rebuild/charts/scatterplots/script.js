@@ -1,6 +1,5 @@
 import { addTooltip } from "../../../components/tooltip/script.js"
-import { addLegend } from "../../../components/legend/script.js"
-import { addLegend as addCircleLegend } from "../../../components/circle-legend/script.js"
+import { addLegend, addCircleLegend } from "../../../components/legend/script.js"
 import { addAxis } from "../axis.js"
 import { colours } from "../../constants.js"
 import { scatterplotV1 } from "./v1.js"
@@ -41,7 +40,7 @@ const svgHeight = 720
 const marginDefault = {
     left: 16,
     right: 16,
-    top: 16,
+    top: 32,
     bottom: 16
 }
 
@@ -78,41 +77,45 @@ const getXY = (data, width, height) => {
 }
 
 const addLegends = ({
-    chartId,
+    chart,
     colour = false,
     group = false,
     deaths = false,
     width,
     height,
+    margin,
     size,
     deathsRange,
     circlesYfix = 0
 }) => {
     if (colour) {
         addLegend({
-            id: `scatterplot-${chartId}-legend`,
+            chart,
             legends: ['Advancing', 'Retreating'],
-            colours: [colours.advancing, colours.retreating]
+            colours: [colours.advancing, colours.retreating],
+            xPosition: -margin.left,
+            yPosition: -margin.top + 15
         })
     }
 
     if (group) {
         addLegend({
-            id: `scatterplot-${chartId}-legend`,
+            chart,
             legends: ['Group 1', 'Group 2', 'Group 3'],
             colours: colours.text,
             shapes: [d3.symbol(d3.symbolCircle), d3.symbol(d3.symbolSquare), d3.symbol(d3.symbolTriangle)],
-            xPos: 0,
-            yPos: width - 235
+            xPosition: width - 235,
+            yPosition: -margin.top + 15
         })
     }
 
     if (deaths) {
         addCircleLegend({
-            id: `scatterplot-${chartId}-chart`,
+            chart,
             sizeScale: size,
             valuesToShow: [d3.quantile(deathsRange, 0.2), d3.quantile(deathsRange, 0.5), d3.quantile(deathsRange, 1)],
-            position: [width - 110, height - circlesYfix],
+            xPosition: width - 110,
+            yPosition: height - circlesYfix - 32,
             colour: colours.text,
             title: 'Deaths'
         })
@@ -143,7 +146,7 @@ getData().then(datasets => {
 
     const v1v2Margin = {
         ...marginDefault,
-        left: 64, bottom: 64, top: 32
+        left: 64, bottom: 64, top: 42
     }
 
 
@@ -168,11 +171,12 @@ getData().then(datasets => {
         colour: colours.text
     })
     addLegends({
-        chartId: 'v1',
+        chart: chart1,
         colour: true,
         deaths: true,
         width: width1,
         height: height1,
+        margin: v1v2Margin,
         size: size,
         deathsRange: deathsRange
     })
@@ -201,12 +205,13 @@ getData().then(datasets => {
         colour: colours.text
     })
     addLegends({
-        chartId: 'v2',
+        chart: chart2,
         colour: true,
         deaths: true,
         group: true,
         width: width2,
         height: height2,
+        margin: v1v2Margin,
         size: size,
         deathsRange: deathsRange
     })
@@ -221,12 +226,13 @@ getData().then(datasets => {
         ))
 
     addLegends({
-        chartId: 'v3',
+        chart: chart3,
         colour: true,
         deaths: true,
         group: true,
         width: width3,
         height: height3,
+        margin: { left: 0, bottom: 32, top: 32 },
         size: size,
         deathsRange: deathsRange,
         circlesYfix: 25

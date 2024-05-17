@@ -1,6 +1,6 @@
 import { colours } from "../../constants.js"
 import { addAxis } from "../../../components/axis/script.js"
-import { addLegend } from "../../../components/colour-legend/script.js"
+import { addColourLegend } from "../../../components/legend/script.js"
 import { addHighlightTooltip as addTooltip } from "../../../components/tooltip/script.js"
 
 const getData = () =>
@@ -66,14 +66,14 @@ export const addChart = chartProps => {
             .domain(colour.domain())
             .range([0, colourLegendWidth])
 
-        addLegend({
-            id: 'colour-legend',
+        addColourLegend({
+            chart,
             title: 'Emissions (kg of CO₂)',
             colourScale: colour,
             axis: colourLegendAxis,
             width: colourLegendWidth,
-            xPos: width - margin.right / 2 - colourLegendWidth,
-            yPos: height - margin.bottom / 1.25,
+            xPosition: width - margin.right / 2 - colourLegendWidth,
+            yPosition: height - margin.bottom / 1.25,
             textColour: colours.axis
         })
 

@@ -1,6 +1,6 @@
 import { colours } from '../../constants.js'
 import { addAxis } from '../../../components/axis/script.js'
-import { addLegendV2 as addLegend } from '../../../components/legend/script.js'
+import { addLegend } from '../../../components/legend/script.js'
 import { addHighlightTooltip as addTooltip } from '../../../components/tooltip/script.js'
 
 export const addChart = (chartProps, data) => {
@@ -81,8 +81,7 @@ export const addChart = (chartProps, data) => {
         chart,
         legends: ['Men', 'Women'],
         colours: [colours.male, colours.female],
-        xPos: -margin.left,
-        yPos: -margin.top
+        xPosition: -margin.left
     })
 
     addTooltip({

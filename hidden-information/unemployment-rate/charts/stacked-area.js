@@ -1,6 +1,6 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../../components/axis/script.js"
-import { addLegendV2 as addLegend } from "../../../components/legend/script.js"
+import { addLegend } from "../../../components/legend/script.js"
 import { addVerticalTooltip as addTooltip, removeVerticalTooltip as removeTooltip } from "../../../components/tooltip/script.js"
 import { formatDate } from "../../../components/utils.js"
 
@@ -107,8 +107,8 @@ export const addChart = (chartProps, data) => {
         chart,
         legends: ['Working', 'Not Working', 'Out of Workforce'],
         colours: [colours.working, colours.notWorking, colours.outOfWorkforce],
-        xPos: -64,
-        yPos: -32
+        xPosition: -64,
+        yPosition: -20
     })
 
     const chartObject = { data, chart, width, height, x, y, colour, keys }

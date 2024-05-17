@@ -1,6 +1,6 @@
 import { colours } from "../constants.js"
 import { addAxis } from "../../components/axis/script.js"
-import { addLegendV2 as addLegend } from "../../components/legend/script.js"
+import { addLegend } from "../../components/legend/script.js"
 import { formatCurrency } from "../../components/utils.js"
 import { addHighlightTooltip } from "../../components/tooltip/script.js"
 
@@ -90,11 +90,11 @@ export const plotChart = (chartProps, linearScales = true) => {
             .attr('cy', d => y(d.lifeSatisfaction))
 
         addLegend({
-            chart: chart,
+            chart,
             legends: continents,
             colours: continentColours,
-            xPos: -64,
-            yPos: -32
+            xPosition: -64,
+            yPosition: -16
         })
 
         addHighlightTooltip({

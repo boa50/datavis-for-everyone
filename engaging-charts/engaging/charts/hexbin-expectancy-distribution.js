@@ -1,7 +1,7 @@
 import { colours } from '../../constants.js'
 import { addAxis } from '../../../components/axis/script.js'
 import { addHighlightTooltip as addTooltip } from '../../../components/tooltip/script.js'
-import { addLegend } from '../../../components/colour-legend/script.js'
+import { addColourLegend } from "../../../components/legend/script.js"
 
 export const addChart = (chartProps, data) => {
     const { chart, width, height, margin } = chartProps
@@ -76,14 +76,14 @@ export const addChart = (chartProps, data) => {
         .domain(d3.extent(hexbin(dataHexbin), d => d.length))
         .range([0, colourLegendWidth])
 
-    addLegend({
-        id: 'colour-legend',
+    addColourLegend({
+        chart,
         title: 'Number of Countries',
         colourScale: colour,
         axis: colourLegendAxis,
         width: colourLegendWidth,
-        xPos: width - margin.right - colourLegendWidth,
-        yPos: height - margin.bottom,
+        xPosition: width - margin.right - colourLegendWidth,
+        yPosition: height - margin.bottom,
         textColour: colours.axis
     })
 

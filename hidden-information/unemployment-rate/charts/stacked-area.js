@@ -1,8 +1,9 @@
+import {
+    addAxis, addLegend,
+    addVerticalTooltip as addTooltip, removeVerticalTooltip as removeTooltip,
+    formatDate
+} from "../../../node_modules/visual-components/index.js"
 import { colours } from "../constants.js"
-import { addAxis } from "../../../components/axis/script.js"
-import { addLegend } from "../../../components/legend/script.js"
-import { addVerticalTooltip as addTooltip, removeVerticalTooltip as removeTooltip } from "../../../components/tooltip/script.js"
-import { formatDate } from "../../../components/utils.js"
 
 export const updateChart = ({ data, chart, width, height, x, y, colour, keys }) => {
     removeTooltip(chart)
@@ -58,8 +59,8 @@ export const updateChart = ({ data, chart, width, height, x, y, colour, keys }) 
         </div>
         `,
         chart,
-        width,
-        height,
+        chartWidth: width,
+        chartHeight: height,
         x,
         y,
         colour: colours.lineTooltip,

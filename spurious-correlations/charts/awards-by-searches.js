@@ -1,7 +1,5 @@
+import { addAxis, addLegend, addLineTooltip } from "../../node_modules/visual-components/index.js"
 import { colours } from "../constants.js"
-import { addAxis } from "../../components/axis/script.js"
-import { addLegend } from "../../components/legend/script.js"
-import { addLineTooltip } from "../../components/tooltip/script.js"
 
 const getData = () =>
     d3.json('./data/awards_by_searches.json')

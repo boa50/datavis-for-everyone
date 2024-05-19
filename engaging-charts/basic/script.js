@@ -1,4 +1,4 @@
-import { getChart } from "../../components/utils.js";
+import { getChart } from "../../node_modules/visual-components/index.js";
 import { addChart as addExpectancyByGender } from "./charts/bar-expectancy-by-gender.js";
 import { addChart as addExpectancyGap } from "./charts/line-life-expectancy-gap.js";
 import { addChart as addExpectancyScatter } from "./charts/scatter-expectancy-distribution.js";

@@ -1,5 +1,4 @@
-import { addTooltip } from "../../../components/tooltip/script.js"
-import { addLegend, addCircleLegend } from "../../../components/legend/script.js"
+import { addTooltip, addLegend, addCircleLegend } from "../../../node_modules/visual-components/index.js"
 import { addAxis } from "../axis.js"
 import { colours } from "../../constants.js"
 import { scatterplotV1 } from "./v1.js"

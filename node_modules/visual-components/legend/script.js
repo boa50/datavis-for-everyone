@@ -68,6 +68,7 @@ export const addVerticalLegend = ({
     xPosition = 0,
     yPosition = 0,
     fontSize = '0.875rem',
+    fontWeight = 700,
     customId = ''
 }) => {
     const legend = getLegendContainer(chart, xPosition, yPosition, 'vertical', customId)
@@ -88,7 +89,7 @@ export const addVerticalLegend = ({
             .append('text')
             .attr('x', shapes !== undefined ? 7 : 0)
             .attr('y', ySpace)
-            .attr('font-weight', 700)
+            .attr('font-weight', fontWeight)
             .attr('font-size', fontSize)
             .attr('fill', colour)
             .text(legendText)

@@ -1,7 +1,5 @@
-import { addAxis, updateXaxis } from "../../components/axis/script.js"
+import { addAxis, updateXaxis, addHighlightTooltip, formatCurrency } from "../../node_modules/visual-components/index.js"
 import { colours } from "../constants.js"
-import { addHighlightTooltip } from "../../components/tooltip/script.js"
-import { formatCurrency } from "../../components/utils.js"
 
 const plotChart = (chart, data, x, y) => {
     chart

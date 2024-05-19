@@ -1,7 +1,5 @@
+import { addAxis, addHighlightTooltip as addTooltip, addColourLegend } from '../../../node_modules/visual-components/index.js'
 import { colours } from '../../constants.js'
-import { addAxis } from '../../../components/axis/script.js'
-import { addHighlightTooltip as addTooltip } from '../../../components/tooltip/script.js'
-import { addColourLegend } from "../../../components/legend/script.js"
 
 export const addChart = (chartProps, data) => {
     const { chart, width, height, margin } = chartProps

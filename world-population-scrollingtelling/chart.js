@@ -1,7 +1,5 @@
+import { addLegend, addCircleLegend, addAxis, addTooltip } from "../node_modules/visual-components/index.js"
 import { colours } from "./constants.js"
-import { addAxis } from "../components/axis/script.js"
-import { addLegend, addCircleLegend } from "../components/legend/script.js"
-import { addTooltip } from "../components/tooltip/script.js"
 
 const getData = () =>
     d3.csv('./data/dataset.csv')

@@ -1,3 +1,8 @@
 .venv
-node_modules
 package-lock.json
+
+node_modules/*
+
+!node_modules/visual-components/
+node_modules/visual-components/package.json
+node_modules/visual-components/README.md

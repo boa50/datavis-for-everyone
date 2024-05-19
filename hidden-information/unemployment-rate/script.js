@@ -1,7 +1,6 @@
-import { getChart } from "../../components/utils.js";
-import { addChart as addLine, updateChart as updateLine } from "./charts/line.js";
-import { addChart as addStackedArea, updateChart as updateStackedArea } from "./charts/stacked-area.js";
-import { handleInputChange } from "../../components/html/slider/script.js";
+import { getChart, handleInputChange } from "../../node_modules/visual-components/index.js"
+import { addChart as addLine, updateChart as updateLine } from "./charts/line.js"
+import { addChart as addStackedArea, updateChart as updateStackedArea } from "./charts/stacked-area.js"
 
 const getData = () =>
     d3.csv('./data/unemployment.csv')

@@ -1,4 +1,4 @@
-import { getChart, getMargin } from "../../components/utils.js"
+import { getChart, getMargin } from "../../node_modules/visual-components/index.js"
 import { addChart } from "./column-chart.js"
 
 const getData = () =>

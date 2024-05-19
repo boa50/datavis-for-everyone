@@ -1,8 +1,5 @@
+import { addAxis, addLegend, formatCurrency, addLineTooltip } from "../../node_modules/visual-components/index.js"
 import { colours } from "../constants.js"
-import { addAxis } from "../../components/axis/script.js"
-import { addLegend } from "../../components/legend/script.js"
-import { formatCurrency } from "../../components/utils.js"
-import { addLineTooltip } from "../../components/tooltip/script.js"
 
 export const updateChart = ({
     data,
@@ -52,7 +49,8 @@ export const updateChart = ({
 
     if (chart.select(`#${chart.attr('id') + '-legend'}`).empty()) {
         addLegend({
-            chart: chart,
+            chart,
+            customId: `${chart.attr('id') + '-legend'}`,
             legends: ['Life satisfaction', 'GDP per capita'],
             colours: [colourLifeSatisfaction(countries[0]), colourGdp(countries[0])],
             xPosition: -64,

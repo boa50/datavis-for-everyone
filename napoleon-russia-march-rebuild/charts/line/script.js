@@ -1,5 +1,5 @@
 import { addAxis } from '../axis.js'
-import { addLegend, addColourLegend } from '../../../components/legend/script.js'
+import { addLegend, addColourLegend } from '../../../node_modules/visual-components/index.js'
 import { colours } from '../../constants.js'
 import { lineV1 } from './v1.js'
 import { lineV2 } from './v2.js'

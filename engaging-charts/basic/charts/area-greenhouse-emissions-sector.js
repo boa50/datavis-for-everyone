@@ -1,7 +1,5 @@
+import { addAxis, addLegend, addVerticalTooltip as addTooltip } from "../../../node_modules/visual-components/index.js"
 import { colours, palette } from "../../constants.js"
-import { addAxis } from "../../../components/axis/script.js"
-import { addLegend } from "../../../components/legend/script.js"
-import { addVerticalTooltip as addTooltip } from "../../../components/tooltip/script.js"
 
 const getData = () =>
     d3.csv('../data/greenhouse-emissions.csv')
@@ -125,8 +123,8 @@ export const addChart = chartProps => {
             </div>
             `,
             chart,
-            width,
-            height,
+            chartWidth: width,
+            chartHeight: height,
             x,
             y,
             colour: colours.lineTooltip,

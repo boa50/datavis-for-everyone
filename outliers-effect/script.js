@@ -1,6 +1,6 @@
 import { getData, updateData, getDataStatistics } from "./data.js"
 import { plotHistogram, updateHistogram } from "./charts/histogram.js"
-import { handleInputChange } from "../components/html/slider/script.js"
+import { handleInputChange } from "../node_modules/visual-components/index.js"
 
 const averageValue = document.getElementById('average-value')
 const medianValue = document.getElementById('median-value')

@@ -1,7 +1,9 @@
+import {
+    addAxis, updateYaxis,
+    addLineTooltip as addTooltip, removeLineTooltip as removeTooltip,
+    formatDate
+} from "../../../node_modules/visual-components/index.js"
 import { colours } from "../constants.js"
-import { addAxis, updateYaxis } from "../../../components/axis/script.js"
-import { addLineTooltip as addTooltip, removeLineTooltip as removeTooltip } from "../../../components/tooltip/script.js"
-import { formatDate } from "../../../components/utils.js"
 
 const getYscale = (data, height) =>
     d3

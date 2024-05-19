@@ -1,4 +1,4 @@
-import { addLineTooltip } from "../../../components/tooltip/script.js"
+import { addLineTooltip } from "../../../node_modules/visual-components/index.js"
 
 export const addTooltip = ({ containerId, chart, data, cx, cy, radius = 4, htmlText, colour }) => {
     const { mouseover, mousemove, mouseleave } = addLineTooltip({ id: containerId, htmlText, colour })

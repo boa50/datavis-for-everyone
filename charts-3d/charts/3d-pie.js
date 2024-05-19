@@ -1,5 +1,5 @@
+import { addVerticalLegend as addLegend } from "../../node_modules/visual-components/index.js"
 import { piePalette } from "../constants.js"
-import { addVerticalLegend as addLegend } from "../../components/legend/script.js"
 
 // Based on: https://jsfiddle.net/qkHK6/2987/
 export const addChart = ({

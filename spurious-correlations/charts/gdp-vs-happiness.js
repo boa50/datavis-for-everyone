@@ -1,8 +1,5 @@
+import { addAxis, addLegend, formatCurrency, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
 import { colours } from "../constants.js"
-import { addAxis } from "../../components/axis/script.js"
-import { addLegend } from "../../components/legend/script.js"
-import { formatCurrency } from "../../components/utils.js"
-import { addHighlightTooltip } from "../../components/tooltip/script.js"
 
 const getData = () =>
     d3.csv('./data/gdp-vs-happiness-cleansed.csv')

@@ -1,8 +1,7 @@
+import { createNumber, numberChangeValue, changeText, createText, hideText, showText } from "../node_modules/visual-components/index.js"
 import { getYear, initChart, updateChart } from "./chart.js"
-import { createNumber, numberChangeValue } from "../components/animation/number.js"
 import { colours } from "./constants.js"
 import { addStep } from "./html-utils.js"
-import { changeText, createText, hideText, showText } from "../components/animation/text.js"
 
 const scrolly = d3.select('#scrolly')
 const svg = scrolly.select('#chart')

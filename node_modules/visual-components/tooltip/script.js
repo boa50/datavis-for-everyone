@@ -156,8 +156,8 @@ export const addVerticalTooltip = ({
     id,
     htmlText,
     chart,
-    width,
-    height,
+    chartWidth,
+    chartHeight,
     x,
     y,
     colour,
@@ -166,6 +166,9 @@ export const addVerticalTooltip = ({
     tooltipData = {},
     keyFunction = d => d
 }) => {
+    if ((id === undefined) && (chart !== undefined))
+        id = `${chart.attr('id').split('-')[0]}-container`
+
     const getTooltipDataPoint = event => {
         const x_val = x.invert(d3.pointer(event)[0])
         const idx = d3.bisector(d => d[xVariable]).center(data, x_val)
@@ -181,7 +184,7 @@ export const addVerticalTooltip = ({
     const { mouseover, mousemove, mouseleave } = addTooltip(
         id,
         htmlText,
-        { chartWidth: width, chartHeight: height }
+        { chartWidth, chartHeight }
     )
 
     const clearTooltips = () => {
@@ -214,7 +217,7 @@ export const addVerticalTooltip = ({
             .attr('x1', x(tooltip[1].x))
             .attr('x2', x(tooltip[1].x))
             .attr('y1', 0)
-            .attr('y2', height)
+            .attr('y2', chartHeight)
             .attr('stroke', 'transparent')
             .attr('stroke-width', 1)
             .attr('stroke-dasharray', [7, 5])
@@ -234,8 +237,8 @@ export const addVerticalTooltip = ({
         .append('rect')
         .attr('x', 0)
         .attr('y', 0)
-        .attr('height', height)
-        .attr('width', width)
+        .attr('height', chartHeight)
+        .attr('width', chartWidth)
         .attr('fill', 'transparent')
         .on('mouseover', customMouseOver)
         .on('mousemove', customMouseMove)

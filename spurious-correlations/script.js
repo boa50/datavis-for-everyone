@@ -1,4 +1,4 @@
-import { getChart } from "../components/utils.js";
+import { getChart } from "../node_modules/visual-components/index.js";
 import { plotChart as plotAwardsBySearches } from "./charts/awards-by-searches.js";
 import { plotChart as plotGdpVsHappiness } from "./charts/gdp-vs-happiness.js";
 import { plotChart as plotGdpHappinessByYear, updateChart as updateGdpHappinessByYear } from "./charts/gdp-&-happiness-by-year.js";

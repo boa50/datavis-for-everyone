@@ -1,5 +1,5 @@
+import { addHighlightTooltip as addTooltip } from "../../../node_modules/visual-components/index.js"
 import { colours } from "../../constants.js"
-import { addHighlightTooltip as addTooltip } from "../../../components/tooltip/script.js"
 
 const getData = () =>
     d3.csv('../data/greenhouse-emissions-food.csv')

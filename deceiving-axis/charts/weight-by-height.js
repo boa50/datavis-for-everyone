@@ -1,7 +1,5 @@
-import { addAxis, updateXaxis } from "../../components/axis/script.js"
+import { addAxis, updateXaxis, addHighlightTooltip, addLegend } from "../../node_modules/visual-components/index.js"
 import { colours } from "../constants.js"
-import { addHighlightTooltip } from "../../components/tooltip/script.js"
-import { addLegend } from "../../components/legend/script.js"
 
 const plotChart = (chart, data, x, y) => {
     const colour = d3

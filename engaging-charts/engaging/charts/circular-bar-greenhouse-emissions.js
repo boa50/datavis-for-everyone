@@ -1,6 +1,5 @@
+import { addHighlightTooltip as addTooltip, addVerticalLegend as addLegend } from "../../../node_modules/visual-components/index.js"
 import { colours, palette } from "../../constants.js"
-import { addHighlightTooltip as addTooltip } from "../../../components/tooltip/script.js"
-import { addVerticalLegend as addLegend } from "../../../components/legend/script.js"
 
 const keys = ['electricityAndHeat', 'transport', 'manufacturingAndConstruction', 'agriculture', 'buildings', 'industry']
 

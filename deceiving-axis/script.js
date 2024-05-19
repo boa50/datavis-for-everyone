@@ -1,7 +1,7 @@
+import { handleInputChange } from '../node_modules/visual-components/index.js'
 import { addChart as addSalaryByDepartment } from './charts/salary-by-department.js'
 import { addChart as addSalaryByGender } from './charts/salary-by-gender.js'
 import { addChart as addWeightByHeight } from './charts/weight-by-height.js'
-import { handleInputChange } from '../components/html/slider/script.js'
 
 const getData = () =>
     Promise.all([

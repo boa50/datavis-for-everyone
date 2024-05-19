@@ -1,4 +1,4 @@
-import { getChart } from "../components/utils.js"
+import { getChart } from "../node_modules/visual-components/index.js"
 import { addChart as addBar } from "./charts/bar.js"
 import { addChart as addPie } from "./charts/pie.js"
 import { addChart as add3dPie } from "./charts/3d-pie.js"

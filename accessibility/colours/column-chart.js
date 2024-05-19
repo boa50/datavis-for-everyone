@@ -34,7 +34,7 @@ export const addChart = (chartProps, data, colourPalleteType) => {
 
     colourPalette = colourPalette.map(d => d3.hsl(d).darker(0.1))
 
-    const filteredData = data.filter(d => (d.year >= 2021) && (d.month <= 6))
+    const filteredData = data.filter(d => (d.year >= 2021) && (d.month <= 3))
 
     const years = [...new Set(filteredData.map(d => d.year))].reverse()
 

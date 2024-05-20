@@ -11,5 +11,6 @@ export const palette = {
 
 export const defaultColours = {
     axis: '#737373',
+    animationText: '#737373',
     primary: palette.blue
 }

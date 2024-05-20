@@ -18,6 +18,25 @@ export const getTextWidth = (txt, fontSize = '1rem', fontWeight = 700) => {
     return width
 }
 
+export const convertSizeToIntPx = size => {
+    const baseSize = 16
+    const sizeNumber = parseFloat(size)
+    const measure = size.replace(sizeNumber.toString(), '')
+
+    switch (measure) {
+        case 'px':
+            return sizeNumber
+        case 'rem':
+            return sizeNumber * baseSize
+        case 'em':
+            return sizeNumber * baseSize
+        case 'pt':
+            return (sizeNumber / 12) * baseSize
+        case '%':
+            return (sizeNumber / 100) * baseSize
+    }
+}
+
 export const getTransformTranslate = transform =>
     transform.substring(transform.indexOf('(') + 1, transform.indexOf(')')).split(/[,]/).map(d => +d)
 

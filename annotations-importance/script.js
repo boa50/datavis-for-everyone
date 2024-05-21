@@ -1,5 +1,5 @@
 import { changeText, createText, hideText, showText, convertSizeToIntPx } from "../node_modules/visual-components/index.js"
-// import { initChart, updateChart } from "./chart.js"
+import { addChart } from "./chart.js"
 import { defaultColours as colours } from "../colours.js"
 import { addStep } from "./html-utils.js"
 
@@ -117,13 +117,13 @@ const init = () => {
     //     htmlText: `<span class="font-medium">World Health</span>`
     // })
 
-    // initChart({
-    //     svg: svg,
-    //     width: chartWidth,
-    //     height: chartHeight,
-    //     xPosition: chartXposition,
-    //     yPosition: chartYposition
-    // }).then(() => updateChart(currentYear, currentYear, 1))
+    addChart({
+        svg: svg,
+        width: chartWidth,
+        height: chartHeight,
+        xPosition: chartXposition,
+        yPosition: chartYposition
+    })
 
     svg
         .append('text')

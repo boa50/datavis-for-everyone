@@ -15,7 +15,7 @@ const getData = () =>
         }))
 
 const margin = {
-    left: 128,
+    left: 100,
     bottom: 46
 }
 

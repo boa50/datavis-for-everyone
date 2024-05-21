@@ -11,6 +11,7 @@ const scroller = scrollama()
 let visualisationsWidth
 let windowHeight
 let explanationText
+let title, subtitle
 
 const nSteps = 9
 const stepsSizes = {}
@@ -53,9 +54,21 @@ const handleStepProgress = (response) => {
         if (executeHide && (currentProgress > hideStartsAt)) hideText(explanationText, (currentProgress - hideStartsAt) * speed)
     }
 
+    const showAnnotation = (element, startsAt = 0.5) => {
+        const speed = (1 / 0.5) * stepsSizes[currentIndex]
+        if (currentProgress <= startsAt) showText(element, currentProgress * speed)
+    }
+
+    const hideAnnotation = (element, startsAt = 0.5) => {
+        const speed = (1 / 0.5) * stepsSizes[currentIndex]
+        if (currentProgress > startsAt) hideText(element, (currentProgress - startsAt) * speed)
+    }
+
     // Start the animation only after the first step
     switch (currentIndex) {
         case 0:
+            hideText(title)
+            hideText(subtitle)
             showText(explanationText)
             break;
         case 1:
@@ -67,6 +80,9 @@ const handleStepProgress = (response) => {
         case 2:
             changeText(explanationText, 'Let\'s add the basics: title and subtitle')
             showHideExplanationText()
+
+            showAnnotation(title)
+            showAnnotation(subtitle)
             break;
         case 3:
             changeText(explanationText, 'With those now we at least have an idea about what was the intention')
@@ -130,16 +146,27 @@ const init = () => {
     })
 
 
-    // createText({
-    //     svg: svg,
-    //     x: chartXposition - 60,
-    //     y: chartYposition - 50,
-    //     width: 200,
-    //     height: 50,
-    //     textColour: colours.animationText,
-    //     fontSize: '1.75rem',
-    //     htmlText: `<span class="font-medium">World Health</span>`
-    // })
+    title = createText({
+        svg: svg,
+        x: chartXposition - 60,
+        y: chartYposition - 130,
+        width: 400,
+        height: 40,
+        textColour: colours.animationText,
+        fontSize: '1.75rem',
+        htmlText: `<span class="font-medium">Deaths by Natural Disasters</span>`
+    })
+
+    subtitle = createText({
+        svg: svg,
+        x: chartXposition - 60,
+        y: chartYposition - 90,
+        width: chartWidth,
+        height: 22,
+        textColour: d3.hsl(colours.animationText).brighter(0.9),
+        fontSize: '1rem',
+        htmlText: `<span class="font-medium">The world has become more resilient to natural disasters in recent years, reducing the number of deaths</span>`
+    })
 
     addChart({
         svg: svg,

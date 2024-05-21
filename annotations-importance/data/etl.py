@@ -16,7 +16,6 @@ df = pd.read_csv(
         "Total deaths - Earthquake",
         "Total deaths - Extreme weather",
         "Total deaths - Extreme temperature",
-        "Total deaths - Volcanic activity",
     ],
 )
 
@@ -34,7 +33,6 @@ df.columns = [
     "earthquake",
     "weather",
     "temperature",
-    "volcanic",
 ]
 
 print(df)

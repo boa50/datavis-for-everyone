@@ -11,7 +11,7 @@ const scroller = scrollama()
 
 let visualisationsWidth
 let windowHeight
-let explanationText
+let explanationText, explanationTextPlaceholder
 let title, subtitle, annotationsCluttered, annotationsInsights
 
 const nSteps = 10
@@ -71,7 +71,7 @@ const handleStepProgress = (response) => {
             showText(explanationText)
             break;
         case 1:
-            changeExplanationText('Without any explanation text it is very hard to gain meaningful insights quickly', false)
+            changeExplanationText('Without any explanation text, it is tough to gain meaningful insights quickly', false)
             break;
         case 2:
             changeExplanationText('Let\'s add the basics: title and subtitle')
@@ -88,10 +88,10 @@ const handleStepProgress = (response) => {
             })
             break;
         case 3:
-            changeExplanationText('With those now we at least have an idea about what was the intention')
+            changeExplanationText('With those, now we at least have an idea about what is the chart intention')
             break;
         case 4:
-            changeExplanationText('Let\'s put more annotations to individual data points')
+            changeExplanationText('Let\'s put more annotations on individual data points')
 
             annotationsCluttered.forEach(element => {
                 showTextElement({
@@ -102,10 +102,16 @@ const handleStepProgress = (response) => {
             })
             break;
         case 5:
-            changeExplanationText('Now things are more explicit, but our chart has a lot of information disturbing our analysis')
+            changeExplanationText('Now, things are more explicit, but our chart is cluttered with a lot of information disturbing our analysis')
             break;
         case 6:
-            changeExplanationText('So, let\'s remove the excesses <span style="color: transparent;">and add only meaningful texts<span>')
+            changeText(explanationTextPlaceholder, 'So, let\'s remove the excesses <span style="color: transparent;">and add only meaningful annotations<span>')
+            showHideTextElement({
+                element: explanationTextPlaceholder,
+                stepSize: stepsSizes[currentIndex],
+                progress: currentProgress,
+                executeHide: false
+            })
 
             annotationsCluttered.forEach(element => {
                 hideTextElement({
@@ -116,7 +122,13 @@ const handleStepProgress = (response) => {
             })
             break;
         case 7:
-            changeExplanationText('So, let\'s remove the excesses <span style="color: inherit;">and add only meaningful texts<span>')
+            changeExplanationText('So, let\'s remove the excesses <span style="color: inherit;">and add only meaningful annotations<span>')
+            showHideTextElement({
+                element: explanationTextPlaceholder,
+                stepSize: stepsSizes[currentIndex],
+                progress: currentProgress,
+                executeShow: false
+            })
 
             annotationsInsights.forEach(element => {
                 showTextElement({
@@ -127,7 +139,7 @@ const handleStepProgress = (response) => {
             })
             break;
         case 8:
-            changeExplanationText('Now we have only what is essential to share insights quickly with our audience and we can enhance our understanding about the data', true, false)
+            changeExplanationText('Now, we have just what is essential to share insights quickly with our audience, and we can enhance our understanding of the data', true, false)
             break;
 
         default:
@@ -155,7 +167,7 @@ const init = () => {
     const chartXposition = 64
     const chartYposition = (windowHeight - chartHeight) / 2
 
-    explanationText = createText({
+    explanationTextPlaceholder = createText({
         svg: svg,
         x: chartXposition + chartWidth + 16,
         width: visualisationsWidth - chartWidth - chartXposition - 100,
@@ -166,6 +178,16 @@ const init = () => {
         htmlText: ``
     })
 
+    explanationText = createText({
+        svg: svg,
+        x: chartXposition + chartWidth + 16,
+        width: visualisationsWidth - chartWidth - chartXposition - 100,
+        textColour: colours.animationText,
+        fontSize: '1.75rem',
+        alignVertical: 'center',
+        alignHorizontal: 'center',
+        htmlText: ``
+    })
 
     title = createText({
         svg: svg,
@@ -206,7 +228,7 @@ const init = () => {
         .attr('class', 'text-sm')
         .attr('fill', '#6b7280')
         .style('text-anchor', 'end')
-        .text('Source: EM-DAT, CRED / UCLouvain (2024) – with major processing by Our World in Data')
+        .text('Sources: https://ourworldindata.org/century-disaster-deaths ; EM-DAT, CRED / UCLouvain (2024) – with major processing by Our World in Data')
 }
 
 function fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, chartHeight) {
@@ -420,7 +442,7 @@ function fillAnnotationsInshights(chartXposition, chartYposition, chartWidth, ch
                     have been reduced in recent years.
                 </span>
                 </br>
-                <span class="font-base leading-tight">However the frequency of floods increased substantially.</span>
+                <span class="font-base leading-tight">However, the frequency of floods increased substantially.</span>
             `
         }),
         createText({
@@ -439,7 +461,7 @@ function fillAnnotationsInshights(chartXposition, chartYposition, chartWidth, ch
                     changes (such as cyclones) are very unpredictable and continue
                 </span>
                 </br>
-                <span class="font-base leading-tight">to cause many deaths without showing any sights that we are prepared for them.</span>
+                <span class="font-base leading-tight">to cause many deaths without showing any sight that we are prepared for them.</span>
             `
         }),
         createText({
@@ -452,12 +474,12 @@ function fillAnnotationsInshights(chartXposition, chartYposition, chartWidth, ch
             fontSize: '0.9rem',
             htmlText: `
                 <span class="font-base leading-tight">
-                    We should be more cautionus about 
+                    We should be more cautious about 
                     <span class="font-bold" style="color: ${palette.vermillion};">Temperature</span> 
                     changes.
                 </span>
                 </br>
-                <span class="font-base leading-tight">The increasing number of heatwaves has appeared as the most proeminent natural disaster.</span>
+                <span class="font-base leading-tight">The increasing number of heatwaves has appeared as the most prominent natural disaster.</span>
             `
         }),
     ]

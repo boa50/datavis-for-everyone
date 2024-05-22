@@ -1,7 +1,7 @@
 import { changeText, createText, hideText, showText, convertSizeToIntPx } from "../node_modules/visual-components/index.js"
-import { defaultColours as colours } from "../colours.js"
+import { defaultColours as colours, palette } from "../colours.js"
 import { addChart } from "./chart.js"
-import { showHideTextElement, showTextElement, addAnnotation } from "./utils.js"
+import { showHideTextElement, showTextElement, hideTextElement, addAnnotation } from "./utils.js"
 import { addStep } from "./html-utils.js"
 
 const scrolly = d3.select('#scrolly')
@@ -14,7 +14,7 @@ let windowHeight
 let explanationText
 let title, subtitle, annotationsCluttered, annotationsInsights
 
-const nSteps = 9
+const nSteps = 10
 const stepsSizes = {}
 const eventSteps = new Set([])
 for (let i = 0; i < nSteps; i++) {
@@ -89,12 +89,28 @@ const handleStepProgress = (response) => {
             break;
         case 4:
             changeExplanationText('Let\'s put more annotations to individual data points')
+
+            annotationsCluttered.forEach(element => {
+                showTextElement({
+                    element,
+                    stepSize: stepsSizes[currentIndex],
+                    progress: currentProgress,
+                })
+            })
             break;
         case 5:
             changeExplanationText('Now things are more explicit, but our chart has a lot of information disturbing our analysis')
             break;
         case 6:
             changeExplanationText('So, let\'s remove the excesses <span style="color: transparent;">and add only meaningful texts<span>')
+
+            annotationsCluttered.forEach(element => {
+                hideTextElement({
+                    element,
+                    stepSize: stepsSizes[currentIndex],
+                    progress: currentProgress,
+                })
+            })
             break;
         case 7:
             changeExplanationText('So, let\'s remove the excesses <span style="color: inherit;">and add only meaningful texts<span>')
@@ -162,7 +178,8 @@ const init = () => {
         htmlText: `<span class="font-medium">The world has become more resilient to natural disasters in recent years, reducing the number of deaths</span>`
     })
 
-    fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, chartHeight)
+    // fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, chartHeight)
+    fillAnnotationsInshights(chartXposition, chartYposition, chartWidth, chartHeight)
 
     addChart({
         svg: svg,
@@ -369,6 +386,68 @@ function fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, ch
             y: chartYposition + (chartHeight / 4) * 4 + 10,
             deaths: 62,
             description: '2022 European heatwave'
+        }),
+    ]
+}
+
+function fillAnnotationsInshights(chartXposition, chartYposition, chartWidth, chartHeight) {
+    annotationsInsights = [
+        createText({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 60 + 70,
+            y: chartYposition + (chartHeight / 4) * 0.5 - 20,
+            width: 500,
+            height: 40,
+            textColour: d3.hsl(colours.axis).brighter(0.5),
+            fontSize: '0.9rem',
+            htmlText: `
+                <span class="font-base leading-tight">
+                    Deaths by 
+                    <span class="font-bold" style="color: ${palette.orange};">Droughts</span>
+                    and 
+                    <span class="font-bold" style="color: ${palette.blue};">Floods</span>
+                    have been reduced in recent years.
+                </span>
+                </br>
+                <span class="font-base leading-tight">However the frequency of floods increased substantially.</span>
+            `
+        }),
+        createText({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 30,
+            y: chartYposition + (chartHeight / 4) * 2.5 - 20,
+            width: 700,
+            height: 40,
+            textColour: d3.hsl(colours.axis).brighter(0.5),
+            fontSize: '0.9rem',
+            htmlText: `
+                <span class="font-base leading-tight">
+                    <span class="font-bold" style="color: ${palette.amber};">Earthquakes</span> 
+                    and 
+                    <span class="font-bold" style="color: ${palette.reddishPurple};">Weather</span> 
+                    changes (such as cyclones) are very unpredictable and continue
+                </span>
+                </br>
+                <span class="font-base leading-tight">to cause many deaths without showing any sights that we are prepared for them.</span>
+            `
+        }),
+        createText({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 55,
+            y: chartYposition + (chartHeight / 4) * 3.5 + 20,
+            width: 700,
+            height: 40,
+            textColour: d3.hsl(colours.axis).brighter(0.5),
+            fontSize: '0.9rem',
+            htmlText: `
+                <span class="font-base leading-tight">
+                    We should be more cautionus about 
+                    <span class="font-bold" style="color: ${palette.vermillion};">Temperature</span> 
+                    changes.
+                </span>
+                </br>
+                <span class="font-base leading-tight">The increasing number of heatwaves has appeared as the most proeminent natural disaster.</span>
+            `
         }),
     ]
 }

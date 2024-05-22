@@ -34,6 +34,7 @@ export const hideTextElement = ({
 }) => {
     const speed = getSpeed(stepSize)
     if (progress <= endsAt) hideText(element, progress * speed)
+    else hideText(element)
 }
 
 export const addAnnotation = ({

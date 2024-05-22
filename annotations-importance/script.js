@@ -65,6 +65,9 @@ const handleStepProgress = (response) => {
         case 0:
             hideText(title)
             hideText(subtitle)
+            annotationsCluttered.forEach(element => { hideText(element) })
+            annotationsInsights.forEach(element => { hideText(element) })
+
             showText(explanationText)
             break;
         case 1:
@@ -114,9 +117,17 @@ const handleStepProgress = (response) => {
             break;
         case 7:
             changeExplanationText('So, let\'s remove the excesses <span style="color: inherit;">and add only meaningful texts<span>')
+
+            annotationsInsights.forEach(element => {
+                showTextElement({
+                    element,
+                    stepSize: stepsSizes[currentIndex],
+                    progress: currentProgress,
+                })
+            })
             break;
         case 8:
-            changeExplanationText('Now we have only what is essential to share insights quickly with our audience and we can enhance our understanding about the data')
+            changeExplanationText('Now we have only what is essential to share insights quickly with our audience and we can enhance our understanding about the data', true, false)
             break;
 
         default:
@@ -178,7 +189,7 @@ const init = () => {
         htmlText: `<span class="font-medium">The world has become more resilient to natural disasters in recent years, reducing the number of deaths</span>`
     })
 
-    // fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, chartHeight)
+    fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, chartHeight)
     fillAnnotationsInshights(chartXposition, chartYposition, chartWidth, chartHeight)
 
     addChart({

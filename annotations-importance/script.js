@@ -183,6 +183,7 @@ const init = () => {
 
 function fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, chartHeight) {
     annotationsCluttered = [
+        // Drought
         addAnnotation({
             svg,
             x: chartXposition + (chartWidth / 124) * 0 + 70,
@@ -231,6 +232,143 @@ function fillAnnotationsCluttered(chartXposition, chartYposition, chartWidth, ch
             y: chartYposition + (chartHeight / 4) * 0 + 10,
             deaths: 20,
             description: '2010 - 2011 Somalian famine'
+        }),
+        // Flood
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 31 + 40,
+            y: chartYposition + (chartHeight / 4) * 1 + 70,
+            deaths: 3700,
+            description: '1931 China floods'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 39 + 70,
+            y: chartYposition + (chartHeight / 4) * 1 + 30,
+            deaths: 500,
+            description: '1939 China floods'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 59 + 40,
+            y: chartYposition + (chartHeight / 4) * 1 + 40,
+            deaths: 2000,
+            description: '1959 - 1961 China floods and famine'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 99 + 0,
+            y: chartYposition + (chartHeight / 4) * 1 + 10,
+            deaths: 35,
+            description: '1999 Venezuela floods'
+        }),
+        // Earthquake
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 20 + 50,
+            y: chartYposition + (chartHeight / 4) * 2 + 20,
+            deaths: 183,
+            description: '1920 Gansu, China'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 23 + 80,
+            y: chartYposition + (chartHeight / 4) * 2 - 50,
+            deaths: 151,
+            description: '1923 Tokyo, Japan'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 48 + 20,
+            y: chartYposition + (chartHeight / 4) * 2 + 20,
+            deaths: 116,
+            description: '1948 Ashgabat, Turkmenistan'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 76 + 0,
+            y: chartYposition + (chartHeight / 4) * 2 + 20,
+            deaths: 277,
+            description: '1976 Tangshan, China'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 104 - 20,
+            y: chartYposition + (chartHeight / 4) * 2 + 20,
+            deaths: 227,
+            description: '2004 Boxing Day tsunami'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 110 + 0,
+            y: chartYposition + (chartHeight / 4) * 2 - 50,
+            deaths: 227,
+            description: '2010 Haiti'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 123 - 30,
+            y: chartYposition + (chartHeight / 4) * 2 + 10,
+            deaths: 62,
+            description: '2023 Turkey - Syria'
+        }),
+        // Weather
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 22 + 40,
+            y: chartYposition + (chartHeight / 4) * 3 + 20,
+            deaths: 100,
+            description: '1922 cyclone, China'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 42 + 20,
+            y: chartYposition + (chartHeight / 4) * 3 + 20,
+            deaths: 101,
+            description: '1942 cyclones, India & Bangladesh'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 70 + 0,
+            y: chartYposition + (chartHeight / 4) * 3 + 20,
+            deaths: 304,
+            description: '1970 cyclone, Bangladesh'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 91 - 10,
+            y: chartYposition + (chartHeight / 4) * 3 + 20,
+            deaths: 146,
+            description: '1991 cyclone, Bangladesh'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 108 - 10,
+            y: chartYposition + (chartHeight / 4) * 3 - 50,
+            deaths: 141,
+            description: '2008 cyclone, Myanmar'
+        }),
+        //Temperature
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 103 - 20,
+            y: chartYposition + (chartHeight / 4) * 4 + 20,
+            deaths: 75,
+            description: '2003 European heatwave'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 110 - 20,
+            y: chartYposition + (chartHeight / 4) * 4 - 50,
+            deaths: 57,
+            description: '2010 Russian heatwave'
+        }),
+        addAnnotation({
+            svg,
+            x: chartXposition + (chartWidth / 124) * 122 - 40,
+            y: chartYposition + (chartHeight / 4) * 4 + 10,
+            deaths: 62,
+            description: '2022 European heatwave'
         }),
     ]
 }

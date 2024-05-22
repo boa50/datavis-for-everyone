@@ -15,7 +15,7 @@ const getData = () =>
         }))
 
 const margin = {
-    left: 100,
+    left: 108,
     bottom: 46
 }
 
@@ -27,7 +27,7 @@ export const addChart = ({ svg, width, height, xPosition, yPosition }) => {
 
     getData().then(data => {
         const groups = Object.keys(data[0]).slice(1)
-        const maxRadius = height / groups.length / 2
+        const maxRadius = height / groups.length / 2.25
 
         const x = d3
             .scaleLinear()

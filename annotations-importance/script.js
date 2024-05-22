@@ -72,6 +72,8 @@ const handleStepProgress = (response) => {
             break;
         case 1:
             changeExplanationText('Without any explanation text, it is tough to gain meaningful insights quickly', false)
+            hideText(title)
+            hideText(subtitle)
             break;
         case 2:
             changeExplanationText('Let\'s add the basics: title and subtitle')
@@ -89,6 +91,7 @@ const handleStepProgress = (response) => {
             break;
         case 3:
             changeExplanationText('With those, now we at least have an idea about what is the chart intention')
+            annotationsCluttered.forEach(element => { hideText(element) })
             break;
         case 4:
             changeExplanationText('Let\'s put more annotations on individual data points')
@@ -120,9 +123,14 @@ const handleStepProgress = (response) => {
                     progress: currentProgress,
                 })
             })
+
+            annotationsInsights.forEach(element => { hideText(element) })
             break;
         case 7:
+            annotationsCluttered.forEach(element => { hideText(element) })
+
             changeExplanationText('So, let\'s remove the excesses <span style="color: inherit;">and add only meaningful annotations<span>')
+
             showHideTextElement({
                 element: explanationTextPlaceholder,
                 stepSize: stepsSizes[currentIndex],
@@ -163,7 +171,7 @@ const init = () => {
     window.addEventListener('resize', handleResize())
 
     const chartWidth = 1080 < visualisationsWidth - 450 ? 1080 : visualisationsWidth - 450
-    const chartHeight = chartWidth / 1.5
+    const chartHeight = chartWidth / 1.6
     const chartXposition = 64
     const chartYposition = (windowHeight - chartHeight) / 2
 

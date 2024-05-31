@@ -1,19 +1,19 @@
 import { palette } from "../colours.js"
 
-export const addChart = chartProps => {
+export const addChart = (chartProps, highlight) => {
     const { chart, width, height } = chartProps
 
-    const highlight = 'above'
-    let piePalette, getTextClass
+    let piePalette, getTextClass, getPercentText
 
     if (highlight == 'above') {
         piePalette = ['#737373', palette.bluishGreen]
         getTextClass = d => d.data[0] == 'shareAbove' ? 'font-bold text-7xl' : 'font-normal text-base'
+        getPercentText = d => d.data[0] == 'shareAbove' ? `${d.data[1]}%` : ''
     } else {
-        piePalette = ['#737373', palette.bluishGreen].reverse()
+        piePalette = [palette.vermillion, '#737373']
         getTextClass = d => d.data[0] == 'shareBelow' ? 'font-bold text-4xl' : 'font-normal text-base'
+        getPercentText = d => d.data[0] == 'shareBelow' ? `${d.data[1]}%` : ''
     }
-
 
     chart.attr('transform', `translate(${[width / 2, height / 2]})`)
 
@@ -34,6 +34,8 @@ export const addChart = chartProps => {
     const arc = d3.arc()
         .innerRadius(0)
         .outerRadius(250)
+        .startAngle(d => d.startAngle + Math.PI / 2)
+        .endAngle(d => d.endAngle + Math.PI / 2)
 
     chart
         .selectAll('.my-slices')
@@ -54,5 +56,5 @@ export const addChart = chartProps => {
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'middle')
         .attr('transform', d => `translate(${arc.centroid(d).map((d, i) => d * [1.4, 1.25][i])})`)
-        .text(d => `${d.data[1]}%`)
+        .text(getPercentText)
 }

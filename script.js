@@ -22,6 +22,7 @@ const links = [
     { txt: 'Accessibility', url: './accessibility/index.html', dateUpdated: new Date(2024, 4, 16) },
     { txt: '3d Charts', url: './charts-3d/index.html', dateUpdated: new Date(2024, 4, 10) },
     { txt: 'The Importance of Annotations', url: './annotations-importance/index.html', dateUpdated: new Date(2024, 4, 20) },
+    { txt: 'Same Data, Oposite Perspectives', url: './positive-negative-message/index.html', dateUpdated: new Date(2024, 4, 31) },
 ]
 
 links

@@ -3,16 +3,23 @@ import { palette } from "../colours.js"
 export const addChart = (chartProps, highlight) => {
     const { chart, width, height } = chartProps
 
-    let piePalette, getTextClass, getPercentText
+    let piePalette, getTextClass, getPercentText, getStartAngle, getEndAngle, getTransform
+    const lessFocusColour = '#a3a3a3'
 
     if (highlight == 'above') {
-        piePalette = ['#737373', palette.bluishGreen]
+        piePalette = [lessFocusColour, palette.bluishGreen]
         getTextClass = d => d.data[0] == 'shareAbove' ? 'font-bold text-7xl' : 'font-normal text-base'
         getPercentText = d => d.data[0] == 'shareAbove' ? `${d.data[1]}%` : ''
+        getStartAngle = d => d.startAngle + Math.PI / 2.3
+        getEndAngle = d => d.endAngle + Math.PI / 2.3
+        getTransform = d => `translate(${arc.centroid(d).map((d, i) => d * [1.1, 0][i])})`
     } else {
-        piePalette = [palette.vermillion, '#737373']
-        getTextClass = d => d.data[0] == 'shareBelow' ? 'font-bold text-4xl' : 'font-normal text-base'
+        piePalette = [palette.vermillion, lessFocusColour]
+        getTextClass = d => d.data[0] == 'shareBelow' ? 'font-bold text-5xl' : 'font-normal text-base'
         getPercentText = d => d.data[0] == 'shareBelow' ? `${d.data[1]}%` : ''
+        getStartAngle = d => d.startAngle - Math.PI / 1.7
+        getEndAngle = d => d.endAngle - Math.PI / 1.7
+        getTransform = d => `translate(${arc.centroid(d).map((d, i) => d * [1.4, 0][i])})`
     }
 
     chart.attr('transform', `translate(${[width / 2, height / 2]})`)
@@ -34,8 +41,8 @@ export const addChart = (chartProps, highlight) => {
     const arc = d3.arc()
         .innerRadius(0)
         .outerRadius(250)
-        .startAngle(d => d.startAngle + Math.PI / 2)
-        .endAngle(d => d.endAngle + Math.PI / 2)
+        .startAngle(getStartAngle)
+        .endAngle(getEndAngle)
 
     chart
         .selectAll('.my-slices')
@@ -55,6 +62,6 @@ export const addChart = (chartProps, highlight) => {
         .attr('fill', 'white')
         .attr('text-anchor', 'middle')
         .attr('dominant-baseline', 'middle')
-        .attr('transform', d => `translate(${arc.centroid(d).map((d, i) => d * [1.4, 1.25][i])})`)
+        .attr('transform', getTransform)
         .text(getPercentText)
 }

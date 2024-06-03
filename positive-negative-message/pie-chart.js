@@ -50,7 +50,7 @@ export const addChart = (chartProps, highlight) => {
         .join('path')
         .attr('d', arc)
         .attr('fill', d => colour(d.data[0]))
-        .attr('stroke', 'white')
+        .attr('stroke', '#FFFFFF')
         .style('stroke-width', '1px')
         .style('opacity', 0.9)
 

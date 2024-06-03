@@ -40,7 +40,7 @@ export const addChart = (chartProps, highlight) => {
 
     const arc = d3.arc()
         .innerRadius(0)
-        .outerRadius(250)
+        .outerRadius(height / 2.25)
         .startAngle(getStartAngle)
         .endAngle(getEndAngle)
 

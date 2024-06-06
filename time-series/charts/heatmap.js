@@ -82,4 +82,11 @@ export const addChart = (chartProps, data, countryColour) => {
         chartWidth: width,
         chartHeight: height
     })
+
+    const ticks = chart
+        .selectAll('.x-axis-group .tick text')
+        .attr('transform', 'rotate(45)')
+        .attr('text-anchor', 'start')
+        .attr('dx', '0.1rem')
+        .attr('dy', '0.1rem')
 }

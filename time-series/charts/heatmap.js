@@ -1,8 +1,8 @@
-import { addAxis, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
+import { addAxis, addHighlightTooltip, addColourLegend } from "../../node_modules/visual-components/index.js"
 import { palette, defaultColours as colours } from "../../colours.js"
 
 export const addChart = (chartProps, data, countryColour) => {
-    const { chart, width, height } = chartProps
+    const { chart, width, height, margin } = chartProps
 
     const years = [...new Set(data.map(d => d.year))].sort()
     const countries = [...new Set(data.map(d => d.country))].reverse()
@@ -23,7 +23,7 @@ export const addChart = (chartProps, data, countryColour) => {
         d3
             .scaleLinear()
             .range([d3.hsl(countryColour(d.country)).brighter(1), d3.hsl(countryColour(d.country)).darker(1)])
-            .domain([0, d3.max(data, d => d.expenditureShare)])
+            .domain([0, Math.trunc(d3.max(data, d => d.expenditureShare)) + 1])
 
     chart
         .selectAll('.data-point')
@@ -66,6 +66,38 @@ export const addChart = (chartProps, data, countryColour) => {
         hideYdomain: true
     })
 
+    chart
+        .selectAll('.x-axis-group .tick text')
+        .attr('transform', 'rotate(45)')
+        .attr('text-anchor', 'start')
+        .attr('dx', '0.1rem')
+        .attr('dy', '0.1rem')
+
+
+    const colourLegendWidth = 100
+
+    const colourLegendScale = d3
+        .scaleLinear()
+        .range([d3.hsl(colours.axis).brighter(1), d3.hsl(colours.axis).darker(1)])
+        .domain(colour({}).domain())
+
+    const colourLegendAxis = d3
+        .scaleLinear()
+        .domain(colourLegendScale.domain())
+        .range([0, colourLegendWidth])
+
+    addColourLegend({
+        chart,
+        title: 'GDP Expenditure',
+        colourScale: colourLegendScale,
+        axis: colourLegendAxis,
+        width: colourLegendWidth,
+        textColour: colours.axis,
+        xPosition: -margin.left + 4,
+        yPosition: height + margin.bottom - 60,
+        axisTickFormat: d => d > 0 ? `${d}%` : d
+    })
+
     addHighlightTooltip({
         chart,
         htmlText: d => `
@@ -82,11 +114,4 @@ export const addChart = (chartProps, data, countryColour) => {
         chartWidth: width,
         chartHeight: height
     })
-
-    const ticks = chart
-        .selectAll('.x-axis-group .tick text')
-        .attr('transform', 'rotate(45)')
-        .attr('text-anchor', 'start')
-        .attr('dx', '0.1rem')
-        .attr('dy', '0.1rem')
 }

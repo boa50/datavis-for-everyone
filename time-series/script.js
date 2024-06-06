@@ -39,7 +39,7 @@ getData().then(data => {
     addHeatmap(
         getChart({
             id: 'chart3',
-            margin: getMargin({ left: 96 })
+            margin: getMargin({ left: 112, bottom: 64 })
         }),
         data,
         countryColour

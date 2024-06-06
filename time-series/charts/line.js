@@ -1,4 +1,4 @@
-import { addAxis } from "../../node_modules/visual-components/index.js"
+import { addAxis, addLineTooltip } from "../../node_modules/visual-components/index.js"
 import { palette, defaultColours as colours } from "../../colours.js"
 
 export const addChart = (chartProps, data) => {
@@ -64,5 +64,22 @@ export const addChart = (chartProps, data) => {
         hideXdomain: true,
         hideYdomain: true,
         yLabel: 'Expenditure (share of GDP)'
+    })
+
+    addLineTooltip({
+        chart,
+        htmlText: d => `
+        <strong>${d.country} - ${d.year}</strong>
+        <div style="display: flex; justify-content: space-between">
+            <span>GDP Expenditure:&emsp;</span>
+            <span>${d3.format('.2f')(d.expenditureShare)}%</span>
+        </div>
+        `,
+        colour: d => colour(d.country),
+        data,
+        cx: d => x(d.year),
+        cy: d => y(d.expenditureShare),
+        chartWidth: width,
+        chartHeight: height
     })
 }

@@ -9,9 +9,6 @@ export const addChart = (chartProps, data) => {
     const groups = [...new Set(data.map(d => d.year))]
     const subgroups = [...new Set(data.map(d => d.country))]
 
-    const getSubgroupValues = d => [''].map(v => { return { country: d.country, expenditureShare: d.expenditureShare } })
-
-
     const x = d3
         .scaleBand()
         .domain(groups)
@@ -22,7 +19,6 @@ export const addChart = (chartProps, data) => {
         .scaleBand()
         .domain(subgroups)
         .range([0, x.bandwidth()])
-        .padding(.05)
 
     const y = d3
         .scaleLinear()
@@ -40,9 +36,10 @@ export const addChart = (chartProps, data) => {
         .join('g')
         .attr('transform', d => `translate(${x(d.year)}, 0)`)
         .selectAll('rect')
-        .data(getSubgroupValues)
+        .data(d => [d])
         .join('rect')
-        .attr('x', d => { console.log(d); return xSubgroup(d.country) })
+        .attr('class', 'data-point')
+        .attr('x', d => xSubgroup(d.country))
         .attr('y', d => y(d.expenditureShare))
         .attr('width', xSubgroup.bandwidth())
         .attr('height', d => height - y(d.expenditureShare))
@@ -70,5 +67,22 @@ export const addChart = (chartProps, data) => {
         colours: Object.values(palette),
         xPosition: -margin.left,
         yPosition: -16
+    })
+
+    addHighlightTooltip({
+        chart,
+        htmlText: d => `
+        <strong>${d.country} - ${d.year}</strong>
+        <div style="display: flex; justify-content: space-between">
+            <span>GDP Expenditure:&emsp;</span>
+            <span>${d3.format('.2f')(d.expenditureShare)}%</span>
+        </div>
+        `,
+        elements: chart.selectAll('.data-point'),
+        initialOpacity: 1,
+        highlightedOpacity: 1,
+        fadedOpacity: 0.5,
+        chartWidth: width,
+        chartHeight: height
     })
 }

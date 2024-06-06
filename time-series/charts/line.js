@@ -1,7 +1,7 @@
 import { addAxis, addLineTooltip } from "../../node_modules/visual-components/index.js"
-import { palette, defaultColours as colours } from "../../colours.js"
+import { defaultColours as colours } from "../../colours.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, colour) => {
     const { chart, width, height } = chartProps
 
     const x = d3
@@ -15,9 +15,6 @@ export const addChart = (chartProps, data) => {
         .range([height, 0])
 
     const dataPerGroup = d3.group(data, d => d.country)
-    const colour = d3
-        .scaleOrdinal()
-        .range(Object.values(palette))
 
     const line = d3
         .line()

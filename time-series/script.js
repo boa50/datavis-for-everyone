@@ -1,6 +1,8 @@
 import { getChart, getMargin } from '../node_modules/visual-components/index.js'
+import { palette } from '../colours.js'
 import { addChart as addLine } from './charts/line.js'
 import { addChart as addColumn } from './charts/column.js'
+import { addChart as addHeatmap } from './charts/heatmap.js'
 
 const getData = () =>
     d3.csv('data/education-investing.csv')
@@ -8,12 +10,21 @@ const getData = () =>
 
 
 getData().then(data => {
+    const countryColour = d3
+        .scaleOrdinal()
+        .domain(['Kenya', 'Finland', 'Brazil', 'Canada', 'New Zealand', 'Japan'])
+        .range([palette.orange, palette.skyBlue, palette.bluishGreen, palette.reddishPurple, palette.blue, palette.vermillion])
+    const countryOrder = ['Finland', 'Brazil', 'New Zealand', 'Canada', 'Kenya', 'Japan']
+
+    data.sort((a, b) => countryOrder.indexOf(a.country) - countryOrder.indexOf(b.country))
+
     addLine(
         getChart({
             id: 'chart1',
             margin: getMargin({ right: 80 })
         }),
-        data
+        data,
+        countryColour
     )
 
     addColumn(
@@ -21,6 +32,16 @@ getData().then(data => {
             id: 'chart2',
             margin: getMargin({ top: 30 })
         }),
-        data
+        data,
+        countryColour
+    )
+
+    addHeatmap(
+        getChart({
+            id: 'chart3',
+            margin: getMargin({ left: 96 })
+        }),
+        data,
+        countryColour
     )
 })

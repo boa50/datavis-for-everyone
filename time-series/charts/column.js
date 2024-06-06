@@ -1,7 +1,7 @@
 import { addAxis, addLegend, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
 import { palette, defaultColours as colours } from "../../colours.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, colour) => {
     const { chart, width, height, margin } = chartProps
 
     data = data.filter(d => d.year >= 2015)
@@ -24,10 +24,6 @@ export const addChart = (chartProps, data) => {
         .scaleLinear()
         .domain([0, d3.max(data, d => d.expenditureShare) * 1.15])
         .range([height, 0])
-
-    const colour = d3
-        .scaleOrdinal()
-        .range(Object.values(palette))
 
 
     chart
@@ -64,7 +60,7 @@ export const addChart = (chartProps, data) => {
     addLegend({
         chart,
         legends: subgroups,
-        colours: Object.values(palette),
+        colours: subgroups.map(d => colour(d)),
         xPosition: -margin.left,
         yPosition: -16
     })

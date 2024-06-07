@@ -9,9 +9,9 @@ export const adjustColours = (g, colour, hideDomain = false) => {
 
 export const addAxis = ({
     chart, height, width, colour = 'black', fontSize = '0.8rem',
-    x, xLabel = '', xFormat, xTickValues, xNumTicks, xNumTicksForceInitial = false, hideXdomain = false,
-    y, yLabel = '', yFormat, yTickValues, yNumTicks, yNumTicksForceInitial = false, hideYdomain = false,
-    yRight, yRightLabel = '', yRightFormat, yRightTickValues, yRightNumTicks, yRightNumTicksForceInitial = false
+    x, xLabel = '', xFormat, xTickValues, xNumTicks, xNumTicksForceInitial = false, hideXdomain = false, xTickPadding = 10,
+    y, yLabel = '', yFormat, yTickValues, yNumTicks, yNumTicksForceInitial = false, hideYdomain = false, yTickPadding = 10,
+    yRight, yRightLabel = '', yRightFormat, yRightTickValues, yRightNumTicks, yRightNumTicksForceInitial = false, yRightTickPadding = 10
 }) => {
     if (x !== undefined) {
         if ((xTickValues === undefined) && (xNumTicks !== undefined))
@@ -29,7 +29,8 @@ export const addAxis = ({
             label: xLabel,
             hideDomain: hideXdomain,
             fontSize,
-            tickValues: xTickValues
+            tickValues: xTickValues,
+            tickPadding: xTickPadding
         })
     }
 
@@ -49,7 +50,8 @@ export const addAxis = ({
             label: yLabel,
             hideDomain: hideYdomain,
             fontSize,
-            tickValues: yTickValues
+            tickValues: yTickValues,
+            tickPadding: yTickPadding
         })
     }
 
@@ -69,7 +71,8 @@ export const addAxis = ({
             label: yRightLabel,
             hideDomain: hideYdomain,
             fontSize,
-            tickValues: yRightTickValues
+            tickValues: yRightTickValues,
+            tickPadding: yRightTickPadding
         })
     }
 }
@@ -145,7 +148,8 @@ function addSingleAxis({
     label,
     hideDomain,
     fontSize = '0.8rem',
-    tickValues
+    tickValues,
+    tickPadding = 10
 }) {
     let d3Axis, labelXposition, labelYposition, labelRotation, groupTransform
     switch (position) {
@@ -180,7 +184,7 @@ function addSingleAxis({
         .call(
             d3Axis
                 .tickSize(0)
-                .tickPadding(10)
+                .tickPadding(tickPadding)
                 .tickFormat(format)
                 .tickValues(tickValues)
         )

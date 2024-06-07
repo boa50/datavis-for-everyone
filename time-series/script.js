@@ -49,7 +49,7 @@ getData().then(data => {
     addLinedBubbles(
         getChart({
             id: 'chart4',
-            margin: getMargin({ left: 100, bottom: 64, top: 24, right: 112 })
+            margin: getMargin({ left: 100, bottom: 64, top: 24, right: 140 })
         }),
         data,
         countryColour

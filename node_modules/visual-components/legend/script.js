@@ -158,7 +158,9 @@ export const addCircleLegend = ({
     colour = 'black',
     title = '',
     textFormat = d => d,
-    customId = ''
+    customId = '',
+    valuesFontSize = '0.67rem',
+    titleFontSize = '0.925rem'
 }) => {
     const legend = getLegendContainer(chart, 0, 0, 'circle', customId)
 
@@ -189,7 +191,7 @@ export const addCircleLegend = ({
         .append('text')
         .attr('x', xPosition)
         .attr('y', yPosition - scaleMargin * 2 - 10)
-        .attr('font-size', 15)
+        .attr('font-size', titleFontSize)
         .attr('text-anchor', 'middle')
         .attr('fill', colour)
         .text(title)
@@ -225,7 +227,7 @@ export const addCircleLegend = ({
         .attr('x', xLabel)
         .attr('y', (d, i) => yPosition + getYpadding(i) - sizeScale(d))
         .text(d => textFormat(d))
-        .attr('font-size', 10.5)
+        .attr('font-size', valuesFontSize)
         .attr('fill', colour)
 }
 

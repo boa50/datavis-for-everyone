@@ -78,7 +78,9 @@ export const addChart = (chartProps, data, colour) => {
         textFormat: d => `${d}%`,
         title: 'GDP Expenditure',
         xPosition: width + margin.right / 2,
-        yPosition: height
+        yPosition: height + 16,
+        titleFontSize: '0.8rem',
+        valuesFontSize: '0.7rem'
     })
 
     addHighlightTooltip({

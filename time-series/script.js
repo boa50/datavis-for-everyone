@@ -3,6 +3,7 @@ import { palette } from '../colours.js'
 import { addChart as addLine } from './charts/line.js'
 import { addChart as addColumn } from './charts/column.js'
 import { addChart as addHeatmap } from './charts/heatmap.js'
+import { addChart as addLinedBubbles } from './charts/lined-bubbles.js'
 
 const getData = () =>
     d3.csv('data/education-investing.csv')
@@ -40,6 +41,15 @@ getData().then(data => {
         getChart({
             id: 'chart3',
             margin: getMargin({ left: 112, bottom: 64 })
+        }),
+        data,
+        countryColour
+    )
+
+    addLinedBubbles(
+        getChart({
+            id: 'chart4',
+            margin: getMargin({ left: 100, bottom: 64, top: 24, right: 112 })
         }),
         data,
         countryColour

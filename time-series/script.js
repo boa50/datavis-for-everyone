@@ -22,7 +22,7 @@ getData().then(data => {
     addLine(
         getChart({
             id: 'chart1',
-            margin: getMargin({ right: 80 })
+            margin: getMargin({ right: 80, top: 16 })
         }),
         data,
         countryColour

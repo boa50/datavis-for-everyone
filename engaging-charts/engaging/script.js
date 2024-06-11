@@ -17,16 +17,10 @@ const getData = () =>
             }
         }))
 
-const svgHeight = (window.innerHeight
-    - document.getElementById('header').offsetHeight
-    - document.getElementById('caption').offsetHeight) / 2
-    - 64
-
 getData().then(data => {
     addExpectancyByGender(
         getChart({
             id: 'chart1',
-            svgHeight,
             margin: {
                 left: 16,
                 right: 16,
@@ -40,9 +34,8 @@ getData().then(data => {
     addExpectancyGap(
         getChart({
             id: 'chart2',
-            svgHeight,
             margin: {
-                left: 110,
+                left: 120,
                 right: 16,
                 top: 64,
                 bottom: 56
@@ -53,8 +46,7 @@ getData().then(data => {
 
     addExpectancyDistribution(
         getChart({
-            id: 'chart3',
-            svgHeight
+            id: 'chart3'
         }),
         data
     )
@@ -62,7 +54,6 @@ getData().then(data => {
     addGreenhouseEmissions(
         getChart({
             id: 'chart4',
-            svgHeight,
             margin: {
                 left: 16,
                 right: 16,
@@ -75,7 +66,6 @@ getData().then(data => {
     addFoodEmissions(
         getChart({
             id: 'chart5',
-            svgHeight,
             margin: {
                 left: 0,
                 right: 0,

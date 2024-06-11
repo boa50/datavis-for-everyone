@@ -17,16 +17,10 @@ const getData = () =>
             }
         }))
 
-const svgHeight = (window.innerHeight
-    - document.getElementById('header').offsetHeight
-    - document.getElementById('caption').offsetHeight) / 2
-    - 64
-
 getData().then(data => {
     addExpectancyByGender(
         getChart({
             id: 'chart1',
-            svgHeight,
             margin: {
                 left: 140,
                 right: 16,
@@ -40,7 +34,6 @@ getData().then(data => {
     addExpectancyGap(
         getChart({
             id: 'chart2',
-            svgHeight,
             margin: {
                 left: 64,
                 right: 16,
@@ -53,8 +46,7 @@ getData().then(data => {
 
     addExpectancyScatter(
         getChart({
-            id: 'chart3',
-            svgHeight
+            id: 'chart3'
         }),
         data
     )
@@ -62,7 +54,6 @@ getData().then(data => {
     addGreenhouseBySector(
         getChart({
             id: 'chart4',
-            svgHeight,
             margin: {
                 left: 96,
                 right: 16,
@@ -75,9 +66,8 @@ getData().then(data => {
     addGreenhousePerFood(
         getChart({
             id: 'chart5',
-            svgHeight,
             margin: {
-                left: 132,
+                left: 138,
                 right: 16,
                 top: 8,
                 bottom: 56

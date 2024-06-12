@@ -1,10 +1,44 @@
-import { addAxis, addLegend, addLineTooltip } from "../../node_modules/visual-components/index.js"
-import { palette, defaultColours as colours } from "../../colours.js"
+import { addAxis, addLegend, addLineTooltip } from '../../node_modules/visual-components/index.js'
+import { palette, defaultColours as colours } from '../../colours.js'
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, axesContrast = 'normal', coloursContrast = 'normal') => {
     const { chart, width, height, margin } = chartProps
 
-    const paletteColours = [palette.bluishGreen, palette.blue, palette.vermillion, palette.reddishPurple]
+    const standardColours = [palette.bluishGreen, palette.blue, palette.vermillion, palette.reddishPurple]
+
+    let axesColour = colours.axis
+    let lineColours = standardColours
+
+    switch (axesContrast) {
+        case 'bad':
+            axesColour = '#a3a3a3'
+            break;
+        case 'good':
+            axesColour = '#737373'
+            break;
+        case 'excellent':
+            axesColour = '#525252'
+            break;
+    }
+
+    switch (coloursContrast) {
+        case 'bad':
+            lineColours = standardColours.map(c => d3.hsl(c).brighter(1))
+            break;
+        case 'good':
+            lineColours = standardColours.map(c => d3.hsl(c).darker(0.6))
+            break;
+        case 'excellent':
+            lineColours = standardColours.map(c => d3.hsl(c).darker(1.35))
+            break;
+        case 'goodBetween':
+            lineColours = standardColours
+            break;
+        case 'excellentBetween':
+            lineColours = standardColours
+            break;
+    }
+
     const energySources = [...new Set(data.map(d => d.source))]
 
     const x = d3
@@ -21,7 +55,7 @@ export const addChart = (chartProps, data) => {
     const colour = d3
         .scaleOrdinal()
         .domain(energySources)
-        .range(paletteColours)
+        .range(lineColours)
 
     const line = d3
         .line()
@@ -43,7 +77,7 @@ export const addChart = (chartProps, data) => {
         width,
         x,
         y,
-        colour: colours.axis,
+        colour: axesColour,
         yLabel: 'Generation (TWh)',
         xFormat: d => d,
         yFormat: d => d,
@@ -58,7 +92,7 @@ export const addChart = (chartProps, data) => {
     addLegend({
         chart,
         legends: energySources,
-        colours: paletteColours,
+        colours: lineColours,
         xPosition: -margin.left,
         yPosition: -margin.top + 14
     })
@@ -67,7 +101,7 @@ export const addChart = (chartProps, data) => {
         chart,
         htmlText: d => `
         <strong>${d.source} - ${d.year}</strong>
-        <div style="display: flex; justify-content: space-between">
+        <div style='display: flex; justify-content: space-between'>
             <span>Generation:&emsp;</span>
             <span>${d.generation} TWh</span>
         </div>

@@ -1,4 +1,4 @@
-import { addAxis, addLegend } from "../../node_modules/visual-components/index.js"
+import { addAxis, addLegend, addLineTooltip } from "../../node_modules/visual-components/index.js"
 import { palette, defaultColours as colours } from "../../colours.js"
 
 export const addChart = (chartProps, data) => {
@@ -6,23 +6,24 @@ export const addChart = (chartProps, data) => {
 
     const x = d3
         .scaleLinear()
-        .domain(d3.extent(data, d => d.month))
+        .domain(d3.extent(data, d => d.year))
         .range([0, width])
 
     const y = d3
         .scaleLinear()
-        .domain(d3.extent(data, d => d.temperature).map((d, i) => d * [0.95, 1.05][i]))
+        .domain([0, d3.max(data, d => d.generation) * 1.15])
         .range([height, 0])
 
-    const dataPerGroup = d3.group(data, d => d.year)
+    const dataPerGroup = d3.group(data, d => d.source)
     const colour = d3
         .scaleOrdinal()
+        .domain([...new Set(data.map(d => d.source))])
         .range(Object.values(palette))
 
     const line = d3
         .line()
-        .x(d => x(d.month))
-        .y(d => y(d.temperature))
+        .x(d => x(d.year))
+        .y(d => y(d.generation))
 
     chart
         .selectAll('.data-line')
@@ -30,7 +31,7 @@ export const addChart = (chartProps, data) => {
         .join('path')
         .attr('fill', 'none')
         .attr('stroke', d => colour(d[0]))
-        .attr('stroke-width', 3)
+        .attr('stroke-width', 5)
         .attr('d', d => line(d[1]))
 
     addAxis({
@@ -40,23 +41,41 @@ export const addChart = (chartProps, data) => {
         x,
         y,
         colour: colours.axis,
-        xLabel: 'Month',
-        yLabel: 'Temperature (°C)',
-        xFormat: d => getMonthName(d, 'short'),
+        yLabel: 'Generation (TWh)',
+        xFormat: d => d,
         yFormat: d => d,
-        yNumTicks: 4,
+        xNumTicks: 5,
+        yNumTicks: 5,
+        yTickValues: [0, 1000, 2000, 3000, 4000, 5000],
+        xNumTicksForceInitial: true,
+        yNumTicksForceInitial: true,
         hideXdomain: true,
         hideYdomain: true
     })
 
     addLegend({
         chart,
-        legends: [...new Set(data.map(d => d.year))],
+        legends: [...new Set(data.map(d => d.source))],
         colours: Object.values(palette),
-        xPosition: -margin.left
+        xPosition: -margin.left,
+        yPosition: -margin.top + 14
     })
-}
 
-function getMonthName(month, type = 'long') {
-    return (new Date(1900, month - 1)).toLocaleString('default', { month: type })
+    addLineTooltip({
+        chart,
+        htmlText: d => `
+        <strong>${d.source} - ${d.year}</strong>
+        <div style="display: flex; justify-content: space-between">
+            <span>Generation:&emsp;</span>
+            <span>${d.generation} TWh</span>
+        </div>
+        `,
+        colour: d => colour(d.source),
+        radius: 5,
+        data,
+        cx: d => x(d.year),
+        cy: d => y(d.generation),
+        chartWidth: width,
+        chartHeight: height
+    })
 }

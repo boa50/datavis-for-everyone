@@ -4,6 +4,9 @@ import { palette, defaultColours as colours } from "../../colours.js"
 export const addChart = (chartProps, data) => {
     const { chart, width, height, margin } = chartProps
 
+    const paletteColours = [palette.bluishGreen, palette.blue, palette.vermillion, palette.reddishPurple]
+    const energySources = [...new Set(data.map(d => d.source))]
+
     const x = d3
         .scaleLinear()
         .domain(d3.extent(data, d => d.year))
@@ -17,8 +20,8 @@ export const addChart = (chartProps, data) => {
     const dataPerGroup = d3.group(data, d => d.source)
     const colour = d3
         .scaleOrdinal()
-        .domain([...new Set(data.map(d => d.source))])
-        .range(Object.values(palette))
+        .domain(energySources)
+        .range(paletteColours)
 
     const line = d3
         .line()
@@ -45,7 +48,6 @@ export const addChart = (chartProps, data) => {
         xFormat: d => d,
         yFormat: d => d,
         xNumTicks: 5,
-        yNumTicks: 5,
         yTickValues: [0, 1000, 2000, 3000, 4000, 5000],
         xNumTicksForceInitial: true,
         yNumTicksForceInitial: true,
@@ -55,8 +57,8 @@ export const addChart = (chartProps, data) => {
 
     addLegend({
         chart,
-        legends: [...new Set(data.map(d => d.source))],
-        colours: Object.values(palette),
+        legends: energySources,
+        colours: paletteColours,
         xPosition: -margin.left,
         yPosition: -margin.top + 14
     })
@@ -71,7 +73,7 @@ export const addChart = (chartProps, data) => {
         </div>
         `,
         colour: d => colour(d.source),
-        radius: 5,
+        radius: 6,
         data,
         cx: d => x(d.year),
         cy: d => y(d.generation),

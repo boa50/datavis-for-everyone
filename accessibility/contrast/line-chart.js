@@ -19,6 +19,9 @@ export const addChart = (chartProps, data, axesContrast = 'normal', coloursContr
         case 'excellent':
             axesColour = '#525252'
             break;
+        case 'goodDark':
+            axesColour = '#a3a3a3'
+            break;
     }
 
     switch (coloursContrast) {
@@ -32,10 +35,13 @@ export const addChart = (chartProps, data, axesContrast = 'normal', coloursContr
             lineColours = standardColours.map(c => d3.hsl(c).darker(1.35))
             break;
         case 'goodBetween':
-            lineColours = standardColours
+            lineColours = standardColours.map(c => d3.hsl(c).darker(0.6))
             break;
         case 'excellentBetween':
-            lineColours = standardColours
+            lineColours = ['#00523c', '#005c90', '#f46c00', '#010001']
+            break;
+        case 'goodDark':
+            lineColours = ['#00926a', '#0086d2', '#d25d00', '#f1dbe7']
             break;
     }
 

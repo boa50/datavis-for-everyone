@@ -33,4 +33,7 @@ getData().then(data => {
 
     addChart(getChartByNumber(9), data, 'excellent', 'goodBetween')
     addChart(getChartByNumber(10), data, 'excellent', 'excellentBetween')
+
+    addChart(getChartByNumber(11), data, 'excellent', 'goodBetween')
+    addChart(getChartByNumber(12), data, 'goodDark', 'goodDark')
 })

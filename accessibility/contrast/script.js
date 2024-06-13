@@ -22,12 +22,15 @@ getData().then(data => {
     addChart(getChartByNumber(1), data)
     addChart(getChartByNumber(2), data, 'bad', 'bad')
 
-    addChart(getChartByNumber(3), data, 'bad', 'bad')
-    addChart(getChartByNumber(4), data, 'bad', 'bad')
+    addChart(getChartByNumber('034'), data, 'normal', 'normal')
+    addChart(getChartByNumber(3), data, 'normal', 'normal')
+    addChart(getChartByNumber(4), data, 'normal', 'normal')
 
-    addChart(getChartByNumber(5), data, 'good', 'bad')
-    addChart(getChartByNumber(6), data, 'excellent', 'bad')
+    addChart(getChartByNumber('056'), data, 'bad', 'normal')
+    addChart(getChartByNumber(5), data, 'good', 'normal')
+    addChart(getChartByNumber(6), data, 'excellent', 'normal')
 
+    addChart(getChartByNumber('078'), data, 'excellent', 'bad')
     addChart(getChartByNumber(7), data, 'excellent', 'good')
     addChart(getChartByNumber(8), data, 'excellent', 'excellent')
 

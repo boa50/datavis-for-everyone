@@ -26,6 +26,7 @@ export const addChart = (chartProps, data) => {
         .selectAll('.data-rect')
         .data(dataFiltered)
         .join('rect')
+        .attr('class', 'data-rect')
         .attr('x', x(0))
         .attr('y', d => y(d['Institution Name']))
         .attr('width', d => x(d['Overall']))

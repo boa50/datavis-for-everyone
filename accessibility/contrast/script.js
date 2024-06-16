@@ -14,7 +14,7 @@ const getData = () =>
 const getChartByNumber = number => {
     return getChart({
         id: `chart${number}`,
-        margin: getMargin({ top: 40, left: 72, bottom: 32 })
+        margin: getMargin({ top: 40, left: 72, bottom: 48 })
     })
 }
 

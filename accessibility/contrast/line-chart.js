@@ -85,6 +85,7 @@ export const addChart = (chartProps, data, axesContrast = 'normal', coloursContr
         y,
         colour: axesColour,
         yLabel: 'Generation (TWh)',
+        xLabel: 'Year',
         xFormat: d => d,
         yFormat: d => d,
         xNumTicks: 5,

@@ -32,15 +32,16 @@ const weights = {
 }
 
 const recalculateOverall = d =>
-    d['Academic Reputation'] * weights['Academic Reputation'] +
-    d['Employer Reputation'] * weights['Employer Reputation'] +
-    d['Faculty Student'] * weights['Faculty Student'] +
-    d['Citations per Faculty'] * weights['Citations per Faculty'] +
-    d['International Faculty'] * weights['International Faculty'] +
-    d['International Students'] * weights['International Students'] +
-    d['International Research Network'] * weights['International Research Network'] +
-    d['Employment Outcomes'] * weights['Employment Outcomes'] +
-    d['Sustainability'] * weights['Sustainability']
+    (d['Academic Reputation'] * weights['Academic Reputation'] +
+        d['Employer Reputation'] * weights['Employer Reputation'] +
+        d['Faculty Student'] * weights['Faculty Student'] +
+        d['Citations per Faculty'] * weights['Citations per Faculty'] +
+        d['International Faculty'] * weights['International Faculty'] +
+        d['International Students'] * weights['International Students'] +
+        d['International Research Network'] * weights['International Research Network'] +
+        d['Employment Outcomes'] * weights['Employment Outcomes'] +
+        d['Sustainability'] * weights['Sustainability'])
+    / Object.values(weights).reduce((total, current) => total + current)
 
 
 getData().then(data => {
@@ -50,8 +51,6 @@ getData().then(data => {
             'Overall Recalculated': recalculateOverall(d)
         }
     })
-
-    console.log(dataRecalculated);
 
     addChart(
         getChart({

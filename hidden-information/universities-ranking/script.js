@@ -19,8 +19,40 @@ const getData = () =>
             }
         }))
 
+const weights = {
+    'Academic Reputation': 0.3,
+    'Employer Reputation': 0.15,
+    'Faculty Student': 0.1,
+    'Citations per Faculty': 0.2,
+    'International Faculty': 0.05,
+    'International Students': 0.05,
+    'International Research Network': 0.05,
+    'Employment Outcomes': 0.05,
+    'Sustainability': 0.05
+}
+
+const recalculateOverall = d =>
+    d['Academic Reputation'] * weights['Academic Reputation'] +
+    d['Employer Reputation'] * weights['Employer Reputation'] +
+    d['Faculty Student'] * weights['Faculty Student'] +
+    d['Citations per Faculty'] * weights['Citations per Faculty'] +
+    d['International Faculty'] * weights['International Faculty'] +
+    d['International Students'] * weights['International Students'] +
+    d['International Research Network'] * weights['International Research Network'] +
+    d['Employment Outcomes'] * weights['Employment Outcomes'] +
+    d['Sustainability'] * weights['Sustainability']
+
 
 getData().then(data => {
+    const dataRecalculated = data.map(d => {
+        return {
+            ...d,
+            'Overall Recalculated': recalculateOverall(d)
+        }
+    })
+
+    console.log(dataRecalculated);
+
     addChart(
         getChart({
             id: 'chart1',

@@ -43,8 +43,11 @@ const recalculateOverall = d =>
         d['Sustainability'] * weights['Sustainability'])
     / Object.values(weights).reduce((total, current) => total + current)
 
+const academicReputation = document.getElementById('academicReputation')
 
 getData().then(data => {
+    academicReputation.value = 57
+
     const dataRecalculated = data.map(d => {
         return {
             ...d,

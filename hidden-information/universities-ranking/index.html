@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <title>Top Universities Ranking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../../node_modules/visual-components/html/card/style.css">
+    <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="../../lib/tailwind_3_4_3.min.js"></script>
 </head>
 
@@ -25,8 +27,90 @@
 
     <!-- CONTENT -->
     <div class="mx-8">
+        <div id="controls" class="grid grid-cols-9 gap-4 pb-4">
+            <div class="card bg-neutral-50">
+                <label for="academicReputation" class="title">Academic Reputation</label>
+                <div class="flex content">
+                    <input id="academicReputation" name="academicReputation" class="bg-neutral-50 w-8" type="number"
+                        min="0" max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="employerReputation" class="title">Employer Reputation</label>
+                <div class="flex content">
+                    <input id="employerReputation" name="employerReputation" class="bg-neutral-50 w-8" type="number"
+                        min="0" max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="facultyStudent" class="title">Faculty Student</label>
+                <div class="flex content">
+                    <input id="facultyStudent" name="facultyStudent" class="bg-neutral-50 w-8" type="number" min="0"
+                        max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="citationsPerFaculty" class="title">Citations per Faculty</label>
+                <div class="flex content">
+                    <input id="citationsPerFaculty" name="citationsPerFaculty" class="bg-neutral-50 w-8" type="number"
+                        min="0" max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="internalFaculty" class="title">International Faculty</label>
+                <div class="flex content">
+                    <input id="internalFaculty" name="internalFaculty" class="bg-neutral-50 w-8" type="number" min="0"
+                        max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="internationalStudents" class="title">International Students</label>
+                <div class="flex content">
+                    <input id="internationalStudents" name="internationalStudents" class="bg-neutral-50 w-8"
+                        type="number" min="0" max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="internationalResearchNetwork" class="title">International Research Network</label>
+                <div class="flex content">
+                    <input id="internationalResearchNetwork" name="internationalResearchNetwork"
+                        class="bg-neutral-50 w-8" type="number" min="0" max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="employmentOutcomes" class="title">Employment Outcomes</label>
+                <div class="flex content">
+                    <input id="employmentOutcomes" name="employmentOutcomes" class="bg-neutral-50 w-8" type="number"
+                        min="0" max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+
+            <div class="card bg-neutral-50">
+                <label for="sustainability" class="title">Sustainability</label>
+                <div class="flex content">
+                    <input id="sustainability" name="sustainability" class="bg-neutral-50 w-8" type="number" min="0"
+                        max="100" step="5" />
+                    <span>%</span>
+                </div>
+            </div>
+        </div>
         <div id="charts" class="grid grid-cols-2 gap-4">
-            <div class="bg-white/75 px-4 py-2 rounded-sm">
+            <div class="bg-neutral-50 px-4 py-2 rounded-sm">
                 <div id="chart1-container" class="h-[80vh]">
                     <h3 class="text-base text-gray-700 font-medium">Top Universities</h3>
                     <svg id="chart1"></svg>

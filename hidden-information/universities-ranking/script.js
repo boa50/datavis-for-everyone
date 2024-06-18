@@ -43,11 +43,31 @@ const recalculateOverall = d =>
         d['Sustainability'] * weights['Sustainability'])
     / Object.values(weights).reduce((total, current) => total + current)
 
-const academicReputation = document.getElementById('academicReputation')
+const controls = {
+    'Academic Reputation': document.getElementById('academicReputation'),
+    'Employer Reputation': document.getElementById('employerReputation'),
+    'Faculty Student': document.getElementById('facultyStudent'),
+    'Citations per Faculty': document.getElementById('citationsPerFaculty'),
+    'International Faculty': document.getElementById('internationalFaculty'),
+    'International Students': document.getElementById('internationalStudents'),
+    'International Research Network': document.getElementById('internationalResearchNetwork'),
+    'Employment Outcomes': document.getElementById('employmentOutcomes'),
+    'Sustainability': document.getElementById('sustainability'),
+}
+
+
+// Setting initial values
+controls['Academic Reputation'].value = weights['Academic Reputation'] * 100
+controls['Employer Reputation'].value = weights['Employer Reputation'] * 100
+controls['Faculty Student'].value = weights['Faculty Student'] * 100
+controls['Citations per Faculty'].value = weights['Citations per Faculty'] * 100
+controls['International Faculty'].value = weights['International Faculty'] * 100
+controls['International Students'].value = weights['International Students'] * 100
+controls['International Research Network'].value = weights['International Research Network'] * 100
+controls['Employment Outcomes'].value = weights['Employment Outcomes'] * 100
+controls['Sustainability'].value = weights['Sustainability'] * 100
 
 getData().then(data => {
-    academicReputation.value = 57
-
     const dataRecalculated = data.map(d => {
         return {
             ...d,

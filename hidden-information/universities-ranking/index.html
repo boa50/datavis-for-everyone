@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Top Universities Ranking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../../node_modules/visual-components/html/card/style.css">
     <link rel="stylesheet" type="text/css" href="./style.css">
     <script src="../../lib/tailwind_3_4_3.min.js"></script>
 </head>
@@ -15,101 +14,124 @@
         <div class="flex flex-row self-center items-center">
             <!-- PAGE LOGO -->
             <!-- <img src="./img/logo.svg" alt="dashboard logo" class="max-h-10 mx-4" /> -->
-            <h1 id="title" class="text-3xl text-gray-600 self-center font-medium">Top Universities Ranking</h1>
-        </div>
-
-        <div class="flex-auto"></div>
-
-        <!-- RIGHT SIDE HEADER -->
-        <div id="controls" class="flex flex-row space-x-8 mr-8">
+            <h1 id="title" class="text-3xl text-gray-600 self-center font-medium">Top Universities Ranking - Make Your
+                One</h1>
         </div>
     </div>
 
     <!-- CONTENT -->
-    <div class="mx-8">
-        <div id="controls" class="grid grid-cols-9 gap-4 pb-4">
-            <div class="card bg-neutral-50">
-                <label for="academicReputation" class="title">Academic Reputation</label>
-                <div class="flex content">
-                    <input id="academicReputation" name="academicReputation" class="bg-neutral-50 w-8" type="number"
-                        min="0" max="100" step="5" />
-                    <span>%</span>
+    <div id="content" class="mx-8 grid grid-cols-3 gap-4">
+        <div id="weights" class="grid grid-cols-1 gap-4 bg-neutral-50">
+            <h2 class="flex justify-center mt-4 text-xl text-gray-700 font-bold">Ranking Weights</h2>
+
+            <div class="grid grid-cols-1 gap-2">
+                <h3 class="text-lg mx-4 text-gray-700 font-medium">Research</h3>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="academicReputation" class="text-base text-gray-700 font-normal">Academic
+                        Reputation</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="academicReputation" name="academicReputation" class="bg-neutral-50 w-8 text-end"
+                            type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
+                </div>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="citationsPerFaculty" class="text-base text-gray-700 font-normal">Citations per
+                        Faculty</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="citationsPerFaculty" name="citationsPerFaculty" class="bg-neutral-50 w-8 text-end"
+                            type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
+                </div>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="internationalResearchNetwork" class="text-base text-gray-700 font-normal">International
+                        Research Network</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="internationalResearchNetwork" name="internationalResearchNetwork"
+                            class="bg-neutral-50 w-8 text-end" type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card bg-neutral-50">
-                <label for="employerReputation" class="title">Employer Reputation</label>
-                <div class="flex content">
-                    <input id="employerReputation" name="employerReputation" class="bg-neutral-50 w-8" type="number"
-                        min="0" max="100" step="5" />
-                    <span>%</span>
+            <div class="grid grid-cols-1 gap-2">
+                <h3 class="text-lg mx-4 text-gray-700 font-medium">Employability</h3>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="employerReputation" class="text-base text-gray-700 font-normal">Employer
+                        Reputation</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="employerReputation" name="employerReputation" class="bg-neutral-50 w-8 text-end"
+                            type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
+                </div>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="employmentOutcomes" class="text-base text-gray-700 font-normal">Employment
+                        Outcomes</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="employmentOutcomes" name="employmentOutcomes" class="bg-neutral-50 w-8 text-end"
+                            type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card bg-neutral-50">
-                <label for="facultyStudent" class="title">Faculty Student</label>
-                <div class="flex content">
-                    <input id="facultyStudent" name="facultyStudent" class="bg-neutral-50 w-8" type="number" min="0"
-                        max="100" step="5" />
-                    <span>%</span>
+            <div class="grid grid-cols-1 gap-2">
+                <h3 class="text-lg mx-4 text-gray-700 font-medium">Diversity</h3>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="internationalFaculty" class="text-base text-gray-700 font-normal">International
+                        Faculty</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="internationalFaculty" name="internationalFaculty" class="bg-neutral-50 w-8 text-end"
+                            type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
+                </div>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="internationalStudents" class="text-base text-gray-700 font-normal">International
+                        Students</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="internationalStudents" name="internationalStudents"
+                            class="bg-neutral-50 w-8 text-end" type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card bg-neutral-50">
-                <label for="citationsPerFaculty" class="title">Citations per Faculty</label>
-                <div class="flex content">
-                    <input id="citationsPerFaculty" name="citationsPerFaculty" class="bg-neutral-50 w-8" type="number"
-                        min="0" max="100" step="5" />
-                    <span>%</span>
+            <div class="grid grid-cols-1 gap-2">
+                <h3 class="text-lg mx-4 text-gray-700 font-medium">Other</h3>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="facultyStudent" class="text-base text-gray-700 font-normal">Faculty Student</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="facultyStudent" name="facultyStudent" class="bg-neutral-50 w-8 text-end"
+                            type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
+                </div>
+
+                <div class="mx-12 flex justify-between">
+                    <label for="sustainability" class="text-base text-gray-700 font-normal">Sustainability</label>
+                    <div class="ml-4 text-gray-600">
+                        <input id="sustainability" name="sustainability" class="bg-neutral-50 w-8 text-end"
+                            type="number" min="0" max="100" step="5" />
+                        <span>%</span>
+                    </div>
                 </div>
             </div>
 
-            <div class="card bg-neutral-50">
-                <label for="internalFaculty" class="title">International Faculty</label>
-                <div class="flex content">
-                    <input id="internalFaculty" name="internalFaculty" class="bg-neutral-50 w-8" type="number" min="0"
-                        max="100" step="5" />
-                    <span>%</span>
-                </div>
-            </div>
+            <div></div>
 
-            <div class="card bg-neutral-50">
-                <label for="internationalStudents" class="title">International Students</label>
-                <div class="flex content">
-                    <input id="internationalStudents" name="internationalStudents" class="bg-neutral-50 w-8"
-                        type="number" min="0" max="100" step="5" />
-                    <span>%</span>
-                </div>
-            </div>
-
-            <div class="card bg-neutral-50">
-                <label for="internationalResearchNetwork" class="title">International Research Network</label>
-                <div class="flex content">
-                    <input id="internationalResearchNetwork" name="internationalResearchNetwork"
-                        class="bg-neutral-50 w-8" type="number" min="0" max="100" step="5" />
-                    <span>%</span>
-                </div>
-            </div>
-
-            <div class="card bg-neutral-50">
-                <label for="employmentOutcomes" class="title">Employment Outcomes</label>
-                <div class="flex content">
-                    <input id="employmentOutcomes" name="employmentOutcomes" class="bg-neutral-50 w-8" type="number"
-                        min="0" max="100" step="5" />
-                    <span>%</span>
-                </div>
-            </div>
-
-            <div class="card bg-neutral-50">
-                <label for="sustainability" class="title">Sustainability</label>
-                <div class="flex content">
-                    <input id="sustainability" name="sustainability" class="bg-neutral-50 w-8" type="number" min="0"
-                        max="100" step="5" />
-                    <span>%</span>
-                </div>
-            </div>
         </div>
-        <div id="charts" class="grid grid-cols-2 gap-4">
+        <div id="charts" class="col-span-2">
             <div class="bg-neutral-50 px-4 py-2 rounded-sm">
                 <div id="chart1-container" class="h-[80vh]">
                     <h3 class="text-base text-gray-700 font-medium">Top Universities</h3>

@@ -1,20 +1,25 @@
 import { getChart, getMargin } from '../../node_modules/visual-components/index.js'
 import { addChart } from './bar.js'
 
+const variables = [
+    'Academic Reputation',
+    'Employer Reputation',
+    'Faculty Student',
+    'Citations per Faculty',
+    'International Faculty',
+    'International Students',
+    'International Research Network',
+    'Employment Outcomes',
+    'Sustainability'
+]
+
 const getData = () =>
     d3.csv('./data/universities-ranking-2025.csv')
         .then(d => d.map(v => {
+            variables.forEach(a => { v[a] = +v[a].replace(',', '.') })
+
             return {
                 ...v,
-                'Academic Reputation': +v['Academic Reputation'].replace(',', '.'),
-                'Employer Reputation': +v['Employer Reputation'].replace(',', '.'),
-                'Faculty Student': +v['Faculty Student'].replace(',', '.'),
-                'Citations per Faculty': +v['Citations per Faculty'].replace(',', '.'),
-                'International Faculty': +v['International Faculty'].replace(',', '.'),
-                'International Students': +v['International Students'].replace(',', '.'),
-                'International Research Network': +v['International Research Network'].replace(',', '.'),
-                'Employment Outcomes': +v['Employment Outcomes'].replace(',', '.'),
-                'Sustainability': +v['Sustainability'].replace(',', '.'),
                 'Overall': +v['Overall'].replace(',', '.')
             }
         }))
@@ -32,55 +37,54 @@ const weights = {
 }
 
 const recalculateOverall = d =>
-    (d['Academic Reputation'] * weights['Academic Reputation'] +
-        d['Employer Reputation'] * weights['Employer Reputation'] +
-        d['Faculty Student'] * weights['Faculty Student'] +
-        d['Citations per Faculty'] * weights['Citations per Faculty'] +
-        d['International Faculty'] * weights['International Faculty'] +
-        d['International Students'] * weights['International Students'] +
-        d['International Research Network'] * weights['International Research Network'] +
-        d['Employment Outcomes'] * weights['Employment Outcomes'] +
-        d['Sustainability'] * weights['Sustainability'])
+    variables.reduce((total, v) => total + (d[v] * weights[v]), 0)
     / Object.values(weights).reduce((total, current) => total + current)
 
-const controls = {
-    'Academic Reputation': document.getElementById('academicReputation'),
-    'Employer Reputation': document.getElementById('employerReputation'),
-    'Faculty Student': document.getElementById('facultyStudent'),
-    'Citations per Faculty': document.getElementById('citationsPerFaculty'),
-    'International Faculty': document.getElementById('internationalFaculty'),
-    'International Students': document.getElementById('internationalStudents'),
-    'International Research Network': document.getElementById('internationalResearchNetwork'),
-    'Employment Outcomes': document.getElementById('employmentOutcomes'),
-    'Sustainability': document.getElementById('sustainability'),
-}
-
+// Getting controls objects
+const controls = {}
+variables.forEach(v => { controls[v] = document.getElementById(toCamelCase(v)) })
 
 // Setting initial values
-controls['Academic Reputation'].value = weights['Academic Reputation'] * 100
-controls['Employer Reputation'].value = weights['Employer Reputation'] * 100
-controls['Faculty Student'].value = weights['Faculty Student'] * 100
-controls['Citations per Faculty'].value = weights['Citations per Faculty'] * 100
-controls['International Faculty'].value = weights['International Faculty'] * 100
-controls['International Students'].value = weights['International Students'] * 100
-controls['International Research Network'].value = weights['International Research Network'] * 100
-controls['Employment Outcomes'].value = weights['Employment Outcomes'] * 100
-controls['Sustainability'].value = weights['Sustainability'] * 100
+variables.forEach(v => { controls[v].value = weights[v] * 100 })
 
 getData().then(data => {
-    const dataRecalculated = data.map(d => {
+    const getUpdatedData = () => data.map(d => {
         return {
             ...d,
-            'Overall Recalculated': recalculateOverall(d)
+            'Overall': recalculateOverall(d)
         }
     })
 
     addChart(
         getChart({
             id: 'chart1',
-            margin: getMargin({ left: 376, bottom: 64 })
+            margin: getMargin({ left: 376, bottom: 78 })
 
         }),
-        data
+        getUpdatedData()
     )
+
+    variables.forEach(v => {
+        controls[v].addEventListener('change', event => {
+            weights[v] = event.target.value / 100
+
+            addChart(
+                getChart({
+                    id: 'chart1',
+                    margin: getMargin({ left: 376, bottom: 78 })
+
+                }),
+                getUpdatedData()
+            )
+        })
+    })
 })
+
+
+// Function to convert into camel Case; based on: https://www.geeksforgeeks.org/how-to-convert-string-to-camel-case-in-javascript/
+function toCamelCase(str) {
+    // Using replace method with regEx
+    return str.replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+        return index == 0 ? word.toLowerCase() : word.toUpperCase();
+    }).replace(/\s+/g, '');
+}

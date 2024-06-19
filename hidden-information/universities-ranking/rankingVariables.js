@@ -157,13 +157,13 @@ function addControl(variable) {
         .call(d => {
             d
                 .append('div')
-                .attr('class', 'ml-4 text-gray-600')
+                .attr('class', 'ml-4 text-gray-600 bg-neutral-200')
                 .call(di => {
                     di
                         .append('input')
                         .attr('id', toCamelCase(variable))
                         .attr('name', toCamelCase(variable))
-                        .attr('class', 'bg-neutral-50 w-8 text-end')
+                        .attr('class', 'bg-neutral-200 w-8 text-end')
                         .attr('type', 'number')
                         .attr('min', 0)
                         .attr('max', 100)
@@ -172,6 +172,7 @@ function addControl(variable) {
                 .call(di => {
                     di
                         .append('span')
+                        .attr('class', 'mr-1')
                         .text('%')
                 })
         })

@@ -47,7 +47,17 @@ getData().then(data => {
     const countrySelector = document.getElementById('chart-country')
     const allCountries = [...new Set(data.map(d => d['Location']))].sort()
     countrySelector.innerHTML = [
-        `<option value="all">All</option>`,
+        `<option value="All">All</option>`,
         ...allCountries.map(country => `<option value="${country}">${country}</option>`)
     ]
+
+    countrySelector.addEventListener('change', event => {
+        const country = event.target.value
+
+        if (event.target.value !== 'All') {
+            updateChart(chartProps, getUpdatedData().filter(d => d['Location'] === country))
+        } else {
+            updateChart(chartProps, getUpdatedData())
+        }
+    })
 })

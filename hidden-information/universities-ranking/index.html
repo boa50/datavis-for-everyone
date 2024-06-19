@@ -5,6 +5,7 @@
     <title>Top Universities Ranking</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./style.css">
+    <link rel="stylesheet" type="text/css" href="../../node_modules/visual-components/html/select/style.css">
     <script src="../../lib/tailwind_3_4_3.min.js"></script>
 </head>
 
@@ -16,6 +17,36 @@
             <!-- <img src="./img/logo.svg" alt="dashboard logo" class="max-h-10 mx-4" /> -->
             <h1 id="title" class="text-3xl text-gray-600 self-center font-medium">Top Universities Ranking - Make Your
                 One</h1>
+        </div>
+
+        <div class="flex-auto"></div>
+
+        <!-- RIGHT SIDE HEADER -->
+        <div id="controls" class="flex flex-row space-x-8 mr-8">
+            <div class="flex flex-col">
+                <label for="chart-country" class="text-sm text-gray-600 mb-px">Country</label>
+
+                <div class="select">
+                    <select name="chart-country" id="chart-country">
+                        <option value="all">All</option>
+                        <option value="country1">Country1</option>
+                        <option value="country2">Country2</option>
+                    </select>
+                    <span class="focus"></span>
+                </div>
+            </div>
+
+            <div class="flex flex-col">
+                <label for="chart-sorting" class="text-sm text-gray-600 mb-px">Sorting</label>
+
+                <div class="select">
+                    <select name="chart-sorting" id="chart-sorting">
+                        <option value="desc">Descending</option>
+                        <option value="asc">Ascending</option>
+                    </select>
+                    <span class="focus"></span>
+                </div>
+            </div>
         </div>
     </div>
 

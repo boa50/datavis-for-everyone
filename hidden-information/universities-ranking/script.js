@@ -42,4 +42,12 @@ getData().then(data => {
             updateChart(chartProps, getUpdatedData())
         })
     })
+
+    // Filling the select box with all countries names
+    const countrySelector = document.getElementById('chart-country')
+    const allCountries = [...new Set(data.map(d => d['Location']))].sort()
+    countrySelector.innerHTML = [
+        `<option value="all">All</option>`,
+        ...allCountries.map(country => `<option value="${country}">${country}</option>`)
+    ]
 })

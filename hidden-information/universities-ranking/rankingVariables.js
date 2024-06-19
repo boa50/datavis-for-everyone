@@ -25,6 +25,18 @@ export const weights = {
     'Sustainability': 0.05
 }
 
+const variablesInformation = {
+    'Academic Reputation': 0.3,
+    'Employer Reputation': 0.15,
+    'Faculty Student': 0.1,
+    'Citations per Faculty': 0.2,
+    'International Faculty': 0.05,
+    'International Students': 0.05,
+    'International Research Network': 0.05,
+    'Employment Outcomes': 0.05,
+    'Sustainability': 0.05
+}
+
 export const setUpControls = () => {
     // Adding controls
     variables.forEach(v => { addControl(v) })
@@ -43,7 +55,7 @@ export const setUpControls = () => {
         const element = document.getElementById(toCamelCase(v) + 'Info')
 
         element.addEventListener('mouseover', event => {
-            mouseover(event, `Explanation about ${v}`)
+            mouseover(event, variablesInformation[v])
         })
 
         element.addEventListener('mouseleave', event => { mouseleave(event) })
@@ -51,7 +63,6 @@ export const setUpControls = () => {
 
     return controls
 }
-
 
 function getVariableGroup(variable) {
     if (['Academic Reputation', 'Citations per Faculty', 'International Research Network'].includes(variable)) {

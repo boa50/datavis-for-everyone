@@ -1,5 +1,5 @@
 import { getChart, getMargin } from '../../node_modules/visual-components/index.js'
-import { addChart } from './bar.js'
+import { addChart, updateChart } from './bar.js'
 
 const variables = [
     'Academic Reputation',
@@ -54,28 +54,19 @@ getData().then(data => {
             'Overall': recalculateOverall(d)
         }
     })
+    const chartProps = getChart({
+        id: 'chart1',
+        margin: getMargin({ left: 376, bottom: 78 })
 
-    addChart(
-        getChart({
-            id: 'chart1',
-            margin: getMargin({ left: 376, bottom: 78 })
+    })
 
-        }),
-        getUpdatedData()
-    )
+    addChart(chartProps, getUpdatedData())
 
     variables.forEach(v => {
         controls[v].addEventListener('change', event => {
             weights[v] = event.target.value / 100
 
-            addChart(
-                getChart({
-                    id: 'chart1',
-                    margin: getMargin({ left: 376, bottom: 78 })
-
-                }),
-                getUpdatedData()
-            )
+            updateChart(chartProps, getUpdatedData())
         })
     })
 })

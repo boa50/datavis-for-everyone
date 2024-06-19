@@ -1,14 +1,13 @@
-import { addAxis } from "../../node_modules/visual-components/index.js"
+import { addAxis, updateYaxis } from "../../node_modules/visual-components/index.js"
 import { palette, defaultColours as colours } from "../../colours.js"
 
-export const addChart = (chartProps, data) => {
+const plotChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
-
-    const dataFiltered = data.slice(0, 10)
+    const dataFiltered = data.sort((a, b) => b['Overall'] - a['Overall']).slice(0, 10)
 
     const x = d3
         .scaleLinear()
-        .domain([0, d3.max(data, d => d['Overall'])])
+        .domain([0, 100])
         .range([0, width])
 
     const y = d3
@@ -33,6 +32,12 @@ export const addChart = (chartProps, data) => {
         .attr('height', y.bandwidth())
         .attr('fill', d => colour(d['Overall']))
 
+    return { chart, width, height, x, y }
+}
+
+export const addChart = (chartProps, data) => {
+    const { chart, width, height, x, y } = plotChart(chartProps, data)
+
     addAxis({
         chart,
         height,
@@ -43,5 +48,15 @@ export const addChart = (chartProps, data) => {
         xLabel: 'Overall Score',
         hideXdomain: true,
         hideYdomain: true
+    })
+}
+
+export const updateChart = (chartProps, data) => {
+    const { chart, y } = plotChart(chartProps, data)
+
+    updateYaxis({
+        chart,
+        y,
+        hideDomain: true
     })
 }

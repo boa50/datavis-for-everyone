@@ -26,10 +26,10 @@ getData().then(data => {
             'Overall': recalculateOverall(d)
         }
     })
+
     const chartProps = getChart({
         id: 'chart1',
         margin: getMargin({ left: 376, bottom: 78 })
-
     })
 
     addChart(chartProps, getUpdatedData())

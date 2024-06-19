@@ -100,12 +100,13 @@ export const setUpControls = () => {
     variables.forEach(v => { controls[v].value = weights[v] * 100 })
 
     // Adding informational tooltips
-    const { mouseover, mouseleave } = addTooltip('weights', d => d)
+    const { mouseover, mouseleave } = addTooltip('weights', d => d, { chartWidth: 500, chartHeight: -1 })
 
     variables.forEach(v => {
         const element = document.getElementById(toCamelCase(v) + 'Info')
 
         element.addEventListener('mouseover', event => {
+            console.log(d3.pointer(event));
             mouseover(event, variablesInformation[v])
         })
 

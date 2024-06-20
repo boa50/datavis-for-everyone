@@ -1,5 +1,6 @@
-import { addAxis, updateYaxis } from "../../node_modules/visual-components/index.js"
+import { addAxis, updateYaxis, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
 import { palette, defaultColours as colours } from "../../colours.js"
+import { variables } from "./rankingVariables.js"
 
 const plotChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
@@ -48,6 +49,29 @@ export const addChart = (chartProps, data) => {
         xLabel: 'Overall Score',
         hideXdomain: true,
         hideYdomain: true
+    })
+
+    addHighlightTooltip({
+        chart,
+        htmlText: d => `
+        <strong>${d['Institution Name']}</strong>
+        ${variables.map(v => `
+            <div style="display: flex; justify-content: space-between">
+                <span>${v}:&emsp;</span>
+                <span>${d3.format('.1f')(d[v])}</span>
+            </div>
+        `).toString().replaceAll(',', '')}
+        <div style="display: flex; justify-content: space-between">
+            <strong>Overall:&emsp;</strong>
+            <strong>${d3.format('.1f')(d['Overall'])}</strong>
+        </div>
+    `,
+        elements: chart.selectAll('.data-rect'),
+        initialOpacity: 1,
+        highlightedOpacity: 1,
+        fadedOpacity: 1,
+        chartWidth: width,
+        chartHeight: height
     })
 }
 

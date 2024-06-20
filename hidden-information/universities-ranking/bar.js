@@ -3,7 +3,7 @@ import { palette, defaultColours as colours } from "../../colours.js"
 
 const plotChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
-    const dataFiltered = data.sort((a, b) => b['Overall'] - a['Overall']).slice(0, 10)
+    const dataFiltered = data.slice(0, 10)
 
     const x = d3
         .scaleLinear()

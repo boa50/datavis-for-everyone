@@ -19,13 +19,37 @@ const recalculateOverall = d =>
 
 const controls = setUpControls()
 
+const countrySelector = document.getElementById('chart-country')
+const sortingSelector = document.getElementById('chart-sorting')
+
+const sortData = (data, sorting) =>
+    sorting === 'asc' ?
+        data.sort((a, b) => a['Overall'] - b['Overall']) :
+        data.sort((a, b) => b['Overall'] - a['Overall'])
+
 getData().then(data => {
-    const getUpdatedData = () => data.map(d => {
-        return {
-            ...d,
-            'Overall': recalculateOverall(d)
+    const getUpdatedData = (country, sorting) => {
+        let updatedData = data.map(d => {
+            return {
+                ...d,
+                'Overall': recalculateOverall(d)
+            }
+        })
+
+        if (![undefined, 'All'].includes(country)) {
+            updatedData = updatedData.filter(d => d['Location'] === country)
+        } else if (!['All', ''].includes(countrySelector.value)) {
+            updatedData = updatedData.filter(d => d['Location'] === countrySelector.value)
         }
-    })
+
+        if (sorting !== undefined) {
+            updatedData = sortData(updatedData, sorting)
+        } else {
+            updatedData = sortData(updatedData, sortingSelector.value)
+        }
+
+        return updatedData
+    }
 
     const chartProps = getChart({
         id: 'chart1',
@@ -44,7 +68,6 @@ getData().then(data => {
     })
 
     // Filling the select box with all countries names
-    const countrySelector = document.getElementById('chart-country')
     const allCountries = [...new Set(data.map(d => d['Location']))].sort()
     countrySelector.innerHTML = [
         `<option value="All">All</option>`,
@@ -52,12 +75,11 @@ getData().then(data => {
     ]
 
     countrySelector.addEventListener('change', event => {
-        const country = event.target.value
+        updateChart(chartProps, getUpdatedData(event.target.value))
+    })
 
-        if (event.target.value !== 'All') {
-            updateChart(chartProps, getUpdatedData().filter(d => d['Location'] === country))
-        } else {
-            updateChart(chartProps, getUpdatedData())
-        }
+    // Controlling the change of the Sort control
+    sortingSelector.addEventListener('change', event => {
+        updateChart(chartProps, getUpdatedData(undefined, event.target.value))
     })
 })

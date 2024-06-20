@@ -157,7 +157,7 @@ function addControl(variable) {
         .call(d => {
             d
                 .append('div')
-                .attr('class', 'ml-4 text-gray-600 bg-neutral-200')
+                .attr('class', 'ml-4 text-gray-600 bg-neutral-200 flex align-middle')
                 .call(di => {
                     di
                         .append('input')
@@ -172,7 +172,7 @@ function addControl(variable) {
                 .call(di => {
                     di
                         .append('span')
-                        .attr('class', 'mr-1')
+                        .attr('class', 'mr-1 self-center')
                         .text('%')
                 })
         })

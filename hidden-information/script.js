@@ -13,7 +13,7 @@ const addLink = (txt, url, dateUpdatedTxt) => {
 
 const links = [
     { txt: 'Unemployment Rate', url: './unemployment-rate/index.html', dateUpdated: new Date(2024, 4, 2) },
-    { txt: 'Top Universities Ranking', url: './universities-ranking/index.html', dateUpdated: new Date(2024, 5, 14) },
+    { txt: 'Top Universities Ranking', url: './universities-ranking/index.html', dateUpdated: new Date(2024, 5, 20) },
 ]
 
 links

@@ -18,7 +18,7 @@ const links = [
     { txt: 'Engaging Charts', url: './engaging-charts/basic/index.html', dateUpdated: new Date(2024, 4, 9) },
     { txt: 'Napoleon\'s Moscow Campaign', url: './napoleon-russia-march-rebuild/index.html', dateUpdated: new Date(2024, 3, 12) },
     { txt: 'The Effects of Outliers', url: './outliers-effect/index.html', dateUpdated: new Date(2024, 2, 20) },
-    { txt: 'Hidden Information', url: './hidden-information/index.html', dateUpdated: new Date(2024, 4, 2) },
+    { txt: 'Hidden Information', url: './hidden-information/index.html', dateUpdated: new Date(2024, 5, 20) },
     { txt: 'Accessibility', url: './accessibility/index.html', dateUpdated: new Date(2024, 5, 11) },
     { txt: '3d Charts', url: './charts-3d/index.html', dateUpdated: new Date(2024, 4, 10) },
     { txt: 'The Importance of Annotations', url: './annotations-importance/index.html', dateUpdated: new Date(2024, 4, 20) },

@@ -1,0 +1,1 @@
+Showing how charts' responsiveness can change the way we understand data

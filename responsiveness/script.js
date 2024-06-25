@@ -45,12 +45,44 @@ const barChartId = addChartContainer(1, 'Life expectancy by Country by Gender')
 const lineChartId = addChartContainer(2, 'Life expectancy gap by Country per Year')
 const scatterChartId = addChartContainer(3, 'Life expectancy distribution')
 
+
+const getChart2 = ({
+    id,
+    svgWidth,
+    svgHeight,
+    margin = getMargin({})
+}) => {
+    if (svgWidth === undefined)
+        svgWidth = document.getElementById(`${id}-container`).offsetWidth
+    if (svgHeight === undefined) {
+        const title = document.getElementById(`${id}-title`)
+        svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
+    }
+
+    const width = svgWidth - margin.left - margin.right
+    const height = svgHeight - margin.top - margin.bottom
+
+    const chart = d3
+        .select(`#${id}`)
+        .attr('width', svgWidth)
+        .attr('height', svgHeight)
+        .attr('viewBox', `0 0  ${800 + margin.left + margin.right} ${450 + margin.top + margin.bottom}`)
+        .attr('preserveAspectRatio', 'xMinYMid meet')
+        .append('g')
+        .attr('id', `${id}-main-g`)
+        .attr('transform', `translate(${[margin.left, margin.top]})`)
+
+    return { chart, width, height, margin }
+}
+
 getData().then(data => {
+    const chartProps = getChart2({
+        id: barChartId,
+        margin: getMargin({ left: 140, top: 24 })
+    })
+
     addBar(
-        getChart({
-            id: barChartId,
-            margin: getMargin({ left: 140, top: 24 })
-        }),
+        { chart: chartProps.chart, width: 800, height: 450, margin: chartProps.margin },
         data.filter(d => d.year === '2021')
     )
 

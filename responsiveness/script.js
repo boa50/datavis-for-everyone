@@ -46,10 +46,18 @@ const lineChartId = addChartContainer(2, 'Life expectancy gap by Country per Yea
 const scatterChartId = addChartContainer(3, 'Life expectancy distribution')
 
 
+// const chartWidth = 533
+// const chartHeight = 300
+
+const chartWidth = 267
+const chartHeight = 200
+
 const getChart2 = ({
     id,
     svgWidth,
     svgHeight,
+    chartWidth,
+    chartHeight,
     margin = getMargin({})
 }) => {
     if (svgWidth === undefined)
@@ -59,14 +67,17 @@ const getChart2 = ({
         svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
     }
 
-    const width = svgWidth - margin.left - margin.right
-    const height = svgHeight - margin.top - margin.bottom
+    const width = chartWidth !== undefined ? chartWidth : svgWidth - margin.left - margin.right
+    const height = chartHeight !== undefined ? chartHeight : svgHeight - margin.top - margin.bottom
+
+    const viewBoxWidth = chartWidth !== undefined ? chartWidth + margin.left + margin.right : svgWidth
+    const viewBoxHeight = chartHeight !== undefined ? chartHeight + margin.top + margin.bottom : svgHeight
 
     const chart = d3
         .select(`#${id}`)
         .attr('width', svgWidth)
         .attr('height', svgHeight)
-        .attr('viewBox', `0 0  ${800 + margin.left + margin.right} ${450 + margin.top + margin.bottom}`)
+        .attr('viewBox', `0 0  ${viewBoxWidth} ${viewBoxHeight}`)
         .attr('preserveAspectRatio', 'xMinYMid meet')
         .append('g')
         .attr('id', `${id}-main-g`)
@@ -78,11 +89,13 @@ const getChart2 = ({
 getData().then(data => {
     const chartProps = getChart2({
         id: barChartId,
+        chartWidth,
+        chartHeight,
         margin: getMargin({ left: 140, top: 24 })
     })
 
     addBar(
-        { chart: chartProps.chart, width: 800, height: 450, margin: chartProps.margin },
+        chartProps,
         data.filter(d => d.year === '2021')
     )
 

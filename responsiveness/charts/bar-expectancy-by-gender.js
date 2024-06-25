@@ -1,4 +1,4 @@
-import { addAxis, addLegend, addHighlightTooltip } from "../../../node_modules/visual-components/index.js"
+import { addAxis, addLegend, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
 import { palette, defaultColours } from "../../colours.js"
 
 export const addChart = (chartProps, data) => {

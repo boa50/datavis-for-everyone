@@ -24,7 +24,7 @@ const addChartContainer = (idNum, chartTitle = '') => {
         .attr('class', 'bg-neutral-50 px-4 py-2 rounded-sm')
         .append('div')
         .attr('id', `${chartId}-container`)
-        .attr('class', 'aspect-video')
+        .attr('class', 'aspect-[4/3] md:aspect-video')
         .call(g =>
             g
                 .append('h3')

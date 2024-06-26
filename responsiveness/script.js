@@ -45,59 +45,42 @@ const barChartId = addChartContainer(1, 'Life expectancy by Country by Gender')
 const lineChartId = addChartContainer(2, 'Life expectancy gap by Country per Year')
 const scatterChartId = addChartContainer(3, 'Life expectancy distribution')
 
-let chartWidth, chartHeight
-
-if (window.matchMedia("(max-width: 768px)").matches) {
-    chartWidth = 420
-    chartHeight = chartWidth / 1.45
-} else if (window.matchMedia("(max-width: 1280px)").matches) {
-    chartWidth = 700
-    chartHeight = chartWidth / 1.9
-} else if (window.matchMedia("(max-width: 1536px)").matches) {
-    chartWidth = 622
-    chartHeight = chartWidth / 1.9
-} else {
-    chartWidth = 875
-    chartHeight = chartWidth / 1.9
-}
-
-const getChart2 = ({
-    id,
-    svgWidth,
-    svgHeight,
-    chartWidth,
-    chartHeight,
-    margin = getMargin({})
+const getChartDimensions = ({
+    sm = { width: 420, scale: 1.45 },
+    md = { width: 420, scale: 1.45 },
+    lg = { width: 700, scale: 1.9 },
+    xl = { width: 622, scale: 1.9 },
+    xl2 = { width: 875, scale: 1.9 }
 }) => {
-    if (svgWidth === undefined)
-        svgWidth = document.getElementById(`${id}-container`).offsetWidth
-    if (svgHeight === undefined) {
-        const title = document.getElementById(`${id}-title`)
-        svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
+    let chartWidth, chartHeight, scale
+
+    if (window.matchMedia("(max-width: 639px)").matches) {
+        chartWidth = sm.width
+        scale = sm.scale
+    } else if (window.matchMedia("(max-width: 767px)").matches) {
+        chartWidth = md.width
+        scale = md.scale
+    } else if (window.matchMedia("(max-width: 1279px)").matches) {
+        chartWidth = lg.width
+        scale = lg.scale
+    } else if (window.matchMedia("(max-width: 1535px)").matches) {
+        chartWidth = xl.width
+        scale = xl.scale
+    } else {
+        chartWidth = xl2.width
+        scale = xl2.scale
     }
 
-    const width = chartWidth !== undefined ? chartWidth - margin.left - margin.right : svgWidth - margin.left - margin.right
-    const height = chartHeight !== undefined ? chartHeight - margin.top - margin.bottom : svgHeight - margin.top - margin.bottom
+    chartHeight = chartWidth / scale
 
-    const viewBoxWidth = chartWidth !== undefined ? chartWidth : svgWidth
-    const viewBoxHeight = chartHeight !== undefined ? chartHeight : svgHeight
-
-    const chart = d3
-        .select(`#${id}`)
-        .attr('width', svgWidth)
-        .attr('height', svgHeight)
-        .attr('viewBox', `0 0  ${viewBoxWidth} ${viewBoxHeight}`)
-        .attr('preserveAspectRatio', 'xMinYMid meet')
-        .append('g')
-        .attr('id', `${id}-main-g`)
-        .attr('transform', `translate(${[margin.left, margin.top]})`)
-
-    return { chart, width, height, margin }
+    return { chartWidth, chartHeight }
 }
 
 getData().then(data => {
+    const { chartWidth, chartHeight } = getChartDimensions({})
+
     addBar(
-        getChart2({
+        getChart({
             id: barChartId,
             chartWidth,
             chartHeight,
@@ -107,7 +90,7 @@ getData().then(data => {
     )
 
     addLine(
-        getChart2({
+        getChart({
             id: lineChartId,
             chartWidth,
             chartHeight,
@@ -117,7 +100,7 @@ getData().then(data => {
     )
 
     addScatter(
-        getChart2({
+        getChart({
             id: scatterChartId,
             chartWidth,
             chartHeight,

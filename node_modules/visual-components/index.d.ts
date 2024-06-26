@@ -212,6 +212,8 @@ export function getChart({ }: {
     id: string,
     svgWidth?: number,
     svgHeight?: number,
+    chartWidth?: number,
+    chartHeight?: number,
     margin?: { left: number, right: number, top: number, bottom: number }
 }): {
     chart: Element,

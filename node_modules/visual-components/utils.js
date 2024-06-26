@@ -78,6 +78,8 @@ export const getChart = ({
     id,
     svgWidth,
     svgHeight,
+    chartWidth,
+    chartHeight,
     margin = getMargin({})
 }) => {
     if (svgWidth === undefined)
@@ -87,13 +89,18 @@ export const getChart = ({
         svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
     }
 
-    const width = svgWidth - margin.left - margin.right
-    const height = svgHeight - margin.top - margin.bottom
+    const viewBoxWidth = chartWidth !== undefined ? chartWidth : svgWidth
+    const viewBoxHeight = chartHeight !== undefined ? chartHeight : svgHeight
+
+    const width = viewBoxWidth - margin.left - margin.right
+    const height = viewBoxHeight - margin.top - margin.bottom
 
     const chart = d3
         .select(`#${id}`)
         .attr('width', svgWidth)
         .attr('height', svgHeight)
+        .attr('viewBox', `0 0  ${viewBoxWidth} ${viewBoxHeight}`)
+        .attr('preserveAspectRatio', 'xMinYMid meet')
         .append('g')
         .attr('id', `${id}-main-g`)
         .attr('transform', `translate(${[margin.left, margin.top]})`)

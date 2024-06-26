@@ -29,7 +29,7 @@ const addChartContainer = (idNum, chartTitle = '') => {
             g
                 .append('h3')
                 .attr('id', `${chartId}-title`)
-                .attr('class', 'text-base text-gray-700 font-medium')
+                .attr('class', 'text-sm md:text-base text-gray-700 font-medium')
                 .text(chartTitle)
         )
         .call(g =>
@@ -50,12 +50,15 @@ const deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width
 let chartWidth = 267
 let chartHeight = 200
 
-if (deviceWidth >= 768 && deviceWidth < 1536) {
+if (deviceWidth >= 768 && deviceWidth < 1280) {
     chartWidth = 533
     chartHeight = 300
+} else if (deviceWidth >= 1280 && deviceWidth < 1536) {
+    chartWidth = 492
+    chartHeight = 277
 } else if (deviceWidth >= 1536) {
-    chartWidth = 800
-    chartHeight = 450
+    chartWidth = 711
+    chartHeight = 400
 }
 
 const getChart2 = ({
@@ -93,28 +96,28 @@ const getChart2 = ({
 }
 
 getData().then(data => {
-    const chartProps = getChart2({
-        id: barChartId,
-        chartWidth,
-        chartHeight,
-        margin: getMargin({ left: 140, top: 24 })
-    })
-
     addBar(
-        chartProps,
+        getChart2({
+            id: barChartId,
+            chartWidth,
+            chartHeight,
+            margin: getMargin({ left: 140, top: 24 })
+        }),
         data.filter(d => d.year === '2021')
     )
 
     addLine(
-        getChart({
+        getChart2({
             id: lineChartId,
+            chartWidth,
+            chartHeight,
             margin: getMargin({ top: 24 })
         }),
         data
     )
 
     addScatter(
-        getChart({
+        getChart2({
             id: scatterChartId
         }),
         data

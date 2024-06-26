@@ -45,17 +45,15 @@ const barChartId = addChartContainer(1, 'Life expectancy by Country by Gender')
 const lineChartId = addChartContainer(2, 'Life expectancy gap by Country per Year')
 const scatterChartId = addChartContainer(3, 'Life expectancy distribution')
 
-const deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width
-
 let chartWidth, chartHeight
 
-if (deviceWidth < 768) {
+if (window.matchMedia("(max-width: 768px)").matches) {
     chartWidth = 420
     chartHeight = chartWidth / 1.45
-} else if (deviceWidth < 1280) {
-    chartWidth = 680
+} else if (window.matchMedia("(max-width: 1280px)").matches) {
+    chartWidth = 700
     chartHeight = chartWidth / 1.9
-} else if (deviceWidth < 1536) {
+} else if (window.matchMedia("(max-width: 1536px)").matches) {
     chartWidth = 622
     chartHeight = chartWidth / 1.9
 } else {

@@ -47,18 +47,20 @@ const scatterChartId = addChartContainer(3, 'Life expectancy distribution')
 
 const deviceWidth = (window.innerWidth > 0) ? window.innerWidth : screen.width
 
-let chartWidth = 267
-let chartHeight = 200
+let chartWidth, chartHeight
 
-if (deviceWidth >= 768 && deviceWidth < 1280) {
-    chartWidth = 533
-    chartHeight = 300
-} else if (deviceWidth >= 1280 && deviceWidth < 1536) {
-    chartWidth = 492
-    chartHeight = 277
-} else if (deviceWidth >= 1536) {
-    chartWidth = 711
-    chartHeight = 400
+if (deviceWidth < 768) {
+    chartWidth = 420
+    chartHeight = chartWidth / 1.45
+} else if (deviceWidth < 1280) {
+    chartWidth = 680
+    chartHeight = chartWidth / 1.9
+} else if (deviceWidth < 1536) {
+    chartWidth = 622
+    chartHeight = chartWidth / 1.9
+} else {
+    chartWidth = 875
+    chartHeight = chartWidth / 1.9
 }
 
 const getChart2 = ({
@@ -76,11 +78,11 @@ const getChart2 = ({
         svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
     }
 
-    const width = chartWidth !== undefined ? chartWidth : svgWidth - margin.left - margin.right
-    const height = chartHeight !== undefined ? chartHeight : svgHeight - margin.top - margin.bottom
+    const width = chartWidth !== undefined ? chartWidth - margin.left - margin.right : svgWidth - margin.left - margin.right
+    const height = chartHeight !== undefined ? chartHeight - margin.top - margin.bottom : svgHeight - margin.top - margin.bottom
 
-    const viewBoxWidth = chartWidth !== undefined ? chartWidth + margin.left + margin.right : svgWidth
-    const viewBoxHeight = chartHeight !== undefined ? chartHeight + margin.top + margin.bottom : svgHeight
+    const viewBoxWidth = chartWidth !== undefined ? chartWidth : svgWidth
+    const viewBoxHeight = chartHeight !== undefined ? chartHeight : svgHeight
 
     const chart = d3
         .select(`#${id}`)
@@ -118,7 +120,9 @@ getData().then(data => {
 
     addScatter(
         getChart2({
-            id: scatterChartId
+            id: scatterChartId,
+            chartWidth,
+            chartHeight,
         }),
         data
     )

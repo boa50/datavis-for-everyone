@@ -74,12 +74,42 @@ export const getMargin = ({
     bottom = 56
 }) => { return { left, right, top, bottom } }
 
+export const getChartDimensions = ({
+    sm = { width: 420, scale: 1.45 },
+    md = { width: 420, scale: 1.45 },
+    lg = { width: 700, scale: 1.9 },
+    xl = { width: 622, scale: 1.9 },
+    xl2 = { width: 875, scale: 1.9 }
+}) => {
+    let width, height, scale
+
+    if (window.matchMedia("(max-width: 639px)").matches) {
+        width = sm.width
+        scale = sm.scale
+    } else if (window.matchMedia("(max-width: 767px)").matches) {
+        width = md.width
+        scale = md.scale
+    } else if (window.matchMedia("(max-width: 1279px)").matches) {
+        width = lg.width
+        scale = lg.scale
+    } else if (window.matchMedia("(max-width: 1535px)").matches) {
+        width = xl.width
+        scale = xl.scale
+    } else {
+        width = xl2.width
+        scale = xl2.scale
+    }
+
+    height = width / scale
+
+    return { width, height }
+}
+
 export const getChart = ({
     id,
     svgWidth,
     svgHeight,
-    chartWidth,
-    chartHeight,
+    chartDimensions = getChartDimensions({}),
     margin = getMargin({})
 }) => {
     if (svgWidth === undefined)
@@ -89,8 +119,8 @@ export const getChart = ({
         svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
     }
 
-    const viewBoxWidth = chartWidth !== undefined ? chartWidth : svgWidth
-    const viewBoxHeight = chartHeight !== undefined ? chartHeight : svgHeight
+    const viewBoxWidth = chartDimensions.width !== undefined ? chartDimensions.width : svgWidth
+    const viewBoxHeight = chartDimensions.height !== undefined ? chartDimensions.height : svgHeight
 
     const width = viewBoxWidth - margin.left - margin.right
     const height = viewBoxHeight - margin.top - margin.bottom

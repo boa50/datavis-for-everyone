@@ -45,45 +45,10 @@ const barChartId = addChartContainer(1, 'Life expectancy by Country by Gender')
 const lineChartId = addChartContainer(2, 'Life expectancy gap by Country per Year')
 const scatterChartId = addChartContainer(3, 'Life expectancy distribution')
 
-const getChartDimensions = ({
-    sm = { width: 420, scale: 1.45 },
-    md = { width: 420, scale: 1.45 },
-    lg = { width: 700, scale: 1.9 },
-    xl = { width: 622, scale: 1.9 },
-    xl2 = { width: 875, scale: 1.9 }
-}) => {
-    let chartWidth, chartHeight, scale
-
-    if (window.matchMedia("(max-width: 639px)").matches) {
-        chartWidth = sm.width
-        scale = sm.scale
-    } else if (window.matchMedia("(max-width: 767px)").matches) {
-        chartWidth = md.width
-        scale = md.scale
-    } else if (window.matchMedia("(max-width: 1279px)").matches) {
-        chartWidth = lg.width
-        scale = lg.scale
-    } else if (window.matchMedia("(max-width: 1535px)").matches) {
-        chartWidth = xl.width
-        scale = xl.scale
-    } else {
-        chartWidth = xl2.width
-        scale = xl2.scale
-    }
-
-    chartHeight = chartWidth / scale
-
-    return { chartWidth, chartHeight }
-}
-
 getData().then(data => {
-    const { chartWidth, chartHeight } = getChartDimensions({})
-
     addBar(
         getChart({
             id: barChartId,
-            chartWidth,
-            chartHeight,
             margin: getMargin({ left: 140, top: 24 })
         }),
         data.filter(d => d.year === '2021')
@@ -92,19 +57,13 @@ getData().then(data => {
     addLine(
         getChart({
             id: lineChartId,
-            chartWidth,
-            chartHeight,
             margin: getMargin({ top: 24 })
         }),
         data
     )
 
     addScatter(
-        getChart({
-            id: scatterChartId,
-            chartWidth,
-            chartHeight,
-        }),
+        getChart({ id: scatterChartId }),
         data
     )
 })

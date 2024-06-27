@@ -208,12 +208,19 @@ export function getMargin({ }: {
     bottom?: number
 }): { left: number, right: number, top: number, bottom: number }
 
+export function getChartDimensions({ }: {
+    sm?: { width: number, scale: number },
+    md?: { width: number, scale: number },
+    lg?: { width: number, scale: number },
+    xl?: { width: number, scale: number },
+    xl2?: { width: number, scale: number },
+}): { width: number, height: number }
+
 export function getChart({ }: {
     id: string,
     svgWidth?: number,
     svgHeight?: number,
-    chartWidth?: number,
-    chartHeight?: number,
+    chartDimensions?: { width: number, height: number },
     margin?: { left: number, right: number, top: number, bottom: number }
 }): {
     chart: Element,

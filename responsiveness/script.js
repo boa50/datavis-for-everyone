@@ -2,6 +2,8 @@ import { getChart, getMargin, appendChartContainer } from "../node_modules/visua
 import { addChart as addBar } from "./charts/bar-expectancy-by-gender.js"
 import { addChart as addLine } from "./charts/line-life-expectancy-gap.js"
 import { addChart as addScatter } from "./charts/scatter-expectancy-distribution.js"
+import { addChart as addHexbin } from "./charts/hexbin-expectancy-distribution.js"
+import { addChart as addRidgeline } from "./charts/ridgeline-life-expectancy-gap.js"
 
 const getData = () =>
     d3.csv('data/life-expectancy.csv')
@@ -16,8 +18,10 @@ const getData = () =>
         }))
 
 const barChartId = appendChartContainer({ idNum: 1, chartTitle: 'Life expectancy by Country by Gender' })
+const hexbinChartId = appendChartContainer({ idNum: 4, chartTitle: 'Life expectancy distribution' })
 const lineChartId = appendChartContainer({ idNum: 2, chartTitle: 'Life expectancy gap by Country per Year' })
 const scatterChartId = appendChartContainer({ idNum: 3, chartTitle: 'Life expectancy distribution' })
+const ridgeChartId = appendChartContainer({ idNum: 5, chartTitle: 'Life expectancy gap by Country per Year' })
 
 getData().then(data => {
     addBar(
@@ -39,6 +43,21 @@ getData().then(data => {
     addScatter(
         getChart({
             id: scatterChartId
+        }),
+        data
+    )
+
+    addHexbin(
+        getChart({
+            id: hexbinChartId
+        }),
+        data
+    )
+
+    addRidgeline(
+        getChart({
+            id: ridgeChartId,
+            margin: getMargin({ left: 120, top: 40 })
         }),
         data
     )

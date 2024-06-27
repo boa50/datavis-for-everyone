@@ -53,7 +53,8 @@ getData().then(data => {
 
     const chartProps = getChart({
         id: 'chart1',
-        margin: getMargin({ left: 376, bottom: 78 })
+        margin: getMargin({ left: 376, bottom: 78 }),
+        chartDimensions: {}
     })
 
     addChart(chartProps, getUpdatedData())

@@ -26,7 +26,8 @@ getData().then(data => {
                 right: 16,
                 top: 24,
                 bottom: 56
-            }
+            },
+            chartDimensions: {}
         }),
         data.filter(d => d.year === '2021')
     )
@@ -39,14 +40,16 @@ getData().then(data => {
                 right: 16,
                 top: 64,
                 bottom: 56
-            }
+            },
+            chartDimensions: {}
         }),
         data
     )
 
     addExpectancyDistribution(
         getChart({
-            id: 'chart3'
+            id: 'chart3',
+            chartDimensions: {}
         }),
         data
     )
@@ -59,7 +62,8 @@ getData().then(data => {
                 right: 16,
                 top: 16,
                 bottom: 8
-            }
+            },
+            chartDimensions: {}
         })
     )
 
@@ -71,7 +75,8 @@ getData().then(data => {
                 right: 0,
                 top: 8,
                 bottom: 8
-            }
+            },
+            chartDimensions: {}
         })
     )
 })

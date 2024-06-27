@@ -49,7 +49,8 @@ getData().then(data => {
     addBar(
         getChart({
             id: barChartId,
-            margin: getMargin({ left: 140, top: 24 })
+            margin: getMargin({ left: 140, top: 24 }),
+            chartDimensions: {}
         }),
         data.filter(d => d.year === '2021')
     )
@@ -57,13 +58,17 @@ getData().then(data => {
     addLine(
         getChart({
             id: lineChartId,
-            margin: getMargin({ top: 24 })
+            margin: getMargin({ top: 24 }),
+            chartDimensions: {}
         }),
         data
     )
 
     addScatter(
-        getChart({ id: scatterChartId }),
+        getChart({
+            id: scatterChartId,
+            chartDimensions: {}
+        }),
         data
     )
 })

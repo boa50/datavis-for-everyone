@@ -24,7 +24,8 @@ plotAwardsBySearches(
             right: 64,
             top: 8,
             bottom: 56
-        }
+        },
+        chartDimensions: {}
     })
 )
 
@@ -37,7 +38,8 @@ plotGdpVsHappiness(
             right: 16,
             top: 32,
             bottom: 56
-        }
+        },
+        chartDimensions: {}
     }),
     false
 )
@@ -51,7 +53,8 @@ plotGdpVsHappiness(
             right: 16,
             top: 32,
             bottom: 56
-        }
+        },
+        chartDimensions: {}
     })
 )
 
@@ -67,7 +70,8 @@ getData().then(gdpVsHappinesData => {
             right: 64,
             top: 48,
             bottom: 56
-        }
+        },
+        chartDimensions: {}
     })
 
     const gdpHappinessByYearObject = plotGdpHappinessByYear(

@@ -8,7 +8,8 @@ const getData = () =>
 const getChartByNumber = number => {
     return getChart({
         id: `chart${number}`,
-        margin: getMargin({ top: 24 })
+        margin: getMargin({ top: 24 }),
+        chartDimensions: {}
     })
 }
 

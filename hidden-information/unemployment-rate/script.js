@@ -29,7 +29,8 @@ getData().then(data => {
     const lineChartObject = addLine(
         getChart({
             id: 'chart1',
-            svgHeight
+            svgHeight,
+            chartDimensions: {}
         }),
         data
     )
@@ -43,7 +44,8 @@ getData().then(data => {
                 right: 16,
                 top: 32,
                 bottom: 56
-            }
+            },
+            chartDimensions: {}
         }),
         data
     )

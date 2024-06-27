@@ -22,7 +22,8 @@ getData().then(data => {
     addLine(
         getChart({
             id: 'chart1',
-            margin: getMargin({ right: 80, top: 16 })
+            margin: getMargin({ right: 80, top: 16 }),
+            chartDimensions: {}
         }),
         data,
         countryColour
@@ -31,7 +32,8 @@ getData().then(data => {
     addColumn(
         getChart({
             id: 'chart2',
-            margin: getMargin({ top: 30 })
+            margin: getMargin({ top: 30 }),
+            chartDimensions: {}
         }),
         data,
         countryColour
@@ -40,7 +42,8 @@ getData().then(data => {
     addHeatmap(
         getChart({
             id: 'chart3',
-            margin: getMargin({ left: 112, bottom: 64 })
+            margin: getMargin({ left: 112, bottom: 64 }),
+            chartDimensions: {}
         }),
         data,
         countryColour
@@ -49,7 +52,8 @@ getData().then(data => {
     addLinedBubbles(
         getChart({
             id: 'chart4',
-            margin: getMargin({ left: 100, bottom: 64, top: 24, right: 140 })
+            margin: getMargin({ left: 100, bottom: 64, top: 24, right: 140 }),
+            chartDimensions: {}
         }),
         data,
         countryColour

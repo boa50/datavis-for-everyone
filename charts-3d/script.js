@@ -25,7 +25,8 @@ addBar(
             right: 8,
             top: 8,
             bottom: 16
-        }
+        },
+        chartDimensions: {}
     }),
     data
 )
@@ -39,7 +40,8 @@ addBar(
             right: 8,
             top: 8,
             bottom: 16
-        }
+        },
+        chartDimensions: {}
     }),
     data,
     'Our Company'
@@ -53,7 +55,8 @@ const pieProps = getChart({
         right: 8,
         top: 8,
         bottom: 8
-    }
+    },
+    chartDimensions: {}
 })
 
 addPie({
@@ -70,7 +73,8 @@ const pie3dProps = getChart({
         right: 8,
         top: 8,
         bottom: 8
-    }
+    },
+    chartDimensions: {}
 })
 
 add3dPie({

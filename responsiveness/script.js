@@ -1,4 +1,4 @@
-import { getChart, getMargin, appendChartContainer } from "../node_modules/visual-components/index.js"
+import { getChart, getMargin, appendChartContainer, getChartDimensions } from "../node_modules/visual-components/index.js"
 import { addChart as addBar } from "./charts/bar-expectancy-by-gender.js"
 import { addChart as addLine } from "./charts/line-life-expectancy-gap.js"
 import { addChart as addScatter } from "./charts/scatter-expectancy-distribution.js"
@@ -17,16 +17,57 @@ const getData = () =>
             }
         }))
 
-const barChartId = appendChartContainer({ idNum: 1, chartTitle: 'Life expectancy by Country by Gender' })
-const hexbinChartId = appendChartContainer({ idNum: 4, chartTitle: 'Life expectancy distribution' })
-const lineChartId = appendChartContainer({ idNum: 2, chartTitle: 'Life expectancy gap by Country per Year' })
-const scatterChartId = appendChartContainer({ idNum: 3, chartTitle: 'Life expectancy distribution' })
-const ridgeChartId = appendChartContainer({ idNum: 5, chartTitle: 'Life expectancy gap by Country per Year' })
+const line1OuterContainerClass = 'bg-neutral-50 px-4 py-2 rounded-sm lg:col-span-2'
+const line1InnerContainerClass = 'aspect-[4/3] md:aspect-video lg:aspect-[4/3] xl:aspect-[40/29]'
+const line2OuterContainerClass = 'bg-neutral-50 px-4 py-2 rounded-sm lg:col-span-3'
+const line2InnerContainerClass = 'aspect-[4/3] md:aspect-video lg:aspect-[16/9] xl:aspect-[16/8] 2xl:aspect-[16/8.5]'
+
+const barChartId = appendChartContainer({
+    idNum: 1,
+    chartTitle: 'Life expectancy by Country by Gender',
+    outerContainerClass: line1OuterContainerClass,
+    innerContainerClass: line1InnerContainerClass
+})
+const hexbinChartId = appendChartContainer({
+    idNum: 4,
+    chartTitle: 'Life expectancy distribution',
+    outerContainerClass: line1OuterContainerClass,
+    innerContainerClass: line1InnerContainerClass
+})
+const lineChartId = appendChartContainer({
+    idNum: 2,
+    chartTitle: 'Life expectancy gap by Country per Year',
+    outerContainerClass: line1OuterContainerClass,
+    innerContainerClass: line1InnerContainerClass
+})
+const scatterChartId = appendChartContainer({
+    idNum: 3,
+    chartTitle: 'Life expectancy distribution',
+    outerContainerClass: line2OuterContainerClass,
+    innerContainerClass: line2InnerContainerClass
+})
+const ridgeChartId = appendChartContainer({
+    idNum: 5,
+    chartTitle: 'Life expectancy gap by Country per Year',
+    outerContainerClass: line2OuterContainerClass,
+    innerContainerClass: line2InnerContainerClass
+})
 
 getData().then(data => {
+    const line1Dimensions = getChartDimensions({
+        lg: { width: 490, scale: 1.45 },
+        xl: { width: 490, scale: 1.45 },
+        xl2: { width: 590, scale: 1.45 }
+    })
+    const line2Dimensions = getChartDimensions({
+        xl: { width: 780, scale: 2.2 },
+        xl2: { width: 885, scale: 2.1 }
+    })
+
     addBar(
         getChart({
             id: barChartId,
+            chartDimensions: line1Dimensions,
             margin: getMargin({ left: 140, top: 24 })
         }),
         data.filter(d => d.year === '2021')
@@ -35,6 +76,7 @@ getData().then(data => {
     addLine(
         getChart({
             id: lineChartId,
+            chartDimensions: line1Dimensions,
             margin: getMargin({ top: 24 })
         }),
         data
@@ -42,14 +84,16 @@ getData().then(data => {
 
     addScatter(
         getChart({
-            id: scatterChartId
+            id: scatterChartId,
+            chartDimensions: line2Dimensions
         }),
         data
     )
 
     addHexbin(
         getChart({
-            id: hexbinChartId
+            id: hexbinChartId,
+            chartDimensions: line1Dimensions,
         }),
         data
     )
@@ -57,7 +101,8 @@ getData().then(data => {
     addRidgeline(
         getChart({
             id: ridgeChartId,
-            margin: getMargin({ left: 120, top: 40 })
+            chartDimensions: line2Dimensions,
+            margin: getMargin({ left: 120, top: 52 })
         }),
         data
     )

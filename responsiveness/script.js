@@ -54,6 +54,19 @@ const ridgeChartId = appendChartContainer({
 })
 
 getData().then(data => {
+    const lastYearData = data.filter(d => d.year === '2021')
+    const averageExpectancy2021 = lastYearData.reduce((total, current) => total + current.average, 0) / lastYearData.length
+    const highestExpectancy2021 = d3.max(lastYearData, d => d.average)
+    const lowestExpectancy2021 = d3.min(lastYearData, d => d.average)
+    const highestExpectancyGap2021 = d3.max(lastYearData, d => d.gap)
+    const lowestExpectancyGap2021 = d3.min(lastYearData, d => d.gap)
+
+    document.getElementById('card1-content').innerHTML = (averageExpectancy2021).toFixed(2) + ' years'
+    document.getElementById('card2-content').innerHTML = (highestExpectancy2021).toFixed(2) + ' years'
+    document.getElementById('card3-content').innerHTML = (lowestExpectancy2021).toFixed(2) + ' years'
+    document.getElementById('card4-content').innerHTML = (highestExpectancyGap2021).toFixed(2) + ' years'
+    document.getElementById('card5-content').innerHTML = (lowestExpectancyGap2021).toFixed(2) + ' years'
+
     const line1Dimensions = getChartDimensions({
         lg: { width: 490, scale: 1.45 },
         xl: { width: 490, scale: 1.45 },

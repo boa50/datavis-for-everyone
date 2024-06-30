@@ -1,0 +1,13 @@
+.card {
+    display: flex;
+    background-color: #fafafa;
+}
+
+.card .title {
+    color: #374151;
+}
+
+.card .content {
+    font-size: 1.75rem;
+    color: #030712;
+}

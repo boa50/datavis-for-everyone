@@ -18,9 +18,9 @@ const getData = () =>
         }))
 
 const line1OuterContainerClass = 'bg-neutral-50 px-4 py-2 rounded-sm lg:col-span-2'
-const line1InnerContainerClass = 'aspect-[4/3] md:aspect-video lg:aspect-[4/3] xl:aspect-[40/29]'
+const line1InnerContainerClass = 'aspect-[4/3] md:aspect-video lg:aspect-[4/3]'
 const line2OuterContainerClass = 'bg-neutral-50 px-4 py-2 rounded-sm lg:col-span-3'
-const line2InnerContainerClass = 'aspect-[4/3] md:aspect-video lg:aspect-[16/9] xl:aspect-[16/8] 2xl:aspect-[16/8.5]'
+const line2InnerContainerClass = 'aspect-[4/3] md:aspect-video lg:aspect-[16/9]'
 
 const barChartId = appendChartContainer({
     idNum: 1,

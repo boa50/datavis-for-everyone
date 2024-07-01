@@ -54,18 +54,7 @@ const ridgeChartId = appendChartContainer({
 })
 
 getData().then(data => {
-    const lastYearData = data.filter(d => d.year === '2021')
-    const averageExpectancy2021 = lastYearData.reduce((total, current) => total + current.average, 0) / lastYearData.length
-    const highestExpectancy2021 = d3.max(lastYearData, d => d.average)
-    const lowestExpectancy2021 = d3.min(lastYearData, d => d.average)
-    const highestExpectancyGap2021 = d3.max(lastYearData, d => d.gap)
-    const lowestExpectancyGap2021 = d3.min(lastYearData, d => d.gap)
-
-    document.getElementById('card1-content').innerHTML = (averageExpectancy2021).toFixed(2) + ' years'
-    document.getElementById('card2-content').innerHTML = (highestExpectancy2021).toFixed(2) + ' years'
-    document.getElementById('card3-content').innerHTML = (lowestExpectancy2021).toFixed(2) + ' years'
-    document.getElementById('card4-content').innerHTML = (highestExpectancyGap2021).toFixed(2) + ' years'
-    document.getElementById('card5-content').innerHTML = (lowestExpectancyGap2021).toFixed(2) + ' years'
+    fillCards(data)
 
     const line1Dimensions = getChartDimensions({
         lg: { width: 490, scale: 1.45 },
@@ -120,3 +109,27 @@ getData().then(data => {
         data
     )
 })
+
+function fillCards(data) {
+    const lastYearData = data.filter(d => d.year === '2021')
+    const averageExpectancy2021 = lastYearData.reduce((total, current) => total + current.average, 0) / lastYearData.length
+    const highestExpectancy2021 = d3.max(lastYearData, d => d.average)
+    const highestExpectancyCountry2021 = lastYearData.filter(d => d.average === highestExpectancy2021)[0].country
+    const lowestExpectancy2021 = d3.min(lastYearData, d => d.average)
+    const lowestExpectancyCountry2021 = lastYearData.filter(d => d.average === lowestExpectancy2021)[0].country
+    const highestExpectancyGap2021 = d3.max(lastYearData, d => d.gap)
+    const highestExpectancyGapCountry2021 = lastYearData.filter(d => d.gap === highestExpectancyGap2021)[0].country
+    const lowestExpectancyGap2021 = d3.min(lastYearData, d => d.gap)
+    const lowestExpectancyGapCountry2021 = lastYearData.filter(d => d.gap === lowestExpectancyGap2021)[0].country
+
+    document.getElementById('card1-content').innerHTML = (averageExpectancy2021).toFixed(2) + ' years'
+    document.getElementById('card2-content').innerHTML = (highestExpectancy2021).toFixed(2) + ' years'
+    document.getElementById('card3-content').innerHTML = (lowestExpectancy2021).toFixed(2) + ' years'
+    document.getElementById('card4-content').innerHTML = (highestExpectancyGap2021).toFixed(2) + ' years'
+    document.getElementById('card5-content').innerHTML = (lowestExpectancyGap2021).toFixed(2) + ' years'
+
+    document.getElementById('card2-title').innerHTML += ` - ${highestExpectancyCountry2021}`
+    document.getElementById('card3-title').innerHTML += ` - ${lowestExpectancyCountry2021}`
+    document.getElementById('card4-title').innerHTML += ` - ${highestExpectancyGapCountry2021.replace('United States ', 'US ')}`
+    document.getElementById('card5-title').innerHTML += ` - ${lowestExpectancyGapCountry2021}`
+}

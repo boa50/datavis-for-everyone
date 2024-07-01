@@ -209,6 +209,7 @@ export function getMargin({ }: {
 }): { left: number, right: number, top: number, bottom: number }
 
 export function getChartDimensions({ }: {
+    chartId?: string,
     sm?: { width: number, scale: number },
     md?: { width: number, scale: number },
     lg?: { width: number, scale: number },

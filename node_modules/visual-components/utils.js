@@ -74,12 +74,28 @@ export const getMargin = ({
     bottom = 56
 }) => { return { left, right, top, bottom } }
 
+const getSvgWidth = chartId =>
+    document.getElementById(`${chartId}-container`).offsetWidth
+
+const getSvgHeight = chartId => {
+    const title = document.getElementById(`${chartId}-title`)
+    const subtitle = document.getElementById(`${chartId}-subtitle`)
+
+    return document.getElementById(`${chartId}-container`).offsetHeight
+        - (title ? title.offsetHeight : 0) - (subtitle ? subtitle.offsetHeight : 0)
+}
+
+const getChartScale = chartId => {
+    return getSvgWidth(chartId) / getSvgHeight(chartId)
+}
+
 export const getChartDimensions = ({
-    sm = { width: 420, scale: 1.45 },
-    md = { width: 700, scale: 1.9 },
-    lg = { width: 700, scale: 1.9 },
-    xl = { width: 622, scale: 1.9 },
-    xl2 = { width: 875, scale: 1.9 }
+    chartId,
+    sm = { width: 420, scale: undefined },
+    md = { width: 700, scale: undefined },
+    lg = { width: 700, scale: undefined },
+    xl = { width: 622, scale: undefined },
+    xl2 = { width: 875, scale: undefined }
 }) => {
     let width, height, scale
 
@@ -100,6 +116,10 @@ export const getChartDimensions = ({
         scale = sm.scale
     }
 
+    if (scale === undefined) {
+        scale = chartId !== undefined ? getChartScale(chartId) : (16 / 9)
+    }
+
     height = width / scale
 
     return { width, height }
@@ -112,12 +132,8 @@ export const getChart = ({
     chartDimensions = getChartDimensions({}),
     margin = getMargin({})
 }) => {
-    if (svgWidth === undefined)
-        svgWidth = document.getElementById(`${id}-container`).offsetWidth
-    if (svgHeight === undefined) {
-        const title = document.getElementById(`${id}-title`)
-        svgHeight = document.getElementById(`${id}-container`).offsetHeight - (title ? title.offsetHeight : 0)
-    }
+    svgWidth = svgWidth !== undefined ? svgWidth : getSvgWidth(id)
+    svgHeight = svgHeight !== undefined ? svgHeight : getSvgHeight(id)
 
     const viewBoxWidth = chartDimensions.width !== undefined ? chartDimensions.width : svgWidth
     const viewBoxHeight = chartDimensions.height !== undefined ? chartDimensions.height : svgHeight

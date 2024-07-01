@@ -56,20 +56,21 @@ const ridgeChartId = appendChartContainer({
 getData().then(data => {
     fillCards(data)
 
-    const line1Dimensions = getChartDimensions({
-        lg: { width: 490, scale: 1.45 },
-        xl: { width: 490, scale: 1.45 },
-        xl2: { width: 590, scale: 1.45 }
-    })
-    const line2Dimensions = getChartDimensions({
-        xl: { width: 780, scale: 2.2 },
-        xl2: { width: 885, scale: 2.1 }
-    })
+    const line1Dimensions = {
+        lg: { width: 420 },
+        xl: { width: 400 },
+        xl2: { width: 590 }
+    }
+    const line2Dimensions = {
+        lg: { width: 640 },
+        xl: { width: 650 },
+        xl2: { width: 885 }
+    }
 
     addBar(
         getChart({
             id: barChartId,
-            chartDimensions: line1Dimensions,
+            chartDimensions: getChartDimensions({ ...line1Dimensions, chartId: barChartId }),
             margin: getMargin({ left: 140, top: 24 })
         }),
         data.filter(d => d.year === '2021')
@@ -78,7 +79,7 @@ getData().then(data => {
     addLine(
         getChart({
             id: lineChartId,
-            chartDimensions: line1Dimensions,
+            chartDimensions: getChartDimensions({ ...line1Dimensions, chartId: lineChartId }),
             margin: getMargin({ top: 24 })
         }),
         data
@@ -87,7 +88,7 @@ getData().then(data => {
     addScatter(
         getChart({
             id: scatterChartId,
-            chartDimensions: line2Dimensions
+            chartDimensions: getChartDimensions({ ...line2Dimensions, chartId: scatterChartId })
         }),
         data
     )
@@ -95,7 +96,7 @@ getData().then(data => {
     addHexbin(
         getChart({
             id: hexbinChartId,
-            chartDimensions: line1Dimensions,
+            chartDimensions: getChartDimensions({ ...line1Dimensions, chartId: hexbinChartId }),
         }),
         data
     )
@@ -103,7 +104,7 @@ getData().then(data => {
     addRidgeline(
         getChart({
             id: ridgeChartId,
-            chartDimensions: line2Dimensions,
+            chartDimensions: getChartDimensions({ ...line2Dimensions, chartId: ridgeChartId }),
             margin: getMargin({ left: 120, top: 52 })
         }),
         data

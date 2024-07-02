@@ -1,0 +1,1 @@
+Showing how patterns and shapes can improve readability of charts

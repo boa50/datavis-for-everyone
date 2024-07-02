@@ -1,4 +1,5 @@
 import { getChart, getMargin, getChartDimensions, appendChartContainer } from "../../node_modules/visual-components/index.js"
+import { addChart as addColumn } from "./charts/column.js"
 
 const getData = () =>
     d3.csv('../data/renewables-generation.csv')
@@ -10,8 +11,8 @@ const getData = () =>
             }
         }))
 
-appendChartContainer({ idNum: 1, chartTitle: 'Column' })
-appendChartContainer({ idNum: 2, chartTitle: 'Column Pattern' })
+const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
+const columnPattern = appendChartContainer({ idNum: 2, chartTitle: 'Column Pattern' })
 appendChartContainer({ idNum: 10, chartTitle: 'Stacked Area' })
 appendChartContainer({ idNum: 20, chartTitle: 'Stacked Area Pattern' })
 appendChartContainer({ idNum: 100, chartTitle: 'Pie' })
@@ -24,5 +25,8 @@ appendChartContainer({ idNum: 5, chartTitle: 'Line' })
 appendChartContainer({ idNum: 6, chartTitle: 'Line Dashed with dots' })
 
 getData().then(data => {
-    console.log(data);
+    addColumn(
+        getChart({ id: columnId, margin: getMargin({ left: 72, top: 24 }) }),
+        data.filter(d => [2022, 2023].includes(d.year))
+    )
 })

@@ -12,7 +12,7 @@ const getData = () =>
         }))
 
 const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
-const columnPattern = appendChartContainer({ idNum: 2, chartTitle: 'Column Pattern' })
+const columnPatternId = appendChartContainer({ idNum: 2, chartTitle: 'Column Pattern' })
 appendChartContainer({ idNum: 10, chartTitle: 'Stacked Area' })
 appendChartContainer({ idNum: 20, chartTitle: 'Stacked Area Pattern' })
 appendChartContainer({ idNum: 100, chartTitle: 'Pie' })
@@ -26,7 +26,21 @@ appendChartContainer({ idNum: 6, chartTitle: 'Line Dashed with dots' })
 
 getData().then(data => {
     addColumn(
-        getChart({ id: columnId, margin: getMargin({ left: 72, top: 24 }) }),
+        getChart({
+            id: columnId,
+            chartDimensions: getChartDimensions({ chartId: columnId }),
+            margin: getMargin({ left: 72, top: 24 })
+        }),
         data.filter(d => [2022, 2023].includes(d.year))
+    )
+
+    addColumn(
+        getChart({
+            id: columnPatternId,
+            chartDimensions: getChartDimensions({ chartId: columnPatternId }),
+            margin: getMargin({ left: 72, top: 24 })
+        }),
+        data.filter(d => [2022, 2023].includes(d.year)),
+        true
     )
 })

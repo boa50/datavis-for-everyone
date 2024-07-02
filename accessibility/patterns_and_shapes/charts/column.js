@@ -1,7 +1,7 @@
 import { addAxis, addLegend } from "../../../node_modules/visual-components/index.js"
 import { palette, defaultColours } from "../../../colours.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, pattern = false) => {
     const { chart, width, height, margin } = chartProps
 
     const energySources = [...new Set(data.map(d => d.source))]
@@ -40,6 +40,31 @@ export const addChart = (chartProps, data) => {
         .attr('width', xSubgroup.bandwidth())
         .attr('height', d => height - y(d.generation))
         .attr('fill', d => colour(d.source))
+
+    if (pattern) {
+        chart
+            .append('defs')
+            .append('pattern')
+            .attr('id', 'diagonalHatch')
+            .attr('patternUnits', 'userSpaceOnUse')
+            .attr('width', 4)
+            .attr('height', 4)
+            .append('path')
+            .attr('d', 'M-1,1 l2,-2 M0,4 l4,-4 M3,5 l2,-2')
+            .attr('stroke', '#000000')
+            .attr('stroke-width', 1)
+
+        chart
+            .selectAll('.data-pattern')
+            .data(data)
+            .join('rect')
+            .attr('transform', d => `translate(${x(d.year)}, 0)`)
+            .attr('x', d => xSubgroup(d.source))
+            .attr('y', d => y(d.generation))
+            .attr('width', xSubgroup.bandwidth())
+            .attr('height', d => height - y(d.generation))
+            .attr('fill', 'url(#diagonalHatch)')
+    }
 
     addAxis({
         chart,

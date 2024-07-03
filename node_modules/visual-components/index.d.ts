@@ -86,6 +86,7 @@ export function addLegend({ }: {
     legends: Array<string>,
     colours?: Array<string> | string,
     shapes?: Array<string>,
+    patternIds?: Array<string>,
     xPosition?: number,
     yPosition?: number,
     fontSize?: string,

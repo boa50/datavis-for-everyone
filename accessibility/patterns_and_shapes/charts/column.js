@@ -42,11 +42,26 @@ export const addChart = (chartProps, data, pattern = false) => {
         .attr('height', d => height - y(d.generation))
         .attr('fill', d => colour(d.source))
 
+    let patternIdsLegend
+
     if (pattern) {
         const wavesPatternId = addWavesPattern(chart)
         const crossPatternId = addCrossPattern(chart)
         const trianglePatternId = addTrianglePattern(chart)
         const scalesPatternId = addScalesPattern(chart)
+
+        const wavesPatternIdLegend = addWavesPattern(chart, 0.7)
+        const crossPatternIdLegend = addCrossPattern(chart, 0.7)
+        const trianglePatternIdLegend = addTrianglePattern(chart, 0.7)
+        const scalesPatternIdLegend = addScalesPattern(chart, 0.7)
+
+        const patternIds = [wavesPatternId, trianglePatternId, scalesPatternId, crossPatternId]
+        patternIdsLegend = [wavesPatternIdLegend, trianglePatternIdLegend, scalesPatternIdLegend, crossPatternIdLegend]
+
+        const pattern = d3
+            .scaleOrdinal()
+            .range(patternIds)
+            .domain(energySources)
 
         chart
             .selectAll('.data-pattern')
@@ -57,8 +72,16 @@ export const addChart = (chartProps, data, pattern = false) => {
             .attr('y', d => y(d.generation))
             .attr('width', xSubgroup.bandwidth())
             .attr('height', d => height - y(d.generation))
-            .attr('fill', `url(#${scalesPatternId})`)
+            .attr('fill', d => `url(#${pattern(d.source)})`)
     }
+
+    addLegend({
+        chart,
+        legends: energySources,
+        colours: colourPalette,
+        xPosition: -margin.left,
+        patternIds: patternIdsLegend
+    })
 
     addAxis({
         chart,
@@ -72,13 +95,6 @@ export const addChart = (chartProps, data, pattern = false) => {
         yTickValues: [0, 1000, 2000, 3000, 4000, 5000],
         hideXdomain: true,
         hideYdomain: true
-    })
-
-    addLegend({
-        chart,
-        legends: energySources,
-        colours: colourPalette,
-        xPosition: -margin.left
     })
 }
 

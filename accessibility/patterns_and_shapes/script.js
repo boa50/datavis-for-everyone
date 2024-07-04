@@ -2,6 +2,7 @@ import { getChart, getMargin, getChartDimensions, appendChartContainer } from ".
 import { addChart as addColumn } from "./charts/column.js"
 import { addChart as addStackedArea } from "./charts/stacked-area.js"
 import { addChart as addPie } from "./charts/pie.js"
+import { addChart as addLine } from "./charts/line.js"
 
 const getData = () =>
     d3.csv('../data/renewables-generation.csv')
@@ -19,8 +20,8 @@ const stackedAreaId = appendChartContainer({ idNum: 10, chartTitle: 'Stacked Are
 const stackedAreaPatternId = appendChartContainer({ idNum: 20, chartTitle: 'Stacked Area Pattern' })
 const pieId = appendChartContainer({ idNum: 100, chartTitle: 'Pie' })
 const piePatternId = appendChartContainer({ idNum: 200, chartTitle: 'Pie Pattern' })
-appendChartContainer({ idNum: 3, chartTitle: 'Line' })
-appendChartContainer({ idNum: 4, chartTitle: 'Line Shape' })
+const lineId = appendChartContainer({ idNum: 3, chartTitle: 'Line' })
+const lineStackedId = appendChartContainer({ idNum: 4, chartTitle: 'Line Shape' })
 appendChartContainer({ idNum: 30, chartTitle: 'Area' })
 appendChartContainer({ idNum: 40, chartTitle: 'Area Shape' })
 appendChartContainer({ idNum: 5, chartTitle: 'Line' })
@@ -82,5 +83,14 @@ getData().then(data => {
         }),
         data.filter(d => d.year === 2023),
         true
+    )
+
+    addLine(
+        getChart({
+            id: lineId,
+            chartDimensions: getChartDimensions({ chartId: lineId }),
+            margin: getMargin({ left: 72, top: 24 })
+        }),
+        data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year))
     )
 })

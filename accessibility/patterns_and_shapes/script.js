@@ -73,4 +73,14 @@ getData().then(data => {
         }),
         data.filter(d => d.year === 2023)
     )
+
+    addPie(
+        getChart({
+            id: piePatternId,
+            chartDimensions: getChartDimensions({ chartId: piePatternId }),
+            margin: { left: 0, right: 0, top: 8, bottom: 8 }
+        }),
+        data.filter(d => d.year === 2023),
+        true
+    )
 })

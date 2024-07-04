@@ -1,7 +1,8 @@
 import { addAxis, addLegend } from "../../../node_modules/visual-components/index.js"
 import { palette, defaultColours } from "../../../colours.js"
+import { addWavesPattern, addCrossPattern, addTrianglePattern, addScalesPattern } from "./patterns.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, pattern = false) => {
     const { chart, width, height, margin } = chartProps
 
     const keys = [...new Set(data.map(d => d.source))]
@@ -36,18 +37,49 @@ export const addChart = (chartProps, data) => {
         .y0(d => y(d[0]))
         .y1(d => y(d[1]))
 
-    chart
-        .selectAll('.stacks')
-        .data(stackedData)
-        .join('path')
-        .attr('fill', d => colour(d.key))
-        .attr('d', area)
+    const plotArea = fillFunction => {
+        chart
+            .selectAll('.stacks')
+            .data(stackedData)
+            .join('path')
+            .attr('fill', fillFunction)
+            .attr('stroke-width', 1)
+            .attr('stroke', 'white')
+            .attr('d', area)
+    }
+
+    plotArea(d => colour(d.key))
+
+    let patternIdsLegend
+
+    if (pattern) {
+        const wavesPatternId = addWavesPattern(chart)
+        const crossPatternId = addCrossPattern(chart)
+        const trianglePatternId = addTrianglePattern(chart)
+        const scalesPatternId = addScalesPattern(chart)
+
+        const wavesPatternIdLegend = addWavesPattern(chart, 0.7)
+        const crossPatternIdLegend = addCrossPattern(chart, 0.7)
+        const trianglePatternIdLegend = addTrianglePattern(chart, 0.7)
+        const scalesPatternIdLegend = addScalesPattern(chart, 0.7)
+
+        const patternIds = [wavesPatternId, trianglePatternId, scalesPatternId, crossPatternId]
+        patternIdsLegend = [wavesPatternIdLegend, trianglePatternIdLegend, scalesPatternIdLegend, crossPatternIdLegend]
+
+        const pattern = d3
+            .scaleOrdinal()
+            .range(patternIds)
+            .domain(keys)
+
+        plotArea(d => `url(#${pattern(d.key)})`)
+    }
 
     addLegend({
         chart,
         legends: keys,
         colours: colourPalette,
-        xPosition: -margin.left
+        xPosition: -margin.left,
+        patternIds: patternIdsLegend
     })
 
     addAxis({

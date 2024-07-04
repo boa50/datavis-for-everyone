@@ -53,4 +53,14 @@ getData().then(data => {
         }),
         data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year))
     )
+
+    addStackedArea(
+        getChart({
+            id: stackedAreaPatternId,
+            chartDimensions: getChartDimensions({ chartId: stackedAreaPatternId }),
+            margin: getMargin({ left: 72, top: 24 })
+        }),
+        data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year)),
+        true
+    )
 })

@@ -14,7 +14,7 @@ const addPattern = (svg, id, width, height, path, scale) => {
         .attr('fill', 'none')
 }
 
-export const addWavesPattern = (svg, scale) => {
+export const addWavesPattern = (svg, scale = 1) => {
     let id = 'wavesPattern'
     if (scale !== undefined) id += scale
 
@@ -27,7 +27,7 @@ export const addWavesPattern = (svg, scale) => {
     return id
 }
 
-export const addCrossPattern = (svg, scale) => {
+export const addCrossPattern = (svg, scale = 1) => {
     let id = 'crossPattern'
     if (scale !== undefined) id += scale
 
@@ -40,7 +40,7 @@ export const addCrossPattern = (svg, scale) => {
     return id
 }
 
-export const addTrianglePattern = (svg, scale) => {
+export const addTrianglePattern = (svg, scale = 1) => {
     let id = 'trianglePattern'
     if (scale !== undefined) id += scale
 
@@ -53,7 +53,7 @@ export const addTrianglePattern = (svg, scale) => {
     return id
 }
 
-export const addScalesPattern = (svg, scale) => {
+export const addScalesPattern = (svg, scale = 1) => {
     let id = 'scalesPattern'
     if (scale !== undefined) id += scale
 

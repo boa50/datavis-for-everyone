@@ -2,7 +2,7 @@ import { addAxis, addLegend } from "../../../node_modules/visual-components/inde
 import { palette, defaultColours } from "../../../colours.js"
 import { addWavesPattern, addCrossPattern, addTrianglePattern, addScalesPattern } from "./patterns.js"
 
-export const addChart = (chartProps, data, pattern = false) => {
+export const addChart = (chartProps, data, pattern = false, shapes = false) => {
     const { chart, width, height, margin } = chartProps
 
     const keys = [...new Set(data.map(d => d.source))]
@@ -48,7 +48,30 @@ export const addChart = (chartProps, data, pattern = false) => {
             .attr('d', area)
     }
 
-    plotArea(d => colour(d.key))
+    plotArea(d => d3.hsl(colour(d.key)).brighter(shapes ? 0.75 : 0))
+
+    let legendShapes
+
+    if (shapes) {
+        const symbols = [d3.symbolCircle, d3.symbolSquare, d3.symbolTriangle, d3.symbolStar]
+        legendShapes = symbols.map(d => d3.symbol(d))
+
+        const shapesGroup = d3
+            .scaleOrdinal()
+            .domain(keys)
+            .range(symbols)
+
+        chart
+            .selectAll('.data-shapes')
+            .data(stackedData.map(d => d.map(v => { return { ...v, key: d.key } })).flat(1))
+            .join('path')
+            .attr('d', d3.symbol().type(d => shapesGroup(d.key)).size(120))
+            .attr('transform', d => `translate(${[x(d.data[0]), y(d[1])]})`)
+            .attr('fill', d => colour(d.key))
+            .attr('stroke', 'white')
+            .attr('stroke-width', 1)
+    }
+
 
     let patternIdsLegend
 
@@ -79,7 +102,8 @@ export const addChart = (chartProps, data, pattern = false) => {
         legends: keys,
         colours: colourPalette,
         xPosition: -margin.left,
-        patternIds: patternIdsLegend
+        patternIds: patternIdsLegend,
+        shapes: legendShapes
     })
 
     addAxis({

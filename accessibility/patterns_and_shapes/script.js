@@ -22,8 +22,8 @@ const pieId = appendChartContainer({ idNum: 100, chartTitle: 'Pie' })
 const piePatternId = appendChartContainer({ idNum: 200, chartTitle: 'Pie Pattern' })
 const lineId = appendChartContainer({ idNum: 3, chartTitle: 'Line' })
 const lineShapesId = appendChartContainer({ idNum: 4, chartTitle: 'Line Shape' })
-appendChartContainer({ idNum: 30, chartTitle: 'Area' })
-appendChartContainer({ idNum: 40, chartTitle: 'Area Shape' })
+const stackedAreaId2 = appendChartContainer({ idNum: 30, chartTitle: 'Area' })
+const stackedAreaShapesId = appendChartContainer({ idNum: 40, chartTitle: 'Area Shape' })
 appendChartContainer({ idNum: 5, chartTitle: 'Line' })
 appendChartContainer({ idNum: 6, chartTitle: 'Line Dashed with dots' })
 
@@ -101,6 +101,26 @@ getData().then(data => {
             margin: getMargin({ left: 72, top: 24 })
         }),
         data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year)),
+        true
+    )
+
+    addStackedArea(
+        getChart({
+            id: stackedAreaId2,
+            chartDimensions: getChartDimensions({ chartId: stackedAreaId2 }),
+            margin: getMargin({ left: 72, top: 24 })
+        }),
+        data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year))
+    )
+
+    addStackedArea(
+        getChart({
+            id: stackedAreaShapesId,
+            chartDimensions: getChartDimensions({ chartId: stackedAreaShapesId }),
+            margin: getMargin({ left: 72, top: 24 })
+        }),
+        data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year)),
+        false,
         true
     )
 })

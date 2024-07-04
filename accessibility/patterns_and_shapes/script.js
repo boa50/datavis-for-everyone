@@ -21,7 +21,7 @@ const stackedAreaPatternId = appendChartContainer({ idNum: 20, chartTitle: 'Stac
 const pieId = appendChartContainer({ idNum: 100, chartTitle: 'Pie' })
 const piePatternId = appendChartContainer({ idNum: 200, chartTitle: 'Pie Pattern' })
 const lineId = appendChartContainer({ idNum: 3, chartTitle: 'Line' })
-const lineStackedId = appendChartContainer({ idNum: 4, chartTitle: 'Line Shape' })
+const lineShapesId = appendChartContainer({ idNum: 4, chartTitle: 'Line Shape' })
 appendChartContainer({ idNum: 30, chartTitle: 'Area' })
 appendChartContainer({ idNum: 40, chartTitle: 'Area Shape' })
 appendChartContainer({ idNum: 5, chartTitle: 'Line' })
@@ -92,5 +92,15 @@ getData().then(data => {
             margin: getMargin({ left: 72, top: 24 })
         }),
         data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year))
+    )
+
+    addLine(
+        getChart({
+            id: lineShapesId,
+            chartDimensions: getChartDimensions({ chartId: lineShapesId }),
+            margin: getMargin({ left: 72, top: 24 })
+        }),
+        data.filter(d => [2019, 2020, 2021, 2022, 2023].includes(d.year)),
+        true
     )
 })

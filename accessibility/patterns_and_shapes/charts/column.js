@@ -30,17 +30,20 @@ export const addChart = (chartProps, data, pattern = false) => {
         .range(colourPalette)
         .domain(energySources)
 
-    chart
-        .selectAll('.data-point')
-        .data(data)
-        .join('rect')
-        .attr('class', 'data-point')
-        .attr('transform', d => `translate(${x(d.year)}, 0)`)
-        .attr('x', d => xSubgroup(d.source))
-        .attr('y', d => y(d.generation))
-        .attr('width', xSubgroup.bandwidth())
-        .attr('height', d => height - y(d.generation))
-        .attr('fill', d => colour(d.source))
+    const plotBars = fillFunction => {
+        chart
+            .selectAll('.data-point')
+            .data(data)
+            .join('rect')
+            .attr('transform', d => `translate(${x(d.year)}, 0)`)
+            .attr('x', d => xSubgroup(d.source))
+            .attr('y', d => y(d.generation))
+            .attr('width', xSubgroup.bandwidth())
+            .attr('height', d => height - y(d.generation))
+            .attr('fill', fillFunction)
+    }
+
+    plotBars(d => colour(d.source))
 
     let patternIdsLegend
 
@@ -63,16 +66,7 @@ export const addChart = (chartProps, data, pattern = false) => {
             .range(patternIds)
             .domain(energySources)
 
-        chart
-            .selectAll('.data-pattern')
-            .data(data)
-            .join('rect')
-            .attr('transform', d => `translate(${x(d.year)}, 0)`)
-            .attr('x', d => xSubgroup(d.source))
-            .attr('y', d => y(d.generation))
-            .attr('width', xSubgroup.bandwidth())
-            .attr('height', d => height - y(d.generation))
-            .attr('fill', d => `url(#${pattern(d.source)})`)
+        plotBars(d => `url(#${pattern(d.source)})`)
     }
 
     addLegend({

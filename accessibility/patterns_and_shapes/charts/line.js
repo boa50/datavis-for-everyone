@@ -1,7 +1,7 @@
 import { addAxis, addLegend } from "../../../node_modules/visual-components/index.js"
 import { palette, defaultColours } from "../../../colours.js"
 
-export const addChart = (chartProps, data, shapes = false) => {
+export const addChart = (chartProps, data, shapes = false, dashed = false) => {
     const { chart, width, height, margin } = chartProps
 
     const energySources = [...new Set(data.map(d => d.source))]
@@ -23,6 +23,11 @@ export const addChart = (chartProps, data, shapes = false) => {
         .range(colourPalette)
         .domain(energySources)
 
+    const dasharray = d3
+        .scaleOrdinal()
+        .range(['4', '12 2 12 2', '12 4 4 4', '16'])
+        .domain(energySources)
+
     const line = d3
         .line()
         .x(d => x(d.year))
@@ -35,6 +40,7 @@ export const addChart = (chartProps, data, shapes = false) => {
         .attr('fill', 'none')
         .attr('stroke', d => colour(d[0]))
         .attr('stroke-width', 5)
+        .attr('stroke-dasharray', dashed ? d => dasharray(d[0]) : 0)
         .attr('d', d => line(d[1]))
 
     let legendShapes

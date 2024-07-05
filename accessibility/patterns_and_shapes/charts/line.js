@@ -65,12 +65,46 @@ export const addChart = (chartProps, data, shapes = false, dashed = false) => {
             .attr('fill', d => colour(d.source))
     }
 
+    let patternIdsLegend
+
+    if (dashed) {
+        const addDashPattern = (id, path) => {
+            chart
+                .append('defs')
+                .append('pattern')
+                .attr('id', id)
+                .attr('width', 40)
+                .attr('height', 40)
+                .append('path')
+                .attr('d', path)
+                .attr('stroke', 'white')
+                .attr('stroke-width', 40)
+                .attr('fill', 'none')
+
+        }
+
+        const patterns = [
+            { id: 'dashPattern1Id', path: 'M 2 20 H 4 M 6 20 H 8 M 10 20 H 12 M 14 20 H 16' },
+            { id: 'dashPattern2Id', path: 'M 4 20 H 5 M 9 20 H 10 M 14 20 H 15 M 19 20 H 20' },
+            { id: 'dashPattern3Id', path: 'M 4 20 H 6 M 8 20 H 10 M 14 20 H 16 M 18 20 H 20' },
+            { id: 'dashPattern4Id', path: 'M 4 20 H 8 M 12 20 H 16' }
+        ]
+
+        patternIdsLegend = []
+
+        patterns.forEach(p => {
+            addDashPattern(p.id, p.path)
+            patternIdsLegend.push(p.id)
+        })
+    }
+
     addLegend({
         chart,
         legends: energySources,
         colours: colourPalette,
         xPosition: -margin.left,
-        shapes: legendShapes
+        shapes: legendShapes,
+        patternIds: patternIdsLegend
     })
 
     addAxis({

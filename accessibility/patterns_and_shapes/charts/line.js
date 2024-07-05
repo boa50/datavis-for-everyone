@@ -33,7 +33,7 @@ export const addChart = (chartProps, data, shapes = false) => {
         .data(dataPerGroup)
         .join('path')
         .attr('fill', 'none')
-        .attr('stroke', d => d3.hsl(colour(d[0])).brighter(shapes ? 0.75 : 0))
+        .attr('stroke', d => colour(d[0]))
         .attr('stroke-width', 5)
         .attr('d', d => line(d[1]))
 
@@ -54,6 +54,8 @@ export const addChart = (chartProps, data, shapes = false) => {
             .join('path')
             .attr('d', d3.symbol().type(d => shapesGroup(d.source)).size(120))
             .attr('transform', d => `translate(${[x(d.year), y(d.generation)]})`)
+            .attr('stroke-width', 1)
+            .attr('stroke', 'white')
             .attr('fill', d => colour(d.source))
     }
 

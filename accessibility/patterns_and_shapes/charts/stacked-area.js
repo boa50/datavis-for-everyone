@@ -45,16 +45,31 @@ export const addChart = (chartProps, data, pattern = false, shapes = false) => {
             .attr('fill', fillFunction)
             .attr('stroke-width', 1)
             .attr('stroke', 'white')
+            .attr('opacity', shapes ? 0.3 : 1)
             .attr('d', area)
     }
 
-    plotArea(d => d3.hsl(colour(d.key)).brighter(shapes ? 0.75 : 0))
+    plotArea(d => colour(d.key))
 
     let legendShapes
 
     if (shapes) {
         const symbols = [d3.symbolCircle, d3.symbolSquare, d3.symbolTriangle, d3.symbolStar]
         legendShapes = symbols.map(d => d3.symbol(d))
+
+        const line = d3
+            .line()
+            .x(d => x(d.data[0]))
+            .y(d => y(d[1]))
+
+        chart
+            .selectAll('.data-line')
+            .data(stackedData)
+            .join('path')
+            .attr('fill', 'none')
+            .attr('stroke', d => colour(d.key))
+            .attr('stroke-width', 2)
+            .attr('d', line)
 
         const shapesGroup = d3
             .scaleOrdinal()

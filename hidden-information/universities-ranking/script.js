@@ -1,4 +1,4 @@
-import { getChart, getMargin, addTooltip } from '../../node_modules/visual-components/index.js'
+import { getChart, getMargin } from '../../node_modules/visual-components/index.js'
 import { variables, weights, setUpControls } from './rankingVariables.js'
 import { addChart, updateChart } from './bar.js'
 

@@ -1,11 +1,11 @@
 import { addAxis, addLegend } from "../../../node_modules/visual-components/index.js"
-import { palette, defaultColours } from "../../../colours.js"
+import { checkDefaultPalette } from "../utils.js"
 
-export const addChart = (chartProps, data, shapes = false, dashed = false) => {
+export const addChart = (chartProps, data, colourPalette, shapes = false, dashed = false) => {
+    colourPalette = checkDefaultPalette(colourPalette)
     const { chart, width, height, margin } = chartProps
 
     const energySources = [...new Set(data.map(d => d.source))]
-    const colourPalette = [palette.bluishGreen, palette.blue, palette.orange, palette.reddishPurple]
 
     const x = d3
         .scaleLinear()
@@ -20,7 +20,7 @@ export const addChart = (chartProps, data, shapes = false, dashed = false) => {
     const dataPerGroup = d3.group(data, d => d.source)
     const colour = d3
         .scaleOrdinal()
-        .range(colourPalette)
+        .range(colourPalette.chart)
         .domain(energySources)
 
     const dasharray = d3
@@ -101,7 +101,7 @@ export const addChart = (chartProps, data, shapes = false, dashed = false) => {
     addLegend({
         chart,
         legends: energySources,
-        colours: colourPalette,
+        colours: colourPalette.chart,
         xPosition: -margin.left,
         shapes: legendShapes,
         patternIds: patternIdsLegend
@@ -111,7 +111,7 @@ export const addChart = (chartProps, data, shapes = false, dashed = false) => {
         chart,
         height,
         width,
-        colour: defaultColours.axis,
+        colour: colourPalette.axis,
         x,
         y,
         xLabel: 'Year',

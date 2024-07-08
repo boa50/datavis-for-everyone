@@ -1,12 +1,12 @@
 import { addAxis, addLegend } from "../../../node_modules/visual-components/index.js"
-import { palette, defaultColours } from "../../../colours.js"
-import { addWavesPattern, addCrossPattern, addTrianglePattern, addScalesPattern } from "./patterns.js"
+import { checkDefaultPalette } from "../utils.js"
+import { getPatternIds } from "./patterns.js"
 
-export const addChart = (chartProps, data, pattern = false, shapes = false) => {
+export const addChart = (chartProps, data, colourPalette, pattern = false, shapes = false) => {
+    colourPalette = checkDefaultPalette(colourPalette)
     const { chart, width, height, margin } = chartProps
 
     const keys = [...new Set(data.map(d => d.source))]
-    const colourPalette = [palette.bluishGreen, palette.blue, palette.orange, palette.reddishPurple]
 
     const x = d3
         .scaleLinear()
@@ -16,7 +16,7 @@ export const addChart = (chartProps, data, pattern = false, shapes = false) => {
     const colour = d3
         .scaleOrdinal()
         .domain(keys)
-        .range(colourPalette)
+        .range(colourPalette.chart)
 
     const groupedData = d3.group(data, d => d.year);
 
@@ -91,22 +91,12 @@ export const addChart = (chartProps, data, pattern = false, shapes = false) => {
     let patternIdsLegend
 
     if (pattern) {
-        const wavesPatternId = addWavesPattern(chart)
-        const crossPatternId = addCrossPattern(chart)
-        const trianglePatternId = addTrianglePattern(chart)
-        const scalesPatternId = addScalesPattern(chart)
-
-        const wavesPatternIdLegend = addWavesPattern(chart, 0.7)
-        const crossPatternIdLegend = addCrossPattern(chart, 0.7)
-        const trianglePatternIdLegend = addTrianglePattern(chart, 0.7)
-        const scalesPatternIdLegend = addScalesPattern(chart, 0.7)
-
-        const patternIds = [wavesPatternId, trianglePatternId, scalesPatternId, crossPatternId]
-        patternIdsLegend = [wavesPatternIdLegend, trianglePatternIdLegend, scalesPatternIdLegend, crossPatternIdLegend]
+        const patternIds = getPatternIds(chart, colourPalette.pattern)
+        patternIdsLegend = patternIds[1]
 
         const pattern = d3
             .scaleOrdinal()
-            .range(patternIds)
+            .range(patternIds[0])
             .domain(keys)
 
         plotArea(d => `url(#${pattern(d.key)})`)
@@ -115,7 +105,7 @@ export const addChart = (chartProps, data, pattern = false, shapes = false) => {
     addLegend({
         chart,
         legends: keys,
-        colours: colourPalette,
+        colours: colourPalette.chart,
         xPosition: -margin.left,
         patternIds: patternIdsLegend,
         shapes: legendShapes
@@ -125,7 +115,7 @@ export const addChart = (chartProps, data, pattern = false, shapes = false) => {
         chart,
         height,
         width,
-        colour: defaultColours.axis,
+        colour: colourPalette.axis,
         x,
         y,
         xLabel: 'Year',

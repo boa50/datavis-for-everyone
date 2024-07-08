@@ -6,7 +6,8 @@ export const palette = {
     amber: '#F5C710',
     blue: '#0072B2',
     vermillion: '#D55E00',
-    reddishPurple: '#CC79A7'
+    reddishPurple: '#CC79A7',
+    axis: '#525252'
 }
 
 export const defaultColours = {

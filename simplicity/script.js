@@ -1,11 +1,12 @@
 import { getChart, getMargin, getChartDimensions, appendChartContainer } from "../node_modules/visual-components/index.js"
+import { addChart } from "./line.js"
 
 const getData = () =>
     d3.csv('data/gdp-per-capita.csv')
         .then(d => d.map(v => { return { ...v, gdpPerCapita: +v.gdpPerCapita } }))
 
 
-appendChartContainer({ idNum: 1, chartTitle: 'Everything coloured' })
+const allColouredId = appendChartContainer({ idNum: 1, chartTitle: 'Everything coloured' })
 appendChartContainer({ idNum: 2, chartTitle: 'Focusing only on one line and the others gray' })
 appendChartContainer({ idNum: 3, chartTitle: 'A small number of countries selected and the one in focus' })
 appendChartContainer({ idNum: 4, chartTitle: 'A country in focus and the others as an aggregation by continent' })
@@ -15,5 +16,14 @@ appendChartContainer({ idNum: 7, chartTitle: 'Add a message to specific data poi
 
 
 getData().then(data => {
+    const dafaultMargin = getMargin({ left: 86 })
 
+    addChart(
+        getChart({
+            id: allColouredId,
+            chartDimensions: getChartDimensions({ chartId: allColouredId }),
+            margin: dafaultMargin
+        }),
+        data
+    )
 })

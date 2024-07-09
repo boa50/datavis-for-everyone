@@ -18,6 +18,7 @@ df = df[(df["year"] >= 2000) & (df["entity"] != "World")]
 aggregated_entities = [
     "Europe and Central Asia (WB)",
     "European Union (27)",
+    "High-income countries",
     "Latin America and Caribbean (WB)",
     "Low-income countries",
     "Lower-middle-income countries",

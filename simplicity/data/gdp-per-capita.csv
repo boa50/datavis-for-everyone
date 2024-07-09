@@ -1,0 +1,4689 @@
+entity,year,gdpPerCapita,group
+Afghanistan,2002,1280.4631,country
+Afghanistan,2003,1292.3335,country
+Afghanistan,2004,1260.0605,country
+Afghanistan,2005,1352.3207,country
+Afghanistan,2006,1366.9932,country
+Afghanistan,2007,1528.3446,country
+Afghanistan,2008,1556.8445,country
+Afghanistan,2009,1823.7426,country
+Afghanistan,2010,2026.1638,country
+Afghanistan,2011,1961.0963,country
+Afghanistan,2012,2122.8308,country
+Afghanistan,2013,2165.3408,country
+Afghanistan,2014,2144.4497,country
+Afghanistan,2015,2108.714,country
+Afghanistan,2016,2101.422,country
+Afghanistan,2017,2096.093,country
+Afghanistan,2018,2060.699,country
+Afghanistan,2019,2079.9219,country
+Afghanistan,2020,1968.341,country
+Afghanistan,2021,1516.2733,country
+Albania,2000,5892.611,country
+Albania,2001,6441.472,country
+Albania,2002,6753.914,country
+Albania,2003,7154.0303,country
+Albania,2004,7580.165,country
+Albania,2005,8040.1206,country
+Albania,2006,8568.592,country
+Albania,2007,9150.161,country
+Albania,2008,9912.197,country
+Albania,2009,10313.952,country
+Albania,2010,10749.519,country
+Albania,2011,11052.832,country
+Albania,2012,11228.005,country
+Albania,2013,11361.308,country
+Albania,2014,11586.874,country
+Albania,2015,11878.495,country
+Albania,2016,12291.902,country
+Albania,2017,12771.054,country
+Albania,2018,13317.185,country
+Albania,2019,13653.249,country
+Albania,2020,13278.435,country
+Albania,2021,14596.016,country
+Albania,2022,15492.067,country
+Algeria,2000,8786.19,country
+Algeria,2001,8926.11,country
+Algeria,2002,9299.683,country
+Algeria,2003,9835.162,country
+Algeria,2004,10114.726,country
+Algeria,2005,10566.373,country
+Algeria,2006,10592.247,country
+Algeria,2007,10775.532,country
+Algeria,2008,10847.177,country
+Algeria,2009,10824.576,country
+Algeria,2010,11007.747,country
+Algeria,2011,11113.969,country
+Algeria,2012,11270.701,country
+Algeria,2013,11360.638,country
+Algeria,2014,11561.26,country
+Algeria,2015,11751.634,country
+Algeria,2016,11888.323,country
+Algeria,2017,11809.483,country
+Algeria,2018,11725.878,country
+Algeria,2019,11627.28,country
+Algeria,2020,10844.7705,country
+Algeria,2021,11029.139,country
+Algeria,2022,11198.233,country
+Angola,2000,4728.3745,country
+Angola,2001,4768.009,country
+Angola,2002,5241.821,country
+Angola,2003,5217.3906,country
+Angola,2004,5589.238,country
+Angola,2005,6204.589,country
+Angola,2006,6677.0195,country
+Angola,2007,7340.3887,country
+Angola,2008,7866.1846,country
+Angola,2009,7646.1445,country
+Angola,2010,7689.821,country
+Angola,2011,7663.286,country
+Angola,2012,8011.0503,country
+Angola,2013,8099.6787,country
+Angola,2014,8183.1646,country
+Angola,2015,7966.8857,country
+Angola,2016,7487.9253,country
+Angola,2017,7216.0615,country
+Angola,2018,6878.59,country
+Angola,2019,6602.269,country
+Angola,2020,6029.692,country
+Angola,2021,5911.8354,country
+Angola,2022,5906.1157,country
+Antigua and Barbuda,2000,20674.816,country
+Antigua and Barbuda,2001,19434.164,country
+Antigua and Barbuda,2002,19384.584,country
+Antigua and Barbuda,2003,20330.732,country
+Antigua and Barbuda,2004,21267.316,country
+Antigua and Barbuda,2005,22381.023,country
+Antigua and Barbuda,2006,24905.305,country
+Antigua and Barbuda,2007,26853.21,country
+Antigua and Barbuda,2008,26451.059,country
+Antigua and Barbuda,2009,22933.367,country
+Antigua and Barbuda,2010,20848.914,country
+Antigua and Barbuda,2011,20196.867,country
+Antigua and Barbuda,2012,20266.729,country
+Antigua and Barbuda,2013,20175.82,country
+Antigua and Barbuda,2014,20451.219,country
+Antigua and Barbuda,2015,20584.148,country
+Antigua and Barbuda,2016,21280.645,country
+Antigua and Barbuda,2017,21672.045,country
+Antigua and Barbuda,2018,23050.686,country
+Antigua and Barbuda,2019,23638.686,country
+Antigua and Barbuda,2020,19062.412,country
+Antigua and Barbuda,2021,20501.162,country
+Antigua and Barbuda,2022,22321.87,country
+Argentina,2000,18524.81,country
+Argentina,2001,17514.504,country
+Argentina,2002,15439.745,country
+Argentina,2003,16631.574,country
+Argentina,2004,17950.15,country
+Argentina,2005,19338.146,country
+Argentina,2006,20679.242,country
+Argentina,2007,22316.256,country
+Argentina,2008,22992.39,country
+Argentina,2009,21413.283,country
+Argentina,2010,23521.27,country
+Argentina,2011,24647.629,country
+Argentina,2012,24118.867,country
+Argentina,2013,24424.137,country
+Argentina,2014,23550.1,country
+Argentina,2015,23933.887,country
+Argentina,2016,23189.527,country
+Argentina,2017,23597.117,country
+Argentina,2018,22747.242,country
+Argentina,2019,22071.748,country
+Argentina,2020,19694.56,country
+Argentina,2021,21599.797,country
+Argentina,2022,22461.441,country
+Armenia,2000,3921.8574,country
+Armenia,2001,4346.9077,country
+Armenia,2002,4965.224,country
+Armenia,2003,5698.7783,country
+Armenia,2004,6334.856,country
+Armenia,2005,7259.204,country
+Armenia,2006,8273.786,country
+Armenia,2007,9476.472,country
+Armenia,2008,10201.56,country
+Armenia,2009,8819.678,country
+Armenia,2010,9068.788,country
+Armenia,2011,9551.158,country
+Armenia,2012,10289.976,country
+Armenia,2013,10677.304,country
+Armenia,2014,11105.532,country
+Armenia,2015,11506.039,country
+Armenia,2016,11580.384,country
+Armenia,2017,12509.64,country
+Armenia,2018,13231.431,country
+Armenia,2019,14317.553,country
+Armenia,2020,13357.697,country
+Armenia,2021,14206.545,country
+Armenia,2022,16057.007,country
+Aruba,2000,39001.727,country
+Aruba,2001,39920.402,country
+Aruba,2002,39073.555,country
+Aruba,2003,39115.383,country
+Aruba,2004,41591.92,country
+Aruba,2005,41019.043,country
+Aruba,2006,40994.25,country
+Aruba,2007,41745.117,country
+Aruba,2008,41986.98,country
+Aruba,2009,36629.33,country
+Aruba,2010,35227.207,country
+Aruba,2011,36073.64,country
+Aruba,2012,35410.117,country
+Aruba,2013,37406.17,country
+Aruba,2014,36558.973,country
+Aruba,2015,36099.94,country
+Aruba,2016,36504.688,country
+Aruba,2017,38868.332,country
+Aruba,2018,39597.66,country
+Aruba,2019,38511.336,country
+Aruba,2020,29236.047,country
+Aruba,2021,37333.516,country
+Aruba,2022,41273.613,country
+Australia,2000,38412.64,country
+Australia,2001,38690.57,country
+Australia,2002,39775.27,country
+Australia,2003,40535.668,country
+Australia,2004,41798.72,country
+Australia,2005,42595.43,country
+Australia,2006,43182.387,country
+Australia,2007,44001.43,country
+Australia,2008,44675.14,country
+Australia,2009,44592.145,country
+Australia,2010,44881.324,country
+Australia,2011,45328.258,country
+Australia,2012,46289.184,country
+Australia,2013,46685.098,country
+Australia,2014,47193.17,country
+Australia,2015,47543.082,country
+Australia,2016,48107.066,country
+Australia,2017,48418.56,country
+Australia,2018,49085.934,country
+Australia,2019,49420.94,country
+Australia,2020,48651.734,country
+Australia,2021,49609.23,country
+Australia,2022,51090.26,country
+Austria,2000,46469.86,country
+Austria,2001,46878.918,country
+Austria,2002,47419.277,country
+Austria,2003,47633.113,country
+Austria,2004,48633.273,country
+Austria,2005,49387.027,country
+Austria,2006,50840.695,country
+Austria,2007,52565.074,country
+Austria,2008,53166.055,country
+Austria,2009,51030.727,country
+Austria,2010,51843.43,country
+Austria,2011,53179.15,country
+Austria,2012,53297.445,country
+Austria,2013,52997.754,country
+Austria,2014,52932.9,country
+Austria,2015,52873.86,country
+Austria,2016,53345.742,country
+Austria,2017,54172.99,country
+Austria,2018,55217.285,country
+Austria,2019,55769.684,country
+Austria,2020,51854.75,country
+Austria,2021,53817.305,country
+Austria,2022,55867.184,country
+Azerbaijan,2000,3998.5205,country
+Azerbaijan,2001,4360.4595,country
+Azerbaijan,2002,4736.5645,country
+Azerbaijan,2003,5180.6865,country
+Azerbaijan,2004,5610.763,country
+Azerbaijan,2005,7106.598,country
+Azerbaijan,2006,9453.941,country
+Azerbaijan,2007,11684.191,country
+Azerbaijan,2008,12672.376,country
+Azerbaijan,2009,13565.855,country
+Azerbaijan,2010,14082.238,country
+Azerbaijan,2011,13913.837,country
+Azerbaijan,2012,14027.469,country
+Azerbaijan,2013,14651.694,country
+Azerbaijan,2014,14867.943,country
+Azerbaijan,2015,14852.611,country
+Azerbaijan,2016,14232.192,country
+Azerbaijan,2017,14121.407,country
+Azerbaijan,2018,14209.593,country
+Azerbaijan,2019,14442.041,country
+Azerbaijan,2020,13726.77,country
+Azerbaijan,2021,14433.904,country
+Azerbaijan,2022,15094.284,country
+Bahamas,2000,36972.043,country
+Bahamas,2001,37412.047,country
+Bahamas,2002,37920.605,country
+Bahamas,2003,36944.516,country
+Bahamas,2004,36770.906,country
+Bahamas,2005,37504.266,country
+Bahamas,2006,37918.246,country
+Bahamas,2007,37928.625,country
+Bahamas,2008,36523.543,country
+Bahamas,2009,34498.164,country
+Bahamas,2010,34539.582,country
+Bahamas,2011,34321.242,country
+Bahamas,2012,34999.83,country
+Bahamas,2013,33681.56,country
+Bahamas,2014,33996.83,country
+Bahamas,2015,34023.72,country
+Bahamas,2016,33484.535,country
+Bahamas,2017,34067.848,country
+Bahamas,2018,34810.277,country
+Bahamas,2019,34324.996,country
+Bahamas,2020,26132.207,country
+Bahamas,2021,30463.084,country
+Bahamas,2022,34663.496,country
+Bahrain,2000,46154.03,country
+Bahrain,2001,46084.926,country
+Bahrain,2002,46478.207,country
+Bahrain,2003,47504.56,country
+Bahrain,2004,47455.24,country
+Bahrain,2005,46821.023,country
+Bahrain,2006,46303.49,country
+Bahrain,2007,46792.176,country
+Bahrain,2008,46588.64,country
+Bahrain,2009,44972.746,country
+Bahrain,2010,45600.066,country
+Bahrain,2011,46564.71,country
+Bahrain,2012,47793.53,country
+Bahrain,2013,48915.53,country
+Bahrain,2014,49117.99,country
+Bahrain,2015,48453.727,country
+Bahrain,2016,48486.305,country
+Bahrain,2017,48929.445,country
+Bahrain,2018,48937.66,country
+Bahrain,2019,49768.977,country
+Bahrain,2020,47994.414,country
+Bahrain,2021,49754.047,country
+Bahrain,2022,51854.715,country
+Bangladesh,2000,2267.0754,country
+Bangladesh,2001,2337.3645,country
+Bangladesh,2002,2382.2815,country
+Bangladesh,2003,2451.9902,country
+Bangladesh,2004,2537.9507,country
+Bangladesh,2005,2663.0962,country
+Bangladesh,2006,2806.5928,country
+Bangladesh,2007,2973.2812,country
+Bangladesh,2008,3124.2268,country
+Bangladesh,2009,3253.0913,country
+Bangladesh,2010,3395.3647,country
+Bangladesh,2011,3571.0586,country
+Bangladesh,2012,3756.932,country
+Bangladesh,2013,3932.7083,country
+Bangladesh,2014,4119.425,country
+Bangladesh,2015,4337.3857,country
+Bangladesh,2016,4589.0938,country
+Bangladesh,2017,4830.7764,country
+Bangladesh,2018,5124.4985,country
+Bangladesh,2019,5467.2075,country
+Bangladesh,2020,5591.3735,country
+Bangladesh,2021,5911.013,country
+Bangladesh,2022,6263.0044,country
+Barbados,2000,15505.871,country
+Barbados,2001,15098.012,country
+Barbados,2002,15155.33,country
+Barbados,2003,15424.597,country
+Barbados,2004,15583.723,country
+Barbados,2005,16141.697,country
+Barbados,2006,17057.541,country
+Barbados,2007,17346.83,country
+Barbados,2008,17383.742,country
+Barbados,2009,16438.684,country
+Barbados,2010,16011.364,country
+Barbados,2011,15846.868,country
+Barbados,2012,15757.749,country
+Barbados,2013,15515.497,country
+Barbados,2014,15480.209,country
+Barbados,2015,15822.1,country
+Barbados,2016,16190.236,country
+Barbados,2017,16233.792,country
+Barbados,2018,16063.454,country
+Barbados,2019,16077.515,country
+Barbados,2020,14003.922,country
+Barbados,2021,13869.242,country
+Barbados,2022,15417.297,country
+Belarus,2000,8053.1733,country
+Belarus,2001,8477.084,country
+Belarus,2002,8961.641,country
+Belarus,2003,9660.193,country
+Belarus,2004,10839.956,country
+Belarus,2005,11940.186,country
+Belarus,2006,13214.871,country
+Belarus,2007,14417.353,country
+Belarus,2008,15942.896,country
+Belarus,2009,16014.114,country
+Belarus,2010,17300.703,country
+Belarus,2011,18274.02,country
+Belarus,2012,18611.453,country
+Belarus,2013,18805.43,country
+Belarus,2014,19119.312,country
+Belarus,2015,18362.695,country
+Belarus,2016,17883.19,country
+Belarus,2017,18356.066,country
+Belarus,2018,18974.746,country
+Belarus,2019,19288.041,country
+Belarus,2020,19239.553,country
+Belarus,2021,19872.693,country
+Belarus,2022,19092.111,country
+Belgium,2000,43024.14,country
+Belgium,2001,43347.89,country
+Belgium,2002,43890.598,country
+Belgium,2003,44160.91,country
+Belgium,2004,45540.47,country
+Belgium,2005,46342.188,country
+Belgium,2006,47212.58,country
+Belgium,2007,48590.402,country
+Belgium,2008,48423.516,country
+Belgium,2009,47064.79,country
+Belgium,2010,47972.56,country
+Belgium,2011,48154.87,country
+Belgium,2012,48210.926,country
+Belgium,2013,48204.586,country
+Belgium,2014,48748.62,country
+Belgium,2015,49456.4,country
+Belgium,2016,49829.926,country
+Belgium,2017,50442.27,country
+Belgium,2018,51113.48,country
+Belgium,2019,51977.17,country
+Belgium,2020,49030.992,country
+Belgium,2021,52174.906,country
+Belgium,2022,53287.152,country
+Belize,2000,8656.33,country
+Belize,2001,8806.737,country
+Belize,2002,8996.232,country
+Belize,2003,9566.363,country
+Belize,2004,9724.235,country
+Belize,2005,9647.656,country
+Belize,2006,9791.17,country
+Belize,2007,9826.6045,country
+Belize,2008,9406.426,country
+Belize,2009,9110.685,country
+Belize,2010,8996.431,country
+Belize,2011,8767.314,country
+Belize,2012,8885.545,country
+Belize,2013,9074.463,country
+Belize,2014,9233.085,country
+Belize,2015,9331.3125,country
+Belize,2016,9141.245,country
+Belize,2017,8798.699,country
+Belize,2018,8719.991,country
+Belize,2019,8925.19,country
+Belize,2020,7586.0234,country
+Belize,2021,8826.859,country
+Belize,2022,9473.706,country
+Benin,2000,2431.4456,country
+Benin,2001,2485.1165,country
+Benin,2002,2523.6099,country
+Benin,2003,2532.9983,country
+Benin,2004,2566.3455,country
+Benin,2005,2528.6763,country
+Benin,2006,2549.1943,country
+Benin,2007,2625.2126,country
+Benin,2008,2673.7693,country
+Benin,2009,2656.4314,country
+Benin,2010,2634.1345,country
+Benin,2011,2633.939,country
+Benin,2012,2681.3516,country
+Benin,2013,2792.027,country
+Benin,2014,2883.899,country
+Benin,2015,2849.8203,country
+Benin,2016,2859.3916,country
+Benin,2017,2933.8374,country
+Benin,2018,3040.1672,country
+Benin,2019,3156.4387,country
+Benin,2020,3186.486,country
+Benin,2021,3321.552,country
+Benin,2022,3435.1716,country
+Bermuda,2000,83181.52,country
+Bermuda,2001,88231.78,country
+Bermuda,2002,86364.16,country
+Bermuda,2003,88727.31,country
+Bermuda,2004,90195.81,country
+Bermuda,2005,91114.08,country
+Bermuda,2006,95615.36,country
+Bermuda,2007,98257.99,country
+Bermuda,2008,95855.8,country
+Bermuda,2009,89961.984,country
+Bermuda,2010,88399.914,country
+Bermuda,2011,85829.375,country
+Bermuda,2012,80982.37,country
+Bermuda,2013,80503.65,country
+Bermuda,2014,77361.1,country
+Bermuda,2015,77842.75,country
+Bermuda,2016,78149.35,country
+Bermuda,2017,81834.95,country
+Bermuda,2018,81423.41,country
+Bermuda,2019,81681.73,country
+Bermuda,2020,76117.805,country
+Bermuda,2021,78570.49,country
+Bermuda,2022,81165.65,country
+Bhutan,2000,4323.041,country
+Bhutan,2001,4559.524,country
+Bhutan,2002,4931.44,country
+Bhutan,2003,5186.7124,country
+Bhutan,2004,5368.4023,country
+Bhutan,2005,5643.85,country
+Bhutan,2006,5949.7734,country
+Bhutan,2007,6955.8916,country
+Bhutan,2008,7203.886,country
+Bhutan,2009,7602.5,country
+Bhutan,2010,8416.137,country
+Bhutan,2011,8988.4,country
+Bhutan,2012,9346.083,country
+Bhutan,2013,9442.816,country
+Bhutan,2014,9886.98,country
+Bhutan,2015,10445.576,country
+Bhutan,2016,11196.7705,country
+Bhutan,2017,11619.064,country
+Bhutan,2018,11931.663,country
+Bhutan,2019,12530.171,country
+Bhutan,2020,11176.29,country
+Bhutan,2021,11595.684,country
+Bolivia,2000,5305.619,country
+Bolivia,2001,5300.3145,country
+Bolivia,2002,5337.7656,country
+Bolivia,2003,5387.5815,country
+Bolivia,2004,5515.656,country
+Bolivia,2005,5660.5747,country
+Bolivia,2006,5829.371,country
+Bolivia,2007,5989.69,country
+Bolivia,2008,6248.934,country
+Bolivia,2009,6349.008,country
+Bolivia,2010,6499.8184,country
+Bolivia,2011,6724.301,country
+Bolivia,2012,6952.7383,country
+Bolivia,2013,7305.228,country
+Bolivia,2014,7581.5986,country
+Bolivia,2015,7825.7666,country
+Bolivia,2016,8034.173,country
+Bolivia,2017,8244.934,country
+Bolivia,2018,8466.293,country
+Bolivia,2019,8528.749,country
+Bolivia,2020,7679.933,country
+Bolivia,2021,8052.6,country
+Bolivia,2022,8244.235,country
+Bosnia and Herzegovina,2000,6826.046,country
+Bosnia and Herzegovina,2001,6965.4927,country
+Bosnia and Herzegovina,2002,7309.6187,country
+Bosnia and Herzegovina,2003,7618.8823,country
+Bosnia and Herzegovina,2004,8180.7656,country
+Bosnia and Herzegovina,2005,8600.399,country
+Bosnia and Herzegovina,2006,9146.923,country
+Bosnia and Herzegovina,2007,9803.973,country
+Bosnia and Herzegovina,2008,10506.73,country
+Bosnia and Herzegovina,2009,10363.573,country
+Bosnia and Herzegovina,2010,10636.132,country
+Bosnia and Herzegovina,2011,10933.108,country
+Bosnia and Herzegovina,2012,11046.193,country
+Bosnia and Herzegovina,2013,11483.324,country
+Bosnia and Herzegovina,2014,11767.049,country
+Bosnia and Herzegovina,2015,12437.57,country
+Bosnia and Herzegovina,2016,13000.695,country
+Bosnia and Herzegovina,2017,13582.267,country
+Bosnia and Herzegovina,2018,14267.606,country
+Bosnia and Herzegovina,2019,14851.738,country
+Bosnia and Herzegovina,2020,14587.57,country
+Bosnia and Herzegovina,2021,15893.156,country
+Bosnia and Herzegovina,2022,16737.227,country
+Botswana,2000,11461.936,country
+Botswana,2001,11262.758,country
+Botswana,2002,11725.412,country
+Botswana,2003,12054.723,country
+Botswana,2004,12166.314,country
+Botswana,2005,12494.06,country
+Botswana,2006,13287.059,country
+Botswana,2007,13783.206,country
+Botswana,2008,13945.424,country
+Botswana,2009,11729.418,country
+Botswana,2010,12653.212,country
+Botswana,2011,13250.085,country
+Botswana,2012,12975.785,country
+Botswana,2013,14144.341,country
+Botswana,2014,14664.785,country
+Botswana,2015,13682.2,country
+Botswana,2016,14373.339,country
+Botswana,2017,14656.773,country
+Botswana,2018,14961.831,country
+Botswana,2019,15117.685,country
+Botswana,2020,13545.048,country
+Botswana,2021,14906.897,country
+Botswana,2022,15518.651,country
+Brazil,2000,11529.486,country
+Brazil,2001,11536.364,country
+Brazil,2002,11739.432,country
+Brazil,2003,11733.411,country
+Brazil,2004,12268.664,country
+Brazil,2005,12520.855,country
+Brazil,2006,12877.444,country
+Brazil,2007,13518.848,country
+Brazil,2008,14067.946,country
+Brazil,2009,13916.963,country
+Brazil,2010,14824.741,country
+Brazil,2011,15271.47,country
+Brazil,2012,15425.353,country
+Brazil,2013,15751.484,country
+Brazil,2014,15695.644,country
+Brazil,2015,15011.577,country
+Brazil,2016,14402.494,country
+Brazil,2017,14477.861,country
+Brazil,2018,14619.591,country
+Brazil,2019,14685.128,country
+Brazil,2020,14109.764,country
+Brazil,2021,14735.582,country
+Brazil,2022,15093.465,country
+Brunei,2000,68865.79,country
+Brunei,2001,69338.92,country
+Brunei,2002,70631.875,country
+Brunei,2003,71331.75,country
+Brunei,2004,70415.42,country
+Brunei,2005,69482.38,country
+Brunei,2006,71352.88,country
+Brunei,2007,70342.41,country
+Brunei,2008,67934.06,country
+Brunei,2009,65753.41,country
+Brunei,2010,66484.24,country
+Brunei,2011,68037.52,country
+Brunei,2012,67792.76,country
+Brunei,2013,65534.684,country
+Brunei,2014,63131.188,country
+Brunei,2015,62170.086,country
+Brunei,2016,59980.99,country
+Brunei,2017,60173.05,country
+Brunei,2018,59650.23,country
+Brunei,2019,61424.363,country
+Brunei,2020,61603.55,country
+Brunei,2021,60127.023,country
+Brunei,2022,58669.902,country
+Bulgaria,2000,10504.843,country
+Bulgaria,2001,11125.801,country
+Bulgaria,2002,12037.584,country
+Bulgaria,2003,12768.754,country
+Bulgaria,2004,13703.096,country
+Bulgaria,2005,14780.913,country
+Bulgaria,2006,15906.753,country
+Bulgaria,2007,17090.451,country
+Bulgaria,2008,18265.783,country
+Bulgaria,2009,17768.514,country
+Bulgaria,2010,18164.055,country
+Bulgaria,2011,18663.006,country
+Bulgaria,2012,18911.982,country
+Bulgaria,2013,18914.898,country
+Bulgaria,2014,19203.324,country
+Bulgaria,2015,19982.867,country
+Bulgaria,2016,20732.58,country
+Bulgaria,2017,21458.049,country
+Bulgaria,2018,22196.02,country
+Bulgaria,2019,23254.787,country
+Bulgaria,2020,22466.918,country
+Bulgaria,2021,24386.18,country
+Bulgaria,2022,26961.291,country
+Burkina Faso,2000,1266.7449,country
+Burkina Faso,2001,1310.0723,country
+Burkina Faso,2002,1325.7034,country
+Burkina Faso,2003,1385.4551,country
+Burkina Faso,2004,1402.7844,country
+Burkina Faso,2005,1477.0398,country
+Burkina Faso,2006,1521.1544,country
+Burkina Faso,2007,1536.3859,country
+Burkina Faso,2008,1578.3458,country
+Burkina Faso,2009,1578.1489,country
+Burkina Faso,2010,1661.8721,country
+Burkina Faso,2011,1720.0825,country
+Burkina Faso,2012,1776.391,country
+Burkina Faso,2013,1823.595,country
+Burkina Faso,2014,1846.6451,country
+Burkina Faso,2015,1862.8547,country
+Burkina Faso,2016,1916.7563,country
+Burkina Faso,2017,1978.155,country
+Burkina Faso,2018,2051.2185,country
+Burkina Faso,2019,2106.0361,country
+Burkina Faso,2020,2089.5679,country
+Burkina Faso,2021,2176.0933,country
+Burkina Faso,2022,2158.8584,country
+Burundi,2000,837.3484,country
+Burundi,2001,833.6709,country
+Burundi,2002,846.7473,country
+Burundi,2003,810.5523,country
+Burundi,2004,818.7461,country
+Burundi,2005,796.1087,country
+Burundi,2006,809.696,country
+Burundi,2007,807.4475,country
+Burundi,2008,812.59216,country
+Burundi,2009,801.8034,country
+Burundi,2010,804.3549,country
+Burundi,2011,807.665,country
+Burundi,2012,814.3208,country
+Burundi,2013,824.61053,country
+Burundi,2014,831.29486,country
+Burundi,2015,781.5793,country
+Burundi,2016,764.3366,country
+Burundi,2017,750.7876,country
+Burundi,2018,740.44824,country
+Burundi,2019,729.65845,country
+Burundi,2020,711.3553,country
+Burundi,2021,714.0667,country
+Burundi,2022,708.1783,country
+Cambodia,2000,1486.107,country
+Cambodia,2001,1578.6277,country
+Cambodia,2002,1652.5381,country
+Cambodia,2003,1761.4211,country
+Cambodia,2004,1909.4185,country
+Cambodia,2005,2124.8374,country
+Cambodia,2006,2313.3303,country
+Cambodia,2007,2505.5203,country
+Cambodia,2008,2629.259,country
+Cambodia,2009,2592.1555,country
+Cambodia,2010,2706.9917,country
+Cambodia,2011,2856.5308,country
+Cambodia,2012,3021.3323,country
+Cambodia,2013,3197.532,country
+Cambodia,2014,3378.3645,country
+Cambodia,2015,3565.245,country
+Cambodia,2016,3761.9114,country
+Cambodia,2017,3972.724,country
+Cambodia,2018,4217.6216,country
+Cambodia,2019,4464.2944,country
+Cambodia,2020,4276.1846,country
+Cambodia,2021,4354.5654,country
+Cambodia,2022,4533.8643,country
+Cameroon,2000,2937.992,country
+Cameroon,2001,2985.578,country
+Cameroon,2002,3036.7678,country
+Cameroon,2003,3116.1528,country
+Cameroon,2004,3245.4958,country
+Cameroon,2005,3228.361,country
+Cameroon,2006,3261.4517,country
+Cameroon,2007,3309.2822,country
+Cameroon,2008,3308.3198,country
+Cameroon,2009,3298.4075,country
+Cameroon,2010,3298.6245,country
+Cameroon,2011,3314.8982,country
+Cameroon,2012,3371.9756,country
+Cameroon,2013,3442.2007,country
+Cameroon,2014,3530.2832,country
+Cameroon,2015,3614.7556,country
+Cameroon,2016,3667.3228,country
+Cameroon,2017,3691.0947,country
+Cameroon,2018,3732.5012,country
+Cameroon,2019,3756.5095,country
+Cameroon,2020,3665.5105,country
+Cameroon,2021,3689.359,country
+Cameroon,2022,3723.5322,country
+Canada,2000,41307.75,country
+Canada,2001,41627.625,country
+Canada,2002,42412.414,country
+Canada,2003,42791.094,country
+Canada,2004,43704.668,country
+Canada,2005,44683.766,country
+Canada,2006,45401.465,country
+Canada,2007,45884.383,country
+Canada,2008,45841.996,country
+Canada,2009,44000.402,country
+Canada,2010,44858.82,country
+Canada,2011,45815.53,country
+Canada,2012,46116.426,country
+Canada,2013,46693.04,country
+Canada,2014,47554.258,country
+Canada,2015,47507.453,country
+Canada,2016,47460.37,country
+Canada,2017,48317.176,country
+Canada,2018,48946.246,country
+Canada,2019,49169.12,country
+Canada,2020,46193.176,country
+Canada,2021,48356.332,country
+Canada,2022,49296.38,country
+Cape Verde,2000,4255.7456,country
+Cape Verde,2001,4278.758,country
+Cape Verde,2002,4434.2183,country
+Cape Verde,2003,4553.4155,country
+Cape Verde,2004,4950.763,country
+Cape Verde,2005,5225.922,country
+Cape Verde,2006,5574.6323,country
+Cape Verde,2007,6345.9414,country
+Cape Verde,2008,6718.056,country
+Cape Verde,2009,6549.0054,country
+Cape Verde,2010,6597.949,country
+Cape Verde,2011,6774.8936,country
+Cape Verde,2012,6766.943,country
+Cape Verde,2013,6733.089,country
+Cape Verde,2014,6703.8125,country
+Cape Verde,2015,6691.9316,country
+Cape Verde,2016,6900.561,country
+Cape Verde,2017,7130.854,country
+Cape Verde,2018,7314.3013,country
+Cape Verde,2019,7743.479,country
+Cape Verde,2020,6073.3804,country
+Cape Verde,2021,6356.745,country
+Cape Verde,2022,7379.2476,country
+Cayman Islands,2006,84778.38,country
+Cayman Islands,2007,84870.016,country
+Cayman Islands,2008,82125.12,country
+Cayman Islands,2009,74068.88,country
+Cayman Islands,2010,70095.9,country
+Cayman Islands,2011,69103.24,country
+Cayman Islands,2012,68270.04,country
+Cayman Islands,2013,67537.55,country
+Cayman Islands,2014,67762.36,country
+Cayman Islands,2015,68135.46,country
+Cayman Islands,2016,68824.43,country
+Cayman Islands,2017,69534.77,country
+Cayman Islands,2018,71046.02,country
+Cayman Islands,2019,72432.5,country
+Cayman Islands,2020,67530.695,country
+Cayman Islands,2021,69400.67,country
+Cayman Islands,2022,71353.89,country
+Central African Republic,2000,1007.24786,country
+Central African Republic,2001,1028.7914,country
+Central African Republic,2002,1042.7086,country
+Central African Republic,2003,962.8648,country
+Central African Republic,2004,998.6891,country
+Central African Republic,2005,985.3248,country
+Central African Republic,2006,1011.7775,country
+Central African Republic,2007,1038.7501,country
+Central African Republic,2008,1038.3353,country
+Central African Republic,2009,1103.4637,country
+Central African Republic,2010,1130.8958,country
+Central African Republic,2011,1160.4148,country
+Central African Republic,2012,1208.5157,country
+Central African Republic,2013,764.0515,country
+Central African Republic,2014,765.2596,country
+Central African Republic,2015,795.03705,country
+Central African Republic,2016,818.396,country
+Central African Republic,2017,839.60004,country
+Central African Republic,2018,854.64746,country
+Central African Republic,2019,861.7668,country
+Central African Republic,2020,847.765,country
+Central African Republic,2021,838.19293,country
+Central African Republic,2022,823.9822,country
+Chad,2000,907.8335,country
+Chad,2001,980.4698,country
+Chad,2002,1027.67,country
+Chad,2003,1133.0654,country
+Chad,2004,1448.41,country
+Chad,2005,1632.9542,country
+Chad,2006,1586.3641,country
+Chad,2007,1583.7002,country
+Chad,2008,1576.7651,country
+Chad,2009,1586.4545,country
+Chad,2010,1741.054,country
+Chad,2011,1682.6577,country
+Chad,2012,1769.325,country
+Chad,2013,1804.8231,country
+Chad,2014,1861.6929,country
+Chad,2015,1853.2594,country
+Chad,2016,1683.4781,country
+Chad,2017,1579.7606,country
+Chad,2018,1563.544,country
+Chad,2019,1561.9967,country
+Chad,2020,1489.1868,country
+Chad,2021,1425.4945,country
+Chad,2022,1412.6708,country
+Chile,2000,15415.754,country
+Chile,2001,15725.602,country
+Chile,2002,16053.654,country
+Chile,2003,16636.654,country
+Chile,2004,17571.025,country
+Chile,2005,18415.756,country
+Chile,2006,19339.488,country
+Chile,2007,20140.53,country
+Chile,2008,20695.562,country
+Chile,2009,20255.1,country
+Chile,2010,21225.104,country
+Chile,2011,22323.723,country
+Chile,2012,23467.979,country
+Chile,2013,24011.592,country
+Chile,2014,24197.184,country
+Chile,2015,24464.746,country
+Chile,2016,24599.375,country
+Chile,2017,24546.912,country
+Chile,2018,25071.99,country
+Chile,2019,24809.861,country
+Chile,2020,22970.55,country
+Chile,2021,25412.752,country
+Chile,2022,25886.121,country
+China,2000,3451.6792,country
+China,2001,3712.3381,country
+China,2002,4024.3557,country
+China,2003,4400.825,country
+China,2004,4817.212,country
+China,2005,5334.6465,country
+China,2006,5979.7817,country
+China,2007,6795.174,country
+China,2008,7412.8745,country
+China,2009,8069.3545,country
+China,2010,8884.588,country
+China,2011,9680.098,country
+China,2012,10370.727,country
+China,2013,11101.938,country
+China,2014,11851.404,country
+China,2015,12612.352,country
+China,2016,13399.138,country
+China,2017,14243.532,country
+China,2018,15133.996,country
+China,2019,15977.764,country
+China,2020,16296.609,country
+China,2021,17657.656,country
+China,2022,18187.842,country
+Colombia,2000,9138.319,country
+Colombia,2001,9146.405,country
+Colombia,2002,9232.627,country
+Colombia,2003,9453.328,country
+Colombia,2004,9816.277,country
+Colombia,2005,10150.708,country
+Colombia,2006,10692.728,country
+Colombia,2007,11272.578,country
+Colombia,2008,11507.525,country
+Colombia,2009,11507.717,country
+Colombia,2010,11890.203,country
+Colombia,2011,12578.016,country
+Colombia,2012,12934.966,country
+Colombia,2013,13465.075,country
+Colombia,2014,13938.231,country
+Colombia,2015,14215.688,country
+Colombia,2016,14358.168,country
+Colombia,2017,14334.915,country
+Colombia,2018,14426.435,country
+Colombia,2019,14616.135,country
+Colombia,2020,13358.298,country
+Colombia,2021,14661.213,country
+Colombia,2022,15616.752,country
+Comoros,2000,2863.1519,country
+Comoros,2001,2871.1968,country
+Comoros,2002,2878.5344,country
+Comoros,2003,2881.9607,country
+Comoros,2004,2881.5667,country
+Comoros,2005,2905.6892,country
+Comoros,2006,2923.5322,country
+Comoros,2007,2888.4465,country
+Comoros,2008,2942.991,country
+Comoros,2009,2976.7795,country
+Comoros,2010,3025.5173,country
+Comoros,2011,3084.8267,country
+Comoros,2012,3115.238,country
+Comoros,2013,3185.3196,country
+Comoros,2014,3183.157,country
+Comoros,2015,3150.8777,country
+Comoros,2016,3185.6296,country
+Comoros,2017,3240.1792,country
+Comoros,2018,3294.832,country
+Comoros,2019,3290.6506,country
+Comoros,2020,3222.374,country
+Comoros,2021,3228.5269,country
+Comoros,2022,3245.7688,country
+Congo,2000,4454.337,country
+Congo,2001,4453.1104,country
+Congo,2002,4549.416,country
+Congo,2003,4461.203,country
+Congo,2004,4462.089,country
+Congo,2005,4638.1997,country
+Congo,2006,4824.098,country
+Congo,2007,4342.1934,country
+Congo,2008,4465.6,country
+Congo,2009,4788.98,country
+Congo,2010,5050.2793,country
+Congo,2011,4996.9194,country
+Congo,2012,5343.5547,country
+Congo,2013,5179.3237,country
+Congo,2014,5393.082,country
+Congo,2015,5287.6626,country
+Congo,2016,4714.4385,country
+Congo,2017,4345.519,country
+Congo,2018,4144.949,country
+Congo,2019,4093.9907,country
+Congo,2020,3748.9326,country
+Congo,2021,3700.27,country
+Congo,2022,3670.1997,country
+Costa Rica,2000,12570.696,country
+Costa Rica,2001,12771.951,country
+Costa Rica,2002,12986.001,country
+Costa Rica,2003,13333.217,country
+Costa Rica,2004,13713.009,country
+Costa Rica,2005,14049.909,country
+Costa Rica,2006,14864.781,country
+Costa Rica,2007,15861.875,country
+Costa Rica,2008,16385.002,country
+Costa Rica,2009,16024.03,country
+Costa Rica,2010,16667.016,country
+Costa Rica,2011,17186.45,country
+Costa Rica,2012,17809.941,country
+Costa Rica,2013,18044.945,country
+Costa Rica,2014,18480.652,country
+Costa Rica,2015,18956.191,country
+Costa Rica,2016,19553.6,country
+Costa Rica,2017,20168.22,country
+Costa Rica,2018,20503.277,country
+Costa Rica,2019,20818.062,country
+Costa Rica,2020,19778.387,country
+Costa Rica,2021,21220.162,country
+Costa Rica,2022,22070.922,country
+Cote d'Ivoire,2000,4123.842,country
+Cote d'Ivoire,2001,3930.7078,country
+Cote d'Ivoire,2002,3728.5874,country
+Cote d'Ivoire,2003,3467.5618,country
+Cote d'Ivoire,2004,3495.3403,country
+Cote d'Ivoire,2005,3451.0103,country
+Cote d'Ivoire,2006,3470.6335,country
+Cote d'Ivoire,2007,3433.8513,country
+Cote d'Ivoire,2008,3522.234,country
+Cote d'Ivoire,2009,3572.6816,country
+Cote d'Ivoire,2010,3737.4006,country
+Cote d'Ivoire,2011,3464.047,country
+Cote d'Ivoire,2012,3652.1768,country
+Cote d'Ivoire,2013,3962.6045,country
+Cote d'Ivoire,2014,4234.7905,country
+Cote d'Ivoire,2015,4423.8267,country
+Cote d'Ivoire,2016,4620.349,country
+Cote d'Ivoire,2017,4836.0483,country
+Cote d'Ivoire,2018,4941.794,country
+Cote d'Ivoire,2019,5132.342,country
+Cote d'Ivoire,2020,5092.1636,country
+Cote d'Ivoire,2021,5316.464,country
+Cote d'Ivoire,2022,5537.3696,country
+Croatia,2000,18331.303,country
+Croatia,2001,19644.912,country
+Croatia,2002,20776.125,country
+Croatia,2003,21933.266,country
+Croatia,2004,22843.691,country
+Croatia,2005,23797.027,country
+Croatia,2006,24999.281,country
+Croatia,2007,26273.74,country
+Croatia,2008,26805.46,country
+Croatia,2009,24896.803,country
+Croatia,2010,24643.15,country
+Croatia,2011,24707.871,country
+Croatia,2012,24203.596,country
+Croatia,2013,24174.793,country
+Croatia,2014,24170.154,country
+Croatia,2015,24984.914,country
+Croatia,2016,26056.287,country
+Croatia,2017,27267.51,country
+Croatia,2018,28288.168,country
+Croatia,2019,29412.422,country
+Croatia,2020,27002.2,country
+Croatia,2021,32060.504,country
+Croatia,2022,34302.348,country
+Curacao,2000,28613.9,country
+Curacao,2001,29474.59,country
+Curacao,2002,29555.438,country
+Curacao,2003,29035.65,country
+Curacao,2004,28598.566,country
+Curacao,2005,28067.078,country
+Curacao,2006,27802.979,country
+Curacao,2007,27932.588,country
+Curacao,2008,28186.871,country
+Curacao,2009,27855.14,country
+Curacao,2010,27527.488,country
+Curacao,2011,27277.107,country
+Curacao,2012,26957.268,country
+Curacao,2013,26483.95,country
+Curacao,2014,25962.887,country
+Curacao,2015,25739.922,country
+Curacao,2016,25196.512,country
+Curacao,2017,24795.594,country
+Curacao,2018,24401.684,country
+Curacao,2019,23903.621,country
+Curacao,2020,19907.123,country
+Curacao,2021,21090.889,country
+Curacao,2022,23114.951,country
+Cyprus,2000,32943.367,country
+Cyprus,2001,33878.34,country
+Cyprus,2002,34739.215,country
+Cyprus,2003,35219.87,country
+Cyprus,2004,36498.637,country
+Cyprus,2005,37722.72,country
+Cyprus,2006,38847.344,country
+Cyprus,2007,39967.742,country
+Cyprus,2008,40398.023,country
+Cyprus,2009,38535.41,country
+Cyprus,2010,38297.0,country
+Cyprus,2011,37482.105,country
+Cyprus,2012,35642.92,country
+Cyprus,2013,33384.73,country
+Cyprus,2014,33136.742,country
+Cyprus,2015,34453.39,country
+Cyprus,2016,36509.355,country
+Cyprus,2017,38288.27,country
+Cyprus,2018,39977.312,country
+Cyprus,2019,41741.805,country
+Cyprus,2020,39871.87,country
+Cyprus,2021,43417.27,country
+Cyprus,2022,44996.316,country
+Czechia,2000,24976.506,country
+Czechia,2001,25833.414,country
+Czechia,2002,26289.627,country
+Czechia,2003,27239.559,country
+Czechia,2004,28542.254,country
+Czechia,2005,30384.447,country
+Czechia,2006,32352.812,country
+Czechia,2007,33956.246,country
+Czechia,2008,34580.44,country
+Czechia,2009,32782.613,country
+Czechia,2010,33483.137,country
+Czechia,2011,34002.19,country
+Czechia,2012,33688.1,country
+Czechia,2013,33661.47,country
+Czechia,2014,34386.703,country
+Czechia,2015,36168.418,country
+Czechia,2016,37014.96,country
+Czechia,2017,38824.887,country
+Czechia,2018,39941.285,country
+Czechia,2019,40989.727,country
+Czechia,2020,38639.98,country
+Czechia,2021,40744.457,country
+Czechia,2022,41052.348,country
+Democratic Republic of Congo,2000,728.2072,country
+Democratic Republic of Congo,2001,691.70917,country
+Democratic Republic of Congo,2002,690.6596,country
+Democratic Republic of Congo,2003,708.02875,country
+Democratic Republic of Congo,2004,733.5419,country
+Democratic Republic of Congo,2005,754.6644,country
+Democratic Republic of Congo,2006,769.88715,country
+Democratic Republic of Congo,2007,792.19086,country
+Democratic Republic of Congo,2008,815.01184,country
+Democratic Republic of Congo,2009,811.92737,country
+Democratic Republic of Congo,2010,841.85626,country
+Democratic Republic of Congo,2011,870.0738,country
+Democratic Republic of Congo,2012,900.979,country
+Democratic Republic of Congo,2013,944.64026,country
+Democratic Republic of Congo,2014,999.07214,country
+Democratic Republic of Congo,2015,1032.5719,country
+Democratic Republic of Congo,2016,1021.3272,country
+Democratic Republic of Congo,2017,1023.53986,country
+Democratic Republic of Congo,2018,1048.2465,country
+Democratic Republic of Congo,2019,1059.8921,country
+Democratic Republic of Congo,2020,1044.0712,country
+Democratic Republic of Congo,2021,1073.6433,country
+Democratic Republic of Congo,2022,1132.6542,country
+Denmark,2000,48907.01,country
+Denmark,2001,49133.223,country
+Denmark,2002,49204.9,country
+Denmark,2003,49262.645,country
+Denmark,2004,50446.543,country
+Denmark,2005,51483.273,country
+Denmark,2006,53322.29,country
+Denmark,2007,53569.027,country
+Denmark,2008,52982.53,country
+Denmark,2009,50114.05,country
+Denmark,2010,50825.414,country
+Denmark,2011,51293.207,country
+Denmark,2012,51216.31,country
+Denmark,2013,51479.266,country
+Denmark,2014,52048.336,country
+Denmark,2015,52892.645,country
+Denmark,2016,54185.008,country
+Denmark,2017,55356.68,country
+Denmark,2018,56178.773,country
+Denmark,2019,56813.965,country
+Denmark,2020,55275.062,country
+Denmark,2021,58802.96,country
+Denmark,2022,59935.12,country
+Djibouti,2013,3664.268,country
+Djibouti,2014,3854.27,country
+Djibouti,2015,4073.6226,country
+Djibouti,2016,4291.2974,country
+Djibouti,2017,4451.684,country
+Djibouti,2018,4589.3784,country
+Djibouti,2019,4768.113,country
+Djibouti,2020,4759.259,country
+Djibouti,2021,4905.192,country
+Djibouti,2022,4989.4087,country
+Dominica,2000,9763.941,country
+Dominica,2001,9785.34,country
+Dominica,2002,9493.428,country
+Dominica,2003,10070.004,country
+Dominica,2004,10357.233,country
+Dominica,2005,10409.982,country
+Dominica,2006,10884.253,country
+Dominica,2007,11570.173,country
+Dominica,2008,12392.83,country
+Dominica,2009,12246.994,country
+Dominica,2010,12335.11,country
+Dominica,2011,12309.862,country
+Dominica,2012,12153.6875,country
+Dominica,2013,12044.222,country
+Dominica,2014,12516.384,country
+Dominica,2015,12063.8955,country
+Dominica,2016,12385.27,country
+Dominica,2017,11511.606,country
+Dominica,2018,11849.302,country
+Dominica,2019,12395.421,country
+Dominica,2020,10255.859,country
+Dominica,2021,10899.414,country
+Dominica,2022,11463.598,country
+Dominican Republic,2000,9246.31,country
+Dominican Republic,2001,9333.57,country
+Dominican Republic,2002,9613.332,country
+Dominican Republic,2003,9351.324,country
+Dominican Republic,2004,9460.913,country
+Dominican Republic,2005,10215.499,country
+Dominican Republic,2006,11009.275,country
+Dominican Republic,2007,11677.254,country
+Dominican Republic,2008,11899.228,country
+Dominican Republic,2009,11856.048,country
+Dominican Republic,2010,12677.018,country
+Dominican Republic,2011,12905.289,country
+Dominican Republic,2012,13087.949,country
+Dominican Republic,2013,13555.512,country
+Dominican Republic,2014,14334.733,country
+Dominican Republic,2015,15145.47,country
+Dominican Republic,2016,15967.202,country
+Dominican Republic,2017,16524.533,country
+Dominican Republic,2018,17484.121,country
+Dominican Republic,2019,18171.06,country
+Dominican Republic,2020,16768.426,country
+Dominican Republic,2021,18626.078,country
+Dominican Republic,2022,19338.016,country
+East Asia and Pacific (WB),2000,7330.632,country
+East Asia and Pacific (WB),2001,7531.284,country
+East Asia and Pacific (WB),2002,7835.25,country
+East Asia and Pacific (WB),2003,8199.489,country
+East Asia and Pacific (WB),2004,8653.941,country
+East Asia and Pacific (WB),2005,9140.366,country
+East Asia and Pacific (WB),2006,9711.117,country
+East Asia and Pacific (WB),2007,10418.688,country
+East Asia and Pacific (WB),2008,10853.389,country
+East Asia and Pacific (WB),2009,11128.493,country
+East Asia and Pacific (WB),2010,11940.857,country
+East Asia and Pacific (WB),2011,12556.054,country
+East Asia and Pacific (WB),2012,13151.834,country
+East Asia and Pacific (WB),2013,13772.495,country
+East Asia and Pacific (WB),2014,14369.254,country
+East Asia and Pacific (WB),2015,14982.719,country
+East Asia and Pacific (WB),2016,15617.488,country
+East Asia and Pacific (WB),2017,16337.971,country
+East Asia and Pacific (WB),2018,17065.322,country
+East Asia and Pacific (WB),2019,17709.883,country
+East Asia and Pacific (WB),2020,17601.184,country
+East Asia and Pacific (WB),2021,18645.273,country
+East Asia and Pacific (WB),2022,19194.568,country
+East Timor,2000,2319.651,country
+East Timor,2001,2654.6958,country
+East Timor,2002,2431.4329,country
+East Timor,2003,2334.5327,country
+East Timor,2004,2296.1309,country
+East Timor,2005,2307.7612,country
+East Timor,2006,2156.5916,country
+East Timor,2007,2320.125,country
+East Timor,2008,2525.741,country
+East Timor,2009,2723.3755,country
+East Timor,2010,2914.7397,country
+East Timor,2011,3020.458,country
+East Timor,2012,3098.5066,country
+East Timor,2013,3129.0198,country
+East Timor,2014,3204.749,country
+East Timor,2015,3237.067,country
+East Timor,2016,3294.8655,country
+East Timor,2017,3143.3245,country
+East Timor,2018,3075.5103,country
+East Timor,2019,3740.4346,country
+East Timor,2020,4861.6934,country
+East Timor,2021,5038.926,country
+East Timor,2022,3943.0925,country
+Ecuador,2000,8211.711,country
+Ecuador,2001,8395.833,country
+Ecuador,2002,8589.284,country
+Ecuador,2003,8670.211,country
+Ecuador,2004,9220.325,country
+Ecuador,2005,9542.225,country
+Ecuador,2006,9792.422,country
+Ecuador,2007,9836.419,country
+Ecuador,2008,10284.954,country
+Ecuador,2009,10170.651,country
+Ecuador,2010,10355.822,country
+Ecuador,2011,10988.722,country
+Ecuador,2012,11424.152,country
+Ecuador,2013,11806.924,country
+Ecuador,2014,12073.811,country
+Ecuador,2015,11908.216,country
+Ecuador,2016,11587.825,country
+Ecuador,2017,11679.431,country
+Ecuador,2018,11608.419,country
+Ecuador,2019,11390.217,country
+Ecuador,2020,10356.975,country
+Ecuador,2021,10668.758,country
+Ecuador,2022,10859.218,country
+Egypt,2000,7869.2593,country
+Egypt,2001,7981.6226,country
+Egypt,2002,8003.281,country
+Egypt,2003,8088.2163,country
+Egypt,2004,8249.868,country
+Egypt,2005,8449.525,country
+Egypt,2006,8853.762,country
+Egypt,2007,9298.051,country
+Egypt,2008,9770.222,country
+Egypt,2009,10028.733,country
+Egypt,2010,10333.275,country
+Egypt,2011,10286.01,country
+Egypt,2012,10279.86,country
+Egypt,2013,10264.064,country
+Egypt,2014,10318.651,country
+Egypt,2015,10534.882,country
+Egypt,2016,10765.829,country
+Egypt,2017,10995.006,country
+Egypt,2018,11363.318,country
+Egypt,2019,11780.962,country
+Egypt,2020,11989.6,country
+Egypt,2021,12180.451,country
+Egypt,2022,12780.76,country
+El Salvador,2000,6497.0303,country
+El Salvador,2001,6521.7666,country
+El Salvador,2002,6598.804,country
+El Salvador,2003,6684.7827,country
+El Salvador,2004,6734.3975,country
+El Salvador,2005,6912.4595,country
+El Salvador,2006,7216.2935,country
+El Salvador,2007,7337.833,country
+El Salvador,2008,7466.3115,country
+El Salvador,2009,7281.1597,country
+El Salvador,2010,7410.217,country
+El Salvador,2011,7660.635,country
+El Salvador,2012,7851.226,country
+El Salvador,2013,7991.0293,country
+El Salvador,2014,8097.958,country
+El Salvador,2015,8263.644,country
+El Salvador,2016,8447.104,country
+El Salvador,2017,8617.922,country
+El Salvador,2018,8812.925,country
+El Salvador,2019,9015.664,country
+El Salvador,2020,8294.537,country
+El Salvador,2021,9190.174,country
+El Salvador,2022,9396.014,country
+Equatorial Guinea,2000,9890.817,country
+Equatorial Guinea,2001,15389.156,country
+Equatorial Guinea,2002,17534.848,country
+Equatorial Guinea,2003,19081.926,country
+Equatorial Guinea,2004,25164.152,country
+Equatorial Guinea,2005,28075.178,country
+Equatorial Guinea,2006,28879.352,country
+Equatorial Guinea,2007,31770.016,country
+Equatorial Guinea,2008,35688.65,country
+Equatorial Guinea,2009,34479.895,country
+Equatorial Guinea,2010,29944.262,country
+Equatorial Guinea,2011,30502.6,country
+Equatorial Guinea,2012,31680.66,country
+Equatorial Guinea,2013,29143.021,country
+Equatorial Guinea,2014,28106.2,country
+Equatorial Guinea,2015,24563.5,country
+Equatorial Guinea,2016,21566.057,country
+Equatorial Guinea,2017,19617.844,country
+Equatorial Guinea,2018,17764.969,country
+Equatorial Guinea,2019,16240.37,country
+Equatorial Guinea,2020,15045.528,country
+Equatorial Guinea,2021,14730.601,country
+Equatorial Guinea,2022,14918.297,country
+Estonia,2000,17765.207,country
+Estonia,2001,18952.107,country
+Estonia,2002,20364.008,country
+Estonia,2003,22049.684,country
+Estonia,2004,23691.152,country
+Estonia,2005,26096.988,country
+Estonia,2006,28814.92,country
+Estonia,2007,31140.58,country
+Estonia,2008,29621.764,country
+Estonia,2009,25337.176,country
+Estonia,2010,26015.746,country
+Estonia,2011,27990.137,country
+Estonia,2012,28997.322,country
+Estonia,2013,29525.12,country
+Estonia,2014,30494.096,country
+Estonia,2015,31038.805,country
+Estonia,2016,32008.934,country
+Estonia,2017,33821.934,country
+Estonia,2018,34979.867,country
+Estonia,2019,36153.434,country
+Estonia,2020,35883.266,country
+Estonia,2021,38717.695,country
+Estonia,2022,37711.82,country
+Eswatini,2000,5443.4395,country
+Eswatini,2001,5443.279,country
+Eswatini,2002,5630.804,country
+Eswatini,2003,5805.1616,country
+Eswatini,2004,5976.212,country
+Eswatini,2005,6298.5312,country
+Eswatini,2006,6639.7183,country
+Eswatini,2007,6894.0874,country
+Eswatini,2008,6913.3486,country
+Eswatini,2009,6989.378,country
+Eswatini,2010,7221.336,country
+Eswatini,2011,7347.2046,country
+Eswatini,2012,7701.394,country
+Eswatini,2013,7949.588,country
+Eswatini,2014,7969.2075,country
+Eswatini,2015,8088.7344,country
+Eswatini,2016,8113.2397,country
+Eswatini,2017,8213.921,country
+Eswatini,2018,8343.923,country
+Eswatini,2019,8501.267,country
+Eswatini,2020,8290.409,country
+Eswatini,2021,9086.701,country
+Eswatini,2022,9058.583,country
+Ethiopia,2000,719.00446,country
+Ethiopia,2001,756.2726,country
+Ethiopia,2002,745.5378,country
+Ethiopia,2003,708.53265,country
+Ethiopia,2004,781.9135,country
+Ethiopia,2005,849.84766,country
+Ethiopia,2006,915.67346,country
+Ethiopia,2007,991.8834,country
+Ethiopia,2008,1068.1381,country
+Ethiopia,2009,1130.0319,country
+Ethiopia,2010,1236.4794,country
+Ethiopia,2011,1336.0669,country
+Ethiopia,2012,1411.136,country
+Ethiopia,2013,1518.1438,country
+Ethiopia,2014,1629.1891,country
+Ethiopia,2015,1750.6727,country
+Ethiopia,2016,1864.4877,country
+Ethiopia,2017,1987.9688,country
+Ethiopia,2018,2067.4565,country
+Ethiopia,2019,2181.659,country
+Ethiopia,2020,2253.2358,country
+Ethiopia,2021,2319.1611,country
+Ethiopia,2022,2381.1658,country
+Europe and Central Asia (WB),2000,25399.203,aggregated
+Europe and Central Asia (WB),2001,25987.373,aggregated
+Europe and Central Asia (WB),2002,26476.59,aggregated
+Europe and Central Asia (WB),2003,27054.844,aggregated
+Europe and Central Asia (WB),2004,28025.318,aggregated
+Europe and Central Asia (WB),2005,28839.598,aggregated
+Europe and Central Asia (WB),2006,30048.768,aggregated
+Europe and Central Asia (WB),2007,31242.227,aggregated
+Europe and Central Asia (WB),2008,31604.639,aggregated
+Europe and Central Asia (WB),2009,29983.068,aggregated
+Europe and Central Asia (WB),2010,30728.217,aggregated
+Europe and Central Asia (WB),2011,31520.594,aggregated
+Europe and Central Asia (WB),2012,31624.111,aggregated
+Europe and Central Asia (WB),2013,31838.498,aggregated
+Europe and Central Asia (WB),2014,32258.855,aggregated
+Europe and Central Asia (WB),2015,32689.861,aggregated
+Europe and Central Asia (WB),2016,33155.633,aggregated
+Europe and Central Asia (WB),2017,34060.496,aggregated
+Europe and Central Asia (WB),2018,34756.445,aggregated
+Europe and Central Asia (WB),2019,35332.418,aggregated
+Europe and Central Asia (WB),2020,33528.645,aggregated
+Europe and Central Asia (WB),2021,35683.46,aggregated
+Europe and Central Asia (WB),2022,36711.48,aggregated
+European Union (27),2000,34590.848,aggregated
+European Union (27),2001,35327.445,aggregated
+European Union (27),2002,35691.297,aggregated
+European Union (27),2003,35952.965,aggregated
+European Union (27),2004,36810.74,aggregated
+European Union (27),2005,37443.824,aggregated
+European Union (27),2006,38689.645,aggregated
+European Union (27),2007,39845.703,aggregated
+European Union (27),2008,40066.02,aggregated
+European Union (27),2009,38261.906,aggregated
+European Union (27),2010,38990.766,aggregated
+European Union (27),2011,39795.496,aggregated
+European Union (27),2012,39457.727,aggregated
+European Union (27),2013,39321.195,aggregated
+European Union (27),2014,39883.344,aggregated
+European Union (27),2015,40748.29,aggregated
+European Union (27),2016,41485.742,aggregated
+European Union (27),2017,42665.477,aggregated
+European Union (27),2018,43556.344,aggregated
+European Union (27),2019,44370.934,aggregated
+European Union (27),2020,41824.28,aggregated
+European Union (27),2021,44410.605,aggregated
+European Union (27),2022,45977.418,aggregated
+Fiji,2000,9328.581,country
+Fiji,2001,9415.502,country
+Fiji,2002,9618.807,country
+Fiji,2003,9619.746,country
+Fiji,2004,10031.558,country
+Fiji,2005,10006.767,country
+Fiji,2006,10097.962,country
+Fiji,2007,9927.022,country
+Fiji,2008,9961.513,country
+Fiji,2009,9772.743,country
+Fiji,2010,10019.412,country
+Fiji,2011,10254.358,country
+Fiji,2012,10368.216,country
+Fiji,2013,10830.61,country
+Fiji,2014,11411.184,country
+Fiji,2015,11903.502,country
+Fiji,2016,12179.07,country
+Fiji,2017,12822.014,country
+Fiji,2018,13311.167,country
+Fiji,2019,13241.546,country
+Fiji,2020,10961.847,country
+Fiji,2021,10379.567,country
+Fiji,2022,12388.108,country
+Finland,2000,39894.195,country
+Finland,2001,40842.34,country
+Finland,2002,41439.02,country
+Finland,2003,42168.695,country
+Finland,2004,43724.965,country
+Finland,2005,44786.91,country
+Finland,2006,46412.2,country
+Finland,2007,48664.266,country
+Finland,2008,48817.99,country
+Finland,2009,44662.1,country
+Finland,2010,45874.66,country
+Finland,2011,46825.824,country
+Finland,2012,45952.246,country
+Finland,2013,45328.574,country
+Finland,2014,44976.777,country
+Finland,2015,45072.59,country
+Finland,2016,46206.79,country
+Finland,2017,47570.133,country
+Finland,2018,48048.523,country
+Finland,2019,48583.434,country
+Finland,2020,47371.22,country
+Finland,2021,48614.82,country
+Finland,2022,49275.152,country
+France,2000,39726.49,country
+France,2001,40220.1,country
+France,2002,40381.46,country
+France,2003,40425.637,country
+France,2004,41265.125,country
+France,2005,41638.03,country
+France,2006,42362.984,country
+France,2007,43123.5,country
+France,2008,42993.06,country
+France,2009,41544.023,country
+France,2010,42145.684,country
+France,2011,42862.414,country
+France,2012,42789.05,country
+France,2013,42813.934,country
+France,2014,43021.395,country
+France,2015,43345.785,country
+France,2016,43705.15,country
+France,2017,44577.066,country
+France,2018,45245.96,country
+France,2019,45922.793,country
+France,2020,42344.945,country
+France,2021,44941.438,country
+France,2022,45904.41,country
+Gabon,2000,15987.089,country
+Gabon,2001,15907.864,country
+Gabon,2002,15453.05,country
+Gabon,2003,15379.622,country
+Gabon,2004,15062.641,country
+Gabon,2005,15028.367,country
+Gabon,2006,14177.088,country
+Gabon,2007,14570.755,country
+Gabon,2008,13646.617,country
+Gabon,2009,13221.766,country
+Gabon,2010,13682.848,country
+Gabon,2011,14145.65,country
+Gabon,2012,14368.0,country
+Gabon,2013,14655.365,country
+Gabon,2014,14785.398,country
+Gabon,2015,14892.036,country
+Gabon,2016,14783.078,country
+Gabon,2017,14478.13,country
+Gabon,2018,14254.462,country
+Gabon,2019,14478.002,country
+Gabon,2020,13903.289,country
+Gabon,2021,13822.509,country
+Gabon,2022,13939.787,country
+Gambia,2000,2081.2224,country
+Gambia,2001,2139.5566,country
+Gambia,2002,2011.854,country
+Gambia,2003,2089.621,country
+Gambia,2004,2173.1594,country
+Gambia,2005,2060.5227,country
+Gambia,2006,1988.097,country
+Gambia,2007,1986.396,country
+Gambia,2008,2046.1343,country
+Gambia,2009,2115.6147,country
+Gambia,2010,2172.1938,country
+Gambia,2011,1934.7279,country
+Gambia,2012,1974.0941,country
+Gambia,2013,1969.777,country
+Gambia,2014,1885.1421,country
+Gambia,2015,1905.823,country
+Gambia,2016,1889.1381,country
+Gambia,2017,1927.0399,country
+Gambia,2018,2012.5908,country
+Gambia,2019,2083.309,country
+Gambia,2020,2042.6202,country
+Gambia,2021,2076.5664,country
+Gambia,2022,2113.6147,country
+Georgia,2000,4919.232,country
+Georgia,2001,5236.2227,country
+Georgia,2002,5572.622,country
+Georgia,2003,6230.822,country
+Georgia,2004,6632.8145,country
+Georgia,2005,7315.198,country
+Georgia,2006,8049.9062,country
+Georgia,2007,9109.897,country
+Georgia,2008,9358.614,country
+Georgia,2009,9097.421,country
+Georgia,2010,9735.158,country
+Georgia,2011,10535.907,country
+Georgia,2012,11294.861,country
+Georgia,2013,11738.51,country
+Georgia,2014,12254.126,country
+Georgia,2015,12605.14,country
+Georgia,2016,12963.744,country
+Georgia,2017,13589.707,country
+Georgia,2018,14253.409,country
+Georgia,2019,14989.258,country
+Georgia,2020,13966.326,country
+Georgia,2021,15486.659,country
+Georgia,2022,17078.342,country
+Germany,2000,42928.18,country
+Germany,2001,43576.637,country
+Germany,2002,43417.31,country
+Germany,2003,43089.473,country
+Germany,2004,43605.277,country
+Germany,2005,43949.29,country
+Germany,2006,45678.082,country
+Germany,2007,47100.61,country
+Germany,2008,47643.223,country
+Germany,2009,45044.49,country
+Germany,2010,46999.24,country
+Germany,2011,49757.926,country
+Germany,2012,49872.45,country
+Germany,2013,49954.17,country
+Germany,2014,50845.527,country
+Germany,2015,51159.297,country
+Germany,2016,51879.67,country
+Germany,2017,53071.457,country
+Germany,2018,53431.395,country
+Germany,2019,53884.375,country
+Germany,2020,51780.027,country
+Germany,2021,53395.65,country
+Germany,2022,53969.625,country
+Ghana,2000,2752.1648,country
+Ghana,2001,2787.1257,country
+Ghana,2002,2833.5884,country
+Ghana,2003,2901.108,country
+Ghana,2004,2982.8875,country
+Ghana,2005,3075.9626,country
+Ghana,2006,3187.5764,country
+Ghana,2007,3240.5925,country
+Ghana,2008,3447.2747,country
+Ghana,2009,3523.7893,country
+Ghana,2010,3709.3958,country
+Ghana,2011,4128.56,country
+Ghana,2012,4402.546,country
+Ghana,2013,4610.028,country
+Ghana,2014,4628.9014,country
+Ghana,2015,4616.6196,country
+Ghana,2016,4662.011,country
+Ghana,2017,4929.568,country
+Ghana,2018,5125.2495,country
+Ghana,2019,5345.9414,country
+Ghana,2020,5263.5264,country
+Ghana,2021,5420.792,country
+Ghana,2022,5480.33,country
+Greece,2000,29133.713,country
+Greece,2001,30180.096,country
+Greece,2002,31249.262,country
+Greece,2003,32981.207,country
+Greece,2004,34564.76,country
+Greece,2005,34670.035,country
+Greece,2006,36519.89,country
+Greece,2007,37619.496,country
+Greece,2008,37394.01,country
+Greece,2009,35691.793,country
+Greece,2010,33693.21,country
+Greece,2011,30318.404,country
+Greece,2012,28322.572,country
+Greece,2013,27810.912,country
+Greece,2014,28129.96,country
+Greece,2015,28260.387,country
+Greece,2016,28239.92,country
+Greece,2017,28604.861,country
+Greece,2018,29141.174,country
+Greece,2019,29720.17,country
+Greece,2020,27009.207,country
+Greece,2021,29630.93,country
+Greece,2022,31704.426,country
+Grenada,2000,11116.695,country
+Grenada,2001,10840.847,country
+Grenada,2002,11182.917,country
+Grenada,2003,12183.966,country
+Grenada,2004,12019.308,country
+Grenada,2005,13523.879,country
+Grenada,2006,12897.691,country
+Grenada,2007,13597.185,country
+Grenada,2008,13634.133,country
+Grenada,2009,12645.787,country
+Grenada,2010,12493.993,country
+Grenada,2011,12493.247,country
+Grenada,2012,12243.072,country
+Grenada,2013,12420.23,country
+Grenada,2014,13216.077,country
+Grenada,2015,13948.699,country
+Grenada,2016,14351.394,country
+Grenada,2017,14870.031,country
+Grenada,2018,15401.78,country
+Grenada,2019,15394.03,country
+Grenada,2020,13175.521,country
+Grenada,2021,13688.298,country
+Grenada,2022,14462.937,country
+Guatemala,2000,6499.8833,country
+Guatemala,2001,6493.6064,country
+Guatemala,2002,6589.7373,country
+Guatemala,2003,6612.67,country
+Guatemala,2004,6676.7046,country
+Guatemala,2005,6753.6826,country
+Guatemala,2006,6972.382,country
+Guatemala,2007,7269.206,country
+Guatemala,2008,7365.2803,country
+Guatemala,2009,7262.5,country
+Guatemala,2010,7335.989,country
+Guatemala,2011,7503.675,country
+Guatemala,2012,7590.7554,country
+Guatemala,2013,7734.1177,country
+Guatemala,2014,7939.3745,country
+Guatemala,2015,8125.656,country
+Guatemala,2016,8206.048,country
+Guatemala,2017,8322.217,country
+Guatemala,2018,8469.115,country
+Guatemala,2019,8673.002,country
+Guatemala,2020,8389.106,country
+Guatemala,2021,8927.302,country
+Guatemala,2022,9162.053,country
+Guinea,2000,1685.2764,country
+Guinea,2001,1724.4355,country
+Guinea,2002,1785.5734,country
+Guinea,2003,1767.791,country
+Guinea,2004,1771.0453,country
+Guinea,2005,1788.3896,country
+Guinea,2006,1772.715,country
+Guinea,2007,1850.6372,country
+Guinea,2008,1881.2698,country
+Guinea,2009,1815.3158,country
+Guinea,2010,1856.4902,country
+Guinea,2011,1912.8179,country
+Guinea,2012,1976.9581,country
+Guinea,2013,2005.382,country
+Guinea,2014,2028.5148,country
+Guinea,2015,2053.1116,country
+Guinea,2016,2217.1094,country
+Guinea,2017,2383.5789,country
+Guinea,2018,2471.719,country
+Guinea,2019,2545.1401,country
+Guinea,2020,2604.1172,country
+Guinea,2021,2640.3442,country
+Guinea,2022,2699.129,country
+Guinea-Bissau,2000,1681.4062,country
+Guinea-Bissau,2001,1681.956,country
+Guinea-Bissau,2002,1628.7303,country
+Guinea-Bissau,2003,1600.6709,country
+Guinea-Bissau,2004,1606.5822,country
+Guinea-Bissau,2005,1635.4143,country
+Guinea-Bissau,2006,1632.5051,country
+Guinea-Bissau,2007,1643.377,country
+Guinea-Bissau,2008,1652.8844,country
+Guinea-Bissau,2009,1665.2008,country
+Guinea-Bissau,2010,1697.4956,country
+Guinea-Bissau,2011,1787.074,country
+Guinea-Bissau,2012,1710.0238,country
+Guinea-Bissau,2013,1718.862,country
+Guinea-Bissau,2014,1690.0912,country
+Guinea-Bissau,2015,1748.0292,country
+Guinea-Bissau,2016,1811.301,country
+Guinea-Bissau,2017,1872.3093,country
+Guinea-Bissau,2018,1851.8866,country
+Guinea-Bissau,2019,1890.5331,country
+Guinea-Bissau,2020,1803.6306,country
+Guinea-Bissau,2021,1831.3832,country
+Guinea-Bissau,2022,1855.1119,country
+Guyana,2000,7649.9575,country
+Guyana,2001,7816.534,country
+Guyana,2002,7899.7227,country
+Guyana,2003,7847.3115,country
+Guyana,2004,7971.439,country
+Guyana,2005,7823.276,country
+Guyana,2006,8239.134,country
+Guyana,2007,8853.179,country
+Guyana,2008,9036.895,country
+Guyana,2009,9399.307,country
+Guyana,2010,9831.819,country
+Guyana,2011,10394.153,country
+Guyana,2012,10946.466,country
+Guyana,2013,11293.948,country
+Guyana,2014,11427.924,country
+Guyana,2015,11446.802,country
+Guyana,2016,11819.142,country
+Guyana,2017,12193.622,country
+Guyana,2018,12374.208,country
+Guyana,2019,12820.503,country
+Guyana,2020,18430.602,country
+Guyana,2021,21925.223,country
+Guyana,2022,35634.688,country
+Haiti,2000,2991.6462,country
+Haiti,2001,2928.3257,country
+Haiti,2002,2907.9426,country
+Haiti,2003,2957.7017,country
+Haiti,2004,2870.1152,country
+Haiti,2005,2909.4573,country
+Haiti,2006,2911.5857,country
+Haiti,2007,2998.6113,country
+Haiti,2008,3028.671,country
+Haiti,2009,3155.8567,country
+Haiti,2010,2943.5496,country
+Haiti,2011,3058.9868,country
+Haiti,2012,3027.4502,country
+Haiti,2013,3111.3904,country
+Haiti,2014,3154.684,country
+Haiti,2015,3153.1196,country
+Haiti,2016,3165.2957,country
+Haiti,2017,3200.0422,country
+Haiti,2018,3209.4297,country
+Haiti,2019,3112.296,country
+Haiti,2020,2970.463,country
+Haiti,2021,2881.1765,country
+Haiti,2022,2799.1125,country
+High-income countries,2000,39090.36,country
+High-income countries,2001,39449.55,country
+High-income countries,2002,39825.16,country
+High-income countries,2003,40498.402,country
+High-income countries,2004,41679.938,country
+High-income countries,2005,42632.88,country
+High-income countries,2006,43696.27,country
+High-income countries,2007,44589.316,country
+High-income countries,2008,44546.098,country
+High-income countries,2009,42770.637,country
+High-income countries,2010,43814.69,country
+High-income countries,2011,44570.44,country
+High-income countries,2012,44928.676,country
+High-income countries,2013,45332.59,country
+High-income countries,2014,46041.746,country
+High-income countries,2015,46891.43,country
+High-income countries,2016,47504.21,country
+High-income countries,2017,48417.555,country
+High-income countries,2018,49334.363,country
+High-income countries,2019,49994.82,country
+High-income countries,2020,47666.695,country
+High-income countries,2021,50378.188,country
+High-income countries,2022,51743.68,country
+Honduras,2000,4058.0288,country
+Honduras,2001,4058.1116,country
+Honduras,2002,4101.277,country
+Honduras,2003,4179.423,country
+Honduras,2004,4330.7393,country
+Honduras,2005,4482.758,country
+Honduras,2006,4665.767,country
+Honduras,2007,4842.423,country
+Honduras,2008,4936.869,country
+Honduras,2009,4714.679,country
+Honduras,2010,4790.1094,country
+Honduras,2011,4874.8735,country
+Honduras,2012,4978.074,country
+Honduras,2013,5020.937,country
+Honduras,2014,5079.7036,country
+Honduras,2015,5180.1865,country
+Honduras,2016,5287.253,country
+Honduras,2017,5447.6987,country
+Honduras,2018,5561.2627,country
+Honduras,2019,5613.6606,country
+Honduras,2020,5028.145,country
+Honduras,2021,5572.177,country
+Honduras,2022,5709.124,country
+Hong Kong,2000,36316.273,country
+Hong Kong,2001,36251.785,country
+Hong Kong,2002,36689.527,country
+Hong Kong,2003,37885.582,country
+Hong Kong,2004,40861.715,country
+Hong Kong,2005,43689.36,country
+Hong Kong,2006,46462.492,country
+Hong Kong,2007,49042.812,country
+Hong Kong,2008,49787.63,country
+Hong Kong,2009,48458.85,country
+Hong Kong,2010,51359.8,country
+Hong Kong,2011,53471.805,country
+Hong Kong,2012,53783.953,country
+Hong Kong,2013,55229.63,country
+Hong Kong,2014,56358.05,country
+Hong Kong,2015,57214.703,country
+Hong Kong,2016,58098.406,country
+Hong Kong,2017,59842.215,country
+Hong Kong,2018,61055.33,country
+Hong Kong,2019,59592.035,country
+Hong Kong,2020,55892.11,country
+Hong Kong,2021,60037.445,country
+Hong Kong,2022,58478.883,country
+Hungary,2000,19408.922,country
+Hungary,2001,20246.045,country
+Hungary,2002,21266.44,country
+Hungary,2003,22196.373,country
+Hungary,2004,23358.887,country
+Hungary,2005,24410.48,country
+Hungary,2006,25413.277,country
+Hungary,2007,25523.275,country
+Hungary,2008,25824.693,country
+Hungary,2009,24158.207,country
+Hungary,2010,24473.463,country
+Hungary,2011,25001.086,country
+Hungary,2012,24816.346,country
+Hungary,2013,25333.33,country
+Hungary,2014,26476.717,country
+Hungary,2015,27523.68,country
+Hungary,2016,28212.613,country
+Hungary,2017,29496.164,country
+Hungary,2018,31117.28,country
+Hungary,2019,32645.664,country
+Hungary,2020,31232.102,country
+Hungary,2021,33583.785,country
+Hungary,2022,35356.777,country
+Iceland,2000,41530.516,country
+Iceland,2001,42626.92,country
+Iceland,2002,42484.516,country
+Iceland,2003,43095.355,country
+Iceland,2004,46051.742,country
+Iceland,2005,48104.652,country
+Iceland,2006,49956.848,country
+Iceland,2007,52827.01,country
+Iceland,2008,52999.438,country
+Iceland,2009,48770.95,country
+Iceland,2010,47457.62,country
+Iceland,2011,48186.168,country
+Iceland,2012,48440.254,country
+Iceland,2013,50168.688,country
+Iceland,2014,50450.742,country
+Iceland,2015,52142.934,country
+Iceland,2016,54665.766,country
+Iceland,2017,55638.492,country
+Iceland,2018,56816.566,country
+Iceland,2019,56615.305,country
+Iceland,2020,51684.402,country
+Iceland,2021,53135.953,country
+Iceland,2022,55567.438,country
+India,2000,2571.1497,country
+India,2001,2646.8782,country
+India,2002,2699.1782,country
+India,2003,2861.5747,country
+India,2004,3037.0637,country
+India,2005,3225.5444,country
+India,2006,3432.8193,country
+India,2007,3642.0024,country
+India,2008,3701.3955,country
+India,2009,3937.2375,country
+India,2010,4213.363,country
+India,2011,4374.2324,country
+India,2012,4551.8623,country
+India,2013,4780.12,country
+India,2014,5071.047,country
+India,2015,5411.8755,country
+India,2016,5789.678,country
+India,2017,6112.0664,country
+India,2018,6436.1533,country
+India,2019,6617.13,country
+India,2020,6172.0425,country
+India,2021,6677.185,country
+India,2022,7112.0396,country
+Indonesia,2000,5621.262,country
+Indonesia,2001,5744.494,country
+Indonesia,2002,5921.0776,country
+Indonesia,2003,6121.666,country
+Indonesia,2004,6348.2944,country
+Indonesia,2005,6625.6147,country
+Indonesia,2006,6899.851,country
+Indonesia,2007,7242.018,country
+Indonesia,2008,7578.205,country
+Indonesia,2009,7828.809,country
+Indonesia,2010,8212.635,country
+Indonesia,2011,8610.529,country
+Indonesia,2012,9015.801,country
+Indonesia,2013,9402.108,country
+Indonesia,2014,9759.025,country
+Indonesia,2015,10121.841,country
+Indonesia,2016,10519.295,country
+Indonesia,2017,10941.921,country
+Indonesia,2018,11397.432,country
+Indonesia,2019,11857.789,country
+Indonesia,2020,11515.681,country
+Indonesia,2021,11859.437,country
+Indonesia,2022,12409.759,country
+Iran,2000,11026.102,country
+Iran,2001,11098.446,country
+Iran,2002,11878.862,country
+Iran,2003,12785.93,country
+Iran,2004,13126.583,country
+Iran,2005,13328.956,country
+Iran,2006,13780.728,country
+Iran,2007,14689.561,country
+Iran,2008,14525.76,country
+Iran,2009,14473.833,country
+Iran,2010,15099.46,country
+Iran,2011,15302.202,country
+Iran,2012,14541.85,country
+Iran,2013,14113.458,country
+Iran,2014,14538.521,country
+Iran,2015,14010.858,country
+Iran,2016,14968.595,country
+Iran,2017,15163.292,country
+Iran,2018,14691.185,country
+Iran,2019,14084.354,country
+Iran,2020,14432.362,country
+Iran,2021,15004.6875,country
+Iran,2022,15461.079,country
+Iraq,2000,8779.793,country
+Iraq,2001,8654.454,country
+Iraq,2002,7693.858,country
+Iraq,2003,4726.974,country
+Iraq,2004,7044.687,country
+Iraq,2005,6952.889,country
+Iraq,2006,7292.887,country
+Iraq,2007,7493.8438,country
+Iraq,2008,7955.6963,country
+Iraq,2009,7933.8213,country
+Iraq,2010,8178.305,country
+Iraq,2011,8493.082,country
+Iraq,2012,9251.982,country
+Iraq,2013,9503.875,country
+Iraq,2014,9194.864,country
+Iraq,2015,9371.214,country
+Iraq,2016,10404.204,country
+Iraq,2017,9976.8545,country
+Iraq,2018,9995.05,country
+Iraq,2019,10299.316,country
+Iraq,2020,8848.118,country
+Iraq,2021,8786.582,country
+Iraq,2022,9199.0205,country
+Ireland,2000,48441.7,country
+Ireland,2001,50206.17,country
+Ireland,2002,52279.566,country
+Ireland,2003,52985.02,country
+Ireland,2004,55556.625,country
+Ireland,2005,57479.406,country
+Ireland,2006,58741.188,country
+Ireland,2007,60097.656,country
+Ireland,2008,56244.406,country
+Ireland,2009,52838.914,country
+Ireland,2010,53436.22,country
+Ireland,2011,53885.113,country
+Ireland,2012,53587.67,country
+Ireland,2013,53932.387,country
+Ireland,2014,58266.586,country
+Ireland,2015,71845.44,country
+Ireland,2016,72293.21,country
+Ireland,2017,78168.97,country
+Ireland,2018,83746.15,country
+Ireland,2019,86984.984,country
+Ireland,2020,91791.44,country
+Ireland,2021,104671.875,country
+Ireland,2022,112445.42,country
+Israel,2000,30476.393,country
+Israel,2001,29865.87,country
+Israel,2002,29236.936,country
+Israel,2003,29114.041,country
+Israel,2004,29972.48,country
+Israel,2005,30666.16,country
+Israel,2006,31810.797,country
+Israel,2007,33136.22,country
+Israel,2008,33611.07,country
+Israel,2009,33107.035,country
+Israel,2010,34350.45,country
+Israel,2011,35596.754,country
+Israel,2012,35849.883,country
+Israel,2013,36740.797,country
+Israel,2014,37454.81,country
+Israel,2015,37632.82,country
+Israel,2016,38570.87,country
+Israel,2017,39448.14,country
+Israel,2018,40270.426,country
+Israel,2019,41151.008,country
+Israel,2020,39680.664,country
+Israel,2021,42379.156,country
+Israel,2022,44393.3,country
+Italy,2000,43053.934,country
+Italy,2001,43869.43,country
+Italy,2002,43915.387,country
+Italy,2003,43781.22,country
+Italy,2004,44118.035,country
+Italy,2005,44260.83,country
+Italy,2006,44918.17,country
+Italy,2007,45356.535,country
+Italy,2008,44623.6,country
+Italy,2009,42074.92,country
+Italy,2010,42664.355,country
+Italy,2011,42892.305,country
+Italy,2012,41501.71,country
+Italy,2013,40268.113,country
+Italy,2014,39898.527,country
+Italy,2015,40247.83,country
+Italy,2016,40837.74,country
+Italy,2017,41581.12,country
+Italy,2018,42045.92,country
+Italy,2019,42739.05,country
+Italy,2020,39093.523,country
+Italy,2021,42562.555,country
+Italy,2022,44292.19,country
+Jamaica,2000,9496.543,country
+Jamaica,2001,9575.876,country
+Jamaica,2002,9719.603,country
+Jamaica,2003,10027.369,country
+Jamaica,2004,10110.535,country
+Jamaica,2005,10151.977,country
+Jamaica,2006,10396.593,country
+Jamaica,2007,10500.334,country
+Jamaica,2008,10376.103,country
+Jamaica,2009,9885.024,country
+Jamaica,2010,9700.027,country
+Jamaica,2011,9823.773,country
+Jamaica,2012,9715.208,country
+Jamaica,2013,9718.625,country
+Jamaica,2014,9745.554,country
+Jamaica,2015,9800.507,country
+Jamaica,2016,9906.04,country
+Jamaica,2017,9984.577,country
+Jamaica,2018,10160.764,country
+Jamaica,2019,10244.366,country
+Jamaica,2020,9206.292,country
+Jamaica,2021,9605.191,country
+Jamaica,2022,10107.865,country
+Japan,2000,36323.094,country
+Japan,2001,36375.586,country
+Japan,2002,36306.332,country
+Japan,2003,36784.883,country
+Japan,2004,37576.39,country
+Japan,2005,38250.637,country
+Japan,2006,38751.004,country
+Japan,2007,39280.895,country
+Japan,2008,38781.2,country
+Japan,2009,36577.863,country
+Japan,2010,38069.957,country
+Japan,2011,38149.617,country
+Japan,2012,38735.895,country
+Japan,2013,39569.637,country
+Japan,2014,39739.543,country
+Japan,2015,40402.582,country
+Japan,2016,40727.97,country
+Japan,2017,41444.215,country
+Japan,2018,41763.82,country
+Japan,2019,41654.33,country
+Japan,2020,40044.508,country
+Japan,2021,41258.71,country
+Japan,2022,41837.91,country
+Jordan,2000,8866.478,country
+Jordan,2001,9140.067,country
+Jordan,2002,9463.036,country
+Jordan,2003,9636.589,country
+Jordan,2004,10204.413,country
+Jordan,2005,10751.771,country
+Jordan,2006,10862.462,country
+Jordan,2007,11028.3125,country
+Jordan,2008,11540.403,country
+Jordan,2009,11856.289,country
+Jordan,2010,11866.881,country
+Jordan,2011,11885.238,country
+Jordan,2012,12001.99,country
+Jordan,2013,11542.293,country
+Jordan,2014,10605.35,country
+Jordan,2015,9912.713,country
+Jordan,2016,9633.101,country
+Jordan,2017,9629.103,country
+Jordan,2018,9584.507,country
+Jordan,2019,9534.661,country
+Jordan,2020,9231.036,country
+Jordan,2021,9380.045,country
+Jordan,2022,9490.667,country
+Kazakhstan,2000,10275.762,country
+Kazakhstan,2001,11682.842,country
+Kazakhstan,2002,12827.231,country
+Kazakhstan,2003,13973.078,country
+Kazakhstan,2004,15208.44,country
+Kazakhstan,2005,16536.016,country
+Kazakhstan,2006,18112.78,country
+Kazakhstan,2007,19500.479,country
+Kazakhstan,2008,19770.217,country
+Kazakhstan,2009,19614.734,country
+Kazakhstan,2010,20751.258,country
+Kazakhstan,2011,21970.084,country
+Kazakhstan,2012,22702.578,country
+Kazakhstan,2013,23720.816,country
+Kazakhstan,2014,24355.756,country
+Kazakhstan,2015,24290.418,country
+Kazakhstan,2016,24210.863,country
+Kazakhstan,2017,24862.967,country
+Kazakhstan,2018,25544.346,country
+Kazakhstan,2019,26351.805,country
+Kazakhstan,2020,25361.508,country
+Kazakhstan,2021,26110.53,country
+Kazakhstan,2022,26093.295,country
+Kenya,2000,3303.3264,country
+Kenya,2001,3325.9119,country
+Kenya,2002,3244.1763,country
+Kenya,2003,3241.6746,country
+Kenya,2004,3306.79,country
+Kenya,2005,3399.404,country
+Kenya,2006,3513.3484,country
+Kenya,2007,3644.335,country
+Kenya,2008,3545.5935,country
+Kenya,2009,3555.9883,country
+Kenya,2010,3735.793,country
+Kenya,2011,3824.1975,country
+Kenya,2012,3899.167,country
+Kenya,2013,3950.8813,country
+Kenya,2014,4055.1133,country
+Kenya,2015,4163.925,country
+Kenya,2016,4244.8574,country
+Kenya,2017,4312.9087,country
+Kenya,2018,4464.813,country
+Kenya,2019,4601.2114,country
+Kenya,2020,4497.363,country
+Kenya,2021,4745.637,country
+Kenya,2022,4881.5317,country
+Kiribati,2000,2063.5918,country
+Kiribati,2001,1994.952,country
+Kiribati,2002,2028.6294,country
+Kiribati,2003,2027.5934,country
+Kiribati,2004,1954.7169,country
+Kiribati,2005,2010.9636,country
+Kiribati,2006,1971.433,country
+Kiribati,2007,1973.7839,country
+Kiribati,2008,1895.9226,country
+Kiribati,2009,1874.5419,country
+Kiribati,2010,1819.2329,country
+Kiribati,2011,1819.6881,country
+Kiribati,2012,1883.206,country
+Kiribati,2013,1932.2688,country
+Kiribati,2014,1883.2632,country
+Kiribati,2015,2038.5217,country
+Kiribati,2016,1997.8575,country
+Kiribati,2017,1970.8259,country
+Kiribati,2018,2039.4298,country
+Kiribati,2019,1963.5349,country
+Kiribati,2020,1897.0619,country
+Kiribati,2021,2007.987,country
+Kiribati,2022,2002.7183,country
+Kosovo,2008,7032.4683,country
+Kosovo,2009,7327.454,country
+Kosovo,2010,7627.9087,country
+Kosovo,2011,8040.6064,country
+Kosovo,2012,8105.3877,country
+Kosovo,2013,8486.57,country
+Kosovo,2014,8796.634,country
+Kosovo,2015,9445.106,country
+Kosovo,2016,10031.048,country
+Kosovo,2017,10436.169,country
+Kosovo,2018,10755.168,country
+Kosovo,2019,11318.459,country
+Kosovo,2020,10706.511,country
+Kosovo,2021,11884.182,country
+Kosovo,2022,12675.068,country
+Kuwait,2000,58117.18,country
+Kuwait,2001,56580.99,country
+Kuwait,2002,56701.06,country
+Kuwait,2003,64811.184,country
+Kuwait,2004,69723.62,country
+Kuwait,2005,74294.34,country
+Kuwait,2006,75551.11,country
+Kuwait,2007,75498.23,country
+Kuwait,2008,73162.9,country
+Kuwait,2009,64468.793,country
+Kuwait,2010,59780.03,country
+Kuwait,2011,61356.938,country
+Kuwait,2012,60588.156,country
+Kuwait,2013,57051.742,country
+Kuwait,2014,55583.562,country
+Kuwait,2015,53808.125,country
+Kuwait,2016,53476.12,country
+Kuwait,2017,50007.3,country
+Kuwait,2018,48943.008,country
+Kuwait,2019,47314.797,country
+Kuwait,2020,43922.63,country
+Kuwait,2021,45579.688,country
+Kuwait,2022,49400.355,country
+Kyrgyzstan,2000,3078.9092,country
+Kyrgyzstan,2001,3212.1335,country
+Kyrgyzstan,2002,3182.233,country
+Kyrgyzstan,2003,3370.4302,country
+Kyrgyzstan,2004,3563.8752,country
+Kyrgyzstan,2005,3517.7205,country
+Kyrgyzstan,2006,3588.0898,country
+Kyrgyzstan,2007,3857.6538,country
+Kyrgyzstan,2008,4142.2114,country
+Kyrgyzstan,2009,4210.6265,country
+Kyrgyzstan,2010,4141.077,country
+Kyrgyzstan,2011,4334.6606,country
+Kyrgyzstan,2012,4259.3184,country
+Kyrgyzstan,2013,4631.4033,country
+Kyrgyzstan,2014,4722.086,country
+Kyrgyzstan,2015,4805.141,country
+Kyrgyzstan,2016,4912.3823,country
+Kyrgyzstan,2017,5046.6914,country
+Kyrgyzstan,2018,5133.152,country
+Kyrgyzstan,2019,5258.3667,country
+Kyrgyzstan,2020,4790.6587,country
+Kyrgyzstan,2021,4910.0864,country
+Kyrgyzstan,2022,5070.1504,country
+Laos,2000,2804.8184,country
+Laos,2001,2918.3872,country
+Laos,2002,3043.483,country
+Laos,2003,3181.055,country
+Laos,2004,3336.9,country
+Laos,2005,3522.2878,country
+Laos,2006,3765.6487,country
+Laos,2007,3988.1697,country
+Laos,2008,4234.002,country
+Laos,2009,4482.9,country
+Laos,2010,4793.224,country
+Laos,2011,5103.549,country
+Laos,2012,5434.8345,country
+Laos,2013,5789.2754,country
+Laos,2014,6145.497,country
+Laos,2015,6499.0728,country
+Laos,2016,6850.581,country
+Laos,2017,7211.2593,country
+Laos,2018,7546.3345,country
+Laos,2019,7840.0713,country
+Laos,2020,7763.9487,country
+Laos,2021,7846.975,country
+Laos,2022,7947.6587,country
+Latin America and Caribbean (WB),2000,12681.179,aggregated
+Latin America and Caribbean (WB),2001,12550.115,aggregated
+Latin America and Caribbean (WB),2002,12441.6,aggregated
+Latin America and Caribbean (WB),2003,12581.069,aggregated
+Latin America and Caribbean (WB),2004,13085.089,aggregated
+Latin America and Caribbean (WB),2005,13423.281,aggregated
+Latin America and Caribbean (WB),2006,13944.711,aggregated
+Latin America and Caribbean (WB),2007,14491.39,aggregated
+Latin America and Caribbean (WB),2008,14847.103,aggregated
+Latin America and Caribbean (WB),2009,14334.21,aggregated
+Latin America and Caribbean (WB),2010,15093.971,aggregated
+Latin America and Caribbean (WB),2011,15598.564,aggregated
+Latin America and Caribbean (WB),2012,15843.235,aggregated
+Latin America and Caribbean (WB),2013,16110.104,aggregated
+Latin America and Caribbean (WB),2014,16183.376,aggregated
+Latin America and Caribbean (WB),2015,16111.032,aggregated
+Latin America and Caribbean (WB),2016,15929.458,aggregated
+Latin America and Caribbean (WB),2017,16075.074,aggregated
+Latin America and Caribbean (WB),2018,16197.657,aggregated
+Latin America and Caribbean (WB),2019,16178.053,aggregated
+Latin America and Caribbean (WB),2020,14976.215,aggregated
+Latin America and Caribbean (WB),2021,15956.927,aggregated
+Latin America and Caribbean (WB),2022,16484.42,aggregated
+Latvia,2000,12989.898,country
+Latvia,2001,13990.844,country
+Latvia,2002,15157.621,country
+Latvia,2003,16593.918,country
+Latvia,2004,18165.75,country
+Latvia,2005,20331.7,country
+Latvia,2006,22975.562,country
+Latvia,2007,25466.783,country
+Latvia,2008,24899.646,country
+Latvia,2009,21704.324,country
+Latvia,2010,21173.402,country
+Latvia,2011,22117.406,country
+Latvia,2012,23970.453,country
+Latvia,2013,24715.066,country
+Latvia,2014,25423.488,country
+Latvia,2015,26628.355,country
+Latvia,2016,27509.336,country
+Latvia,2017,28673.562,country
+Latvia,2018,30051.018,country
+Latvia,2019,30438.453,country
+Latvia,2020,29575.568,country
+Latvia,2021,31833.842,country
+Latvia,2022,32992.383,country
+Lebanon,2000,12696.701,country
+Lebanon,2001,12978.278,country
+Lebanon,2002,13249.08,country
+Lebanon,2003,13500.124,country
+Lebanon,2004,14181.522,country
+Lebanon,2005,14348.357,country
+Lebanon,2006,14333.537,country
+Lebanon,2007,15375.723,country
+Lebanon,2008,16502.52,country
+Lebanon,2009,17957.695,country
+Lebanon,2010,19216.49,country
+Lebanon,2011,19193.92,country
+Lebanon,2012,19179.518,country
+Lebanon,2013,18158.562,country
+Lebanon,2014,16843.412,country
+Lebanon,2015,16591.797,country
+Lebanon,2016,17227.504,country
+Lebanon,2017,17808.076,country
+Lebanon,2018,17937.568,country
+Lebanon,2019,17185.047,country
+Lebanon,2020,13791.2705,country
+Lebanon,2021,12986.913,country
+Lesotho,2000,1713.7051,country
+Lesotho,2001,1773.9918,country
+Lesotho,2002,1788.567,country
+Lesotho,2003,1874.348,country
+Lesotho,2004,1913.4095,country
+Lesotho,2005,1987.7,country
+Lesotho,2006,2072.4565,country
+Lesotho,2007,2151.9717,country
+Lesotho,2008,2257.6885,country
+Lesotho,2009,2213.676,country
+Lesotho,2010,2314.6868,country
+Lesotho,2011,2403.7998,country
+Lesotho,2012,2534.8594,country
+Lesotho,2013,2556.3835,country
+Lesotho,2014,2573.6758,country
+Lesotho,2015,2624.915,country
+Lesotho,2016,2687.4863,country
+Lesotho,2017,2571.074,country
+Lesotho,2018,2501.43,country
+Lesotho,2019,2435.2864,country
+Lesotho,2020,2225.253,country
+Lesotho,2021,2239.3052,country
+Lesotho,2022,2240.3394,country
+Liberia,2000,1725.1449,country
+Liberia,2001,1724.0597,country
+Liberia,2002,1742.7892,country
+Liberia,2003,1207.7261,country
+Liberia,2004,1224.5718,country
+Liberia,2005,1232.4569,country
+Liberia,2006,1258.7299,country
+Liberia,2007,1311.4453,country
+Liberia,2008,1349.0282,country
+Liberia,2009,1376.4531,country
+Liberia,2010,1418.6758,country
+Liberia,2011,1475.8392,country
+Liberia,2012,1538.4072,country
+Liberia,2013,1635.9583,country
+Liberia,2014,1613.8655,country
+Liberia,2015,1581.055,country
+Liberia,2016,1525.458,country
+Liberia,2017,1533.4113,country
+Liberia,2018,1521.7335,country
+Liberia,2019,1455.6377,country
+Liberia,2020,1383.8281,country
+Liberia,2021,1423.2296,country
+Liberia,2022,1460.9233,country
+Libya,2000,27130.469,country
+Libya,2001,26040.312,country
+Libya,2002,25173.154,country
+Libya,2003,27744.88,country
+Libya,2004,28244.262,country
+Libya,2005,30782.932,country
+Libya,2006,32040.953,country
+Libya,2007,33345.95,country
+Libya,2008,32590.658,country
+Libya,2009,30510.861,country
+Libya,2010,31394.162,country
+Libya,2011,16356.362,country
+Libya,2012,32214.906,country
+Libya,2013,25907.758,country
+Libya,2014,19569.9,country
+Libya,2015,19108.943,country
+Libya,2016,18554.48,country
+Libya,2017,24212.91,country
+Libya,2018,25734.168,country
+Libya,2019,22535.445,country
+Libya,2020,15621.0,country
+Libya,2021,20273.88,country
+Libya,2022,19796.588,country
+Lithuania,2000,13846.684,country
+Lithuania,2001,14872.379,country
+Lithuania,2002,16004.438,country
+Lithuania,2003,17839.783,country
+Lithuania,2004,19226.469,country
+Lithuania,2005,21053.186,country
+Lithuania,2006,22977.996,country
+Lithuania,2007,25835.367,country
+Lithuania,2008,26784.88,country
+Lithuania,2009,23065.062,country
+Lithuania,2010,23942.76,country
+Lithuania,2011,25968.584,country
+Lithuania,2012,27330.896,country
+Lithuania,2013,28589.027,country
+Lithuania,2014,29855.832,country
+Lithuania,2015,30748.197,country
+Lithuania,2016,31925.803,country
+Lithuania,2017,33761.87,country
+Lithuania,2018,35446.707,country
+Lithuania,2019,37198.875,country
+Lithuania,2020,37179.766,country
+Lithuania,2021,39432.402,country
+Lithuania,2022,39955.246,country
+Low-income countries,2000,1313.0515,aggregated
+Low-income countries,2001,1351.8302,aggregated
+Low-income countries,2002,1365.8,aggregated
+Low-income countries,2003,1393.5247,aggregated
+Low-income countries,2004,1441.1198,aggregated
+Low-income countries,2005,1497.073,aggregated
+Low-income countries,2006,1551.7616,aggregated
+Low-income countries,2007,1611.7389,aggregated
+Low-income countries,2008,1661.3624,aggregated
+Low-income countries,2009,1672.9292,aggregated
+Low-income countries,2010,1741.8258,aggregated
+Low-income countries,2011,1752.297,aggregated
+Low-income countries,2012,1715.1395,aggregated
+Low-income countries,2013,1762.0562,aggregated
+Low-income countries,2014,1826.4845,aggregated
+Low-income countries,2015,1866.6488,aggregated
+Low-income countries,2016,1903.5065,aggregated
+Low-income countries,2017,1933.1627,aggregated
+Low-income countries,2018,1950.5111,aggregated
+Low-income countries,2019,1979.0868,aggregated
+Low-income countries,2020,1937.6377,aggregated
+Low-income countries,2021,1921.8851,aggregated
+Low-income countries,2022,1949.1239,aggregated
+Lower-middle-income countries,2000,3456.7622,aggregated
+Lower-middle-income countries,2001,3541.336,aggregated
+Lower-middle-income countries,2002,3642.7576,aggregated
+Lower-middle-income countries,2003,3814.4512,aggregated
+Lower-middle-income countries,2004,4009.4272,aggregated
+Lower-middle-income countries,2005,4188.707,aggregated
+Lower-middle-income countries,2006,4399.1885,aggregated
+Lower-middle-income countries,2007,4632.43,aggregated
+Lower-middle-income countries,2008,4736.2607,aggregated
+Lower-middle-income countries,2009,4864.477,aggregated
+Lower-middle-income countries,2010,5101.005,aggregated
+Lower-middle-income countries,2011,5249.0366,aggregated
+Lower-middle-income countries,2012,5382.8833,aggregated
+Lower-middle-income countries,2013,5555.3955,aggregated
+Lower-middle-income countries,2014,5766.327,aggregated
+Lower-middle-income countries,2015,5967.3896,aggregated
+Lower-middle-income countries,2016,6238.9507,aggregated
+Lower-middle-income countries,2017,6475.1855,aggregated
+Lower-middle-income countries,2018,6704.649,aggregated
+Lower-middle-income countries,2019,6852.3877,aggregated
+Lower-middle-income countries,2020,6541.0605,aggregated
+Lower-middle-income countries,2021,6865.1377,aggregated
+Lower-middle-income countries,2022,7137.511,aggregated
+Luxembourg,2000,99301.52,country
+Luxembourg,2001,101143.15,country
+Luxembourg,2002,103317.33,country
+Luxembourg,2003,104743.0,country
+Luxembourg,2004,107634.836,country
+Luxembourg,2005,108632.36,country
+Luxembourg,2006,113346.04,country
+Luxembourg,2007,120647.82,country
+Luxembourg,2008,118154.664,country
+Luxembourg,2009,112230.08,country
+Luxembourg,2010,114343.984,country
+Luxembourg,2011,112998.39,country
+Luxembourg,2012,112137.13,country
+Luxembourg,2013,113050.664,country
+Luxembourg,2014,113313.58,country
+Luxembourg,2015,113182.73,country
+Luxembourg,2016,116283.7,country
+Luxembourg,2017,114985.84,country
+Luxembourg,2018,114164.47,country
+Luxembourg,2019,115209.6,country
+Luxembourg,2020,112274.82,country
+Luxembourg,2021,118510.0,country
+Luxembourg,2022,117746.99,country
+Macao,2000,50539.625,country
+Macao,2001,51143.742,country
+Macao,2002,54394.973,country
+Macao,2003,59037.426,country
+Macao,2004,72716.16,country
+Macao,2005,76483.12,country
+Macao,2006,84435.695,country
+Macao,2007,94133.26,country
+Macao,2008,94803.82,country
+Macao,2009,93539.66,country
+Macao,2010,114041.11,country
+Macao,2011,135363.88,country
+Macao,2012,144889.75,country
+Macao,2013,157600.64,country
+Macao,2014,151614.75,country
+Macao,2015,116854.266,country
+Macao,2016,113940.48,country
+Macao,2017,122838.38,country
+Macao,2018,128220.336,country
+Macao,2019,122549.74,country
+Macao,2020,54916.156,country
+Macao,2021,66820.91,country
+Macao,2022,51840.14,country
+Madagascar,2000,1569.6213,country
+Madagascar,2001,1614.3857,country
+Madagascar,2002,1372.8085,country
+Madagascar,2003,1463.5679,country
+Madagascar,2004,1496.0701,country
+Madagascar,2005,1522.0697,country
+Madagascar,2006,1557.967,country
+Madagascar,2007,1599.4363,country
+Madagascar,2008,1657.8236,country
+Madagascar,2009,1546.3707,country
+Madagascar,2010,1511.9867,country
+Madagascar,2011,1493.4425,country
+Madagascar,2012,1497.0095,country
+Madagascar,2013,1491.0741,country
+Madagascar,2014,1500.9106,country
+Madagascar,2015,1508.3744,country
+Madagascar,2016,1528.5618,country
+Madagascar,2017,1548.1564,country
+Madagascar,2018,1557.3225,country
+Madagascar,2019,1585.4717,country
+Madagascar,2020,1436.2069,country
+Madagascar,2021,1482.3761,country
+Madagascar,2022,1502.4822,country
+Malawi,2000,1116.4922,country
+Malawi,2001,1036.0878,country
+Malawi,2002,1028.1575,country
+Malawi,2003,1059.5359,country
+Malawi,2004,1087.8655,country
+Malawi,2005,1093.1008,country
+Malawi,2006,1112.8373,country
+Malawi,2007,1185.5836,country
+Malawi,2008,1239.9622,country
+Malawi,2009,1304.7587,country
+Malawi,2010,1354.7054,country
+Malawi,2011,1381.3896,country
+Malawi,2012,1368.3232,country
+Malawi,2013,1402.4337,country
+Malawi,2014,1440.5837,country
+Malawi,2015,1440.6184,country
+Malawi,2016,1437.0421,country
+Malawi,2017,1454.7775,country
+Malawi,2018,1478.4248,country
+Malawi,2019,1517.7031,country
+Malawi,2020,1489.6014,country
+Malawi,2021,1491.1337,country
+Malawi,2022,1466.8794,country
+Malaysia,2000,16089.859,country
+Malaysia,2001,15762.775,country
+Malaysia,2002,16199.731,country
+Malaysia,2003,16723.924,country
+Malaysia,2004,17439.762,country
+Malaysia,2005,17951.39,country
+Malaysia,2006,18535.053,country
+Malaysia,2007,19278.422,country
+Malaysia,2008,19792.266,country
+Malaysia,2009,19110.75,country
+Malaysia,2010,20171.879,country
+Malaysia,2011,20900.32,country
+Malaysia,2012,21690.453,country
+Malaysia,2013,22350.906,country
+Malaysia,2014,23328.342,country
+Malaysia,2015,24151.256,country
+Malaysia,2016,24859.797,country
+Malaysia,2017,25935.139,country
+Malaysia,2018,26835.807,country
+Malaysia,2019,27674.398,country
+Malaysia,2020,25852.19,country
+Malaysia,2021,26407.316,country
+Malaysia,2022,28383.62,country
+Maldives,2000,13564.347,country
+Maldives,2001,12810.9795,country
+Maldives,2002,13508.93,country
+Maldives,2003,15110.916,country
+Maldives,2004,15730.024,country
+Maldives,2005,13742.516,country
+Maldives,2006,16587.656,country
+Maldives,2007,17183.107,country
+Maldives,2008,18072.59,country
+Maldives,2009,16020.293,country
+Maldives,2010,16521.861,country
+Maldives,2011,17321.91,country
+Maldives,2012,17132.03,country
+Maldives,2013,17721.852,country
+Maldives,2014,18370.41,country
+Maldives,2015,18273.73,country
+Maldives,2016,18674.303,country
+Maldives,2017,19221.967,country
+Maldives,2018,20149.604,country
+Maldives,2019,20988.092,country
+Maldives,2020,13809.354,country
+Maldives,2021,18757.78,country
+Maldives,2022,21271.318,country
+Mali,2000,1585.348,country
+Mali,2001,1774.6824,country
+Mali,2002,1773.3451,country
+Mali,2003,1873.9889,country
+Mali,2004,1842.0564,country
+Mali,2005,1898.6237,country
+Mali,2006,1922.5261,country
+Mali,2007,1925.0635,country
+Mali,2008,1951.7738,country
+Mali,2009,1980.0592,country
+Mali,2010,2018.6014,country
+Mali,2011,2017.1442,country
+Mali,2012,1942.7395,country
+Mali,2013,1930.135,country
+Mali,2014,2002.3729,country
+Mali,2015,2060.0986,country
+Mali,2016,2112.187,country
+Mali,2017,2153.8457,country
+Mali,2018,2185.5757,country
+Mali,2019,2219.0466,country
+Mali,2020,2123.8281,country
+Mali,2021,2120.6233,country
+Mali,2022,2132.6233,country
+Malta,2000,27522.822,country
+Malta,2001,26995.98,country
+Malta,2002,27482.848,country
+Malta,2003,28415.006,country
+Malta,2004,28264.393,country
+Malta,2005,29035.074,country
+Malta,2006,29655.652,country
+Malta,2007,30963.447,country
+Malta,2008,31939.725,country
+Malta,2009,31340.398,country
+Malta,2010,32915.723,country
+Malta,2011,32929.637,country
+Malta,2012,33978.664,country
+Malta,2013,35338.766,country
+Malta,2014,37284.402,country
+Malta,2015,39903.04,country
+Malta,2016,40318.957,country
+Malta,2017,43493.727,country
+Malta,2018,45116.074,country
+Malta,2019,46438.664,country
+Malta,2020,41753.812,country
+Malta,2021,46598.96,country
+Malta,2022,48641.85,country
+Marshall Islands,2000,3148.645,country
+Marshall Islands,2001,3351.891,country
+Marshall Islands,2002,3472.0044,country
+Marshall Islands,2003,3416.089,country
+Marshall Islands,2004,3467.2556,country
+Marshall Islands,2005,3535.5005,country
+Marshall Islands,2006,3551.697,country
+Marshall Islands,2007,3684.5881,country
+Marshall Islands,2008,3416.8916,country
+Marshall Islands,2009,3557.9993,country
+Marshall Islands,2010,3764.227,country
+Marshall Islands,2011,3787.7202,country
+Marshall Islands,2012,3793.139,country
+Marshall Islands,2013,3995.217,country
+Marshall Islands,2014,4022.0452,country
+Marshall Islands,2015,4190.388,country
+Marshall Islands,2016,4375.981,country
+Marshall Islands,2017,4649.231,country
+Marshall Islands,2018,5040.306,country
+Marshall Islands,2019,5719.19,country
+Marshall Islands,2020,5724.7295,country
+Marshall Islands,2021,5976.0303,country
+Marshall Islands,2022,6004.343,country
+Mauritania,2000,4170.9,country
+Mauritania,2001,4037.4492,country
+Mauritania,2002,4006.3625,country
+Mauritania,2003,4192.377,country
+Mauritania,2004,4296.5425,country
+Mauritania,2005,4562.7295,country
+Mauritania,2006,5278.545,country
+Mauritania,2007,5055.986,country
+Mauritania,2008,4914.832,country
+Mauritania,2009,4787.4497,country
+Mauritania,2010,4773.7505,country
+Mauritania,2011,4825.086,country
+Mauritania,2012,4885.69,country
+Mauritania,2013,4943.231,country
+Mauritania,2014,5020.135,country
+Mauritania,2015,5151.898,country
+Mauritania,2016,5080.807,country
+Mauritania,2017,5259.063,country
+Mauritania,2018,5367.2144,country
+Mauritania,2019,5392.9326,country
+Mauritania,2020,5236.41,country
+Mauritania,2021,5142.2812,country
+Mauritania,2022,5330.2144,country
+Mauritius,2000,12254.295,country
+Mauritius,2001,12564.852,country
+Mauritius,2002,12679.432,country
+Mauritius,2003,13333.902,country
+Mauritius,2004,13824.298,country
+Mauritius,2005,13986.968,country
+Mauritius,2006,14599.26,country
+Mauritius,2007,15365.209,country
+Mauritius,2008,16134.475,country
+Mauritius,2009,16625.14,country
+Mauritius,2010,17311.625,country
+Mauritius,2011,17988.684,country
+Mauritius,2012,18566.03,country
+Mauritius,2013,19143.508,country
+Mauritius,2014,19840.178,country
+Mauritius,2015,20545.17,country
+Mauritius,2016,21324.064,country
+Mauritius,2017,22143.826,country
+Mauritius,2018,23018.516,country
+Mauritius,2019,23676.414,country
+Mauritius,2020,20231.852,country
+Mauritius,2021,20915.217,country
+Mauritius,2022,22841.35,country
+Mexico,2000,19407.033,country
+Mexico,2001,19023.928,country
+Mexico,2002,18692.535,country
+Mexico,2003,18634.896,country
+Mexico,2004,19017.754,country
+Mexico,2005,19144.014,country
+Mexico,2006,19792.758,country
+Mexico,2007,19939.836,country
+Mexico,2008,19874.416,country
+Mexico,2009,18394.367,country
+Mexico,2010,19054.357,country
+Mexico,2011,19431.201,country
+Mexico,2012,19842.564,country
+Mexico,2013,19749.785,country
+Mexico,2014,19994.502,country
+Mexico,2015,20296.566,country
+Mexico,2016,20423.559,country
+Mexico,2017,20582.252,country
+Mexico,2018,20789.361,country
+Mexico,2019,20553.955,country
+Mexico,2020,18639.662,country
+Mexico,2021,19617.76,country
+Mexico,2022,20254.781,country
+Micronesia (country),2000,3301.444,country
+Micronesia (country),2001,3365.8052,country
+Micronesia (country),2002,3382.8862,country
+Micronesia (country),2003,3441.8162,country
+Micronesia (country),2004,3346.7888,country
+Micronesia (country),2005,3430.456,country
+Micronesia (country),2006,3447.5327,country
+Micronesia (country),2007,3407.9897,country
+Micronesia (country),2008,3351.242,country
+Micronesia (country),2009,3414.131,country
+Micronesia (country),2010,3500.3557,country
+Micronesia (country),2011,3601.957,country
+Micronesia (country),2012,3523.4478,country
+Micronesia (country),2013,3382.0125,country
+Micronesia (country),2014,3291.454,country
+Micronesia (country),2015,3429.8022,country
+Micronesia (country),2016,3446.1003,country
+Micronesia (country),2017,3522.3494,country
+Micronesia (country),2018,3513.9263,country
+Micronesia (country),2019,3540.8438,country
+Micronesia (country),2020,3420.516,country
+Micronesia (country),2021,3320.9114,country
+Micronesia (country),2022,3263.6653,country
+Middle East and North Africa (WB),2000,12358.622,aggregated
+Middle East and North Africa (WB),2001,12307.973,aggregated
+Middle East and North Africa (WB),2002,12292.15,aggregated
+Middle East and North Africa (WB),2003,12722.017,aggregated
+Middle East and North Africa (WB),2004,13413.686,aggregated
+Middle East and North Africa (WB),2005,13779.078,aggregated
+Middle East and North Africa (WB),2006,14219.88,aggregated
+Middle East and North Africa (WB),2007,14619.928,aggregated
+Middle East and North Africa (WB),2008,14916.241,aggregated
+Middle East and North Africa (WB),2009,14674.8,aggregated
+Middle East and North Africa (WB),2010,15056.561,aggregated
+Middle East and North Africa (WB),2011,15286.814,aggregated
+Middle East and North Africa (WB),2012,15623.145,aggregated
+Middle East and North Africa (WB),2013,15611.711,aggregated
+Middle East and North Africa (WB),2014,15741.551,aggregated
+Middle East and North Africa (WB),2015,15918.007,aggregated
+Middle East and North Africa (WB),2016,16354.35,aggregated
+Middle East and North Africa (WB),2017,16391.51,aggregated
+Middle East and North Africa (WB),2018,16445.59,aggregated
+Middle East and North Africa (WB),2019,16331.92,aggregated
+Middle East and North Africa (WB),2020,15582.67,aggregated
+Middle East and North Africa (WB),2021,16066.921,aggregated
+Middle East and North Africa (WB),2022,16772.773,aggregated
+Middle-income countries,2000,5315.7866,aggregated
+Middle-income countries,2001,5433.7114,aggregated
+Middle-income countries,2002,5607.1753,aggregated
+Middle-income countries,2003,5865.0806,aggregated
+Middle-income countries,2004,6223.131,aggregated
+Middle-income countries,2005,6571.241,aggregated
+Middle-income countries,2006,6999.9443,aggregated
+Middle-income countries,2007,7491.251,aggregated
+Middle-income countries,2008,7798.062,aggregated
+Middle-income countries,2009,7896.448,aggregated
+Middle-income countries,2010,8384.964,aggregated
+Middle-income countries,2011,8769.056,aggregated
+Middle-income countries,2012,9118.47,aggregated
+Middle-income countries,2013,9463.998,aggregated
+Middle-income countries,2014,9785.806,aggregated
+Middle-income countries,2015,10083.457,aggregated
+Middle-income countries,2016,10426.732,aggregated
+Middle-income countries,2017,10833.217,aggregated
+Middle-income countries,2018,11231.761,aggregated
+Middle-income countries,2019,11539.141,aggregated
+Middle-income countries,2020,11222.781,aggregated
+Middle-income countries,2021,11907.978,aggregated
+Middle-income countries,2022,12264.593,aggregated
+Moldova,2000,5004.6675,country
+Moldova,2001,5321.84,country
+Moldova,2002,5750.244,country
+Moldova,2003,6147.0464,country
+Moldova,2004,6618.284,country
+Moldova,2005,7131.988,country
+Moldova,2006,7495.125,country
+Moldova,2007,7737.888,country
+Moldova,2008,8357.337,country
+Moldova,2009,7865.822,country
+Moldova,2010,8432.709,country
+Moldova,2011,8928.501,country
+Moldova,2012,8877.01,country
+Moldova,2013,9682.428,country
+Moldova,2014,10172.714,country
+Moldova,2015,10216.371,country
+Moldova,2016,10816.09,country
+Moldova,2017,11464.019,country
+Moldova,2018,12142.73,country
+Moldova,2019,12776.922,country
+Moldova,2020,11848.899,country
+Moldova,2021,13703.939,country
+Moldova,2022,13308.417,country
+Mongolia,2000,4424.653,country
+Mongolia,2001,4515.4653,country
+Mongolia,2002,4687.445,country
+Mongolia,2003,4972.258,country
+Mongolia,2004,5453.993,country
+Mongolia,2005,5800.909,country
+Mongolia,2006,6243.609,country
+Mongolia,2007,6818.9937,country
+Mongolia,2008,7346.279,country
+Mongolia,2009,7163.802,country
+Mongolia,2010,7518.831,country
+Mongolia,2011,8685.78,country
+Mongolia,2012,9586.715,country
+Mongolia,2013,10504.814,country
+Mongolia,2014,11107.989,country
+Mongolia,2015,11134.802,country
+Mongolia,2016,11058.95,country
+Mongolia,2017,11431.498,country
+Mongolia,2018,12052.294,country
+Mongolia,2019,12458.019,country
+Mongolia,2020,11666.779,country
+Mongolia,2021,11668.431,country
+Mongolia,2022,12073.245,country
+Montenegro,2000,12419.078,country
+Montenegro,2001,12505.25,country
+Montenegro,2002,12692.376,country
+Montenegro,2003,12955.668,country
+Montenegro,2004,13505.138,country
+Montenegro,2005,14048.937,country
+Montenegro,2006,15233.48,country
+Montenegro,2007,16248.446,country
+Montenegro,2008,17391.139,country
+Montenegro,2009,16348.196,country
+Montenegro,2010,16764.463,country
+Montenegro,2011,17287.527,country
+Montenegro,2012,16802.506,country
+Montenegro,2013,17381.852,country
+Montenegro,2014,17674.734,country
+Montenegro,2015,18263.725,country
+Montenegro,2016,18798.021,country
+Montenegro,2017,19682.41,country
+Montenegro,2018,20686.713,country
+Montenegro,2019,21534.09,country
+Montenegro,2020,18259.084,country
+Montenegro,2021,20710.535,country
+Montenegro,2022,22108.73,country
+Morocco,2000,4771.347,country
+Morocco,2001,5071.322,country
+Morocco,2002,5192.012,country
+Morocco,2003,5443.775,country
+Morocco,2004,5620.2886,country
+Morocco,2005,5721.889,country
+Morocco,2006,6085.4814,country
+Morocco,2007,6212.3423,country
+Morocco,2008,6479.977,country
+Morocco,2009,6635.102,country
+Morocco,2010,6775.946,country
+Morocco,2011,7052.727,country
+Morocco,2012,7168.6743,country
+Morocco,2013,7362.2026,country
+Morocco,2014,7462.153,country
+Morocco,2015,7687.691,country
+Morocco,2016,7632.1855,country
+Morocco,2017,7921.619,country
+Morocco,2018,8072.0864,country
+Morocco,2019,8217.599,country
+Morocco,2020,7546.7163,country
+Morocco,2021,8065.986,country
+Morocco,2022,8083.365,country
+Mozambique,2000,621.2493,country
+Mozambique,2001,683.6903,country
+Mozambique,2002,730.77313,country
+Mozambique,2003,763.43445,country
+Mozambique,2004,804.77856,country
+Mozambique,2005,833.70337,country
+Mozambique,2006,893.13495,country
+Mozambique,2007,936.85205,country
+Mozambique,2008,975.38965,country
+Mozambique,2009,1006.00024,country
+Mozambique,2010,1043.5675,country
+Mozambique,2011,1085.7045,country
+Mozambique,2012,1137.6823,country
+Mozambique,2013,1175.7554,country
+Mozambique,2014,1228.0466,country
+Mozambique,2015,1279.3092,country
+Mozambique,2016,1298.1354,country
+Mozambique,2017,1291.6715,country
+Mozambique,2018,1297.8695,country
+Mozambique,2019,1290.1674,country
+Mozambique,2020,1237.946,country
+Mozambique,2021,1231.8641,country
+Mozambique,2022,1250.7725,country
+Myanmar,2000,1082.7642,country
+Myanmar,2001,1193.1088,country
+Myanmar,2002,1323.203,country
+Myanmar,2003,1492.1317,country
+Myanmar,2004,1679.7092,country
+Myanmar,2005,1892.198,country
+Myanmar,2006,2123.4368,country
+Myanmar,2007,2360.525,country
+Myanmar,2008,2587.4443,country
+Myanmar,2009,2843.7092,country
+Myanmar,2010,3094.0042,country
+Myanmar,2011,3240.5293,country
+Myanmar,2012,3448.8032,country
+Myanmar,2013,3707.6414,country
+Myanmar,2014,3970.6677,country
+Myanmar,2015,4214.373,country
+Myanmar,2016,4433.664,country
+Myanmar,2017,4670.0806,country
+Myanmar,2018,4927.2524,country
+Myanmar,2019,5214.3735,country
+Myanmar,2020,4708.5596,country
+Myanmar,2021,4113.8936,country
+Myanmar,2022,4249.876,country
+Namibia,2000,6713.0024,country
+Namibia,2001,6655.7505,country
+Namibia,2002,6855.839,country
+Namibia,2003,7046.1475,country
+Namibia,2004,7812.8613,country
+Namibia,2005,7914.733,country
+Namibia,2006,8373.482,country
+Namibia,2007,8714.104,country
+Namibia,2008,8826.273,country
+Namibia,2009,8726.682,country
+Namibia,2010,9115.507,country
+Namibia,2011,9431.044,country
+Namibia,2012,9747.819,country
+Namibia,2013,10122.154,country
+Namibia,2014,10554.564,country
+Namibia,2015,10813.227,country
+Namibia,2016,10627.635,country
+Namibia,2017,10335.268,country
+Namibia,2018,10266.171,country
+Namibia,2019,10009.578,country
+Namibia,2020,9041.77,country
+Namibia,2021,9208.583,country
+Namibia,2022,9762.777,country
+Nauru,2004,5342.3306,country
+Nauru,2005,4931.436,country
+Nauru,2006,4522.2583,country
+Nauru,2007,4217.8145,country
+Nauru,2008,6975.7007,country
+Nauru,2009,6559.3345,country
+Nauru,2010,6448.4976,country
+Nauru,2011,7053.8467,country
+Nauru,2012,9121.933,country
+Nauru,2013,9313.624,country
+Nauru,2014,10489.616,country
+Nauru,2015,9679.103,country
+Nauru,2016,10223.102,country
+Nauru,2017,9359.986,country
+Nauru,2018,9896.362,country
+Nauru,2019,10529.813,country
+Nauru,2020,10812.89,country
+Nauru,2021,10989.622,country
+Nauru,2022,11024.343,country
+Nepal,2000,2020.8555,country
+Nepal,2001,2084.2,country
+Nepal,2002,2055.7227,country
+Nepal,2003,2107.6409,country
+Nepal,2004,2179.093,country
+Nepal,2005,2230.789,country
+Nepal,2006,2285.5122,country
+Nepal,2007,2346.2593,country
+Nepal,2008,2473.9417,country
+Nepal,2009,2572.175,country
+Nepal,2010,2682.6987,country
+Nepal,2011,2763.8284,country
+Nepal,2012,2886.0974,country
+Nepal,2013,2982.287,country
+Nepal,2014,3152.2932,country
+Nepal,2015,3260.035,country
+Nepal,2016,3244.6743,country
+Nepal,2017,3495.5288,country
+Nepal,2018,3719.3079,country
+Nepal,2019,3922.0813,country
+Nepal,2020,3761.8027,country
+Nepal,2021,3853.6802,country
+Nepal,2022,4001.7,country
+Netherlands,2000,47422.203,country
+Netherlands,2001,48160.785,country
+Netherlands,2002,47958.332,country
+Netherlands,2003,47806.883,country
+Netherlands,2004,48586.703,country
+Netherlands,2005,49467.434,country
+Netherlands,2006,51097.363,country
+Netherlands,2007,52909.97,country
+Netherlands,2008,53848.254,country
+Netherlands,2009,51607.605,country
+Netherlands,2010,52032.99,country
+Netherlands,2011,52594.23,country
+Netherlands,2012,51860.055,country
+Netherlands,2013,51640.08,country
+Netherlands,2014,52186.996,country
+Netherlands,2015,52974.117,country
+Netherlands,2016,53847.83,country
+Netherlands,2017,55088.633,country
+Netherlands,2018,56060.914,country
+Netherlands,2019,56784.04,country
+Netherlands,2020,54275.004,country
+Netherlands,2021,57334.703,country
+Netherlands,2022,59249.168,country
+New Zealand,2000,32728.273,country
+New Zealand,2001,33645.742,country
+New Zealand,2002,34625.035,country
+New Zealand,2003,35553.633,country
+New Zealand,2004,36461.46,country
+New Zealand,2005,37261.152,country
+New Zealand,2006,37839.805,country
+New Zealand,2007,38637.695,country
+New Zealand,2008,37847.33,country
+New Zealand,2009,37428.848,country
+New Zealand,2010,37557.965,country
+New Zealand,2011,38100.727,country
+New Zealand,2012,38753.727,country
+New Zealand,2013,39520.414,country
+New Zealand,2014,40350.645,country
+New Zealand,2015,41014.688,country
+New Zealand,2016,41628.4,country
+New Zealand,2017,42204.746,country
+New Zealand,2018,42916.87,country
+New Zealand,2019,43272.566,country
+New Zealand,2020,42052.14,country
+New Zealand,2021,44041.902,country
+New Zealand,2022,45185.312,country
+Nicaragua,2000,3927.0925,country
+Nicaragua,2001,3989.2185,country
+Nicaragua,2002,3968.668,country
+Nicaragua,2003,4019.746,country
+Nicaragua,2004,4183.6406,country
+Nicaragua,2005,4308.0483,country
+Nicaragua,2006,4426.0063,country
+Nicaragua,2007,4586.307,country
+Nicaragua,2008,4676.9424,country
+Nicaragua,2009,4457.9326,country
+Nicaragua,2010,4586.9097,country
+Nicaragua,2011,4805.4395,country
+Nicaragua,2012,5042.877,country
+Nicaragua,2013,5214.5693,country
+Nicaragua,2014,5385.5073,country
+Nicaragua,2015,5563.0474,country
+Nicaragua,2016,5734.3677,country
+Nicaragua,2017,5915.3896,country
+Nicaragua,2018,5636.7153,country
+Nicaragua,2019,5398.1074,country
+Nicaragua,2020,5230.574,country
+Nicaragua,2021,5692.035,country
+Nicaragua,2022,5822.3535,country
+Niger,2000,909.2826,country
+Niger,2001,942.2325,country
+Niger,2002,954.8401,country
+Niger,2003,941.9697,country
+Niger,2004,912.4313,country
+Niger,2005,944.81244,country
+Niger,2006,965.32074,country
+Niger,2007,960.0562,country
+Niger,2008,996.9867,country
+Niger,2009,979.61694,country
+Niger,2010,1024.6996,country
+Niger,2011,1010.28876,country
+Niger,2012,1075.1053,country
+Niger,2013,1089.8319,country
+Niger,2014,1119.0948,country
+Niger,2015,1124.3676,country
+Niger,2016,1143.8174,country
+Niger,2017,1155.9739,country
+Niger,2018,1193.2727,country
+Niger,2019,1217.4355,country
+Niger,2020,1214.541,country
+Niger,2021,1186.53,country
+Niger,2022,1274.6417,country
+Nigeria,2000,2963.2742,country
+Nigeria,2001,3056.5112,country
+Nigeria,2002,3431.733,country
+Nigeria,2003,3585.9946,country
+Nigeria,2004,3813.5273,country
+Nigeria,2005,3951.1829,country
+Nigeria,2006,4079.1357,country
+Nigeria,2007,4231.764,country
+Nigeria,2008,4396.801,country
+Nigeria,2009,4622.364,country
+Nigeria,2010,4857.266,country
+Nigeria,2011,4975.638,country
+Nigeria,2012,5045.4717,country
+Nigeria,2013,5238.8325,country
+Nigeria,2014,5424.9243,country
+Nigeria,2015,5429.0996,country
+Nigeria,2016,5209.074,country
+Nigeria,2017,5120.0054,country
+Nigeria,2018,5089.778,country
+Nigeria,2019,5076.368,country
+Nigeria,2020,4865.087,country
+Nigeria,2021,4922.6323,country
+Nigeria,2022,4963.16,country
+North America (WB),2000,49307.312,aggregated
+North America (WB),2001,49320.895,aggregated
+North America (WB),2002,49738.582,aggregated
+North America (WB),2003,50648.938,aggregated
+North America (WB),2004,52083.34,aggregated
+North America (WB),2005,53389.92,aggregated
+North America (WB),2006,54340.824,aggregated
+North America (WB),2007,54909.594,aggregated
+North America (WB),2008,54490.5,aggregated
+North America (WB),2009,52582.18,aggregated
+North America (WB),2010,53561.14,aggregated
+North America (WB),2011,54053.184,aggregated
+North America (WB),2012,54837.805,aggregated
+North America (WB),2013,55463.902,aggregated
+North America (WB),2014,56329.223,aggregated
+North America (WB),2015,57331.336,aggregated
+North America (WB),2016,57812.95,aggregated
+North America (WB),2017,58740.645,aggregated
+North America (WB),2018,60088.99,aggregated
+North America (WB),2019,61107.695,aggregated
+North America (WB),2020,58725.46,aggregated
+North America (WB),2021,62061.168,aggregated
+North America (WB),2022,63023.21,aggregated
+North Macedonia,2000,10224.752,country
+North Macedonia,2001,9869.577,country
+North Macedonia,2002,10090.01,country
+North Macedonia,2003,10280.602,country
+North Macedonia,2004,10730.572,country
+North Macedonia,2005,11213.709,country
+North Macedonia,2006,11770.27,country
+North Macedonia,2007,12511.788,country
+North Macedonia,2008,13174.907,country
+North Macedonia,2009,13103.507,country
+North Macedonia,2010,13515.063,country
+North Macedonia,2011,13807.549,country
+North Macedonia,2012,13727.856,country
+North Macedonia,2013,14108.977,country
+North Macedonia,2014,14596.688,country
+North Macedonia,2015,15139.344,country
+North Macedonia,2016,15553.534,country
+North Macedonia,2017,15706.54,country
+North Macedonia,2018,16145.634,country
+North Macedonia,2019,16773.143,country
+North Macedonia,2020,15779.787,country
+North Macedonia,2021,16708.598,country
+North Macedonia,2022,17128.76,country
+Norway,2000,57473.184,country
+Norway,2001,58365.125,country
+Norway,2002,58850.906,country
+Norway,2003,59059.57,country
+Norway,2004,61068.63,country
+Norway,2005,62282.758,country
+Norway,2006,63303.926,country
+Norway,2007,64477.99,country
+Norway,2008,63986.246,country
+Norway,2009,61958.36,country
+Norway,2010,61672.96,country
+Norway,2011,61551.215,country
+Norway,2012,62399.168,country
+Norway,2013,62275.69,country
+Norway,2014,62838.516,country
+Norway,2015,63371.887,country
+Norway,2016,63547.688,country
+Norway,2017,64589.555,country
+Norway,2018,64696.473,country
+Norway,2019,64983.355,country
+Norway,2020,63776.16,country
+Norway,2021,65915.53,country
+Norway,2022,67296.16,country
+Oman,2000,37392.246,country
+Oman,2001,38568.316,country
+Oman,2002,37683.418,country
+Oman,2003,36256.348,country
+Oman,2004,36170.676,country
+Oman,2005,36388.445,country
+Oman,2006,37662.516,country
+Oman,2007,38659.35,country
+Oman,2008,41114.24,country
+Oman,2009,42875.113,country
+Oman,2010,40819.938,country
+Oman,2011,37745.453,country
+Oman,2012,37270.586,country
+Oman,2013,36330.48,country
+Oman,2014,35032.258,country
+Oman,2015,35188.023,country
+Oman,2016,35229.953,country
+Oman,2017,34218.387,country
+Oman,2018,34212.105,country
+Oman,2019,33814.113,country
+Oman,2020,33098.21,country
+Oman,2021,34294.766,country
+Oman,2022,35336.895,country
+Pakistan,2000,3338.5107,country
+Pakistan,2001,3355.0503,country
+Pakistan,2002,3356.8242,country
+Pakistan,2003,3461.5151,country
+Pakistan,2004,3650.0916,country
+Pakistan,2005,3832.0789,country
+Pakistan,2006,3979.588,country
+Pakistan,2007,4068.4077,country
+Pakistan,2008,4065.1292,country
+Pakistan,2009,4113.565,country
+Pakistan,2010,4082.3376,country
+Pakistan,2011,4104.196,country
+Pakistan,2012,4153.1064,country
+Pakistan,2013,4268.36,country
+Pakistan,2014,4381.878,country
+Pakistan,2015,4507.8755,country
+Pakistan,2016,4746.718,country
+Pakistan,2017,4891.7197,country
+Pakistan,2018,5113.434,country
+Pakistan,2019,5157.5464,country
+Pakistan,2020,5004.352,country
+Pakistan,2021,5233.4595,country
+Pakistan,2022,5376.967,country
+Palau,2000,13301.254,country
+Palau,2001,14085.038,country
+Palau,2002,14572.293,country
+Palau,2003,14076.18,country
+Palau,2004,14739.704,country
+Palau,2005,15382.102,country
+Palau,2006,15485.247,country
+Palau,2007,16004.616,country
+Palau,2008,15287.647,country
+Palau,2009,14489.474,country
+Palau,2010,14744.783,country
+Palau,2011,15988.997,country
+Palau,2012,16522.75,country
+Palau,2013,16089.486,country
+Palau,2014,17110.787,country
+Palau,2015,18402.848,country
+Palau,2016,18364.799,country
+Palau,2017,17594.994,country
+Palau,2018,17816.092,country
+Palau,2019,17799.605,country
+Palau,2020,16404.549,country
+Palau,2021,14112.668,country
+Palestine,2000,4503.249,country
+Palestine,2001,3980.9333,country
+Palestine,2002,3395.855,country
+Palestine,2003,3774.1323,country
+Palestine,2004,4485.5254,country
+Palestine,2005,4866.0283,country
+Palestine,2006,4695.9946,country
+Palestine,2007,4750.9297,country
+Palestine,2008,4965.373,country
+Palestine,2009,5250.116,country
+Palestine,2010,5411.0664,country
+Palestine,2011,5782.6895,country
+Palestine,2012,5985.683,country
+Palestine,2013,6118.2573,country
+Palestine,2014,5967.073,country
+Palestine,2015,6048.9766,country
+Palestine,2016,6438.9336,country
+Palestine,2017,6401.7407,country
+Palestine,2018,6318.21,country
+Palestine,2019,6245.4487,country
+Palestine,2020,5402.5386,country
+Palestine,2021,5641.0444,country
+Palestine,2022,5722.409,country
+Panama,2000,15179.442,country
+Panama,2001,14970.895,country
+Panama,2002,15010.56,country
+Panama,2003,15343.81,country
+Panama,2004,16184.114,country
+Panama,2005,17019.684,country
+Panama,2006,18148.076,country
+Panama,2007,19949.594,country
+Panama,2008,21516.59,country
+Panama,2009,21391.934,country
+Panama,2010,22237.1,country
+Panama,2011,24316.355,country
+Panama,2012,26223.584,country
+Panama,2013,27544.795,country
+Panama,2014,28439.953,country
+Panama,2015,29551.367,country
+Panama,2016,30481.771,country
+Panama,2017,31638.152,country
+Panama,2018,32259.22,country
+Panama,2019,32788.332,country
+Panama,2020,26606.295,country
+Panama,2021,30416.793,country
+Panama,2022,33266.477,country
+Papua New Guinea,2000,3047.9697,country
+Papua New Guinea,2001,2942.6675,country
+Papua New Guinea,2002,2841.212,country
+Papua New Guinea,2003,2808.1572,country
+Papua New Guinea,2004,2791.897,country
+Papua New Guinea,2005,2875.0835,country
+Papua New Guinea,2006,2936.022,country
+Papua New Guinea,2007,3068.1272,country
+Papua New Guinea,2008,2966.068,country
+Papua New Guinea,2009,3072.682,country
+Papua New Guinea,2010,3283.772,country
+Papua New Guinea,2011,3225.1433,country
+Papua New Guinea,2012,3282.866,country
+Papua New Guinea,2013,3317.8735,country
+Papua New Guinea,2014,3669.9768,country
+Papua New Guinea,2015,3813.1804,country
+Papua New Guinea,2016,3924.4238,country
+Papua New Guinea,2017,3967.016,country
+Papua New Guinea,2018,3865.0115,country
+Papua New Guinea,2019,3947.9338,country
+Papua New Guinea,2020,3741.6616,country
+Papua New Guinea,2021,3637.9133,country
+Papua New Guinea,2022,3752.945,country
+Paraguay,2000,8862.144,country
+Paraguay,2001,8640.303,country
+Paraguay,2002,8515.946,country
+Paraguay,2003,8773.139,country
+Paraguay,2004,9022.798,country
+Paraguay,2005,9113.412,country
+Paraguay,2006,9451.761,country
+Paraguay,2007,9865.326,country
+Paraguay,2008,10403.841,country
+Paraguay,2009,10272.177,country
+Paraguay,2010,11281.256,country
+Paraguay,2011,11613.169,country
+Paraguay,2012,11376.407,country
+Paraguay,2013,12150.972,country
+Paraguay,2014,12616.414,country
+Paraguay,2015,12806.097,country
+Paraguay,2016,13163.74,country
+Paraguay,2017,13604.175,country
+Paraguay,2018,13848.499,country
+Paraguay,2019,13609.723,country
+Paraguay,2020,13317.321,country
+Paraguay,2021,13676.391,country
+Paraguay,2022,13531.396,country
+Peru,2000,6375.616,country
+Peru,2001,6329.413,country
+Peru,2002,6596.5503,country
+Peru,2003,6799.4497,country
+Peru,2004,7067.3555,country
+Peru,2005,7443.931,country
+Peru,2006,7938.435,country
+Peru,2007,8548.6045,country
+Peru,2008,9262.151,country
+Peru,2009,9298.078,country
+Peru,2010,9996.9375,country
+Peru,2011,10539.982,country
+Peru,2012,11084.874,country
+Peru,2013,11620.645,country
+Peru,2014,11773.944,country
+Peru,2015,12015.1875,country
+Peru,2016,12321.318,country
+Peru,2017,12442.746,country
+Peru,2018,12696.236,country
+Peru,2019,12735.168,country
+Peru,2020,11187.344,country
+Peru,2021,12533.842,country
+Peru,2022,12743.942,country
+Philippines,2000,4455.6724,country
+Philippines,2001,4495.361,country
+Philippines,2002,4567.2344,country
+Philippines,2003,4703.6665,country
+Philippines,2004,4914.036,country
+Philippines,2005,5058.0474,country
+Philippines,2006,5227.533,country
+Philippines,2007,5465.152,country
+Philippines,2008,5596.913,country
+Philippines,2009,5574.4526,country
+Philippines,2010,5876.478,country
+Philippines,2011,5995.431,country
+Philippines,2012,6298.16,country
+Philippines,2013,6610.851,country
+Philippines,2014,6917.749,country
+Philippines,2015,7235.0815,country
+Philippines,2016,7616.05,country
+Philippines,2017,8001.7563,country
+Philippines,2018,8365.732,country
+Philippines,2019,8731.861,country
+Philippines,2020,7773.2603,country
+Philippines,2021,8095.5796,country
+Philippines,2022,8581.9375,country
+Poland,2000,16177.867,country
+Poland,2001,16385.998,country
+Poland,2002,16727.34,country
+Poland,2003,17324.217,country
+Poland,2004,18198.1,country
+Poland,2005,18844.557,country
+Poland,2006,20012.621,country
+Poland,2007,21437.457,country
+Poland,2008,22334.781,country
+Poland,2009,22951.785,country
+Poland,2010,23692.91,country
+Poland,2011,24874.172,country
+Poland,2012,25258.594,country
+Poland,2013,25490.328,country
+Poland,2014,26488.201,country
+Poland,2015,27667.69,country
+Poland,2016,28497.104,country
+Poland,2017,29958.121,country
+Poland,2018,31739.258,country
+Poland,2019,33159.75,country
+Poland,2020,32546.826,country
+Poland,2021,34944.04,country
+Poland,2022,37706.605,country
+Portugal,2000,30383.139,country
+Portugal,2001,30756.02,country
+Portugal,2002,30823.85,country
+Portugal,2003,30422.602,country
+Portugal,2004,30892.82,country
+Portugal,2005,31076.645,country
+Portugal,2006,31524.75,country
+Portugal,2007,32251.568,country
+Portugal,2008,32307.912,country
+Portugal,2009,31269.41,country
+Portugal,2010,31798.154,country
+Portugal,2011,31304.816,country
+Portugal,2012,30156.701,country
+Portugal,2013,30042.89,country
+Portugal,2014,30444.6,country
+Portugal,2015,31118.791,country
+Portugal,2016,31847.537,country
+Portugal,2017,33044.715,country
+Portugal,2018,34040.727,country
+Portugal,2019,34945.66,country
+Portugal,2020,32011.324,country
+Portugal,2021,33636.44,country
+Portugal,2022,35767.723,country
+Puerto Rico,2000,30124.693,country
+Puerto Rico,2001,31958.098,country
+Puerto Rico,2002,32209.424,country
+Puerto Rico,2003,32206.465,country
+Puerto Rico,2004,35016.938,country
+Puerto Rico,2005,34370.715,country
+Puerto Rico,2006,34030.09,country
+Puerto Rico,2007,33831.934,country
+Puerto Rico,2008,33403.426,country
+Puerto Rico,2009,32930.363,country
+Puerto Rico,2010,32960.69,country
+Puerto Rico,2011,33224.566,country
+Puerto Rico,2012,33638.867,country
+Puerto Rico,2013,33922.16,country
+Puerto Rico,2014,34070.254,country
+Puerto Rico,2015,34311.03,country
+Puerto Rico,2016,34539.586,country
+Puerto Rico,2017,34363.746,country
+Puerto Rico,2018,34223.094,country
+Puerto Rico,2019,34792.65,country
+Puerto Rico,2020,32437.965,country
+Puerto Rico,2021,32766.666,country
+Puerto Rico,2022,34297.934,country
+Qatar,2000,79400.43,country
+Qatar,2001,78498.13,country
+Qatar,2002,80083.06,country
+Qatar,2003,79140.63,country
+Qatar,2004,90782.72,country
+Qatar,2005,89448.05,country
+Qatar,2006,94361.625,country
+Qatar,2007,91736.75,country
+Qatar,2008,92067.81,country
+Qatar,2009,92450.25,country
+Qatar,2010,103902.516,country
+Qatar,2011,111879.75,country
+Qatar,2012,110931.51,country
+Qatar,2013,109625.63,country
+Qatar,2014,106141.33,country
+Qatar,2015,101971.99,country
+Qatar,2016,97783.12,country
+Qatar,2017,92177.59,country
+Qatar,2018,91461.62,country
+Qatar,2019,90762.4,country
+Qatar,2020,89019.07,country
+Qatar,2021,92895.34,country
+Qatar,2022,96557.81,country
+Romania,2000,12176.631,country
+Romania,2001,12992.061,country
+Romania,2002,13986.716,country
+Romania,2003,14417.781,country
+Romania,2004,16012.26,country
+Romania,2005,16863.553,country
+Romania,2006,18325.736,country
+Romania,2007,19943.836,country
+Romania,2008,22166.418,country
+Romania,2009,21118.615,country
+Romania,2010,20415.629,country
+Romania,2011,21443.033,country
+Romania,2012,21953.324,country
+Romania,2013,22094.48,country
+Romania,2014,23091.254,country
+Romania,2015,23933.29,country
+Romania,2016,24758.818,country
+Romania,2017,26943.463,country
+Romania,2018,28736.217,country
+Romania,2019,30001.105,country
+Romania,2020,29057.408,country
+Romania,2021,30946.277,country
+Romania,2022,32495.908,country
+Russia,2000,14569.937,country
+Russia,2001,15378.09,country
+Russia,2002,16175.098,country
+Russia,2003,17434.809,country
+Russia,2004,18765.52,country
+Russia,2005,20042.814,country
+Russia,2006,21757.465,country
+Russia,2007,23647.266,country
+Russia,2008,24887.854,country
+Russia,2009,22939.693,country
+Russia,2010,23961.22,country
+Russia,2011,24972.078,country
+Russia,2012,25933.293,country
+Russia,2013,26332.396,country
+Russia,2014,26057.156,country
+Russia,2015,25488.096,country
+Russia,2016,25490.709,country
+Russia,2017,25926.443,country
+Russia,2018,26656.41,country
+Russia,2019,27254.574,country
+Russia,2020,26586.555,country
+Russia,2021,28057.031,country
+Russia,2022,27450.45,country
+Rwanda,2000,849.1412,country
+Rwanda,2001,908.42316,country
+Rwanda,2002,1010.04126,country
+Rwanda,2003,1008.7096,country
+Rwanda,2004,1056.2379,country
+Rwanda,2005,1125.2837,country
+Rwanda,2006,1196.7936,country
+Rwanda,2007,1253.9126,country
+Rwanda,2008,1356.9839,country
+Rwanda,2009,1404.199,country
+Rwanda,2010,1468.4058,country
+Rwanda,2011,1545.1144,country
+Rwanda,2012,1637.8477,country
+Rwanda,2013,1674.8248,country
+Rwanda,2014,1736.3374,country
+Rwanda,2015,1845.5582,country
+Rwanda,2016,1908.552,country
+Rwanda,2017,1934.9729,country
+Rwanda,2018,2049.6235,country
+Rwanda,2019,2190.562,country
+Rwanda,2020,2066.4717,country
+Rwanda,2021,2237.514,country
+Rwanda,2022,2364.802,country
+Saint Kitts and Nevis,2000,19631.678,country
+Saint Kitts and Nevis,2001,20427.12,country
+Saint Kitts and Nevis,2002,20582.078,country
+Saint Kitts and Nevis,2003,19701.389,country
+Saint Kitts and Nevis,2004,20423.184,country
+Saint Kitts and Nevis,2005,22341.389,country
+Saint Kitts and Nevis,2006,22971.973,country
+Saint Kitts and Nevis,2007,23040.637,country
+Saint Kitts and Nevis,2008,25539.645,country
+Saint Kitts and Nevis,2009,24608.74,country
+Saint Kitts and Nevis,2010,24558.797,country
+Saint Kitts and Nevis,2011,24862.457,country
+Saint Kitts and Nevis,2012,24656.084,country
+Saint Kitts and Nevis,2013,26042.076,country
+Saint Kitts and Nevis,2014,28003.553,country
+Saint Kitts and Nevis,2015,28202.912,country
+Saint Kitts and Nevis,2016,29310.443,country
+Saint Kitts and Nevis,2017,29317.594,country
+Saint Kitts and Nevis,2018,29934.469,country
+Saint Kitts and Nevis,2019,31178.648,country
+Saint Kitts and Nevis,2020,26678.33,country
+Saint Kitts and Nevis,2021,26460.477,country
+Saint Kitts and Nevis,2022,28770.139,country
+Saint Lucia,2000,12808.67,country
+Saint Lucia,2001,12287.86,country
+Saint Lucia,2002,12247.139,country
+Saint Lucia,2003,12671.691,country
+Saint Lucia,2004,13493.943,country
+Saint Lucia,2005,13345.377,country
+Saint Lucia,2006,14079.873,country
+Saint Lucia,2007,14228.476,country
+Saint Lucia,2008,14838.97,country
+Saint Lucia,2009,14324.698,country
+Saint Lucia,2010,14267.127,country
+Saint Lucia,2011,14779.835,country
+Saint Lucia,2012,14680.273,country
+Saint Lucia,2013,14315.314,country
+Saint Lucia,2014,14436.88,country
+Saint Lucia,2015,14384.199,country
+Saint Lucia,2016,14810.646,country
+Saint Lucia,2017,15247.463,country
+Saint Lucia,2018,15622.774,country
+Saint Lucia,2019,15460.798,country
+Saint Lucia,2020,11651.172,country
+Saint Lucia,2021,13045.966,country
+Saint Lucia,2022,15100.286,country
+Saint Vincent and the Grenadines,2000,8708.795,country
+Saint Vincent and the Grenadines,2001,8874.457,country
+Saint Vincent and the Grenadines,2002,9364.28,country
+Saint Vincent and the Grenadines,2003,10021.085,country
+Saint Vincent and the Grenadines,2004,10479.749,country
+Saint Vincent and the Grenadines,2005,10794.704,country
+Saint Vincent and the Grenadines,2006,11613.854,country
+Saint Vincent and the Grenadines,2007,12065.07,country
+Saint Vincent and the Grenadines,2008,12169.674,country
+Saint Vincent and the Grenadines,2009,12053.964,country
+Saint Vincent and the Grenadines,2010,11571.139,country
+Saint Vincent and the Grenadines,2011,11564.996,country
+Saint Vincent and the Grenadines,2012,11767.32,country
+Saint Vincent and the Grenadines,2013,12128.118,country
+Saint Vincent and the Grenadines,2014,12328.804,country
+Saint Vincent and the Grenadines,2015,12723.346,country
+Saint Vincent and the Grenadines,2016,13316.229,country
+Saint Vincent and the Grenadines,2017,13575.416,country
+Saint Vincent and the Grenadines,2018,14042.174,country
+Saint Vincent and the Grenadines,2019,14183.188,country
+Saint Vincent and the Grenadines,2020,13690.9,country
+Saint Vincent and the Grenadines,2021,13839.464,country
+Saint Vincent and the Grenadines,2022,14572.607,country
+Samoa,2000,4174.3677,country
+Samoa,2001,4446.0835,country
+Samoa,2002,4669.688,country
+Samoa,2003,4891.87,country
+Samoa,2004,5025.922,country
+Samoa,2005,5343.8906,country
+Samoa,2006,5436.128,country
+Samoa,2007,5431.0293,country
+Samoa,2008,5585.776,country
+Samoa,2009,5515.5728,country
+Samoa,2010,5808.405,country
+Samoa,2011,5980.395,country
+Samoa,2012,5705.678,country
+Samoa,2013,5659.9497,country
+Samoa,2014,5645.9634,country
+Samoa,2015,5811.106,country
+Samoa,2016,6214.8228,country
+Samoa,2017,6238.904,country
+Samoa,2018,6139.6294,country
+Samoa,2019,6346.2563,country
+Samoa,2020,6062.4717,country
+Samoa,2021,5534.566,country
+Samoa,2022,5155.62,country
+San Marino,2000,75881.85,country
+San Marino,2001,78614.2,country
+San Marino,2002,77070.98,country
+San Marino,2003,78286.9,country
+San Marino,2004,80463.9,country
+San Marino,2005,81256.14,country
+San Marino,2006,83098.25,country
+San Marino,2007,87795.664,country
+San Marino,2008,86422.55,country
+San Marino,2009,76607.086,country
+San Marino,2010,71156.1,country
+San Marino,2011,63458.816,country
+San Marino,2012,57854.316,country
+San Marino,2013,57136.906,country
+San Marino,2014,56558.87,country
+San Marino,2015,57542.984,country
+San Marino,2016,58432.504,country
+San Marino,2017,58201.527,country
+San Marino,2018,58898.06,country
+San Marino,2019,60076.01,country
+San Marino,2020,56364.215,country
+San Marino,2021,61609.01,country
+Sao Tome and Principe,2001,2401.268,country
+Sao Tome and Principe,2002,2422.6067,country
+Sao Tome and Principe,2003,2556.578,country
+Sao Tome and Principe,2004,2580.976,country
+Sao Tome and Principe,2005,2683.9097,country
+Sao Tome and Principe,2006,2850.5513,country
+Sao Tome and Principe,2007,2882.6885,country
+Sao Tome and Principe,2008,2989.0518,country
+Sao Tome and Principe,2009,3016.2751,country
+Sao Tome and Principe,2010,2992.595,country
+Sao Tome and Principe,2011,2988.3445,country
+Sao Tome and Principe,2012,3013.4429,country
+Sao Tome and Principe,2013,3105.0566,country
+Sao Tome and Principe,2014,3195.712,country
+Sao Tome and Principe,2015,3186.3984,country
+Sao Tome and Principe,2016,3293.9004,country
+Sao Tome and Principe,2017,3373.2642,country
+Sao Tome and Principe,2018,3465.8398,country
+Sao Tome and Principe,2019,3482.0247,country
+Sao Tome and Principe,2020,3507.3613,country
+Sao Tome and Principe,2021,3502.4353,country
+Sao Tome and Principe,2022,3438.8599,country
+Saudi Arabia,2000,40406.332,country
+Saudi Arabia,2001,38943.785,country
+Saudi Arabia,2002,36946.75,country
+Saudi Arabia,2003,40163.96,country
+Saudi Arabia,2004,42424.047,country
+Saudi Arabia,2005,43437.867,country
+Saudi Arabia,2006,42916.055,country
+Saudi Arabia,2007,42024.664,country
+Saudi Arabia,2008,42963.05,country
+Saudi Arabia,2009,40532.45,country
+Saudi Arabia,2010,41231.566,country
+Saudi Arabia,2011,44642.758,country
+Saudi Arabia,2012,46041.664,country
+Saudi Arabia,2013,46359.844,country
+Saudi Arabia,2014,47261.684,country
+Saudi Arabia,2015,48535.16,country
+Saudi Arabia,2016,48691.27,country
+Saudi Arabia,2017,47551.86,country
+Saudi Arabia,2018,47714.113,country
+Saudi Arabia,2019,47024.543,country
+Saudi Arabia,2020,44770.91,country
+Saudi Arabia,2021,46768.434,country
+Saudi Arabia,2022,50188.297,country
+Senegal,2000,2620.098,country
+Senegal,2001,2668.7659,country
+Senegal,2002,2606.8772,country
+Senegal,2003,2685.8152,country
+Senegal,2004,2741.124,country
+Senegal,2005,2787.5269,country
+Senegal,2006,2779.2239,country
+Senegal,2007,2783.537,country
+Senegal,2008,2811.4758,country
+Senegal,2009,2812.549,country
+Senegal,2010,2830.1533,country
+Senegal,2011,2790.8975,country
+Senegal,2012,2824.533,country
+Senegal,2013,2815.2815,country
+Senegal,2014,2910.2888,country
+Senegal,2015,3012.3833,country
+Senegal,2016,3118.0244,country
+Senegal,2017,3259.1926,country
+Senegal,2018,3368.8586,country
+Senegal,2019,3430.484,country
+Senegal,2020,3384.442,country
+Senegal,2021,3511.6375,country
+Senegal,2022,3564.6282,country
+Serbia,2000,8900.655,country
+Serbia,2001,9529.283,country
+Serbia,2002,10146.635,country
+Serbia,2003,10614.401,country
+Serbia,2004,11599.725,country
+Serbia,2005,12278.062,country
+Serbia,2006,12956.043,country
+Serbia,2007,13846.378,country
+Serbia,2008,14691.882,country
+Serbia,2009,14347.955,country
+Serbia,2010,14511.063,country
+Serbia,2011,14923.905,country
+Serbia,2012,14894.299,country
+Serbia,2013,15399.89,country
+Serbia,2014,15226.426,country
+Serbia,2015,15578.311,country
+Serbia,2016,16182.934,country
+Serbia,2017,16611.13,country
+Serbia,2018,17452.916,country
+Serbia,2019,18306.904,country
+Serbia,2020,18262.799,country
+Serbia,2021,19860.31,country
+Serbia,2022,20885.889,country
+Seychelles,2000,20713.04,country
+Seychelles,2001,20224.912,country
+Seychelles,2002,19853.824,country
+Seychelles,2003,18897.629,country
+Seychelles,2004,18427.076,country
+Seychelles,2005,19993.729,country
+Seychelles,2006,21423.947,country
+Seychelles,2007,23206.775,country
+Seychelles,2008,22074.951,country
+Seychelles,2009,21443.293,country
+Seychelles,2010,21792.256,country
+Seychelles,2011,24500.29,country
+Seychelles,2012,25015.807,country
+Seychelles,2013,24865.928,country
+Seychelles,2014,25477.037,country
+Seychelles,2015,25960.328,country
+Seychelles,2016,26923.008,country
+Seychelles,2017,27336.607,country
+Seychelles,2018,28080.635,country
+Seychelles,2019,29189.785,country
+Seychelles,2020,26704.926,country
+Seychelles,2021,27928.373,country
+Seychelles,2022,25205.736,country
+Sierra Leone,2000,1044.6364,country
+Sierra Leone,2001,923.354,country
+Sierra Leone,2002,1103.9404,country
+Sierra Leone,2003,1161.0211,country
+Sierra Leone,2004,1195.4856,country
+Sierra Leone,2005,1214.6039,country
+Sierra Leone,2006,1239.0608,country
+Sierra Leone,2007,1308.7482,country
+Sierra Leone,2008,1345.5233,country
+Sierra Leone,2009,1351.2194,country
+Sierra Leone,2010,1401.3158,country
+Sierra Leone,2011,1446.0627,country
+Sierra Leone,2012,1622.6504,country
+Sierra Leone,2013,1914.9652,country
+Sierra Leone,2014,1952.9703,country
+Sierra Leone,2015,1515.8308,country
+Sierra Leone,2016,1573.5012,country
+Sierra Leone,2017,1593.5154,country
+Sierra Leone,2018,1610.3232,country
+Sierra Leone,2019,1655.8433,country
+Sierra Leone,2020,1586.355,country
+Sierra Leone,2021,1614.8599,country
+Sierra Leone,2022,1634.7638,country
+Singapore,2000,55959.03,country
+Singapore,2001,53886.496,country
+Singapore,2002,55491.9,country
+Singapore,2003,58877.613,country
+Singapore,2004,63924.723,country
+Singapore,2005,67039.195,country
+Singapore,2006,70825.8,country
+Singapore,2007,74064.66,country
+Singapore,2008,71534.98,country
+Singapore,2009,69498.54,country
+Singapore,2010,78191.78,country
+Singapore,2011,81337.734,country
+Singapore,2012,82886.78,country
+Singapore,2013,85484.44,country
+Singapore,2014,87702.52,country
+Singapore,2015,89248.125,country
+Singapore,2016,91270.64,country
+Singapore,2017,95334.15,country
+Singapore,2018,98280.04,country
+Singapore,2019,98455.33,country
+Singapore,2020,94910.1,country
+Singapore,2021,107741.12,country
+Singapore,2022,108036.11,country
+Sint Maarten (Dutch part),2009,48472.246,country
+Sint Maarten (Dutch part),2010,50290.688,country
+Sint Maarten (Dutch part),2011,53581.094,country
+Sint Maarten (Dutch part),2012,52436.355,country
+Sint Maarten (Dutch part),2013,50267.18,country
+Sint Maarten (Dutch part),2014,49600.95,country
+Sint Maarten (Dutch part),2015,48195.484,country
+Sint Maarten (Dutch part),2016,47269.09,country
+Sint Maarten (Dutch part),2017,43055.543,country
+Sint Maarten (Dutch part),2018,39788.445,country
+Sint Maarten (Dutch part),2019,43394.668,country
+Sint Maarten (Dutch part),2020,36991.777,country
+Sint Maarten (Dutch part),2021,38360.527,country
+Sint Maarten (Dutch part),2022,41942.918,country
+Slovakia,2000,15666.544,country
+Slovakia,2001,16205.932,country
+Slovakia,2002,16942.887,country
+Slovakia,2003,17886.36,country
+Slovakia,2004,18834.393,country
+Slovakia,2005,20079.912,country
+Slovakia,2006,21784.334,country
+Slovakia,2007,24136.975,country
+Slovakia,2008,25460.74,country
+Slovakia,2009,24039.666,country
+Slovakia,2010,25630.426,country
+Slovakia,2011,26281.223,country
+Slovakia,2012,26582.541,country
+Slovakia,2013,26722.01,country
+Slovakia,2014,27416.135,country
+Slovakia,2015,28805.387,country
+Slovakia,2016,29327.516,country
+Slovakia,2017,30142.367,country
+Slovakia,2018,31313.82,country
+Slovakia,2019,32056.78,country
+Slovakia,2020,30960.959,country
+Slovakia,2021,32512.695,country
+Slovakia,2022,33176.184,country
+Slovenia,2000,26276.945,country
+Slovenia,2001,27079.475,country
+Slovenia,2002,27994.062,country
+Slovenia,2003,28805.385,country
+Slovenia,2004,30041.814,country
+Slovenia,2005,31128.83,country
+Slovenia,2006,32812.74,country
+Slovenia,2007,34907.367,country
+Slovenia,2008,36075.47,country
+Slovenia,2009,33052.227,country
+Slovenia,2010,33350.613,country
+Slovenia,2011,33568.066,country
+Slovenia,2012,32613.49,country
+Slovenia,2013,32234.025,country
+Slovenia,2014,33093.75,country
+Slovenia,2015,33799.727,country
+Slovenia,2016,34853.043,country
+Slovenia,2017,36507.555,country
+Slovenia,2018,37995.715,country
+Slovenia,2019,39061.25,country
+Slovenia,2020,37155.023,country
+Slovenia,2021,40104.36,country
+Slovenia,2022,41015.227,country
+Solomon Islands,2000,2125.8074,country
+Solomon Islands,2001,1910.3827,country
+Solomon Islands,2002,1814.1941,country
+Solomon Islands,2003,1888.7307,country
+Solomon Islands,2004,1988.2849,country
+Solomon Islands,2005,2087.2373,country
+Solomon Islands,2006,2125.4033,country
+Solomon Islands,2007,2153.919,country
+Solomon Islands,2008,2237.552,country
+Solomon Islands,2009,2250.0474,country
+Solomon Islands,2010,2411.1128,country
+Solomon Islands,2011,2527.9148,country
+Solomon Islands,2012,2526.1907,country
+Solomon Islands,2013,2591.8474,country
+Solomon Islands,2014,2556.7715,country
+Solomon Islands,2015,2534.7698,country
+Solomon Islands,2016,2609.79,country
+Solomon Islands,2017,2625.1345,country
+Solomon Islands,2018,2633.3342,country
+Solomon Islands,2019,2616.9084,country
+Solomon Islands,2020,2469.1743,country
+Solomon Islands,2021,2397.3228,country
+Solomon Islands,2022,2247.785,country
+Somalia,2013,1308.1309,country
+Somalia,2014,1358.3143,country
+Somalia,2015,1444.0901,country
+Somalia,2016,1479.9875,country
+Somalia,2017,1558.2944,country
+Somalia,2018,1547.9973,country
+Somalia,2019,1546.9055,country
+Somalia,2020,1456.6559,country
+Somalia,2021,1458.2279,country
+Somalia,2022,1448.5568,country
+South Africa,2000,10598.86,country
+South Africa,2001,10789.051,country
+South Africa,2002,11086.924,country
+South Africa,2003,11308.883,country
+South Africa,2004,11713.88,country
+South Africa,2005,12216.027,country
+South Africa,2006,12776.878,country
+South Africa,2007,13325.982,country
+South Africa,2008,13596.288,country
+South Africa,2009,13228.895,country
+South Africa,2010,13469.361,country
+South Africa,2011,13721.686,country
+South Africa,2012,13864.971,country
+South Africa,2013,14017.411,country
+South Africa,2014,13993.2705,country
+South Africa,2015,13887.211,country
+South Africa,2016,13844.276,country
+South Africa,2017,13950.453,country
+South Africa,2018,13995.0625,country
+South Africa,2019,13850.8955,country
+South Africa,2020,12866.569,country
+South Africa,2021,13337.79,country
+South Africa,2022,13478.754,country
+South Asia (WB),2000,2650.5261,aggregated
+South Asia (WB),2001,2716.3018,aggregated
+South Asia (WB),2002,2760.747,aggregated
+South Asia (WB),2003,2904.886,aggregated
+South Asia (WB),2004,3069.7056,aggregated
+South Asia (WB),2005,3249.1597,aggregated
+South Asia (WB),2006,3441.6538,aggregated
+South Asia (WB),2007,3633.69,aggregated
+South Asia (WB),2008,3699.681,aggregated
+South Asia (WB),2009,3901.551,aggregated
+South Asia (WB),2010,4129.97,aggregated
+South Asia (WB),2011,4276.8936,aggregated
+South Asia (WB),2012,4445.006,aggregated
+South Asia (WB),2013,4650.317,aggregated
+South Asia (WB),2014,4906.2563,aggregated
+South Asia (WB),2015,5199.615,aggregated
+South Asia (WB),2016,5537.209,aggregated
+South Asia (WB),2017,5827.2603,aggregated
+South Asia (WB),2018,6124.37,aggregated
+South Asia (WB),2019,6294.5938,aggregated
+South Asia (WB),2020,5937.8115,aggregated
+South Asia (WB),2021,6361.804,aggregated
+South Asia (WB),2022,6719.767,aggregated
+South Korea,2000,22963.639,country
+South Korea,2001,23893.896,country
+South Korea,2002,25591.398,country
+South Korea,2003,26260.37,country
+South Korea,2004,27515.951,country
+South Korea,2005,28640.707,country
+South Korea,2006,29990.521,country
+South Korea,2007,31569.932,country
+South Korea,2008,32275.125,country
+South Korea,2009,32363.969,country
+South Korea,2010,34394.492,country
+South Korea,2011,35388.977,country
+South Korea,2012,36049.195,country
+South Korea,2013,37021.133,country
+South Korea,2014,37967.477,country
+South Korea,2015,38828.742,country
+South Korea,2016,39814.66,country
+South Korea,2017,40957.418,country
+South Korea,2018,41965.89,country
+South Korea,2019,42758.59,country
+South Korea,2020,42396.76,country
+South Korea,2021,44299.91,country
+South Korea,2022,45560.125,country
+Spain,2000,34756.742,country
+Spain,2001,35873.87,country
+Spain,2002,36336.637,country
+Spain,2003,36749.527,country
+Spain,2004,37248.824,country
+Spain,2005,37962.418,country
+Spain,2006,38857.484,country
+Spain,2007,39519.84,country
+Spain,2008,39239.387,country
+Spain,2009,37429.766,country
+Spain,2010,37318.53,country
+Spain,2011,36883.324,country
+Spain,2012,35768.742,country
+Spain,2013,35382.535,country
+Spain,2014,35983.81,country
+Spain,2015,37394.055,country
+Spain,2016,38497.484,country
+Spain,2017,39550.188,country
+Spain,2018,40276.906,country
+Spain,2019,40782.234,country
+Spain,2020,36051.418,country
+Spain,2021,38319.29,country
+Spain,2022,40223.01,country
+Sri Lanka,2000,6154.951,country
+Sri Lanka,2001,6013.742,country
+Sri Lanka,2002,6189.8667,country
+Sri Lanka,2003,6492.1753,country
+Sri Lanka,2004,6779.9097,country
+Sri Lanka,2005,7135.9346,country
+Sri Lanka,2006,7607.0293,country
+Sri Lanka,2007,8039.9272,country
+Sri Lanka,2008,8431.392,country
+Sri Lanka,2009,8645.88,country
+Sri Lanka,2010,9254.852,country
+Sri Lanka,2011,9965.021,country
+Sri Lanka,2012,10744.147,country
+Sri Lanka,2013,11118.841,country
+Sri Lanka,2014,11768.0205,country
+Sri Lanka,2015,12207.091,country
+Sri Lanka,2016,12770.843,country
+Sri Lanka,2017,13544.519,country
+Sri Lanka,2018,13753.055,country
+Sri Lanka,2019,13639.021,country
+Sri Lanka,2020,12939.44,country
+Sri Lanka,2021,13250.63,country
+Sri Lanka,2022,12200.138,country
+Sub-Saharan Africa (WB),2000,2806.9988,aggregated
+Sub-Saharan Africa (WB),2001,2850.8818,aggregated
+Sub-Saharan Africa (WB),2002,2944.241,aggregated
+Sub-Saharan Africa (WB),2003,2986.5955,aggregated
+Sub-Saharan Africa (WB),2004,3099.2036,aggregated
+Sub-Saharan Africa (WB),2005,3200.7,aggregated
+Sub-Saharan Africa (WB),2006,3307.187,aggregated
+Sub-Saharan Africa (WB),2007,3417.969,aggregated
+Sub-Saharan Africa (WB),2008,3499.8005,aggregated
+Sub-Saharan Africa (WB),2009,3502.228,aggregated
+Sub-Saharan Africa (WB),2010,3607.448,aggregated
+Sub-Saharan Africa (WB),2011,3664.4377,aggregated
+Sub-Saharan Africa (WB),2012,3693.0588,aggregated
+Sub-Saharan Africa (WB),2013,3773.191,aggregated
+Sub-Saharan Africa (WB),2014,3852.0571,aggregated
+Sub-Saharan Africa (WB),2015,3862.8228,aggregated
+Sub-Saharan Africa (WB),2016,3823.0452,aggregated
+Sub-Saharan Africa (WB),2017,3824.3796,aggregated
+Sub-Saharan Africa (WB),2018,3831.0264,aggregated
+Sub-Saharan Africa (WB),2019,3833.967,aggregated
+Sub-Saharan Africa (WB),2020,3665.7354,aggregated
+Sub-Saharan Africa (WB),2021,3726.195,aggregated
+Sub-Saharan Africa (WB),2022,3767.1772,aggregated
+Sudan,2000,4040.612,country
+Sudan,2001,4183.4326,country
+Sudan,2002,4316.2915,country
+Sudan,2003,4467.122,country
+Sudan,2004,4571.088,country
+Sudan,2005,4692.174,country
+Sudan,2006,4847.588,country
+Sudan,2007,4964.3066,country
+Sudan,2008,4993.871,country
+Sudan,2009,4707.346,country
+Sudan,2010,4745.2974,country
+Sudan,2011,5047.334,country
+Sudan,2012,4711.0596,country
+Sudan,2013,4692.278,country
+Sudan,2014,4776.62,country
+Sudan,2015,4718.919,country
+Sudan,2016,4733.0176,country
+Sudan,2017,4613.95,country
+Sudan,2018,4349.21,country
+Sudan,2019,4133.1304,country
+Sudan,2020,3874.8003,country
+Sudan,2021,3701.069,country
+Sudan,2022,3570.6074,country
+Suriname,2000,12848.454,country
+Suriname,2001,13157.462,country
+Suriname,2002,13300.143,country
+Suriname,2003,13910.34,country
+Suriname,2004,14891.944,country
+Suriname,2005,15391.816,country
+Suriname,2006,16102.534,country
+Suriname,2007,16735.727,country
+Suriname,2008,17233.56,country
+Suriname,2009,17554.057,country
+Suriname,2010,18255.408,country
+Suriname,2011,19110.945,country
+Suriname,2012,19415.348,country
+Suriname,2013,19778.072,country
+Suriname,2014,19628.99,country
+Suriname,2015,18768.572,country
+Suriname,2016,17662.473,country
+Suriname,2017,17753.06,country
+Suriname,2018,18438.348,country
+Suriname,2019,18448.979,country
+Suriname,2020,15328.997,country
+Suriname,2021,14811.24,country
+Suriname,2022,15047.614,country
+Sweden,2000,40625.363,country
+Sweden,2001,41103.727,country
+Sweden,2002,41870.258,country
+Sweden,2003,42678.285,country
+Sweden,2004,44354.39,country
+Sweden,2005,45440.297,country
+Sweden,2006,47292.312,country
+Sweden,2007,48557.383,country
+Sweden,2008,47963.492,country
+Sweden,2009,45492.77,country
+Sweden,2010,47791.37,country
+Sweden,2011,48947.438,country
+Sweden,2012,48300.844,country
+Sweden,2013,48462.16,country
+Sweden,2014,49258.996,country
+Sweden,2015,50928.965,country
+Sweden,2016,51334.434,country
+Sweden,2017,51947.953,country
+Sweden,2018,52349.293,country
+Sweden,2019,52850.57,country
+Sweden,2020,51331.28,country
+Sweden,2021,54160.367,country
+Sweden,2022,55359.344,country
+Switzerland,2000,59190.414,country
+Switzerland,2001,59743.816,country
+Switzerland,2002,59250.164,country
+Switzerland,2003,58793.15,country
+Switzerland,2004,59967.914,country
+Switzerland,2005,61223.395,country
+Switzerland,2006,63318.793,country
+Switzerland,2007,65213.18,country
+Switzerland,2008,66197.87,country
+Switzerland,2009,63873.953,country
+Switzerland,2010,65262.34,country
+Switzerland,2011,65710.914,country
+Switzerland,2012,65783.586,country
+Switzerland,2013,66196.945,country
+Switzerland,2014,66930.87,country
+Switzerland,2015,67261.59,country
+Switzerland,2016,67907.39,country
+Switzerland,2017,68193.51,country
+Switzerland,2018,69629.336,country
+Switzerland,2019,69923.93,country
+Switzerland,2020,67928.195,country
+Switzerland,2021,71044.87,country
+Switzerland,2022,72278.21,country
+Tajikistan,2000,1312.7018,country
+Tajikistan,2001,1407.9865,country
+Tajikistan,2002,1528.3448,country
+Tajikistan,2003,1663.2233,country
+Tajikistan,2004,1799.8169,country
+Tajikistan,2005,1884.9458,country
+Tajikistan,2006,1980.2341,country
+Tajikistan,2007,2095.7979,country
+Tajikistan,2008,2219.3052,country
+Tajikistan,2009,2261.409,country
+Tajikistan,2010,2359.9963,country
+Tajikistan,2011,2481.5522,country
+Tajikistan,2012,2610.146,country
+Tajikistan,2013,2741.203,country
+Tajikistan,2014,2858.213,country
+Tajikistan,2015,2959.9707,country
+Tajikistan,2016,3091.224,country
+Tajikistan,2017,3236.4395,country
+Tajikistan,2018,3405.1135,country
+Tajikistan,2019,3575.282,country
+Tajikistan,2020,3651.9426,country
+Tajikistan,2021,3910.4626,country
+Tajikistan,2022,4137.278,country
+Tanzania,2000,1369.5818,country
+Tanzania,2001,1413.8206,country
+Tanzania,2002,1475.0936,country
+Tanzania,2003,1532.2828,country
+Tanzania,2004,1603.2473,country
+Tanzania,2005,1676.0737,country
+Tanzania,2006,1736.2347,country
+Tanzania,2007,1802.5471,country
+Tanzania,2008,1853.8477,country
+Tanzania,2009,1903.3694,country
+Tanzania,2010,1972.3674,country
+Tanzania,2011,2064.0686,country
+Tanzania,2012,2095.2224,country
+Tanzania,2013,2170.9993,country
+Tanzania,2014,2246.345,country
+Tanzania,2015,2306.6675,country
+Tanzania,2016,2381.2224,country
+Tanzania,2017,2457.5693,country
+Tanzania,2018,2511.8293,country
+Tanzania,2019,2578.8403,country
+Tanzania,2020,2552.5469,country
+Tanzania,2021,2584.3977,country
+Tanzania,2022,2623.8616,country
+Thailand,2000,9791.8955,country
+Thailand,2001,10036.329,country
+Thailand,2002,10558.468,country
+Thailand,2003,11220.684,country
+Thailand,2004,11828.839,country
+Thailand,2005,12228.661,country
+Thailand,2006,12739.737,country
+Thailand,2007,13330.209,country
+Thailand,2008,13459.246,country
+Thailand,2009,13270.617,country
+Thailand,2010,14172.218,country
+Thailand,2011,14199.279,country
+Thailand,2012,15129.901,country
+Thailand,2013,15442.38,country
+Thailand,2014,15509.181,country
+Thailand,2015,15919.37,country
+Thailand,2016,16393.314,country
+Thailand,2017,17008.04,country
+Thailand,2018,17669.045,country
+Thailand,2019,17997.133,country
+Thailand,2020,16865.549,country
+Thailand,2021,17087.21,country
+Thailand,2022,17507.621,country
+Togo,2000,1729.7018,country
+Togo,2001,1697.3787,country
+Togo,2002,1716.9135,country
+Togo,2003,1785.1547,country
+Togo,2004,1721.8762,country
+Togo,2005,1599.4586,country
+Togo,2006,1596.3877,country
+Togo,2007,1532.42,country
+Togo,2008,1549.4404,country
+Togo,2009,1588.9647,country
+Togo,2010,1637.652,country
+Togo,2011,1687.6111,country
+Togo,2012,1747.8842,country
+Togo,2013,1802.939,country
+Togo,2014,1856.9048,country
+Togo,2015,1910.0,country
+Togo,2016,1941.6276,country
+Togo,2017,1970.2148,country
+Togo,2018,2014.9418,country
+Togo,2019,2063.7588,country
+Togo,2020,2058.565,country
+Togo,2021,2130.859,country
+Togo,2022,2202.7268,country
+Tonga,2000,4806.1963,country
+Tonga,2001,4957.0513,country
+Tonga,2002,5167.6284,country
+Tonga,2003,5256.2144,country
+Tonga,2004,5098.9316,country
+Tonga,2005,5074.223,country
+Tonga,2006,5040.1045,country
+Tonga,2007,5032.5366,country
+Tonga,2008,5257.0967,country
+Tonga,2009,4973.9136,country
+Tonga,2010,5002.719,country
+Tonga,2011,5332.496,country
+Tonga,2012,5381.8394,country
+Tonga,2013,5419.468,country
+Tonga,2014,5552.8784,country
+Tonga,2015,5644.633,country
+Tonga,2016,6039.1587,country
+Tonga,2017,6257.09,country
+Tonga,2018,6287.9907,country
+Tonga,2019,6344.4214,country
+Tonga,2020,6357.07,country
+Tonga,2021,6142.9634,country
+Trinidad and Tobago,2000,16347.527,country
+Trinidad and Tobago,2001,16948.016,country
+Trinidad and Tobago,2002,18192.598,country
+Trinidad and Tobago,2003,20703.135,country
+Trinidad and Tobago,2004,22223.867,country
+Trinidad and Tobago,2005,23467.48,country
+Trinidad and Tobago,2006,26415.732,country
+Trinidad and Tobago,2007,27512.898,country
+Trinidad and Tobago,2008,28283.86,country
+Trinidad and Tobago,2009,26879.828,country
+Trinidad and Tobago,2010,27593.799,country
+Trinidad and Tobago,2011,27324.176,country
+Trinidad and Tobago,2012,29146.334,country
+Trinidad and Tobago,2013,29958.941,country
+Trinidad and Tobago,2014,30900.432,country
+Trinidad and Tobago,2015,30460.375,country
+Trinidad and Tobago,2016,27992.12,country
+Trinidad and Tobago,2017,26481.072,country
+Trinidad and Tobago,2018,25864.945,country
+Trinidad and Tobago,2019,25698.006,country
+Trinidad and Tobago,2020,23392.992,country
+Trinidad and Tobago,2021,23036.256,country
+Trinidad and Tobago,2022,23295.547,country
+Tunisia,2000,7673.711,country
+Tunisia,2001,7883.897,country
+Tunisia,2002,7909.4775,country
+Tunisia,2003,8200.793,country
+Tunisia,2004,8628.86,country
+Tunisia,2005,8847.087,country
+Tunisia,2006,9226.472,country
+Tunisia,2007,9755.413,country
+Tunisia,2008,10073.63,country
+Tunisia,2009,10279.995,country
+Tunisia,2010,10478.011,country
+Tunisia,2011,10135.681,country
+Tunisia,2012,10428.975,country
+Tunisia,2013,10563.375,country
+Tunisia,2014,10767.223,country
+Tunisia,2015,10750.237,country
+Tunisia,2016,10751.397,country
+Tunisia,2017,10874.947,country
+Tunisia,2018,11046.682,country
+Tunisia,2019,11113.796,country
+Tunisia,2020,10040.124,country
+Tunisia,2021,10395.913,country
+Tunisia,2022,10569.051,country
+Turkey,2000,15223.352,country
+Turkey,2001,14136.671,country
+Turkey,2002,14839.131,country
+Turkey,2003,15488.11,country
+Turkey,2004,16775.08,country
+Turkey,2005,18038.812,country
+Turkey,2006,19043.623,country
+Turkey,2007,19845.336,country
+Turkey,2008,19755.465,country
+Turkey,2009,18544.879,country
+Turkey,2010,19804.46,country
+Turkey,2011,21701.701,country
+Turkey,2012,22452.844,country
+Turkey,2013,24047.293,country
+Turkey,2014,24897.002,country
+Turkey,2015,26061.832,country
+Turkey,2016,26568.02,country
+Turkey,2017,28193.174,country
+Turkey,2018,28652.21,country
+Turkey,2019,28476.684,country
+Turkey,2020,28726.191,country
+Turkey,2021,31722.16,country
+Turkey,2022,33149.5,country
+Turkmenistan,2000,4568.4604,country
+Turkmenistan,2001,4699.07,country
+Turkmenistan,2002,4647.115,country
+Turkmenistan,2003,4738.496,country
+Turkmenistan,2004,4912.673,country
+Turkmenistan,2005,5477.9985,country
+Turkmenistan,2006,5995.3613,country
+Turkmenistan,2007,6564.5044,country
+Turkmenistan,2008,7418.4814,country
+Turkmenistan,2009,7748.1436,country
+Turkmenistan,2010,8321.22,country
+Turkmenistan,2011,9379.144,country
+Turkmenistan,2012,10233.4,country
+Turkmenistan,2013,11071.518,country
+Turkmenistan,2014,11989.653,country
+Turkmenistan,2015,12540.284,country
+Turkmenistan,2016,13086.014,country
+Turkmenistan,2017,13703.513,country
+Turkmenistan,2018,14321.14,country
+Turkmenistan,2019,14992.604,country
+Turkmenistan,2020,14269.641,country
+Turkmenistan,2021,14696.823,country
+Turkmenistan,2022,14740.01,country
+Turks and Caicos Islands,2011,25731.283,country
+Turks and Caicos Islands,2012,24476.342,country
+Turks and Caicos Islands,2013,23624.287,country
+Turks and Caicos Islands,2014,24661.145,country
+Turks and Caicos Islands,2015,26284.723,country
+Turks and Caicos Islands,2016,26931.729,country
+Turks and Caicos Islands,2017,25207.832,country
+Turks and Caicos Islands,2018,25567.918,country
+Turks and Caicos Islands,2019,25933.512,country
+Turks and Caicos Islands,2020,18474.865,country
+Turks and Caicos Islands,2021,19763.545,country
+Turks and Caicos Islands,2022,20718.389,country
+Tuvalu,2000,3484.2905,country
+Tuvalu,2001,3490.447,country
+Tuvalu,2002,3827.6448,country
+Tuvalu,2003,3638.8823,country
+Tuvalu,2004,3511.5059,country
+Tuvalu,2005,3307.3071,country
+Tuvalu,2006,3348.1147,country
+Tuvalu,2007,3545.204,country
+Tuvalu,2008,3736.2695,country
+Tuvalu,2009,3456.9827,country
+Tuvalu,2010,3334.6648,country
+Tuvalu,2011,3512.0935,country
+Tuvalu,2012,3388.5977,country
+Tuvalu,2013,3515.2007,country
+Tuvalu,2014,3521.3286,country
+Tuvalu,2015,3895.998,country
+Tuvalu,2016,4126.0093,country
+Tuvalu,2017,4236.3994,country
+Tuvalu,2018,4280.5435,country
+Tuvalu,2019,4831.7363,country
+Tuvalu,2020,4577.966,country
+Tuvalu,2021,4604.402,country
+Tuvalu,2022,4591.3306,country
+Uganda,2000,1241.5328,country
+Uganda,2001,1266.7274,country
+Uganda,2002,1335.1953,country
+Uganda,2003,1377.952,country
+Uganda,2004,1428.8488,country
+Uganda,2005,1475.8116,country
+Uganda,2006,1588.0022,country
+Uganda,2007,1671.8218,country
+Uganda,2008,1764.9932,country
+Uganda,2009,1830.8717,country
+Uganda,2010,1878.5209,country
+Uganda,2011,1996.0656,country
+Uganda,2012,2013.5464,country
+Uganda,2013,2026.6228,country
+Uganda,2014,2067.7954,country
+Uganda,2015,2108.8604,country
+Uganda,2016,2137.2073,country
+Uganda,2017,2128.397,country
+Uganda,2018,2186.9072,country
+Uganda,2019,2250.015,country
+Uganda,2020,2240.4902,country
+Uganda,2021,2246.414,country
+Uganda,2022,2280.0737,country
+Ukraine,2000,7496.813,country
+Ukraine,2001,8242.703,country
+Ukraine,2002,8765.683,country
+Ukraine,2003,9678.087,country
+Ukraine,2004,10902.038,country
+Ukraine,2005,11319.511,country
+Ukraine,2006,12259.158,country
+Ukraine,2007,13345.771,country
+Ukraine,2008,13719.271,country
+Ukraine,2009,11694.448,country
+Ukraine,2010,12221.44,country
+Ukraine,2011,12933.356,country
+Ukraine,2012,12985.087,country
+Ukraine,2013,13020.601,country
+Ukraine,2014,12385.813,country
+Ukraine,2015,11216.118,country
+Ukraine,2016,11536.316,country
+Ukraine,2017,11860.561,country
+Ukraine,2018,12336.927,country
+Ukraine,2019,12804.955,country
+Ukraine,2020,12407.79,country
+Ukraine,2021,12949.326,country
+Ukraine,2022,10731.44,country
+United Arab Emirates,2000,100311.7,country
+United Arab Emirates,2001,96448.15,country
+United Arab Emirates,2002,93915.93,country
+United Arab Emirates,2003,97363.625,country
+United Arab Emirates,2004,101872.125,country
+United Arab Emirates,2005,99640.695,country
+United Arab Emirates,2006,95637.414,country
+United Arab Emirates,2007,82321.445,country
+United Arab Emirates,2008,71383.05,country
+United Arab Emirates,2009,59144.14,country
+United Arab Emirates,2010,56626.74,country
+United Arab Emirates,2011,59491.375,country
+United Arab Emirates,2012,59949.246,country
+United Arab Emirates,2013,62354.824,country
+United Arab Emirates,2014,64334.09,country
+United Arab Emirates,2015,68076.63,country
+United Arab Emirates,2016,71244.586,country
+United Arab Emirates,2017,71182.37,country
+United Arab Emirates,2018,71550.555,country
+United Arab Emirates,2019,71782.16,country
+United Arab Emirates,2020,67668.29,country
+United Arab Emirates,2021,70028.02,country
+United Arab Emirates,2022,74917.67,country
+United Kingdom,2000,38645.336,country
+United Kingdom,2001,39489.58,country
+United Kingdom,2002,40027.418,country
+United Kingdom,2003,41095.105,country
+United Kingdom,2004,41853.477,country
+United Kingdom,2005,42705.547,country
+United Kingdom,2006,43404.402,country
+United Kingdom,2007,44196.254,country
+United Kingdom,2008,43750.8,country
+United Kingdom,2009,41417.258,country
+United Kingdom,2010,42013.824,country
+United Kingdom,2011,42164.117,country
+United Kingdom,2012,42505.44,country
+United Kingdom,2013,42978.465,country
+United Kingdom,2014,44026.527,country
+United Kingdom,2015,44648.844,country
+United Kingdom,2016,45162.996,country
+United Kingdom,2017,46048.2,country
+United Kingdom,2018,46412.54,country
+United Kingdom,2019,46909.08,country
+United Kingdom,2020,41895.824,country
+United Kingdom,2021,45567.57,country
+United Kingdom,2022,47587.168,country
+United States,2000,50169.855,country
+United States,2001,50149.83,country
+United States,2002,50529.348,country
+United States,2003,51497.734,country
+United States,2004,52989.03,country
+United States,2005,54331.66,country
+United States,2006,55307.72,country
+United States,2007,55885.645,country
+United States,2008,55427.18,country
+United States,2009,53514.934,country
+United States,2010,54510.465,country
+United States,2011,54954.465,country
+United States,2012,55796.973,country
+United States,2013,56432.33,country
+United States,2014,57301.6,country
+United States,2015,58420.703,country
+United States,2016,58965.99,country
+United States,2017,59907.754,country
+United States,2018,61348.457,country
+United States,2019,62470.93,country
+United States,2020,60158.91,country
+United States,2021,63635.824,country
+United States,2022,64623.125,country
+Upper-middle-income countries,2000,7080.297,aggregated
+Upper-middle-income countries,2001,7247.94,aggregated
+Upper-middle-income countries,2002,7508.9175,aggregated
+Upper-middle-income countries,2003,7869.3325,aggregated
+Upper-middle-income countries,2004,8408.197,aggregated
+Upper-middle-income countries,2005,8945.264,aggregated
+Upper-middle-income countries,2006,9615.936,aggregated
+Upper-middle-income countries,2007,10394.622,aggregated
+Upper-middle-income countries,2008,10934.953,aggregated
+Upper-middle-income countries,2009,11028.561,aggregated
+Upper-middle-income countries,2010,11808.331,aggregated
+Upper-middle-income countries,2011,12470.417,aggregated
+Upper-middle-income countries,2012,13075.677,aggregated
+Upper-middle-income countries,2013,13634.531,aggregated
+Upper-middle-income countries,2014,14106.693,aggregated
+Upper-middle-income countries,2015,14541.054,aggregated
+Upper-middle-income countries,2016,14995.433,aggregated
+Upper-middle-income countries,2017,15621.961,aggregated
+Upper-middle-income countries,2018,16243.095,aggregated
+Upper-middle-income countries,2019,16766.95,aggregated
+Upper-middle-income countries,2020,16490.66,aggregated
+Upper-middle-income countries,2021,17634.266,aggregated
+Upper-middle-income countries,2022,18129.36,aggregated
+Uruguay,2000,14762.948,country
+Uruguay,2001,14157.963,country
+Uruguay,2002,13041.53,country
+Uruguay,2003,13131.615,country
+Uruguay,2004,13773.767,country
+Uruguay,2005,14784.069,country
+Uruguay,2006,15368.618,country
+Uruguay,2007,16342.628,country
+Uruguay,2008,17476.152,country
+Uruguay,2009,18174.008,country
+Uruguay,2010,19542.557,country
+Uruguay,2011,20496.434,country
+Uruguay,2012,21161.857,country
+Uruguay,2013,22077.45,country
+Uruguay,2014,22722.05,country
+Uruguay,2015,22731.521,country
+Uruguay,2016,23041.506,country
+Uruguay,2017,23384.74,country
+Uruguay,2018,23388.129,country
+Uruguay,2019,23552.842,country
+Uruguay,2020,22073.375,country
+Uruguay,2021,23257.256,country
+Uruguay,2022,24426.66,country
+Uzbekistan,2000,2967.6018,country
+Uzbekistan,2001,3052.2815,country
+Uzbekistan,2002,3134.9612,country
+Uzbekistan,2003,3229.848,country
+Uzbekistan,2004,3430.6287,country
+Uzbekistan,2005,3626.6208,country
+Uzbekistan,2006,3849.5945,country
+Uzbekistan,2007,4154.7026,country
+Uzbekistan,2008,4457.699,country
+Uzbekistan,2009,4735.995,country
+Uzbekistan,2010,4953.9614,country
+Uzbekistan,2011,5185.6846,country
+Uzbekistan,2012,5472.8335,country
+Uzbekistan,2013,5781.1567,country
+Uzbekistan,2014,6075.1924,country
+Uzbekistan,2015,6401.115,country
+Uzbekistan,2016,6663.9497,country
+Uzbekistan,2017,6840.71,country
+Uzbekistan,2018,7118.2036,country
+Uzbekistan,2019,7403.7427,country
+Uzbekistan,2020,7407.7275,country
+Uzbekistan,2021,7800.5015,country
+Uzbekistan,2022,8073.2104,country
+Vanuatu,2000,2954.2695,country
+Vanuatu,2001,2782.0537,country
+Vanuatu,2002,2571.0037,country
+Vanuatu,2003,2614.8523,country
+Vanuatu,2004,2653.0146,country
+Vanuatu,2005,2726.8843,country
+Vanuatu,2006,2887.4001,country
+Vanuatu,2007,2899.9065,country
+Vanuatu,2008,2988.9368,country
+Vanuatu,2009,3006.006,country
+Vanuatu,2010,2972.3687,country
+Vanuatu,2011,2994.4373,country
+Vanuatu,2012,2953.93,country
+Vanuatu,2013,2897.5642,country
+Vanuatu,2014,2917.678,country
+Vanuatu,2015,2859.3992,country
+Vanuatu,2016,2921.8083,country
+Vanuatu,2017,3031.2432,country
+Vanuatu,2018,3045.0955,country
+Vanuatu,2019,3070.404,country
+Vanuatu,2020,2848.9702,country
+Vanuatu,2021,2800.494,country
+Vanuatu,2022,2785.9038,country
+Vietnam,2000,3690.8682,country
+Vietnam,2001,3879.3389,country
+Vietnam,2002,4082.3733,country
+Vietnam,2003,4319.374,country
+Vietnam,2004,4597.7573,country
+Vietnam,2005,4895.3467,country
+Vietnam,2006,5186.432,country
+Vietnam,2007,5503.0723,country
+Vietnam,2008,5757.924,country
+Vietnam,2009,6006.58,country
+Vietnam,2010,6324.526,country
+Vietnam,2011,6658.667,country
+Vietnam,2012,6950.2876,country
+Vietnam,2013,7257.7295,country
+Vietnam,2014,7641.9097,country
+Vietnam,2015,8091.0894,country
+Vietnam,2016,8545.702,country
+Vietnam,2017,9050.6875,country
+Vietnam,2018,9636.014,country
+Vietnam,2019,10252.004,country
+Vietnam,2020,10450.621,country
+Vietnam,2021,10628.22,country
+Vietnam,2022,11396.531,country
+Zambia,2000,2096.4905,country
+Zambia,2001,2142.7876,country
+Zambia,2002,2171.9312,country
+Zambia,2003,2252.1152,country
+Zambia,2004,2335.0698,country
+Zambia,2005,2422.435,country
+Zambia,2006,2525.0977,country
+Zambia,2007,2641.0315,country
+Zambia,2008,2746.4905,country
+Zambia,2009,2894.964,country
+Zambia,2010,3083.3552,country
+Zambia,2011,3146.8445,country
+Zambia,2012,3275.9683,country
+Zambia,2013,3330.877,country
+Zambia,2014,3375.9412,country
+Zambia,2015,3365.3792,country
+Zambia,2016,3384.268,country
+Zambia,2017,3395.4797,country
+Zambia,2018,3425.949,country
+Zambia,2019,3372.359,country
+Zambia,2020,3183.651,country
+Zambia,2021,3287.4204,country
+Zambia,2022,3365.8738,country
+Zimbabwe,2000,2750.6013,country
+Zimbabwe,2001,2772.3252,country
+Zimbabwe,2002,2510.229,country
+Zimbabwe,2003,2067.8804,country
+Zimbabwe,2004,1934.1647,country
+Zimbabwe,2005,1814.1744,country
+Zimbabwe,2006,1736.3583,country
+Zimbabwe,2007,1656.7892,country
+Zimbabwe,2008,1353.2074,country
+Zimbabwe,2009,1500.3798,country
+Zimbabwe,2010,1799.5403,country
+Zimbabwe,2011,2033.1814,country
+Zimbabwe,2012,2310.8071,country
+Zimbabwe,2013,2333.6445,country
+Zimbabwe,2014,2316.9546,country
+Zimbabwe,2015,2313.8787,country
+Zimbabwe,2016,2286.6235,country
+Zimbabwe,2017,2331.7808,country
+Zimbabwe,2018,2399.6216,country
+Zimbabwe,2019,2203.3967,country
+Zimbabwe,2020,1990.3195,country
+Zimbabwe,2021,2115.1445,country
+Zimbabwe,2022,2207.957,country

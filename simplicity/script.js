@@ -11,12 +11,13 @@ const allSingleFocusedId = appendChartContainer({ idNum: 2, chartTitle: 'Focusin
 const chosenCountriesId = appendChartContainer({ idNum: 3, chartTitle: 'A small number of countries selected and the one in focus' })
 const aggRegionId = appendChartContainer({ idNum: 4, chartTitle: 'A country in focus and the others as an aggregation by region' })
 const aggEconomyId = appendChartContainer({ idNum: 5, chartTitle: 'A country in focus and the others as an aggregation by economy' })
-appendChartContainer({ idNum: 6, chartTitle: 'Put the labels on the lines' })
+const lineLabeledId = appendChartContainer({ idNum: 6, chartTitle: 'Put the labels on the lines' })
 appendChartContainer({ idNum: 7, chartTitle: 'Add a message to specific data points' })
 
 
 getData().then(data => {
     const dafaultMargin = getMargin({ left: 86 })
+    const lineLabeledMargin = getMargin({ left: 86, right: 256 })
 
     addChart(
         getChart({
@@ -65,5 +66,16 @@ getData().then(data => {
         }),
         data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
         'Croatia'
+    )
+
+    addChart(
+        getChart({
+            id: lineLabeledId,
+            chartDimensions: getChartDimensions({ chartId: lineLabeledId }),
+            margin: lineLabeledMargin
+        }),
+        data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
+        'Croatia',
+        true
     )
 })

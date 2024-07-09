@@ -1,13 +1,11 @@
 import { addAxis } from "../node_modules/visual-components/index.js"
 import { palette } from "../colours.js"
 
-export const addChart = (chartProps, data, focused) => {
+export const addChart = (chartProps, data, focused, lineLabel = false) => {
     const { chart, width, height } = chartProps
     const isFocused = focused !== undefined && focused !== null
 
-    if (isFocused) {
-        data.sort(a => a.entity === focused ? 1 : -1)
-    }
+    if (isFocused) data.sort(a => a.entity === focused ? 1 : -1)
 
     const x = d3
         .scaleLinear()
@@ -37,6 +35,22 @@ export const addChart = (chartProps, data, focused) => {
         .attr('stroke', d => getColour(d[0]))
         .attr('stroke-width', d => getStrokeWidth(d[0]))
         .attr('d', d => line(d[1]))
+
+    if (lineLabel) {
+        const lineLabelPoints = data.filter(d => d.year == x.domain()[1])
+
+        chart
+            .selectAll('.data-label-points')
+            .data(lineLabelPoints)
+            .join('text')
+            .attr('x', x(x.domain()[1]) + 5)
+            .attr('y', d => y(d.gdpPerCapita))
+            .attr('fill', d => getColour(d.entity))
+            .attr('dominant-baseline', 'middle')
+            .text(d => d.entity)
+    }
+
+
 
     addAxis({
         chart,

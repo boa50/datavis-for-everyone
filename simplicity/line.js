@@ -1,11 +1,20 @@
-import { addAxis } from "../node_modules/visual-components/index.js"
+import { addAxis, addLegend } from "../node_modules/visual-components/index.js"
 import { palette } from "../colours.js"
 
-export const addChart = (chartProps, data, focused, lineLabel = false) => {
-    const { chart, width, height } = chartProps
-    const isFocused = focused !== undefined && focused !== null
+export const addChart = (
+    chartProps,
+    data,
+    options = {
+        topLegend: false,
+        focused: null,
+        singleColour: false,
+        lineLabel: false
+    }
+) => {
+    const { chart, width, height, margin } = chartProps
+    const isFocused = options.focused !== undefined && options.focused !== null
 
-    if (isFocused) data.sort(a => a.entity === focused ? 1 : -1)
+    if (isFocused) data.sort(a => a.entity === options.focused ? 1 : -1)
 
     const x = d3
         .scaleLinear()
@@ -36,22 +45,6 @@ export const addChart = (chartProps, data, focused, lineLabel = false) => {
         .attr('stroke-width', d => getStrokeWidth(d[0]))
         .attr('d', d => line(d[1]))
 
-    if (lineLabel) {
-        const lineLabelPoints = data.filter(d => d.year == x.domain()[1])
-
-        chart
-            .selectAll('.data-label-points')
-            .data(lineLabelPoints)
-            .join('text')
-            .attr('x', x(x.domain()[1]) + 5)
-            .attr('y', d => y(d.gdpPerCapita))
-            .attr('fill', d => getColour(d.entity))
-            .attr('dominant-baseline', 'middle')
-            .text(d => d.entity)
-    }
-
-
-
     addAxis({
         chart,
         height,
@@ -68,21 +61,43 @@ export const addChart = (chartProps, data, focused, lineLabel = false) => {
         hideYdomain: true
     })
 
+    if (options.topLegend) {
+        addLegend({
+            chart,
+            legends: [...new Set(data.map(d => d.entity))],
+            colours: Object.values(palette),
+            xPosition: -margin.left,
+            yPosition: -16
+        })
+    }
+
+    if (options.lineLabel) {
+        const lineLabelPoints = data.filter(d => d.year == x.domain()[1])
+
+        chart
+            .selectAll('.data-label-points')
+            .data(lineLabelPoints)
+            .join('text')
+            .attr('x', x(x.domain()[1]) + 5)
+            .attr('y', d => y(d.gdpPerCapita))
+            .attr('fill', d => getColour(d.entity))
+            .attr('font-size', '0.85rem')
+            .attr('dominant-baseline', 'middle')
+            .text(d => d.entity)
+    }
 
     function getColour(entity) {
-        if (isFocused) {
-            if (entity === focused) {
-                return palette.vermillion
-            } else {
-                return d3.hsl(palette.axis).brighter(2.5)
-            }
+        if (isFocused && entity === options.focused) {
+            return palette.vermillion
+        } else if (options.singleColour) {
+            return d3.hsl(palette.axis).brighter(2.5)
         } else {
             return colour(entity)
         }
     }
 
     function getStrokeWidth(entity) {
-        if (isFocused && entity === focused) {
+        if (isFocused && entity === options.focused) {
             return 5
         }
 

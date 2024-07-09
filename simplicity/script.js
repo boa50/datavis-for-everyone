@@ -17,6 +17,7 @@ appendChartContainer({ idNum: 7, chartTitle: 'Add a message to specific data poi
 
 getData().then(data => {
     const dafaultMargin = getMargin({ left: 86 })
+    const topLegendMargin = getMargin({ left: 86, top: 30 })
     const lineLabeledMargin = getMargin({ left: 86, right: 256 })
 
     addChart(
@@ -35,37 +36,37 @@ getData().then(data => {
             margin: dafaultMargin
         }),
         data.filter(d => d.group === 'country'),
-        'Croatia'
+        { focused: 'Croatia', singleColour: true }
     )
 
     addChart(
         getChart({
             id: chosenCountriesId,
             chartDimensions: getChartDimensions({ chartId: chosenCountriesId }),
-            margin: dafaultMargin
+            margin: topLegendMargin
         }),
         data.filter(d => ['China', 'Costa Rica', 'Croatia', 'Germany', 'India', 'South Korea'].includes(d.entity)),
-        'Croatia'
+        { focused: 'Croatia', topLegend: true }
     )
 
     addChart(
         getChart({
             id: aggRegionId,
             chartDimensions: getChartDimensions({ chartId: aggRegionId }),
-            margin: dafaultMargin
+            margin: topLegendMargin
         }),
         data.filter(d => ['Croatia', 'Europe and Central Asia (WB)', 'Latin America and Caribbean (WB)', 'Middle East and North Africa (WB)', 'North America (WB)', 'South Asia (WB)', 'Sub-Saharan Africa (WB)'].includes(d.entity)),
-        'Croatia'
+        { focused: 'Croatia', topLegend: true }
     )
 
     addChart(
         getChart({
             id: aggEconomyId,
             chartDimensions: getChartDimensions({ chartId: aggEconomyId }),
-            margin: dafaultMargin
+            margin: topLegendMargin
         }),
         data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
-        'Croatia'
+        { focused: 'Croatia', topLegend: true }
     )
 
     addChart(
@@ -75,7 +76,6 @@ getData().then(data => {
             margin: lineLabeledMargin
         }),
         data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
-        'Croatia',
-        true
+        { focused: 'Croatia', lineLabel: true }
     )
 })

@@ -1,8 +1,13 @@
 import { addAxis } from "../node_modules/visual-components/index.js"
 import { palette } from "../colours.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, focused) => {
     const { chart, width, height } = chartProps
+    const isFocused = focused !== undefined && focused !== null
+
+    if (isFocused) {
+        data.sort(a => a.entity === focused ? 1 : -1)
+    }
 
     const x = d3
         .scaleLinear()
@@ -29,8 +34,8 @@ export const addChart = (chartProps, data) => {
         .data(dataPerGroup)
         .join('path')
         .attr('fill', 'none')
-        .attr('stroke', d => colour(d[0]))
-        .attr('stroke-width', 2)
+        .attr('stroke', d => getColour(d[0]))
+        .attr('stroke-width', d => getStrokeWidth(d[0]))
         .attr('d', d => line(d[1]))
 
     addAxis({
@@ -48,4 +53,25 @@ export const addChart = (chartProps, data) => {
         hideXdomain: true,
         hideYdomain: true
     })
+
+
+    function getColour(entity) {
+        if (isFocused) {
+            if (entity === focused) {
+                return palette.vermillion
+            } else {
+                return d3.hsl(palette.axis).brighter(2.5)
+            }
+        } else {
+            return colour(entity)
+        }
+    }
+
+    function getStrokeWidth(entity) {
+        if (isFocused && entity === focused) {
+            return 5
+        }
+
+        return 2
+    }
 }

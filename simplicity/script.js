@@ -7,7 +7,7 @@ const getData = () =>
 
 
 const allColouredId = appendChartContainer({ idNum: 1, chartTitle: 'Everything coloured' })
-appendChartContainer({ idNum: 2, chartTitle: 'Focusing only on one line and the others gray' })
+const allSingleFocusedId = appendChartContainer({ idNum: 2, chartTitle: 'Focusing only on one line and the others gray' })
 appendChartContainer({ idNum: 3, chartTitle: 'A small number of countries selected and the one in focus' })
 appendChartContainer({ idNum: 4, chartTitle: 'A country in focus and the others as an aggregation by continent' })
 appendChartContainer({ idNum: 5, chartTitle: 'The aggregated countries with gray colour' })
@@ -24,6 +24,16 @@ getData().then(data => {
             chartDimensions: getChartDimensions({ chartId: allColouredId }),
             margin: dafaultMargin
         }),
-        data
+        data.filter(d => d.group === "country")
+    )
+
+    addChart(
+        getChart({
+            id: allSingleFocusedId,
+            chartDimensions: getChartDimensions({ chartId: allSingleFocusedId }),
+            margin: dafaultMargin
+        }),
+        data.filter(d => d.group === "country"),
+        "Croatia"
     )
 })

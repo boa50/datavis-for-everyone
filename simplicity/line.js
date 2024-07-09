@@ -8,11 +8,19 @@ export const addChart = (
         topLegend: false,
         focused: null,
         singleColour: false,
-        lineLabel: false
+        lineLabel: false,
+        aggregationGroup: 'Country'
     }
 ) => {
     const { chart, width, height, margin } = chartProps
     const isFocused = options.focused !== undefined && options.focused !== null
+    const anonymizator = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+    const colourPalette = structuredClone(palette)
+    const focusedColour = colourPalette.vermillion
+    const axesColour = colourPalette.axis
+    delete colourPalette.vermillion
+    delete colourPalette.axis
+
 
     if (isFocused) data.sort(a => a.entity === options.focused ? 1 : -1)
 
@@ -29,7 +37,7 @@ export const addChart = (
     const dataPerGroup = d3.group(data, d => d.entity)
     const colour = d3
         .scaleOrdinal()
-        .range(Object.values(palette))
+        .range(Object.values(colourPalette))
 
     const line = d3
         .line()
@@ -49,7 +57,7 @@ export const addChart = (
         chart,
         height,
         width,
-        colour: palette.axis,
+        colour: axesColour,
         x,
         y,
         xLabel: 'Year',
@@ -62,10 +70,12 @@ export const addChart = (
     })
 
     if (options.topLegend) {
+        const entities = [...new Set(data.map(d => d.entity))]
+
         addLegend({
             chart,
-            legends: [...new Set(data.map(d => d.entity))],
-            colours: Object.values(palette),
+            legends: entities.map(d => anonymizeEntity(d)),
+            colours: [entities.map(d => getColour(d)), focusedColour],
             xPosition: -margin.left,
             yPosition: -16
         })
@@ -88,9 +98,9 @@ export const addChart = (
 
     function getColour(entity) {
         if (isFocused && entity === options.focused) {
-            return palette.vermillion
+            return focusedColour
         } else if (options.singleColour) {
-            return d3.hsl(palette.axis).brighter(2.5)
+            return d3.hsl(axesColour).brighter(2.5)
         } else {
             return colour(entity)
         }
@@ -102,5 +112,13 @@ export const addChart = (
         }
 
         return 2
+    }
+
+    function anonymizeEntity(entity) {
+        if (isFocused && entity === options.focused) {
+            return 'Country X'
+        }
+
+        return options.aggregationGroup === undefined ? 'Country ' + anonymizator.shift() : options.aggregationGroup
     }
 }

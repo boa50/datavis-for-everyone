@@ -17,15 +17,15 @@ appendChartContainer({ idNum: 7, chartTitle: 'Add a message to specific data poi
 
 
 getData().then(data => {
-    const dafaultMargin = getMargin({ left: 86 })
-    const topLegendMargin = getMargin({ left: 86, top: 30 })
-    const lineLabeledMargin = getMargin({ left: 86, right: 72 })
+    const defaultMargin = getMargin({ left: 72 })
+    const topLegendMargin = { ...defaultMargin, top: 30 }
+    const lineLabeledMargin = { ...defaultMargin, right: 72 }
 
     addChart(
         getChart({
             id: allColouredId,
             chartDimensions: getChartDimensions({ chartId: allColouredId }),
-            margin: dafaultMargin
+            margin: defaultMargin
         }),
         data.filter(d => d.group === 'country')
     )
@@ -34,7 +34,7 @@ getData().then(data => {
         getChart({
             id: allSingleFocusedId,
             chartDimensions: getChartDimensions({ chartId: allSingleFocusedId }),
-            margin: dafaultMargin
+            margin: defaultMargin
         }),
         data.filter(d => d.group === 'country'),
         { focused: 'Croatia', singleColour: true }

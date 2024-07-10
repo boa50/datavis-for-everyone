@@ -19,6 +19,12 @@ export const addChart = (
     const focusedColour = colourPalette.vermillion
     const axesColour = colourPalette.axis
 
+    const yTickValues = data.length > 500 ?
+        [25000, 50000, 75000, 100000, 125000, 150000] :
+        options.aggregationGroup === 'Region' ?
+            [10000, 20000, 30000, 40000, 50000, 60000] :
+            [10000, 20000, 30000, 40000, 50000]
+
     if (isFocused) {
         delete colourPalette.vermillion
         delete colourPalette.axis
@@ -65,8 +71,9 @@ export const addChart = (
         xLabel: 'Year',
         yLabel: 'Gdp per capita (2017 $)',
         xFormat: d => d,
+        yFormat: d3.format('.2s'),
         xNumTicks: 5,
-        yNumTicks: 7,
+        yTickValues,
         hideXdomain: true,
         hideYdomain: true
     })

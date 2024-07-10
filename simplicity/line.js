@@ -1,4 +1,4 @@
-import { addAxis, addLegend } from "../node_modules/visual-components/index.js"
+import { addAxis, addLegend, createText } from "../node_modules/visual-components/index.js"
 import { palette } from "../colours.js"
 
 export const addChart = (
@@ -9,7 +9,8 @@ export const addChart = (
         focused: null,
         singleColour: false,
         lineLabel: false,
-        aggregationGroup: 'Country'
+        aggregationGroup: 'Country',
+        messages: false
     }
 ) => {
     const { chart, width, height, margin } = chartProps
@@ -99,17 +100,42 @@ export const addChart = (
             .join('text')
             .attr('x', x(x.domain()[1]) + 5)
             .attr('y', d => y(d.gdpPerCapita))
-            .attr('fill', d => getColour(d.entity))
+            .attr('fill', d => getColour(d.entity, 1))
             .attr('font-size', '0.85rem')
+            .attr('font-weight', 500)
             .attr('dominant-baseline', 'middle')
             .text(d => anonymizeEntity(d.entity))
     }
 
-    function getColour(entity) {
+    if (options.messages) {
+        createText({
+            svg: chart,
+            x: x(2004),
+            y: y(35000),
+            width: 200,
+            height: 34,
+            textColour: d3.hsl(axesColour).brighter(1),
+            fontSize: '0.75rem',
+            htmlText: `GDP increased until 2008 due to the development of new technologies`
+        })
+
+        createText({
+            svg: chart,
+            x: x(2017),
+            y: y(26000),
+            width: 125,
+            height: 34,
+            textColour: d3.hsl(axesColour).brighter(1),
+            fontSize: '0.75rem',
+            htmlText: `Significant losses in 2020 due to COVID-19`
+        })
+    }
+
+    function getColour(entity, brightness = 2.5) {
         if (isFocused && entity === options.focused) {
             return focusedColour
         } else if (options.singleColour) {
-            return d3.hsl(axesColour).brighter(2.5)
+            return d3.hsl(axesColour).brighter(brightness)
         } else {
             return colour(entity)
         }

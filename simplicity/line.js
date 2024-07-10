@@ -18,11 +18,13 @@ export const addChart = (
     const colourPalette = structuredClone(palette)
     const focusedColour = colourPalette.vermillion
     const axesColour = colourPalette.axis
-    delete colourPalette.vermillion
-    delete colourPalette.axis
 
+    if (isFocused) {
+        delete colourPalette.vermillion
+        delete colourPalette.axis
 
-    if (isFocused) data.sort(a => a.entity === options.focused ? 1 : -1)
+        data.sort(a => a.entity === options.focused ? 1 : -1)
+    }
 
     const x = d3
         .scaleLinear()
@@ -75,7 +77,7 @@ export const addChart = (
         addLegend({
             chart,
             legends: entities.map(d => anonymizeEntity(d)),
-            colours: [entities.map(d => getColour(d)), focusedColour],
+            colours: [...entities.map(d => getColour(d)), focusedColour],
             xPosition: -margin.left,
             yPosition: -16
         })
@@ -93,7 +95,7 @@ export const addChart = (
             .attr('fill', d => getColour(d.entity))
             .attr('font-size', '0.85rem')
             .attr('dominant-baseline', 'middle')
-            .text(d => d.entity)
+            .text(d => anonymizeEntity(d.entity))
     }
 
     function getColour(entity) {
@@ -119,6 +121,6 @@ export const addChart = (
             return 'Country X'
         }
 
-        return options.aggregationGroup === undefined ? 'Country ' + anonymizator.shift() : options.aggregationGroup
+        return (options.aggregationGroup === undefined ? 'Country' : options.aggregationGroup) + ' ' + anonymizator.shift()
     }
 }

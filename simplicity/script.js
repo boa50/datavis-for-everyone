@@ -19,7 +19,7 @@ appendChartContainer({ idNum: 7, chartTitle: 'Add a message to specific data poi
 getData().then(data => {
     const dafaultMargin = getMargin({ left: 86 })
     const topLegendMargin = getMargin({ left: 86, top: 30 })
-    const lineLabeledMargin = getMargin({ left: 86, right: 256 })
+    const lineLabeledMargin = getMargin({ left: 86, right: 72 })
 
     addChart(
         getChart({
@@ -57,7 +57,7 @@ getData().then(data => {
             margin: topLegendMargin
         }),
         data.filter(d => ['Croatia', 'Europe and Central Asia (WB)', 'Latin America and Caribbean (WB)', 'Middle East and North Africa (WB)', 'North America (WB)', 'South Asia (WB)', 'Sub-Saharan Africa (WB)'].includes(d.entity)),
-        { focused: 'Croatia', topLegend: true }
+        { focused: 'Croatia', topLegend: true, aggregationGroup: 'Region' }
     )
 
     addChart(
@@ -67,7 +67,7 @@ getData().then(data => {
             margin: topLegendMargin
         }),
         data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
-        { focused: 'Croatia', topLegend: true }
+        { focused: 'Croatia', topLegend: true, aggregationGroup: 'Income' }
     )
 
     addChart(
@@ -77,7 +77,7 @@ getData().then(data => {
             margin: lineLabeledMargin
         }),
         data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
-        { focused: 'Croatia', lineLabel: true }
+        { focused: 'Croatia', lineLabel: true, aggregationGroup: 'Income' }
     )
 
     addChart(
@@ -87,6 +87,6 @@ getData().then(data => {
             margin: lineLabeledMargin
         }),
         data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
-        { focused: 'Croatia', lineLabel: true, singleColour: true }
+        { focused: 'Croatia', lineLabel: true, singleColour: true, aggregationGroup: 'Income' }
     )
 })

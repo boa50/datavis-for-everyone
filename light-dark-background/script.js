@@ -28,6 +28,10 @@ appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter' })
 appendChartContainer({ idNum: 400, chartTitle: 'Gradient Dark - Line' })
 
 getData().then(data => {
+    let anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+    const resetAnonymiser = () => { anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] }
+    const anonymiseCountry = () => 'Country ' + anonymiser.shift()
+
     const lastYearData = data.filter(d => d.year === '2021')
     const lastYearSortedData = lastYearData.sort((a, b) => b.average - a.average)
 
@@ -37,14 +41,21 @@ getData().then(data => {
         lg: { width: 500 }
     }
 
-    const barData = [2, 17, 30, 50, 111, 147, 201].map(i => lastYearSortedData[i])
-    const barMargin = getMargin({ left: 108 })
+    const barData = [2, 17, 30, 50, 111, 147, 201]
+        .map(i => lastYearSortedData[i])
+        .map(d => { return { ...d, country: anonymiseCountry() } })
+    const barMargin = getMargin({ left: 102 })
 
     const scatterData = lastYearData
     const scatterMargin = getMargin({ left: 58 })
 
     const lineSelectedCountries = [7, 16, 50].map(i => lastYearSortedData[i].country)
-    const lineData = data.filter(d => d.year >= 2000 && lineSelectedCountries.includes(d.country))
+    resetAnonymiser()
+    const lineCountryAnonymise = {}
+    lineSelectedCountries.forEach(country => { lineCountryAnonymise[country] = anonymiseCountry() })
+    const lineData = data
+        .filter(d => d.year >= 2000 && lineSelectedCountries.includes(d.country))
+        .map(d => { return { ...d, country: lineCountryAnonymise[d.country] } })
 
     addBar(
         getChart({

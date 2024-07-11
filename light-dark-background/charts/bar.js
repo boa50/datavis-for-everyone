@@ -37,6 +37,7 @@ export const addChart = (chartProps, data) => {
         xLabel: 'Average life expectancy',
         yLabel: 'Country',
         hideXdomain: true,
-        hideYdomain: true
+        hideYdomain: true,
+        xTickValues: [0, 20, 40, 60, 80]
     })
 }

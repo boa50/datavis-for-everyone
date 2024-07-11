@@ -38,6 +38,8 @@ export const addChart = (chartProps, data) => {
         x,
         y,
         xLabel: 'Male life expectancy',
-        yLabel: 'Female life expectancy'
+        yLabel: 'Female life expectancy',
+        yNumTicks: 5,
+        xNumTicks: 5
     })
 }

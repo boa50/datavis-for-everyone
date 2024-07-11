@@ -13,7 +13,7 @@ export const addChart = (chartProps, data) => {
 
     const y = d3
         .scaleLinear()
-        .domain(d3.extent(data, d => d.average).map((d, i) => d * [0.97, 1.02][i]))
+        .domain(d3.extent(data, d => d.average).map((d, i) => d * [0.98, 1.01][i]))
         .range([height, 0])
 
     const dataPerGroup = d3.group(data, d => d.country)
@@ -45,6 +45,9 @@ export const addChart = (chartProps, data) => {
         xLabel: 'Year',
         yLabel: 'Average life expectancy',
         xFormat: d => d,
+        xNumTicks: 5,
+        yTickValues: [76, 78, 80, 82, 84],
+        hideXdomain: false,
         hideYdomain: true
     })
 }

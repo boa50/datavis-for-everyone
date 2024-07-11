@@ -3,7 +3,6 @@ import { palette } from "../../colours.js"
 
 export const addChart = (chartProps, data, theme = 'light') => {
     const { chart, width, height } = chartProps
-
     let circleColour, axesColour
 
     switch (theme) {

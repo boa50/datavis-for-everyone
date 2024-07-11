@@ -1,10 +1,25 @@
 import { addAxis } from "../../node_modules/visual-components/index.js"
 import { palette } from "../../colours.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, theme = 'light') => {
     const { chart, width, height } = chartProps
-    const lineColours = [palette.vermillion, palette.blue, palette.amber]
-    const axesColour = palette.axis
+    const defaultColours = [palette.vermillion, palette.blue, palette.amber]
+    let lineColours, axesColour
+
+    switch (theme) {
+        case 'light':
+            lineColours = defaultColours
+            axesColour = palette.axis
+            break
+        case 'strongDark':
+            lineColours = defaultColours.map(c => d3.hsl(c).brighter(1))
+            axesColour = d3.hsl('#FFFFFF').darker(0.2)
+            break
+        default:
+            lineColours = defaultColours
+            axesColour = palette.axis
+            break
+    }
 
     const x = d3
         .scaleLinear()

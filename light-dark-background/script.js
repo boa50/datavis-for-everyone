@@ -1,5 +1,6 @@
 import { getChart, getMargin, getChartDimensions, appendChartContainer } from "../node_modules/visual-components/index.js"
 import { addChart as addBar } from "./charts/bar.js"
+import { addChart as addScatter } from "./charts/scatter.js"
 
 const getData = () =>
     d3.csv('../_data/life-expectancy.csv')
@@ -13,7 +14,7 @@ const getData = () =>
         )
 
 const lightBarId = appendChartContainer({ idNum: 1, chartTitle: 'All Light - Bar' })
-appendChartContainer({ idNum: 10, chartTitle: 'All Light - Scatter' })
+const lightScatterId = appendChartContainer({ idNum: 10, chartTitle: 'All Light - Scatter' })
 appendChartContainer({ idNum: 100, chartTitle: 'All Light - Line' })
 appendChartContainer({ idNum: 2, chartTitle: 'Strong Dark - Bar' })
 appendChartContainer({ idNum: 20, chartTitle: 'Strong Dark - Scatter' })
@@ -32,6 +33,9 @@ getData().then(data => {
     barData = [2, 17, 30, 50, 111, 147, 201].map(i => barData[i])
     const barMargin = getMargin({ left: 108 })
 
+    const scatterData = data.filter(d => d.year === '2021')
+    const scatterMargin = getMargin({ left: 58 })
+
     addBar(
         getChart({
             id: lightBarId,
@@ -39,6 +43,15 @@ getData().then(data => {
             margin: barMargin
         }),
         barData
+    )
+
+    addScatter(
+        getChart({
+            id: lightScatterId,
+            chartDimensions: getChartDimensions({ chartId: lightScatterId }),
+            margin: scatterMargin
+        }),
+        scatterData
     )
 
 })

@@ -24,9 +24,11 @@ const strongDarkBarId = appendChartContainer({ idNum: 2, chartTitle: 'Strong Dar
 const strongDarkScatterId = appendChartContainer({ idNum: 20, chartTitle: 'Strong Dark - Scatter', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
 const strongDarkLineId = appendChartContainer({ idNum: 200, chartTitle: 'Strong Dark - Line', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
 
-appendChartContainer({ idNum: 3, chartTitle: 'Soft Dark - Bar' })
-appendChartContainer({ idNum: 30, chartTitle: 'Soft Dark - Scatter' })
-appendChartContainer({ idNum: 300, chartTitle: 'Soft Dark - Line' })
+const softDarkOuterContainerClass = 'bg-neutral-900 px-4 py-2 rounded'
+const softDarkTitleClass = 'text-sm md:text-base text-neutral-200 font-medium'
+const softDarkBarId = appendChartContainer({ idNum: 3, chartTitle: 'Soft Dark - Bar', outerContainerClass: softDarkOuterContainerClass, titleClass: softDarkTitleClass })
+const softDarkScatterId = appendChartContainer({ idNum: 30, chartTitle: 'Soft Dark - Scatter', outerContainerClass: softDarkOuterContainerClass, titleClass: softDarkTitleClass })
+const softDarkLineId = appendChartContainer({ idNum: 300, chartTitle: 'Soft Dark - Line', outerContainerClass: softDarkOuterContainerClass, titleClass: softDarkTitleClass })
 
 appendChartContainer({ idNum: 4, chartTitle: 'Gradient Dark - Bar' })
 appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter' })
@@ -107,4 +109,8 @@ getData().then(data => {
     includeBar(strongDarkBarId, 'strongDark')
     includeScatter(strongDarkScatterId, 'strongDark')
     includeLine(strongDarkLineId, 'strongDark')
+
+    includeBar(softDarkBarId, 'softDark')
+    includeScatter(softDarkScatterId, 'softDark')
+    includeLine(softDarkLineId, 'softDark')
 })

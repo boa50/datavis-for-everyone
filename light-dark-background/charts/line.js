@@ -15,6 +15,10 @@ export const addChart = (chartProps, data, theme = 'light') => {
             lineColours = defaultColours.map(c => d3.hsl(c).brighter(1))
             axesColour = d3.hsl('#FFFFFF').darker(0.2)
             break
+        case 'softDark':
+            lineColours = ['#FFB276', '#60A3D9', '#F9E07A']
+            axesColour = '#d4d4d4'
+            break
         default:
             lineColours = defaultColours
             axesColour = palette.axis

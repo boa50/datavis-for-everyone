@@ -14,6 +14,10 @@ export const addChart = (chartProps, data, theme = 'light') => {
             barColour = '#FFFFFF'
             axesColour = d3.hsl('#FFFFFF').darker(0.2)
             break
+        case 'softDark':
+            barColour = '#60A3D9'
+            axesColour = '#d4d4d4'
+            break
         default:
             barColour = palette.blue
             axesColour = palette.axis

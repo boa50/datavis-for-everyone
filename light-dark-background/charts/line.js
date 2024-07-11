@@ -3,7 +3,7 @@ import { palette } from "../../colours.js"
 
 export const addChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
-    const lineColours = Object.values(palette)
+    const lineColours = [palette.vermillion, palette.blue, palette.amber]
     const axesColour = palette.axis
 
     const x = d3
@@ -32,7 +32,7 @@ export const addChart = (chartProps, data) => {
         .join('path')
         .attr('fill', 'none')
         .attr('stroke', d => colour(d[0]))
-        .attr('stroke-width', 1)
+        .attr('stroke-width', 3)
         .attr('d', d => line(d[1]))
 
     addAxis({

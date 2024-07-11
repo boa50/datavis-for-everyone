@@ -31,19 +31,25 @@ getData().then(data => {
     const lastYearData = data.filter(d => d.year === '2021')
     const lastYearSortedData = lastYearData.sort((a, b) => b.average - a.average)
 
+    const customChartDimensions = {
+        xl2: { width: 650 },
+        xl: { width: 500 },
+        lg: { width: 500 }
+    }
+
     const barData = [2, 17, 30, 50, 111, 147, 201].map(i => lastYearSortedData[i])
     const barMargin = getMargin({ left: 108 })
 
     const scatterData = lastYearData
     const scatterMargin = getMargin({ left: 58 })
 
-    const lineSelectedCountries = [7, 16, 31, 50].map(i => lastYearSortedData[i].country)
+    const lineSelectedCountries = [7, 16, 50].map(i => lastYearSortedData[i].country)
     const lineData = data.filter(d => d.year >= 2000 && lineSelectedCountries.includes(d.country))
 
     addBar(
         getChart({
             id: lightBarId,
-            chartDimensions: getChartDimensions({ chartId: lightBarId }),
+            chartDimensions: getChartDimensions({ chartId: lightBarId, ...customChartDimensions }),
             margin: barMargin
         }),
         barData
@@ -52,7 +58,7 @@ getData().then(data => {
     addScatter(
         getChart({
             id: lightScatterId,
-            chartDimensions: getChartDimensions({ chartId: lightScatterId }),
+            chartDimensions: getChartDimensions({ chartId: lightScatterId, ...customChartDimensions }),
             margin: scatterMargin
         }),
         scatterData
@@ -61,7 +67,7 @@ getData().then(data => {
     addLine(
         getChart({
             id: lightLineId,
-            chartDimensions: getChartDimensions({ chartId: lightLineId })
+            chartDimensions: getChartDimensions({ chartId: lightLineId, ...customChartDimensions })
         }),
         lineData
     )

@@ -1,10 +1,25 @@
 import { addAxis } from "../../node_modules/visual-components/index.js"
 import { palette } from "../../colours.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, theme = 'light') => {
     const { chart, width, height } = chartProps
-    const circleColour = palette.blue
-    const axesColour = palette.axis
+
+    let circleColour, axesColour
+
+    switch (theme) {
+        case 'light':
+            circleColour = palette.blue
+            axesColour = palette.axis
+            break
+        case 'strongDark':
+            circleColour = '#FFFFFF'
+            axesColour = d3.hsl('#FFFFFF').darker(0.2)
+            break
+        default:
+            circleColour = palette.blue
+            axesColour = palette.axis
+            break
+    }
 
     const x = d3
         .scaleLinear()

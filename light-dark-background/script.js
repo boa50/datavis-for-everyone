@@ -21,8 +21,8 @@ const lightLineId = appendChartContainer({ idNum: 100, chartTitle: 'All Light - 
 const strongDarkOuterContainerClass = 'bg-black px-4 py-2 rounded'
 const strongDarkTitleClass = 'text-sm md:text-base text-white font-medium'
 const strongDarkBarId = appendChartContainer({ idNum: 2, chartTitle: 'Strong Dark - Bar', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
-appendChartContainer({ idNum: 20, chartTitle: 'Strong Dark - Scatter', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
-appendChartContainer({ idNum: 200, chartTitle: 'Strong Dark - Line', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
+const strongDarkScatterId = appendChartContainer({ idNum: 20, chartTitle: 'Strong Dark - Scatter', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
+const strongDarkLineId = appendChartContainer({ idNum: 200, chartTitle: 'Strong Dark - Line', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
 
 appendChartContainer({ idNum: 3, chartTitle: 'Soft Dark - Bar' })
 appendChartContainer({ idNum: 30, chartTitle: 'Soft Dark - Scatter' })
@@ -32,10 +32,11 @@ appendChartContainer({ idNum: 4, chartTitle: 'Gradient Dark - Bar' })
 appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter' })
 appendChartContainer({ idNum: 400, chartTitle: 'Gradient Dark - Line' })
 
+let anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
+const resetAnonymiser = () => { anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] }
+const anonymiseCountry = () => 'Country ' + anonymiser.shift()
+
 getData().then(data => {
-    let anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-    const resetAnonymiser = () => { anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] }
-    const anonymiseCountry = () => 'Country ' + anonymiser.shift()
 
     const lastYearData = data.filter(d => d.year === '2021')
     const lastYearSortedData = lastYearData.sort((a, b) => b.average - a.average)
@@ -63,39 +64,47 @@ getData().then(data => {
         .filter(d => d.year >= 2000 && lineSelectedCountries.includes(d.country))
         .map(d => { return { ...d, country: lineCountryAnonymise[d.country] } })
 
-    addBar(
-        getChart({
-            id: lightBarId,
-            chartDimensions: getCustomChartDimensions(lightBarId),
-            margin: barMargin
-        }),
-        barData
-    )
 
-    addScatter(
-        getChart({
-            id: lightScatterId,
-            chartDimensions: getCustomChartDimensions(lightScatterId),
-            margin: scatterMargin
-        }),
-        scatterData
-    )
+    const includeBar = (id, theme = 'light') => {
+        addBar(
+            getChart({
+                id,
+                chartDimensions: getCustomChartDimensions(id),
+                margin: barMargin
+            }),
+            barData,
+            theme
+        )
+    }
 
-    addLine(
-        getChart({
-            id: lightLineId,
-            chartDimensions: getCustomChartDimensions(lightLineId)
-        }),
-        lineData
-    )
+    const includeScatter = (id, theme = 'light') => {
+        addScatter(
+            getChart({
+                id,
+                chartDimensions: getCustomChartDimensions(id),
+                margin: scatterMargin
+            }),
+            scatterData,
+            theme
+        )
+    }
 
-    addBar(
-        getChart({
-            id: strongDarkBarId,
-            chartDimensions: getCustomChartDimensions(strongDarkBarId),
-            margin: barMargin
-        }),
-        barData,
-        'strongDark'
-    )
+    const includeLine = (id, theme = 'light') => {
+        addLine(
+            getChart({
+                id,
+                chartDimensions: getCustomChartDimensions(id)
+            }),
+            lineData,
+            theme
+        )
+    }
+
+    includeBar(lightBarId)
+    includeScatter(lightScatterId)
+    includeLine(lightLineId)
+
+    includeBar(strongDarkBarId, 'strongDark')
+    includeScatter(strongDarkScatterId, 'strongDark')
+    includeLine(strongDarkLineId, 'strongDark')
 })

@@ -17,12 +17,17 @@ const getData = () =>
 const lightBarId = appendChartContainer({ idNum: 1, chartTitle: 'All Light - Bar' })
 const lightScatterId = appendChartContainer({ idNum: 10, chartTitle: 'All Light - Scatter' })
 const lightLineId = appendChartContainer({ idNum: 100, chartTitle: 'All Light - Line' })
-appendChartContainer({ idNum: 2, chartTitle: 'Strong Dark - Bar' })
-appendChartContainer({ idNum: 20, chartTitle: 'Strong Dark - Scatter' })
-appendChartContainer({ idNum: 200, chartTitle: 'Strong Dark - Line' })
+
+const strongDarkOuterContainerClass = 'bg-black px-4 py-2 rounded'
+const strongDarkTitleClass = 'text-sm md:text-base text-white font-medium'
+const strongDarkBarId = appendChartContainer({ idNum: 2, chartTitle: 'Strong Dark - Bar', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
+appendChartContainer({ idNum: 20, chartTitle: 'Strong Dark - Scatter', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
+appendChartContainer({ idNum: 200, chartTitle: 'Strong Dark - Line', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
+
 appendChartContainer({ idNum: 3, chartTitle: 'Soft Dark - Bar' })
 appendChartContainer({ idNum: 30, chartTitle: 'Soft Dark - Scatter' })
 appendChartContainer({ idNum: 300, chartTitle: 'Soft Dark - Line' })
+
 appendChartContainer({ idNum: 4, chartTitle: 'Gradient Dark - Bar' })
 appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter' })
 appendChartContainer({ idNum: 400, chartTitle: 'Gradient Dark - Line' })
@@ -40,6 +45,7 @@ getData().then(data => {
         xl: { width: 500 },
         lg: { width: 500 }
     }
+    const getCustomChartDimensions = id => getChartDimensions({ chartId: id, ...customChartDimensions })
 
     const barData = [2, 17, 30, 50, 111, 147, 201]
         .map(i => lastYearSortedData[i])
@@ -60,7 +66,7 @@ getData().then(data => {
     addBar(
         getChart({
             id: lightBarId,
-            chartDimensions: getChartDimensions({ chartId: lightBarId, ...customChartDimensions }),
+            chartDimensions: getCustomChartDimensions(lightBarId),
             margin: barMargin
         }),
         barData
@@ -69,7 +75,7 @@ getData().then(data => {
     addScatter(
         getChart({
             id: lightScatterId,
-            chartDimensions: getChartDimensions({ chartId: lightScatterId, ...customChartDimensions }),
+            chartDimensions: getCustomChartDimensions(lightScatterId),
             margin: scatterMargin
         }),
         scatterData
@@ -78,9 +84,18 @@ getData().then(data => {
     addLine(
         getChart({
             id: lightLineId,
-            chartDimensions: getChartDimensions({ chartId: lightLineId, ...customChartDimensions })
+            chartDimensions: getCustomChartDimensions(lightLineId)
         }),
         lineData
     )
 
+    addBar(
+        getChart({
+            id: strongDarkBarId,
+            chartDimensions: getCustomChartDimensions(strongDarkBarId),
+            margin: barMargin
+        }),
+        barData,
+        'strongDark'
+    )
 })

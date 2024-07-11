@@ -25,6 +25,7 @@ export const addChart = (chartProps, data) => {
         .line()
         .x(d => x(d.year))
         .y(d => y(d.average))
+        .curve(d3.curveCatmullRom)
 
     chart
         .selectAll('.data-line')

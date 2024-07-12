@@ -10,6 +10,17 @@ export const palette = {
     axis: '#525252'
 }
 
+export const paletteDarkBg = {
+    orange: '#d89a0e',
+    skyBlue: '#5bb3e4',
+    bluishGreen: '#239f7d',
+    amber: '#d9b62c',
+    blue: '#4098c9',
+    vermillion: '#bd6118',
+    reddishPurple: '#c688aa',
+    axis: '#d4d4d4'
+}
+
 export const defaultColours = {
     axis: '#525252',
     animationText: '#737373',

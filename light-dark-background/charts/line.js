@@ -1,5 +1,5 @@
 import { addAxis } from "../../node_modules/visual-components/index.js"
-import { palette } from "../../colours.js"
+import { palette, paletteDarkBg } from "../../colours.js"
 
 export const addChart = (chartProps, data, theme = 'light') => {
     const { chart, width, height } = chartProps
@@ -17,6 +17,7 @@ export const addChart = (chartProps, data, theme = 'light') => {
             break
         case 'softDark':
             lineColours = ['#FFB276', '#60A3D9', '#F9E07A']
+            lineColours = [paletteDarkBg.vermillion, paletteDarkBg.blue, paletteDarkBg.amber]
             axesColour = '#d4d4d4'
             break
         default:

@@ -239,5 +239,6 @@ export function appendChartContainer({ }: {
     innerContainerClass?: string,
     titleClass?: string,
     subtitleClass?: string,
-    chartsContainerId?: string
+    chartsContainerId?: string,
+    theme?: 'light' | 'dark' | 'darkGradient'
 }): string

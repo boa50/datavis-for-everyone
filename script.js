@@ -26,6 +26,7 @@ const links = [
     { txt: 'Time Series Misrepresentation', url: './time-series/index.html', dateUpdated: new Date(2024, 5, 7) },
     { txt: 'Responsiveness', url: './responsiveness/index.html', dateUpdated: new Date(2024, 6, 1) },
     { txt: 'The Art of Simplicity', url: './simplicity/index.html', dateUpdated: new Date(2024, 6, 10) },
+    { txt: 'Light & Dark Backgrounds', url: './light-dark-background/index.html', dateUpdated: new Date(2024, 6, 12) },
 ]
 
 links

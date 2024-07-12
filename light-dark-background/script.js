@@ -30,9 +30,12 @@ const softDarkBarId = appendChartContainer({ idNum: 3, chartTitle: 'Soft Dark - 
 const softDarkScatterId = appendChartContainer({ idNum: 30, chartTitle: 'Soft Dark - Scatter', outerContainerClass: softDarkOuterContainerClass, titleClass: softDarkTitleClass })
 const softDarkLineId = appendChartContainer({ idNum: 300, chartTitle: 'Soft Dark - Line', outerContainerClass: softDarkOuterContainerClass, titleClass: softDarkTitleClass })
 
-appendChartContainer({ idNum: 4, chartTitle: 'Gradient Dark - Bar' })
-appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter' })
-appendChartContainer({ idNum: 400, chartTitle: 'Gradient Dark - Line' })
+const gradientColourkey = 'gray'
+const gradientDarkOuterContainerClass = `bg-gradient-to-b from-${gradientColourkey}-800 to-${gradientColourkey}-950 px-4 py-2 rounded`
+const gradientDarkTitleClass = 'text-sm md:text-base text-neutral-200 font-medium'
+const gradientDarkBarId = appendChartContainer({ idNum: 4, chartTitle: 'Gradient Dark - Bar', outerContainerClass: gradientDarkOuterContainerClass, titleClass: gradientDarkTitleClass })
+const gradientDarkScatterId = appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter', outerContainerClass: gradientDarkOuterContainerClass, titleClass: gradientDarkTitleClass })
+const gradientDarkLineId = appendChartContainer({ idNum: 400, chartTitle: 'Gradient Dark - Line', outerContainerClass: gradientDarkOuterContainerClass, titleClass: gradientDarkTitleClass })
 
 let anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 const resetAnonymiser = () => { anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] }
@@ -113,4 +116,8 @@ getData().then(data => {
     includeBar(softDarkBarId, 'softDark')
     includeScatter(softDarkScatterId, 'softDark')
     includeLine(softDarkLineId, 'softDark')
+
+    includeBar(gradientDarkBarId, 'softDark')
+    includeScatter(gradientDarkScatterId, 'softDark')
+    includeLine(gradientDarkLineId, 'softDark')
 })

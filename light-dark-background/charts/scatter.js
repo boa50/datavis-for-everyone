@@ -55,8 +55,8 @@ export const addChart = (chartProps, data, theme = 'light') => {
         colour: axesColour,
         x,
         y,
-        xLabel: 'Male life expectancy',
-        yLabel: 'Female life expectancy',
+        xLabel: 'Men life expectancy',
+        yLabel: 'Women life expectancy',
         yNumTicks: 5,
         xNumTicks: 5
     })

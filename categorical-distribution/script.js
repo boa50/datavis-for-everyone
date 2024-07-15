@@ -13,8 +13,9 @@ const getData = () =>
 const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
 appendChartContainer({ idNum: 2, chartTitle: 'Column with error line' })
 appendChartContainer({ idNum: 3, chartTitle: 'Boxplot' })
-appendChartContainer({ idNum: 4, chartTitle: 'Strip plot (Scatter)' })
-appendChartContainer({ idNum: 5, chartTitle: 'Jitter plot' })
+appendChartContainer({ idNum: 4, chartTitle: 'Violin' })
+appendChartContainer({ idNum: 5, chartTitle: 'Strip plot (Scatter)' })
+appendChartContainer({ idNum: 6, chartTitle: 'Jitter plot' })
 
 getData().then(data => {
     addColumn(

@@ -7,7 +7,8 @@ export const palette = {
     blue: '#0072B2',
     vermillion: '#D55E00',
     reddishPurple: '#CC79A7',
-    axis: '#525252'
+    axis: '#525252',
+    contrasting: '#f5f5f5'
 }
 
 export const paletteDarkBg = {
@@ -18,7 +19,8 @@ export const paletteDarkBg = {
     blue: '#4098c9',
     vermillion: '#bd6118',
     reddishPurple: '#c688aa',
-    axis: '#d4d4d4'
+    axis: '#d4d4d4',
+    contrasting: '#262626'
 }
 
 export const defaultColours = {

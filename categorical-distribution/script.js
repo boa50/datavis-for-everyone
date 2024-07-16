@@ -11,7 +11,7 @@ const getData = () =>
         .then(d => d.sort(() => Math.random() - 0.5).map((v, i) => { return { ...v, govSpending: +v.govSpending, group: getDataGroup(i) } }))
 
 const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
-appendChartContainer({ idNum: 2, chartTitle: 'Column with error line' })
+const columnErrorId = appendChartContainer({ idNum: 2, chartTitle: 'Column with error line' })
 appendChartContainer({ idNum: 3, chartTitle: 'Boxplot' })
 appendChartContainer({ idNum: 4, chartTitle: 'Violin' })
 appendChartContainer({ idNum: 5, chartTitle: 'Strip plot (Scatter)' })
@@ -24,5 +24,14 @@ getData().then(data => {
             chartDimensions: getChartDimensions({ chartId: columnId })
         }),
         data
+    )
+
+    addColumn(
+        getChart({
+            id: columnErrorId,
+            chartDimensions: getChartDimensions({ chartId: columnErrorId })
+        }),
+        data,
+        true
     )
 })

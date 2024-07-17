@@ -1,6 +1,7 @@
 import { getChart, getChartDimensions, appendChartContainer } from "../node_modules/visual-components/index.js"
 import { addChart as addColumn } from "./charts/column.js"
 import { addChart as addBoxplot } from "./charts/boxplot.js"
+import { addChart as addViolin } from "./charts/violin.js"
 
 const getDataGroup = i =>
     i <= 3030 ? 'grp1' :
@@ -14,7 +15,7 @@ const getData = () =>
 const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
 const columnErrorId = appendChartContainer({ idNum: 2, chartTitle: 'Column with error line' })
 const boxplotId = appendChartContainer({ idNum: 3, chartTitle: 'Boxplot' })
-appendChartContainer({ idNum: 4, chartTitle: 'Violin' })
+const violinId = appendChartContainer({ idNum: 4, chartTitle: 'Violin' })
 appendChartContainer({ idNum: 5, chartTitle: 'Strip plot (Scatter)' })
 appendChartContainer({ idNum: 6, chartTitle: 'Jitter plot' })
 
@@ -63,5 +64,13 @@ getData().then(data => {
             chartDimensions: getChartDimensions({ chartId: boxplotId })
         }),
         dataGrouped
+    )
+
+    addViolin(
+        getChart({
+            id: violinId,
+            chartDimensions: getChartDimensions({ chartId: violinId })
+        }),
+        data
     )
 })

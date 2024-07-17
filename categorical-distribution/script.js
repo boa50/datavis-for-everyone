@@ -2,6 +2,7 @@ import { getChart, getChartDimensions, appendChartContainer } from "../node_modu
 import { addChart as addColumn } from "./charts/column.js"
 import { addChart as addBoxplot } from "./charts/boxplot.js"
 import { addChart as addViolin } from "./charts/violin.js"
+import { addChart as addScatter } from "./charts/scatter.js"
 
 const getDataGroup = i =>
     i <= 3030 ? 'grp1' :
@@ -10,17 +11,29 @@ const getDataGroup = i =>
 
 const getData = () =>
     d3.csv("../_data/gov-spending.csv")
-        .then(d => d.sort(() => Math.random() - 0.5).map((v, i) => { return { ...v, govSpending: +v.govSpending, group: getDataGroup(i) } }))
+        .then(d => d
+            .sort(() => Math.random() - 0.5)
+            .map((v, i) => {
+                return {
+                    ...v,
+                    govSpending: +v.govSpending,
+                    group: getDataGroup(i)
+                }
+            }))
 
 const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
 const columnErrorId = appendChartContainer({ idNum: 2, chartTitle: 'Column with error line' })
 const boxplotId = appendChartContainer({ idNum: 3, chartTitle: 'Boxplot' })
 const violinId = appendChartContainer({ idNum: 4, chartTitle: 'Violin' })
-appendChartContainer({ idNum: 5, chartTitle: 'Strip plot (Scatter)' })
-appendChartContainer({ idNum: 6, chartTitle: 'Jitter plot' })
+const stripId = appendChartContainer({ idNum: 5, chartTitle: 'Strip plot (Scatter)' })
+const jitterId = appendChartContainer({ idNum: 6, chartTitle: 'Jitter plot' })
 
 getData().then(data => {
     const groups = [...new Set(data.map(d => d.group))]
+
+    data = getSubgroup(data, 'grp1')
+        .concat(getSubgroup(data, 'grp2'))
+        .concat(getSubgroup(data, 'grp3'))
 
     const dataGrouped = groups.map(grp => {
         const dataFiltered = data.filter(d => d.group === grp)
@@ -73,4 +86,28 @@ getData().then(data => {
         }),
         data
     )
+
+    addScatter(
+        getChart({
+            id: stripId,
+            chartDimensions: getChartDimensions({ chartId: stripId })
+        }),
+        data
+    )
+
+    addScatter(
+        getChart({
+            id: jitterId,
+            chartDimensions: getChartDimensions({ chartId: jitterId })
+        }),
+        data,
+        jitterId
+    )
 })
+
+function getSubgroup(data, group, size = 250) {
+    return data
+        .filter(d => d.group === group)
+        .sort(() => Math.random() - 0.5)
+        .slice(0, size)
+}

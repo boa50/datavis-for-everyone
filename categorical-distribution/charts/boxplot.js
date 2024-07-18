@@ -72,6 +72,8 @@ export const addChart = (chartProps, data) => {
         width,
         colour: palette.axis,
         x,
-        y
+        y,
+        yNumTicks: 4,
+        yNumTicksForceInitial: true
     })
 }

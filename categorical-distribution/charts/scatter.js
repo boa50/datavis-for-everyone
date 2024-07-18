@@ -35,6 +35,8 @@ export const addChart = (chartProps, data, jitter = false) => {
         width,
         colour: palette.axis,
         x,
-        y
+        y,
+        yNumTicks: 5,
+        yNumTicksForceInitial: true
     })
 }

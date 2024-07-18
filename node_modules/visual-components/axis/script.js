@@ -218,6 +218,7 @@ function getBeautifulTicks(nticks, scale, forceInitial) {
     let extremities = scale.domain()
     const numberLength = Math.trunc(extremities[1]).toString().length
     const extremityIncrement = numberLength > 4 ? Math.pow(10, numberLength - 2) : 1
+    const incrementMultiple = numberLength < 4 ? 5 : 1
 
     const maxTruncated = Math.trunc(extremities[1] / extremityIncrement)
     const maxRounded = maxTruncated - (maxTruncated % 5)
@@ -233,7 +234,7 @@ function getBeautifulTicks(nticks, scale, forceInitial) {
     let increment = getIncrement()
 
     for (let i = 0; i <= 10; i++) {
-        if (Number.isInteger(increment)) {
+        if (Number.isInteger(increment / incrementMultiple)) {
             return [...Array(nticks).keys()].map(d => extremities[0] + increment * d)
         }
 

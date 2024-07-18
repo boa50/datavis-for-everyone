@@ -1,4 +1,4 @@
-import { getChart, getChartDimensions, appendChartContainer } from "../node_modules/visual-components/index.js"
+import { getChart, getMargin, getChartDimensions, appendChartContainer } from "../node_modules/visual-components/index.js"
 import { addChart as addColumn } from "./charts/column.js"
 import { addChart as addBoxplot } from "./charts/boxplot.js"
 import { addChart as addViolin } from "./charts/violin.js"
@@ -25,7 +25,7 @@ const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
 const columnErrorId = appendChartContainer({ idNum: 2, chartTitle: 'Column with error line' })
 const boxplotId = appendChartContainer({ idNum: 3, chartTitle: 'Boxplot' })
 const violinId = appendChartContainer({ idNum: 4, chartTitle: 'Violin' })
-const stripId = appendChartContainer({ idNum: 5, chartTitle: 'Strip plot (Scatter)' })
+const stripId = appendChartContainer({ idNum: 5, chartTitle: 'Strip plot' })
 const jitterId = appendChartContainer({ idNum: 6, chartTitle: 'Jitter plot' })
 
 getData().then(data => {
@@ -54,10 +54,13 @@ getData().then(data => {
         }
     })
 
+    const chartMargin = getMargin({ left: 32, bottom: 32 })
+
     addColumn(
         getChart({
             id: columnId,
-            chartDimensions: getChartDimensions({ chartId: columnId })
+            chartDimensions: getChartDimensions({ chartId: columnId }),
+            margin: chartMargin
         }),
         dataGrouped
     )
@@ -65,7 +68,8 @@ getData().then(data => {
     addColumn(
         getChart({
             id: columnErrorId,
-            chartDimensions: getChartDimensions({ chartId: columnErrorId })
+            chartDimensions: getChartDimensions({ chartId: columnErrorId }),
+            margin: chartMargin
         }),
         dataGrouped,
         true
@@ -74,7 +78,8 @@ getData().then(data => {
     addBoxplot(
         getChart({
             id: boxplotId,
-            chartDimensions: getChartDimensions({ chartId: boxplotId })
+            chartDimensions: getChartDimensions({ chartId: boxplotId }),
+            margin: chartMargin
         }),
         dataGrouped
     )
@@ -82,7 +87,8 @@ getData().then(data => {
     addViolin(
         getChart({
             id: violinId,
-            chartDimensions: getChartDimensions({ chartId: violinId })
+            chartDimensions: getChartDimensions({ chartId: violinId }),
+            margin: chartMargin
         }),
         data
     )
@@ -90,7 +96,8 @@ getData().then(data => {
     addScatter(
         getChart({
             id: stripId,
-            chartDimensions: getChartDimensions({ chartId: stripId })
+            chartDimensions: getChartDimensions({ chartId: stripId }),
+            margin: chartMargin
         }),
         data
     )
@@ -98,7 +105,8 @@ getData().then(data => {
     addScatter(
         getChart({
             id: jitterId,
-            chartDimensions: getChartDimensions({ chartId: jitterId })
+            chartDimensions: getChartDimensions({ chartId: jitterId }),
+            margin: chartMargin
         }),
         data,
         jitterId

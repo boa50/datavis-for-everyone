@@ -28,7 +28,6 @@ export const addChart = (chartProps, data, errorLine = false) => {
 
     if (errorLine) {
         const lineColour = palette.orange
-        const lineWidth = 7
 
         chart
             .selectAll('.error-line')
@@ -38,7 +37,7 @@ export const addChart = (chartProps, data, errorLine = false) => {
             .attr('x2', d => x(d.group) + (x.bandwidth() / 2))
             .attr('y1', d => y(d.q1))
             .attr('y2', d => y(d.q3))
-            .attr('stroke-width', lineWidth)
+            .attr('stroke-width', 4)
             .attr('stroke', lineColour)
 
         const addDivisor = field => {
@@ -51,7 +50,7 @@ export const addChart = (chartProps, data, errorLine = false) => {
                 .attr('x2', d => x(d.group) + (x.bandwidth() / 2) + (divisorWidth / 2))
                 .attr('y1', d => y(d[field]))
                 .attr('y2', d => y(d[field]))
-                .attr('stroke-width', 4)
+                .attr('stroke-width', 3)
                 .attr('stroke', lineColour)
         }
 

@@ -28,11 +28,13 @@ export const addChart = (chartProps, data, theme = 'light') => {
 
     const xMaxLength = d3.max(dataGrouped.map(d => d3.max(d.bins.map(d => d.length))))
 
-    const xLength = d3.scaleLinear()
+    const xLength = d3
+        .scaleLinear()
         .range([0, x.bandwidth()])
         .domain([-xMaxLength, xMaxLength])
 
-    const area = d3.area()
+    const area = d3
+        .area()
         .x0(d => xLength(-d.length))
         .x1(d => xLength(d.length))
         .y(d => y(d.x0))

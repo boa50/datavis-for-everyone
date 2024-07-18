@@ -1,8 +1,9 @@
 import { addAxis } from "../../node_modules/visual-components/index.js"
-import { palette } from "../../colours.js"
+import { palette as paletteLightBg, paletteDarkBg } from "../../colours.js"
 
-export const addChart = (chartProps, data, jitter = false) => {
+export const addChart = (chartProps, data, theme = 'light', jitter = false) => {
     const { chart, width, height } = chartProps
+    const palette = theme === 'light' ? paletteLightBg : paletteDarkBg
 
     const x = d3
         .scaleBand()
@@ -23,7 +24,7 @@ export const addChart = (chartProps, data, jitter = false) => {
         .attr('r', 5)
         .attr('fill', palette.blue)
         .style('opacity', 0.95)
-        .attr('stroke', palette.skyBlue)
+        .attr('stroke', palette.axis)
         .attr('stroke-width', 0.5)
         .transition()
         .attr('cx', d => x(d.group) + (jitter ? Math.random() * x.bandwidth() : x.bandwidth() / 2))

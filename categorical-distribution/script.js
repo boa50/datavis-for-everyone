@@ -4,6 +4,8 @@ import { addChart as addBoxplot } from "./charts/boxplot.js"
 import { addChart as addViolin } from "./charts/violin.js"
 import { addChart as addScatter } from "./charts/scatter.js"
 
+const theme = 'light'
+
 const getDataGroup = i =>
     i <= 3030 ? 'grp1' :
         i <= 6060 ? 'grp2' : 'grp3'
@@ -21,12 +23,12 @@ const getData = () =>
                 }
             }))
 
-const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column' })
-const columnErrorId = appendChartContainer({ idNum: 2, chartTitle: 'Column with error line' })
-const boxplotId = appendChartContainer({ idNum: 3, chartTitle: 'Boxplot' })
-const violinId = appendChartContainer({ idNum: 4, chartTitle: 'Violin' })
-const stripId = appendChartContainer({ idNum: 5, chartTitle: 'Strip plot' })
-const jitterId = appendChartContainer({ idNum: 6, chartTitle: 'Jitter plot' })
+const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column', theme })
+const columnErrorId = appendChartContainer({ idNum: 2, chartTitle: 'Column with error line', theme })
+const boxplotId = appendChartContainer({ idNum: 3, chartTitle: 'Boxplot', theme })
+const violinId = appendChartContainer({ idNum: 4, chartTitle: 'Violin', theme })
+const stripId = appendChartContainer({ idNum: 5, chartTitle: 'Strip plot', theme })
+const jitterId = appendChartContainer({ idNum: 6, chartTitle: 'Jitter plot', theme })
 
 getData().then(data => {
     const groups = [...new Set(data.map(d => d.group))]
@@ -62,7 +64,8 @@ getData().then(data => {
             chartDimensions: getChartDimensions({ chartId: columnId }),
             margin: chartMargin
         }),
-        dataGrouped
+        dataGrouped,
+        theme
     )
 
     addColumn(
@@ -72,6 +75,7 @@ getData().then(data => {
             margin: chartMargin
         }),
         dataGrouped,
+        theme,
         true
     )
 
@@ -81,7 +85,8 @@ getData().then(data => {
             chartDimensions: getChartDimensions({ chartId: boxplotId }),
             margin: chartMargin
         }),
-        dataGrouped
+        dataGrouped,
+        theme
     )
 
     addViolin(
@@ -90,7 +95,8 @@ getData().then(data => {
             chartDimensions: getChartDimensions({ chartId: violinId }),
             margin: chartMargin
         }),
-        data
+        data,
+        theme
     )
 
     addScatter(
@@ -99,7 +105,8 @@ getData().then(data => {
             chartDimensions: getChartDimensions({ chartId: stripId }),
             margin: chartMargin
         }),
-        data
+        data,
+        theme
     )
 
     addScatter(
@@ -109,6 +116,7 @@ getData().then(data => {
             margin: chartMargin
         }),
         data,
+        theme,
         jitterId
     )
 })

@@ -1,8 +1,9 @@
 import { addAxis } from "../../node_modules/visual-components/index.js"
-import { palette } from "../../colours.js"
+import { palette as paletteLightBg, paletteDarkBg } from "../../colours.js"
 
-export const addChart = (chartProps, data, errorLine = false) => {
+export const addChart = (chartProps, data, theme = 'light', errorLine = false) => {
     const { chart, width, height } = chartProps
+    const palette = theme === 'light' ? paletteLightBg : paletteDarkBg
 
     const x = d3
         .scaleBand()

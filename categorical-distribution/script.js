@@ -1,4 +1,4 @@
-import { getChart, getMargin, getChartDimensions, appendChartContainer } from "../node_modules/visual-components/index.js"
+import { getChart, getMargin, appendChartContainer } from "../node_modules/visual-components/index.js"
 import { addChart as addColumn } from "./charts/column.js"
 import { addChart as addBoxplot } from "./charts/boxplot.js"
 import { addChart as addViolin } from "./charts/violin.js"
@@ -59,65 +59,33 @@ getData().then(data => {
     const chartMargin = getMargin({ left: 32, bottom: 32 })
 
     addColumn(
-        getChart({
-            id: columnId,
-            chartDimensions: getChartDimensions({ chartId: columnId }),
-            margin: chartMargin
-        }),
-        dataGrouped,
-        theme
+        getChart({ id: columnId, margin: chartMargin }),
+        dataGrouped, theme
     )
 
     addColumn(
-        getChart({
-            id: columnErrorId,
-            chartDimensions: getChartDimensions({ chartId: columnErrorId }),
-            margin: chartMargin
-        }),
-        dataGrouped,
-        theme,
-        true
+        getChart({ id: columnErrorId, margin: chartMargin }),
+        dataGrouped, theme, true
     )
 
     addBoxplot(
-        getChart({
-            id: boxplotId,
-            chartDimensions: getChartDimensions({ chartId: boxplotId }),
-            margin: chartMargin
-        }),
-        dataGrouped,
-        theme
+        getChart({ id: boxplotId, margin: chartMargin }),
+        dataGrouped, theme
     )
 
     addViolin(
-        getChart({
-            id: violinId,
-            chartDimensions: getChartDimensions({ chartId: violinId }),
-            margin: chartMargin
-        }),
-        data,
-        theme
+        getChart({ id: violinId, margin: chartMargin }),
+        data, theme
     )
 
     addScatter(
-        getChart({
-            id: stripId,
-            chartDimensions: getChartDimensions({ chartId: stripId }),
-            margin: chartMargin
-        }),
-        data,
-        theme
+        getChart({ id: stripId, margin: chartMargin }),
+        data, theme
     )
 
     addScatter(
-        getChart({
-            id: jitterId,
-            chartDimensions: getChartDimensions({ chartId: jitterId }),
-            margin: chartMargin
-        }),
-        data,
-        theme,
-        jitterId
+        getChart({ id: jitterId, margin: chartMargin }),
+        data, theme, true
     )
 })
 

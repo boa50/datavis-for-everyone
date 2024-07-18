@@ -129,9 +129,11 @@ export const getChart = ({
     id,
     svgWidth,
     svgHeight,
-    chartDimensions = getChartDimensions({}),
+    chartDimensions,
     margin = getMargin({})
 }) => {
+    if (chartDimensions === undefined) chartDimensions = getChartDimensions({ chartId: id })
+
     svgWidth = svgWidth !== undefined ? svgWidth : getSvgWidth(id)
     svgHeight = svgHeight !== undefined ? svgHeight : getSvgHeight(id)
 

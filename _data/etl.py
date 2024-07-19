@@ -57,7 +57,7 @@ try:
         & (df["year"] <= 2021)
         & (~df["country"].isin(aggregated_entities))
         & (~df["code"].isna())
-    ].reset_index()
+    ].reset_index(drop=True)
 
     print_df_info(df)
 

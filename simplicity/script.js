@@ -107,6 +107,6 @@ getData().then(data => {
         }),
         data.filter(d => ['Croatia', 'High-income countries', 'Low-income countries', 'Lower-middle-income countries', 'Middle-income countries', 'Upper-middle-income countries'].includes(d.entity)),
         theme,
-        { focused: 'Croatia', lineLabel: true, singleColour: true, aggregationGroup: 'Income', messages: true }
+        { focused: 'Croatia', lineLabel: true, singleColour: true, messages: true }
     )
 })

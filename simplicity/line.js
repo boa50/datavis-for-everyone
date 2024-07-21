@@ -1,9 +1,10 @@
 import { addAxis, addLegend, createText } from "../node_modules/visual-components/index.js"
-import { palette } from "../colours.js"
+import { palette, paletteDarkBg } from "../colours.js"
 
 export const addChart = (
     chartProps,
     data,
+    theme = 'light',
     options = {
         topLegend: false,
         focused: null,
@@ -13,10 +14,23 @@ export const addChart = (
         messages: false
     }
 ) => {
+    let colourPalette
+    switch (theme) {
+        case 'light':
+            colourPalette = structuredClone(palette)
+            break
+        case 'dark':
+            colourPalette = structuredClone(paletteDarkBg)
+            break
+
+        default:
+            colourPalette = structuredClone(palette)
+            break
+    }
+
     const { chart, width, height, margin } = chartProps
     const isFocused = options.focused !== undefined && options.focused !== null
     const anonymizator = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
-    const colourPalette = structuredClone(palette)
     const focusedColour = colourPalette.vermillion
     const axesColour = colourPalette.axis
 

@@ -1,3 +1,4 @@
+import { addColourLegend, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
 import { palette } from "../../colours.js"
 
 export const addChart = (chartProps, data, geo) => {
@@ -21,15 +22,52 @@ export const addChart = (chartProps, data, geo) => {
 
     chart
         .append('g')
-        .selectAll('path')
+        .selectAll('.data-point')
         .data(geo.features)
         .join('path')
+        .attr('class', 'data-point')
         .attr('d', d3.geoPath()
             .projection(projection)
         )
         .attr('fill', d => colour(getGdpPerCapita(d.id)))
         .attr('stroke-width', 0.25)
         .style('stroke', '#262626')
+
+    const colourLegendWidth = 186
+    const colourLegendLength = colour.domain().length
+
+    const colourLegendAxis = d3
+        .scaleLinear()
+        .domain(colour.domain())
+        .range([...Array(colourLegendLength).keys()].map(i => (i + 1) * (colourLegendWidth / colourLegendLength)))
+
+    addColourLegend({
+        chart,
+        colourScale: colour,
+        colourScaleType: 'threshold',
+        axis: colourLegendAxis,
+        title: 'GDP per capita',
+        yPosition: height - 100,
+        xPosition: 50,
+        width: colourLegendWidth,
+        textColour: palette.axis,
+        axisTickFormat: d3.format('.2s')
+    })
+
+    addHighlightTooltip({
+        chart,
+        htmlText: d => `
+        <strong>${d.id}</strong>
+        <div style="display: flex; justify-content: space-between">
+            <span>FIELD_NAME:&emsp;</span>
+            <span>${getGdpPerCapita(d.id)}</span>
+        </div>
+        `,
+        elements: chart.selectAll('.data-point'),
+        highlightedOpacity: 1,
+        fadedOpacity: 0.5,
+        initialOpacity: 1
+    })
 }
 
 function getColourScale(maxValue, nSteps = 5, type = 'linear') {
@@ -55,8 +93,6 @@ function getColourScale(maxValue, nSteps = 5, type = 'linear') {
             domain = [...Array(nSteps).keys()].map(i => (i + 1) * maxTruncated / nSteps)
             break
     }
-
-    // console.log(maxValue, maxTruncated, domain);
 
     const colourRange = domain.map(d => d3.interpolateRgb('#FFFFFF', palette.blue)(d / maxTruncated))
     return d3.scaleThreshold()

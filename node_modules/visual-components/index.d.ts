@@ -110,6 +110,7 @@ export function addColourLegend({ }: {
     chart: Element,
     title: string,
     colourScale: Element,
+    colourScaleType: 'default' | 'threshold',
     colourOpacity?: number,
     xPosition?: number,
     yPosition?: number,

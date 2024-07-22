@@ -18,7 +18,7 @@ getData().then(datasets => {
     const gdpPerCapitaData = datasets[1]
 
     addColumn(
-        getChart({ id: columnId }),
+        getChart({ id: columnId, margin: getMargin({ left: 52, bottom: 32 }) }),
         gdpPerCapitaData.filter(d => d.year === "2021")
     )
 

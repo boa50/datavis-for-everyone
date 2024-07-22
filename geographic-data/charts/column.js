@@ -1,4 +1,4 @@
-import { addAxis } from "../../node_modules/visual-components/index.js"
+import { addAxis, formatCurrency } from "../../node_modules/visual-components/index.js"
 import { palette } from "../../colours.js"
 
 export const addChart = (chartProps, data) => {
@@ -36,6 +36,7 @@ export const addChart = (chartProps, data) => {
         x,
         y,
         colour: palette.axis,
+        yFormat: d => d > 0 ? `${formatCurrency(d / 1000)}k` : d,
         yNumTicks: 5,
         yNumTicksForceInitial: true
     })

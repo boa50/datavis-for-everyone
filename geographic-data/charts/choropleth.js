@@ -1,4 +1,4 @@
-import { addColourLegend, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
+import { addColourLegend, addHighlightTooltip, formatCurrency } from "../../node_modules/visual-components/index.js"
 import { palette } from "../../colours.js"
 
 export const addChart = (chartProps, data, geo) => {
@@ -13,6 +13,12 @@ export const addChart = (chartProps, data, geo) => {
         .clipExtent([[0, 0], [width, height]])
 
     const colour = getColourScale(d3.max(data, d => d.gdpPerCapita) / 2, 7, 'log')
+
+    const getCountry = code => {
+        const dataPoint = data.filter(d => d.code === code)[0]
+
+        return dataPoint !== undefined ? dataPoint.country : code
+    }
 
     const getGdpPerCapita = code => {
         const dataPoint = data.filter(d => d.code === code)[0]
@@ -29,7 +35,11 @@ export const addChart = (chartProps, data, geo) => {
         .attr('d', d3.geoPath()
             .projection(projection)
         )
-        .attr('fill', d => colour(getGdpPerCapita(d.id)))
+        .attr('fill', d => {
+            const gdp = getGdpPerCapita(d.id)
+            if (gdp > 0) return colour(gdp)
+            else return d3.hsl(palette.axis).brighter(3)
+        })
         .attr('stroke-width', 0.25)
         .style('stroke', '#262626')
 
@@ -57,15 +67,15 @@ export const addChart = (chartProps, data, geo) => {
     addHighlightTooltip({
         chart,
         htmlText: d => `
-        <strong>${d.id}</strong>
+        <strong>${getCountry(d.id)}</strong>
         <div style="display: flex; justify-content: space-between">
-            <span>FIELD_NAME:&emsp;</span>
-            <span>${getGdpPerCapita(d.id)}</span>
+            <span>GDP per capita:&emsp;</span>
+            <span>${formatCurrency(getGdpPerCapita(d.id))}</span>
         </div>
         `,
         elements: chart.selectAll('.data-point'),
         highlightedOpacity: 1,
-        fadedOpacity: 0.5,
+        fadedOpacity: 0.25,
         initialOpacity: 1
     })
 }

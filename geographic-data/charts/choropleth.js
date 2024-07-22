@@ -28,7 +28,8 @@ export const addChart = (chartProps, data, geo) => {
             .projection(projection)
         )
         .attr('fill', d => colour(getGdpPerCapita(d.id)))
-        .style('stroke', '#9ca3af')
+        .attr('stroke-width', 0.25)
+        .style('stroke', '#262626')
 }
 
 function getColourScale(maxValue, nSteps = 5, type = 'linear') {

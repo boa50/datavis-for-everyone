@@ -33,7 +33,7 @@ export const addChart = (chartProps, data, geo) => {
         .attr('stroke-width', 0.25)
         .style('stroke', '#262626')
 
-    const colourLegendWidth = 186
+    const colourLegendWidth = width / 4
     const colourLegendLength = colour.domain().length
 
     const colourLegendAxis = d3
@@ -47,8 +47,8 @@ export const addChart = (chartProps, data, geo) => {
         colourScaleType: 'threshold',
         axis: colourLegendAxis,
         title: 'GDP per capita',
-        yPosition: height - 100,
-        xPosition: 50,
+        yPosition: height / 1.25,
+        xPosition: 8,
         width: colourLegendWidth,
         textColour: palette.axis,
         axisTickFormat: d3.format('.2s')

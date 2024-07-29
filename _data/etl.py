@@ -64,3 +64,45 @@ try:
     df.to_csv(get_path("gdp-per-capita.csv"), index=False)
 except:
     print("gdp-per-capita source file not found")
+
+
+### random-geo
+try:
+    df = pd.read_csv(
+        get_path("Covid-19 Twitter Dataset (Aug-Sep 2020).csv"),
+        usecols=["place"],
+        # nrows=1000,
+    )
+
+    df = df.dropna()
+    df = df["place"].str.split(",", n=1, expand=True)
+    df.columns = ["state_or_city", "country"]
+    df["country"] = df["country"].fillna(df["state_or_city"])
+
+    df_cities = pd.read_csv(
+        get_path("cities.csv"),
+        usecols=["name", "country_name", "latitude", "longitude"],
+    )
+
+    df_cities.columns = ["city", "country", "latitude", "longitude"]
+
+    df_states = pd.read_csv(
+        get_path("states.csv"),
+        usecols=["name", "country_name", "latitude", "longitude"],
+    )
+
+    df_states.columns = ["state", "country", "latitude", "longitude"]
+
+    df = df.merge(df_cities, how="left", left_on="state_or_city", right_on="city")
+    df = df.merge(df_states, how="left", left_on="state_or_city", right_on="state")
+    df["latitude_x"] = df["latitude_x"].fillna(df["latitude_y"])
+    df["longitude_x"] = df["longitude_x"].fillna(df["longitude_y"])
+    df = df[["latitude_x", "longitude_x"]]
+    df.columns = ["latitude", "longitude"]
+    df = df.dropna()
+
+    print_df_info(df)
+
+    df.to_csv(get_path("random-geo.csv"), index=False)
+except:
+    print("random-geo source files not found")

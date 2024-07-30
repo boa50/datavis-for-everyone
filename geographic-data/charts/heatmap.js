@@ -1,4 +1,4 @@
-import { addAxis } from "../../node_modules/visual-components/index.js"
+import { addAxis, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
 import { palette } from "../../colours.js"
 
 export const addChart = (chartProps, data) => {
@@ -48,30 +48,56 @@ export const addChart = (chartProps, data) => {
         y,
         xLabel: 'Longitude',
         yLabel: 'Latitude',
-        xFormat: d => xAxisShow.includes(d) ? `${d}°` : null,
-        yFormat: d => yAxisShow.includes(d) ? `${d}°` : null,
+        xFormat: d => xAxisShow.includes(d) ? formatGrad(d) : null,
+        yFormat: d => yAxisShow.includes(d) ? formatGrad(d) : null,
         hideXdomain: true,
         hideYdomain: true
     })
 
     // Tooltip
-    // chart
-    //     .selectAll('.tooltip-point')
-    //     .data(dataGrouped)
-    //     .join('rect')
-    //     .attr('class', 'tooltip-point')
-    //     .attr('x', d => x(d.longitude_grp))
-    //     .attr('y', d => y(d.latitude_grp))
-    //     .attr('width', x.bandwidth())
-    //     .attr('height', y.bandwidth())
-    //     .attr('rx', 4)
-    //     .attr('ry', 4)
-    //     .attr('stroke-width', 4)
-    //     .attr('stroke', palette.orange)
-    //     .attr('opacity', 0)
-    //     .style('fill', 'transparent')
+    const tooltipElements = chart
+        .selectAll('.tooltip-point')
+        .data(dataGrouped)
+        .join('rect')
+        .attr('class', 'tooltip-point')
+        .attr('x', d => x(d[1]))
+        .attr('y', d => y(d[0]))
+        .attr('width', x.bandwidth())
+        .attr('height', y.bandwidth())
+        .attr('rx', 4)
+        .attr('ry', 4)
+        .attr('stroke-width', 4)
+        .attr('stroke', palette.orange)
+        .attr('opacity', 0)
+        .style('fill', 'transparent')
+
+    addHighlightTooltip({
+        chart,
+        htmlText: d => `
+        <div style="display: flex; justify-content: space-between">
+            <span>Latitude:&emsp;</span>
+            <span>${formatGrad(d[0])}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+            <span>Longitude:&emsp;</span>
+            <span>${formatGrad(d[1])}</span>
+        </div>
+        <div style="display: flex; justify-content: space-between">
+            <span>Number of events:&emsp;</span>
+            <span>${d[2]}</span>
+        </div>
+        `,
+        elements: tooltipElements,
+        highlightedOpacity: 0.75,
+        initialOpacity: 0,
+        fadedOpacity: 0
+    })
 }
 
 function getGroups(data, field) {
     return [...new Set(data.map(d => d[field]).sort((a, b) => a - b))]
+}
+
+function formatGrad(value) {
+    return `${value}°`
 }

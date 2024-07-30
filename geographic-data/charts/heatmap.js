@@ -19,8 +19,8 @@ export const addChart = (chartProps, data) => {
         .padding(0.3)
 
     const colour = d3
-        .scaleLinear()
-        .range([d3.hsl(palette.blue).brighter(2.5), d3.hsl(palette.blue).darker(2)])
+        .scaleLog()
+        .range([d3.hsl(palette.skyBlue).brighter(1), d3.hsl(palette.blue).darker(2.5)])
         .domain(d3.extent(dataGrouped, d => d[2]))
 
     chart

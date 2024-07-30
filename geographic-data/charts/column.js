@@ -36,8 +36,11 @@ export const addChart = (chartProps, data) => {
         x,
         y,
         colour: palette.axis,
+        yLabel: 'GDP per Capita',
         yFormat: d => d > 0 ? `${formatCurrency(d / 1000)}k` : d,
         yNumTicks: 5,
-        yNumTicksForceInitial: true
+        yNumTicksForceInitial: true,
+        hideXdomain: true,
+        hideYdomain: true
     })
 }

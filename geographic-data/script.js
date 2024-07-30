@@ -30,7 +30,7 @@ getData().then(datasets => {
     const randomGeo = datasets[2]
 
     addColumn(
-        getChart({ id: columnId, margin: getMargin({ left: 52, bottom: 32 }) }),
+        getChart({ id: columnId, margin: getMargin({ left: 80, bottom: 32 }) }),
         gdpPerCapitaData.filter(d => d.year === "2021")
     )
 

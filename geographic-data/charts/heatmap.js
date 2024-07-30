@@ -1,3 +1,4 @@
+import { addAxis } from "../../node_modules/visual-components/index.js"
 import { palette } from "../../colours.js"
 
 export const addChart = (chartProps, data) => {
@@ -5,24 +6,22 @@ export const addChart = (chartProps, data) => {
 
     const dataGrouped = d3.flatRollup(data, D => D.length, d => d.latitude_grp, d => d.longitude_grp)
 
-    console.log(dataGrouped);
-
     const x = d3
         .scaleBand()
         .domain(getGroups(data, 'longitude_grp'))
         .range([0, width])
-        .padding(0.05)
+        .padding(0.1)
 
     const y = d3
         .scaleBand()
         .domain(getGroups(data, 'latitude_grp'))
         .range([height, 0])
-        .padding(0.05)
+        .padding(0.3)
 
     const colour = d3
         .scaleLinear()
-        .range(['transparent', d3.hsl(palette.blue).darker(0.5)])
-        .domain([0, d3.max(dataGrouped, d => d[2])])
+        .range([d3.hsl(palette.blue).brighter(2.5), d3.hsl(palette.blue).darker(2)])
+        .domain(d3.extent(dataGrouped, d => d[2]))
 
     chart
         .selectAll('.data-point')
@@ -37,20 +36,38 @@ export const addChart = (chartProps, data) => {
         .attr('ry', 4)
         .style('fill', d => colour(d[2]))
 
+    const xAxisShow = [-170, -130, -90, -50, 0, 50, 90, 130, 170]
+    const yAxisShow = [-50, -30, 0, 30, 60]
+
+    addAxis({
+        chart,
+        height,
+        width,
+        colour: palette.axis,
+        x,
+        y,
+        xLabel: 'Longitude',
+        yLabel: 'Latitude',
+        xFormat: d => xAxisShow.includes(d) ? `${d}°` : null,
+        yFormat: d => yAxisShow.includes(d) ? `${d}°` : null,
+        hideXdomain: true,
+        hideYdomain: true
+    })
+
     // Tooltip
     // chart
     //     .selectAll('.tooltip-point')
     //     .data(dataGrouped)
     //     .join('rect')
     //     .attr('class', 'tooltip-point')
-    //     .attr('x', d => x(d.X_VARIABLE))
-    //     .attr('y', d => y(d.Y_VARIABLE))
+    //     .attr('x', d => x(d.longitude_grp))
+    //     .attr('y', d => y(d.latitude_grp))
     //     .attr('width', x.bandwidth())
     //     .attr('height', y.bandwidth())
     //     .attr('rx', 4)
     //     .attr('ry', 4)
     //     .attr('stroke-width', 4)
-    //     .attr('stroke', COLOUR_TOOLTIP)
+    //     .attr('stroke', palette.orange)
     //     .attr('opacity', 0)
     //     .style('fill', 'transparent')
 }

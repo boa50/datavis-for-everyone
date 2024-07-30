@@ -41,7 +41,7 @@ getData().then(datasets => {
     )
 
     addHeatmap(
-        getChart({ id: heatmapId, margin: getMargin({ left: 52, bottom: 32 }) }),
+        getChart({ id: heatmapId, margin: getMargin({ left: 64, bottom: 50 }) }),
         randomGeo
     )
 })

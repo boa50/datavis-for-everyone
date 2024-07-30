@@ -14,23 +14,25 @@ const getData = () =>
                 })
         )
 
-const lightBarId = appendChartContainer({ idNum: 1, chartTitle: 'All Light - Bar' })
-const lightScatterId = appendChartContainer({ idNum: 10, chartTitle: 'All Light - Scatter' })
-const lightLineId = appendChartContainer({ idNum: 100, chartTitle: 'All Light - Line' })
+const titleClassLight = 'text-sm md:text-2xl text-gray-700 font-medium'
+const lightBarId = appendChartContainer({ idNum: 1, chartTitle: 'All Light - Bar', titleClass: titleClassLight })
+const lightScatterId = appendChartContainer({ idNum: 10, chartTitle: 'All Light - Scatter', titleClass: titleClassLight })
+const lightLineId = appendChartContainer({ idNum: 100, chartTitle: 'All Light - Line', titleClass: titleClassLight })
 
 const strongDarkOuterContainerClass = 'bg-black px-4 py-2 rounded'
-const strongDarkTitleClass = 'text-sm md:text-base text-white font-medium'
+const strongDarkTitleClass = 'text-sm md:text-2xl text-white font-medium'
 const strongDarkBarId = appendChartContainer({ idNum: 2, chartTitle: 'Strong Dark - Bar', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
 const strongDarkScatterId = appendChartContainer({ idNum: 20, chartTitle: 'Strong Dark - Scatter', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
 const strongDarkLineId = appendChartContainer({ idNum: 200, chartTitle: 'Strong Dark - Line', outerContainerClass: strongDarkOuterContainerClass, titleClass: strongDarkTitleClass })
 
-const softDarkBarId = appendChartContainer({ idNum: 3, chartTitle: 'Soft Dark - Bar', theme: 'dark' })
-const softDarkScatterId = appendChartContainer({ idNum: 30, chartTitle: 'Soft Dark - Scatter', theme: 'dark' })
-const softDarkLineId = appendChartContainer({ idNum: 300, chartTitle: 'Soft Dark - Line', theme: 'dark' })
+const titleClassDark = 'text-sm md:text-2xl text-neutral-200 font-medium'
+const softDarkBarId = appendChartContainer({ idNum: 3, chartTitle: 'Soft Dark - Bar', theme: 'dark', titleClass: titleClassDark })
+const softDarkScatterId = appendChartContainer({ idNum: 30, chartTitle: 'Soft Dark - Scatter', theme: 'dark', titleClass: titleClassDark })
+const softDarkLineId = appendChartContainer({ idNum: 300, chartTitle: 'Soft Dark - Line', theme: 'dark', titleClass: titleClassDark })
 
-const gradientDarkBarId = appendChartContainer({ idNum: 4, chartTitle: 'Gradient Dark - Bar', theme: 'darkGradient' })
-const gradientDarkScatterId = appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter', theme: 'darkGradient' })
-const gradientDarkLineId = appendChartContainer({ idNum: 400, chartTitle: 'Gradient Dark - Line', theme: 'darkGradient' })
+const gradientDarkBarId = appendChartContainer({ idNum: 4, chartTitle: 'Gradient Dark - Bar', theme: 'darkGradient', titleClass: titleClassDark })
+const gradientDarkScatterId = appendChartContainer({ idNum: 40, chartTitle: 'Gradient Dark - Scatter', theme: 'darkGradient', titleClass: titleClassDark })
+const gradientDarkLineId = appendChartContainer({ idNum: 400, chartTitle: 'Gradient Dark - Line', theme: 'darkGradient', titleClass: titleClassDark })
 
 let anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H']
 const resetAnonymiser = () => { anonymiser = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] }

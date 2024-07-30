@@ -2,6 +2,7 @@ import { getChart, appendChartContainer, getMargin } from "../node_modules/visua
 import { addChart as addColumn } from "./charts/column.js"
 import { addChart as addChoropleth } from "./charts/choropleth.js"
 import { addChart as addHeatmap } from "./charts/heatmap.js"
+import { addChart as addScattermap } from "./charts/scattermap.js"
 
 const getData = () =>
     Promise.all([
@@ -23,11 +24,14 @@ const getData = () =>
 const columnId = appendChartContainer({ idNum: 1, chartTitle: "Column to Choropleth" })
 const choroplethId = appendChartContainer({ idNum: 10, chartTitle: "Choropleth" })
 const heatmapId = appendChartContainer({ idNum: 2, chartTitle: "Heatmap to Points" })
+const scattermapId = appendChartContainer({ idNum: 20, chartTitle: "Scatter Map" })
 
 getData().then(datasets => {
     const geoData = datasets[0]
     const gdpPerCapitaData = datasets[1]
     const randomGeo = datasets[2]
+
+    const mapMargin = { left: 0, right: 0, top: 8, bottom: 8 }
 
     addColumn(
         getChart({ id: columnId, margin: getMargin({ left: 80, bottom: 32 }) }),
@@ -35,7 +39,7 @@ getData().then(datasets => {
     )
 
     addChoropleth(
-        getChart({ id: choroplethId, margin: getMargin({ left: 0, right: 0, top: 8, bottom: 8 }) }),
+        getChart({ id: choroplethId, margin: mapMargin }),
         gdpPerCapitaData.filter(d => d.year === "2021"),
         geoData
     )
@@ -43,5 +47,11 @@ getData().then(datasets => {
     addHeatmap(
         getChart({ id: heatmapId, margin: getMargin({ left: 64, bottom: 50 }) }),
         randomGeo
+    )
+
+    addScattermap(
+        getChart({ id: scattermapId, margin: mapMargin }),
+        randomGeo.slice(0, 1000),
+        geoData
     )
 })

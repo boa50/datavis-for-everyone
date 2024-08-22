@@ -3,6 +3,7 @@ import { addChart as addColumn } from "./charts/column.js"
 import { addChart as addChoropleth } from "./charts/choropleth.js"
 import { addChart as addHeatmap } from "./charts/heatmap.js"
 import { addChart as addScattermap } from "./charts/scattermap.js"
+import { networkData } from "../_data/synthetic.js"
 
 const getData = () =>
     Promise.all([
@@ -30,6 +31,8 @@ getData().then(datasets => {
     const geoData = datasets[0]
     const gdpPerCapitaData = datasets[1]
     const randomGeo = datasets[2]
+
+    networkData()
 
     const mapMargin = { left: 0, right: 0, top: 8, bottom: 8 }
 

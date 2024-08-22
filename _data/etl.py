@@ -106,3 +106,21 @@ try:
     df.to_csv(get_path("random-geo.csv"), index=False)
 except:
     print("random-geo source files not found")
+
+
+### countries-geo
+try:
+    df = pd.read_csv(
+        get_path("countries.csv"),
+        usecols=["name", "region", "latitude", "longitude"],
+    )
+
+    df.columns = ["country", "continent", "latitude", "longitude"]
+
+    df = df.dropna()
+
+    print_df_info(df)
+
+    df.to_csv(get_path("countries-geo.csv"), index=False)
+except:
+    print("countries-geo source files not found")

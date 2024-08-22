@@ -1,34 +1,33 @@
-const latsLongs = [
-    []
-]
+export const networkData = async (
+    nLinks = 50,
+    countriesNames = ['Brazil', 'China', 'Australia', 'Japan', 'Canada', 'Colombia']
+) => {
+    const data = {
+        nodes: [],
+        links: []
+    }
+    const countriesGeo = await d3.csv('/_data/countries-geo.csv')
+    const getRandomCountryIdx = () => Math.floor(Math.random() * countriesNames.length)
 
-export const networkData = () => {
-    const data = {}
+    countriesNames.forEach(country => {
+        const countryGeo = countriesGeo.filter(d => d.country === country)[0]
 
+        data.nodes.push({
+            id: countriesNames.indexOf(country),
+            group: countryGeo.continent
+        })
+    })
 
-    data.nodes = [
-        {
-            "id": 1,
-            "name": "A"
-        },
-        {
-            "id": 2,
-            "name": "B"
-        }
-    ]
-    data.links = [
-        {
-            "source": 1,
-            "target": 2
-        },
-        {
-            "source": 1,
-            "target": 5
-        }
-    ]
+    for (let i = 0; i < nLinks; i++) {
+        const source = getRandomCountryIdx()
+        let target = getRandomCountryIdx()
+        while (target === source) target = getRandomCountryIdx()
 
-    d3.csv('/_data/cities.csv').then(d => { console.log(d) })
+        data.links.push({
+            source,
+            target
+        })
+    }
 
-    console.log(data);
-
+    return data
 }

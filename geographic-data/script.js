@@ -32,7 +32,7 @@ getData().then(datasets => {
     const gdpPerCapitaData = datasets[1]
     const randomGeo = datasets[2]
 
-    networkData()
+    networkData().then(d => console.log(d))
 
     const mapMargin = { left: 0, right: 0, top: 8, bottom: 8 }
 

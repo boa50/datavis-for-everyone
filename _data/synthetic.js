@@ -1,6 +1,8 @@
 export const networkData = async (
     nLinks = 50,
-    countriesNames = ['Brazil', 'China', 'Australia', 'Japan', 'Canada', 'Colombia']
+    countriesNames = ['Brazil', 'China', 'Australia', 'Japan', 'Canada',
+        'Colombia', 'Germany', 'Spain', 'Portugal', 'South Africa', 'South Korea',
+        'Angola', 'Congo', 'Turkey', 'Croatia']
 ) => {
     const data = {
         nodes: [],

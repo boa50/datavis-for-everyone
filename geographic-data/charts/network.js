@@ -3,6 +3,13 @@ import { palette } from '../../colours.js'
 export const addChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
     const nodeRadius = 5
+    const groups = [...new Set(data.nodes.map(d => d.group))]
+
+    const colour = d3
+        .scaleOrdinal()
+        .domain(groups)
+        .range([palette.blue, palette.amber, palette.bluishGreen, palette.vermillion, palette.reddishPurple, palette.contrasting])
+
 
     // Straight line link
     // const link = chart
@@ -11,7 +18,7 @@ export const addChart = (chartProps, data) => {
     //     .selectAll('line')
     //     .data(data.links)
     //     .join('line')
-    //     .style('stroke', d3.hsl(palette.axis).brighter(2))
+    //     .attr('stroke', d3.hsl(palette.axis).brighter(2))
 
     // Curved line link
     const link = chart
@@ -21,7 +28,7 @@ export const addChart = (chartProps, data) => {
         .data(data.links)
         .join('path')
         .attr('fill', 'none')
-        .style('stroke', d3.hsl(palette.axis).brighter(2))
+        .attr('stroke', d3.hsl(palette.axis).brighter(2))
 
     const node = chart
         .append('g')
@@ -30,7 +37,8 @@ export const addChart = (chartProps, data) => {
         .data(data.nodes)
         .join('circle')
         .attr('r', nodeRadius)
-        .style('fill', palette.blue)
+        // .attr('fill', palette.blue)
+        .attr('fill', d => colour(d.group))
 
     d3
         .forceSimulation(data.nodes)

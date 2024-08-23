@@ -1,15 +1,26 @@
-import { palette } from "../../colours.js"
+import { palette } from '../../colours.js'
 
 export const addChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
     const nodeRadius = 5
 
+    // Straight line link
+    // const link = chart
+    //     .append('g')
+    //     .attr('class', 'links')
+    //     .selectAll('line')
+    //     .data(data.links)
+    //     .join('line')
+    //     .style('stroke', d3.hsl(palette.axis).brighter(2))
+
+    // Curved line link
     const link = chart
         .append('g')
         .attr('class', 'links')
-        .selectAll('line')
+        .selectAll('path')
         .data(data.links)
-        .join('line')
+        .join('path')
+        .attr('fill', 'none')
         .style('stroke', d3.hsl(palette.axis).brighter(2))
 
     const node = chart
@@ -30,11 +41,23 @@ export const addChart = (chartProps, data) => {
         .on('tick', ticked)
 
     function ticked() {
+        // Straight line link
+        // link
+        //     .attr('x1', d => d.source.x)
+        //     .attr('y1', d => d.source.y)
+        //     .attr('x2', d => d.target.x)
+        //     .attr('y2', d => d.target.y)
+
+        // Curved line link
         link
-            .attr('x1', d => d.source.x)
-            .attr('y1', d => d.source.y)
-            .attr('x2', d => d.target.x)
-            .attr('y2', d => d.target.y)
+            .attr('d', d => {
+                let dx = d.target.x - d.source.x
+                let dy = d.target.y - d.source.y
+                // let dr = Math.sqrt(dx * dx + dy * dy) * Math.random()
+                let dr = Math.sqrt(dx * dx + dy * dy)
+
+                return 'M' + d.source.x + ',' + d.source.y + 'A' + dr + ',' + dr + ' 0 0,1 ' + d.target.x + ',' + d.target.y;
+            })
 
         node
             .attr('cx', d => d.x = Math.max(nodeRadius, Math.min(width - nodeRadius, d.x)))

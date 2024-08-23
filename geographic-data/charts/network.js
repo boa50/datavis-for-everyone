@@ -1,5 +1,8 @@
+import { palette } from "../../colours.js"
+
 export const addChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
+    const nodeRadius = 5
 
     const link = chart
         .append('g')
@@ -7,7 +10,7 @@ export const addChart = (chartProps, data) => {
         .selectAll('line')
         .data(data.links)
         .join('line')
-        .style('stroke', '#aaa')
+        .style('stroke', d3.hsl(palette.axis).brighter(2))
 
     const node = chart
         .append('g')
@@ -15,8 +18,8 @@ export const addChart = (chartProps, data) => {
         .selectAll('circle')
         .data(data.nodes)
         .join('circle')
-        .attr('r', 5)
-        .style('fill', '#69b3a2')
+        .attr('r', nodeRadius)
+        .style('fill', palette.blue)
 
     d3
         .forceSimulation(data.nodes)
@@ -34,7 +37,7 @@ export const addChart = (chartProps, data) => {
             .attr('y2', d => d.target.y)
 
         node
-            .attr('cx', d => d.x)
-            .attr('cy', d => d.y)
+            .attr('cx', d => d.x = Math.max(nodeRadius, Math.min(width - nodeRadius, d.x)))
+            .attr('cy', d => d.y = Math.max(nodeRadius, Math.min(height - nodeRadius, d.y)))
     }
 }

@@ -21,7 +21,13 @@ const getData = () =>
                     longitude_grp: Math.floor(+v.longitude / 10) * 10
                 }
             })),
-        networkData(50)
+        networkData(
+            50,
+            ['Brazil', 'China', 'Australia', 'Japan', 'Canada',
+                'Colombia', 'Germany', 'Spain', 'Portugal', 'South Africa', 'South Korea',
+                'Angola', 'Congo', 'Turkey', 'Croatia', 'Russia', 'Egypt', 'Mexico',
+                'New Zealand', 'Thailand', 'Argentina']
+        )
     ])
 
 

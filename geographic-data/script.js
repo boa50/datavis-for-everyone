@@ -5,6 +5,7 @@ import { addChart as addChoropleth } from './charts/choropleth.js'
 import { addChart as addHeatmap } from './charts/heatmap.js'
 import { addChart as addScattermap } from './charts/scattermap.js'
 import { addChart as addNetwork } from './charts/network.js'
+import { addChart as addConnectionMap } from './charts/connectionmap.js'
 
 const getData = () =>
     Promise.all([
@@ -29,6 +30,7 @@ const choroplethId = appendChartContainer({ idNum: 10, chartTitle: 'Choropleth' 
 const heatmapId = appendChartContainer({ idNum: 2, chartTitle: 'Heatmap to Points' })
 const scattermapId = appendChartContainer({ idNum: 20, chartTitle: 'Scatter Map' })
 const networkId = appendChartContainer({ idNum: 3, chartTitle: 'Network to Linked' })
+const connectionMapId = appendChartContainer({ idNum: 30, chartTitle: 'Connection Map' })
 
 getData().then(datasets => {
     const geoData = datasets[0]
@@ -63,5 +65,11 @@ getData().then(datasets => {
     addNetwork(
         getChart({ id: networkId, margin: { left: 0, right: 0, top: 0, bottom: 0 } }),
         networkDataset
+    )
+
+    addConnectionMap(
+        getChart({ id: connectionMapId, margin: mapMargin }),
+        networkDataset,
+        geoData
     )
 })

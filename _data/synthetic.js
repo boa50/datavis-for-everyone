@@ -16,7 +16,9 @@ export const networkData = async (
 
         data.nodes.push({
             id: countriesNames.indexOf(country),
-            group: countryGeo.continent
+            group: countryGeo.continent,
+            latitude: +countryGeo.latitude,
+            longitude: +countryGeo.longitude
         })
     })
 

@@ -10,7 +10,6 @@ export const addChart = (chartProps, data) => {
         .domain(groups)
         .range([palette.blue, palette.amber, palette.bluishGreen, palette.vermillion, palette.reddishPurple, palette.contrasting])
 
-
     // Straight line link
     // const link = chart
     //     .append('g')

@@ -58,7 +58,7 @@ export const addChart = (chartProps, data, geo) => {
         .data(data.nodes)
         .join('circle')
         .attr('class', 'node-points')
-        .attr('r', 3)
+        .attr('r', 4)
         .attr('fill', d => colour(d.group))
         .attr('stroke', '#6b7280')
         .attr('stroke-width', 0.1)

@@ -11,23 +11,23 @@ export const addChart = (chartProps, data) => {
         .range([palette.blue, palette.amber, palette.bluishGreen, palette.vermillion, palette.reddishPurple, palette.contrasting])
 
     // Straight line link
-    // const link = chart
-    //     .append('g')
-    //     .attr('class', 'links')
-    //     .selectAll('line')
-    //     .data(data.links)
-    //     .join('line')
-    //     .attr('stroke', d3.hsl(palette.axis).brighter(2))
-
-    // Curved line link
     const link = chart
         .append('g')
         .attr('class', 'links')
-        .selectAll('path')
+        .selectAll('line')
         .data(data.links)
-        .join('path')
-        .attr('fill', 'none')
+        .join('line')
         .attr('stroke', d3.hsl(palette.axis).brighter(2))
+
+    // Curved line link
+    // const link = chart
+    //     .append('g')
+    //     .attr('class', 'links')
+    //     .selectAll('path')
+    //     .data(data.links)
+    //     .join('path')
+    //     .attr('fill', 'none')
+    //     .attr('stroke', d3.hsl(palette.axis).brighter(2))
 
     const node = chart
         .append('g')
@@ -49,22 +49,22 @@ export const addChart = (chartProps, data) => {
 
     function ticked() {
         // Straight line link
-        // link
-        //     .attr('x1', d => d.source.x)
-        //     .attr('y1', d => d.source.y)
-        //     .attr('x2', d => d.target.x)
-        //     .attr('y2', d => d.target.y)
+        link
+            .attr('x1', d => d.source.x)
+            .attr('y1', d => d.source.y)
+            .attr('x2', d => d.target.x)
+            .attr('y2', d => d.target.y)
 
         // Curved line link
-        link
-            .attr('d', d => {
-                let dx = d.target.x - d.source.x
-                let dy = d.target.y - d.source.y
-                // let dr = Math.sqrt(dx * dx + dy * dy) * Math.random()
-                let dr = Math.sqrt(dx * dx + dy * dy)
+        // link
+        //     .attr('d', d => {
+        //         let dx = d.target.x - d.source.x
+        //         let dy = d.target.y - d.source.y
+        //         // let dr = Math.sqrt(dx * dx + dy * dy) * Math.random()
+        //         let dr = Math.sqrt(dx * dx + dy * dy)
 
-                return 'M' + d.source.x + ',' + d.source.y + 'A' + dr + ',' + dr + ' 0 0,1 ' + d.target.x + ',' + d.target.y;
-            })
+        //         return 'M' + d.source.x + ',' + d.source.y + 'A' + dr + ',' + dr + ' 0 0,1 ' + d.target.x + ',' + d.target.y;
+        //     })
 
         node
             .attr('cx', d => d.x = Math.max(nodeRadius, Math.min(width - nodeRadius, d.x)))

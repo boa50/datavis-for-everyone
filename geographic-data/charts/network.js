@@ -57,6 +57,7 @@ export const addChart = (chartProps, data) => {
         elements: node,
         fadeHighlightElements: d3.selectAll([...node, ...link]),
         initialOpacity: 1,
+        fadedOpacity: 0.15,
         chartWidth: width,
         chartHeight: height,
         highlightFunction: linksHighlight

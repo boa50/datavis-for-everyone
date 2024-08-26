@@ -34,7 +34,7 @@ export const addChart = (chartProps, data, geo) => {
         .geoPath()
         .projection(projection)
 
-    chart
+    const mapProjection = chart
         .append('g')
         .selectAll('.map-outline')
         .data(geo.features)
@@ -53,7 +53,7 @@ export const addChart = (chartProps, data, geo) => {
         .attr('class', 'node-link')
         .attr('d', geoPath)
         .style('fill', 'none')
-        .style('stroke', d3.hsl(palette.axis).brighter(2))
+        .style('stroke', d3.hsl(palette.axis).brighter(1))
         .style('stroke-width', 1)
         .attr('data-link-source', d => d.source)
         .attr('data-link-target', d => d.target)
@@ -81,8 +81,9 @@ export const addChart = (chartProps, data, geo) => {
             </div>
             `,
         elements: node,
-        fadeHighlightElements: d3.selectAll([...node, ...link]),
+        fadeHighlightElements: d3.selectAll([...node, ...link, ...mapProjection]),
         initialOpacity: 1,
+        fadedOpacity: 0.15,
         chartWidth: width,
         chartHeight: height,
         highlightFunction: linksHighlight

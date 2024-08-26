@@ -1,4 +1,6 @@
-import { palette } from "../../colours.js"
+import { addHighlightTooltip } from '../../node_modules/visual-components/index.js'
+import { palette } from '../../colours.js'
+import { linksHighlight, getNumLinks } from './utils.js'
 
 export const addChart = (chartProps, data, geo) => {
     const { chart, width, height } = chartProps
@@ -10,7 +12,9 @@ export const addChart = (chartProps, data, geo) => {
 
         return {
             type: 'LineString',
-            coordinates: [source, target]
+            coordinates: [source, target],
+            source: d.source.id,
+            target: d.target.id
         }
     })
 
@@ -41,7 +45,7 @@ export const addChart = (chartProps, data, geo) => {
         .attr('stroke-width', 0.25)
         .style('stroke', '#262626')
 
-    chart
+    const link = chart
         .append('g')
         .selectAll('.node-link')
         .data(nodeLinks)
@@ -51,8 +55,10 @@ export const addChart = (chartProps, data, geo) => {
         .style('fill', 'none')
         .style('stroke', d3.hsl(palette.axis).brighter(2))
         .style('stroke-width', 1)
+        .attr('data-link-source', d => d.source)
+        .attr('data-link-target', d => d.target)
 
-    chart
+    const node = chart
         .append('g')
         .selectAll('.node-point')
         .data(data.nodes)
@@ -64,6 +70,23 @@ export const addChart = (chartProps, data, geo) => {
         .attr('stroke-width', 0.1)
         .attr('cx', d => projection([d.longitude, d.latitude])[0])
         .attr('cy', d => projection([d.longitude, d.latitude])[1])
+        .attr('data-id', d => d.id)
+
+    addHighlightTooltip({
+        chart,
+        htmlText: d => `
+            <div style="display: flex; justify-content: space-between">
+                <span>Connections:&emsp;</span>
+                <span>${getNumLinks(chart, d)}</span>
+            </div>
+            `,
+        elements: node,
+        fadeHighlightElements: d3.selectAll([...node, ...link]),
+        initialOpacity: 1,
+        chartWidth: width,
+        chartHeight: height,
+        highlightFunction: linksHighlight
+    })
 }
 
 function getCoordsFromId(nodes, id) {

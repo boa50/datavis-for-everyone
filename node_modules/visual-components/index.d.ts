@@ -214,7 +214,9 @@ export function addHighlightTooltip({ }: {
     highlightedOpacity?: number,
     fadedOpacity?: number,
     chartWidth?: number,
-    chartHeight?: number
+    chartHeight?: number,
+    fadeHighlightElements?: Array<Element>,
+    highlightFunction?: Function
 }): null
 
 export function addVerticalTooltip({ }: {

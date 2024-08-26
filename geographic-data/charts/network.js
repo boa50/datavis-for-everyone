@@ -1,4 +1,6 @@
+import { addHighlightTooltip } from '../../node_modules/visual-components/index.js'
 import { palette } from '../../colours.js'
+import { linksHighlight, getNumLinks } from './utils.js'
 
 export const addChart = (chartProps, data) => {
     const { chart, width, height } = chartProps
@@ -17,6 +19,9 @@ export const addChart = (chartProps, data) => {
         .selectAll('line')
         .data(data.links)
         .join('line')
+        .attr('class', 'node-link')
+        .attr('data-link-source', d => d.source)
+        .attr('data-link-target', d => d.target)
         .attr('stroke', d3.hsl(palette.axis).brighter(2))
 
     // Curved line link
@@ -26,6 +31,7 @@ export const addChart = (chartProps, data) => {
     //     .selectAll('path')
     //     .data(data.links)
     //     .join('path')
+    //     .attr('class', 'node-link')
     //     .attr('fill', 'none')
     //     .attr('stroke', d3.hsl(palette.axis).brighter(2))
 
@@ -35,9 +41,26 @@ export const addChart = (chartProps, data) => {
         .selectAll('circle')
         .data(data.nodes)
         .join('circle')
+        .attr('data-id', d => d.id)
         .attr('r', nodeRadius)
         // .attr('fill', palette.blue)
         .attr('fill', d => colour(d.group))
+
+    addHighlightTooltip({
+        chart,
+        htmlText: d => `
+        <div style="display: flex; justify-content: space-between">
+            <span>Connections:&emsp;</span>
+            <span>${getNumLinks(chart, d)}</span>
+        </div>
+        `,
+        elements: node,
+        fadeHighlightElements: d3.selectAll([...node, ...link]),
+        initialOpacity: 1,
+        chartWidth: width,
+        chartHeight: height,
+        highlightFunction: linksHighlight
+    })
 
     d3
         .forceSimulation(data.nodes)
@@ -60,7 +83,6 @@ export const addChart = (chartProps, data) => {
         //     .attr('d', d => {
         //         let dx = d.target.x - d.source.x
         //         let dy = d.target.y - d.source.y
-        //         // let dr = Math.sqrt(dx * dx + dy * dy) * Math.random()
         //         let dr = Math.sqrt(dx * dx + dy * dy)
 
         //         return 'M' + d.source.x + ',' + d.source.y + 'A' + dr + ',' + dr + ' 0 0,1 ' + d.target.x + ',' + d.target.y;

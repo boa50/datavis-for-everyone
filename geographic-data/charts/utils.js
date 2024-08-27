@@ -7,8 +7,6 @@ export const linksHighlight = ({ chart, element, highlightedOpacity }) => {
         .nodes()
         .forEach(d => {
             const selection = d3.select(d)
-            console.log(selection);
-
             if (selection.attr('data-link-source') == dataId
                 || selection.attr('data-link-target') == dataId) {
                 selection.style('opacity', highlightedOpacity)

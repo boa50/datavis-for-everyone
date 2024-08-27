@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Literacy Rate</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../../lib/tailwind_3_4_3.min.js"></script>
+</head>
+
+<body class="bg-gray-300 font-sans">
+    <!-- HEADER -->
+    <div id="header" class="flex flex-row p-4 mb-4 bg-slate-50">
+        <div class="flex flex-row self-center items-center">
+            <!-- PAGE LOGO -->
+            <!-- <img src="./img/logo.svg" alt="dashboard logo" class="max-h-8 md:max-h-10 mx-2 md:mx-4" /> -->
+            <h1 id="title" class="text-2xl md:text-3xl text-gray-600 self-center font-medium">Literacy Rate</h1>
+        </div>
+
+        <div class="flex-auto"></div>
+
+        <!-- RIGHT SIDE HEADER -->
+        <div id="controls" class="flex flex-row space-x-8 mr-8">
+        </div>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="mx-2 md:mx-8 grid grid-cols-3 gap-4">
+        <div id="charts" class="col-span-2 gap-4"></div>
+
+        <div id="sidebar" class="col-span-1 flex flex-col gap-4 text-sm mx-4 text-gray-700">
+            <p>
+                Some text
+            </p>
+        </div>
+
+        <!-- CAPTION -->
+        <div id="caption" class="col-span-3 leading-none flex justify-end m-2">
+            <span class="text-sm text-gray-500">Source: World Bank (2023); van Zanden, J. et al. (2014) – with major
+                processing by Our World in Data</span>
+        </div>
+    </div>
+
+    <script src="../../lib/d3_7_9_0.min.js"></script>
+    <script type="module" src="./script.js"></script>
+</body>

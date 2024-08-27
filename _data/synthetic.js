@@ -8,7 +8,7 @@ export const networkData = async (
         nodes: [],
         links: []
     }
-    const countriesGeo = await d3.csv('/_data/countries-geo.csv')
+    const countriesGeo = await d3.csv('../_data/countries-geo.csv')
     const getRandomCountryIdx = () => Math.floor(Math.random() * countriesNames.length)
 
     countriesNames.forEach(country => {

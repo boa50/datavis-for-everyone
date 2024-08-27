@@ -7,8 +7,8 @@ const getData = () =>
 
 const literacyRateId = appendChartContainer({
     idNum: 0,
-    chartTitle: 'Literacy Rate',
-    innerContainerClass: 'aspect-[4/3]'
+    chartTitle: 'World Literacy Rate',
+    innerContainerClass: 'aspect-[4/3] xl:aspect-[5/3]'
 })
 
 getData().then(data => {
@@ -16,7 +16,10 @@ getData().then(data => {
         getChart({
             id: literacyRateId,
             margin: getMargin({ left: 76, top: 16, bottom: 48 }),
-            chartDimensions: getChartDimensions({})
+            chartDimensions: getChartDimensions({
+                chartId: literacyRateId,
+                xl: { width: 750 }
+            })
         }),
         data
     )

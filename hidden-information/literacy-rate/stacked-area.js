@@ -1,4 +1,4 @@
-import { addAxis } from '../../node_modules/visual-components/index.js'
+import { addAxis, addLineTooltip } from '../../node_modules/visual-components/index.js'
 import { palette } from '../../colours.js'
 
 export const addChart = (chartProps, data) => {
@@ -63,5 +63,23 @@ export const addChart = (chartProps, data) => {
         xNumTicksForceInitial: true,
         yNumTicks: 5,
         yNumTicksForceInitial: true
+    })
+
+    addLineTooltip({
+        chart,
+        htmlText: d => `
+        <strong>${d.year}</strong>
+        <div style="display: flex; justify-content: space-between">
+            <span>Literacy Rate:&emsp;</span>
+            <span>${d3.format('.2%')(d.literacyRate / 100)}</span>
+        </div>
+        `,
+        colour: d3.hsl(palette.bluishGreen).darker(2),
+        data,
+        cx: d => x(d.year),
+        cy: d => y(d.literacyRate),
+        radius: 5,
+        chartWidth: width,
+        chartHeight: height
     })
 }

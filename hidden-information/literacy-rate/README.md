@@ -5,3 +5,5 @@ Sources:
  - https://uis.unesco.org/en/glossary-term/literacy-rate
  - https://ourworldindata.org/how-is-literacy-measured
  - https://www.curiouslearning.org/essays/2022/12/5/we-have-no-idea-how-many-people-cannot-read-can-we-overcome-this-measurement-mess
+
+Page logo: https://www.svgrepo.com/svg/513175/book-closed

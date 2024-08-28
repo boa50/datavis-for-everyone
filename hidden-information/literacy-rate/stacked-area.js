@@ -39,7 +39,7 @@ export const addChart = (chartProps, data) => {
         .append('text')
         .attr('x', width / 1.7)
         .attr('y', y(25))
-        .attr('font-size', '2.5rem')
+        .attr('font-size', width > 400 ? '2.5rem' : '1.25rem')
         .attr('fill', '#171717')
         .attr('font-weight', 500)
         .attr('dominant-baseline', 'middle')

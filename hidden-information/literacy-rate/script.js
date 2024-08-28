@@ -8,7 +8,8 @@ const getData = () =>
 const literacyRateId = appendChartContainer({
     idNum: 0,
     chartTitle: 'World Literacy Rate',
-    innerContainerClass: 'aspect-[4/3] xl:aspect-[5/3]'
+    containerAspectRatio: 'aspect-[4/3] xl:aspect-[5/3]',
+    titleSize: 'text-2xl'
 })
 
 getData().then(data => {

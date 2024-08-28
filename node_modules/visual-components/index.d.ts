@@ -288,7 +288,15 @@ export function appendChartContainer({ }: {
     titleClass?: string,
     subtitleClass?: string,
     chartsContainerId?: string,
-    theme?: 'light' | 'dark' | 'darkGradient'
+    theme?: 'light' | 'dark' | 'darkGradient',
+    containerPadding?: string,
+    containerAspectRatio?: string,
+    titleSize?: string,
+    titleColour?: string,
+    titleWeight?: string,
+    subtitleSize?: string,
+    subtitleColour?: string,
+    subtitleWeight?: string
 }): string
 
 

@@ -165,36 +165,40 @@ export const appendChartContainer = ({
     titleClass,
     subtitleClass,
     chartsContainerId = 'charts',
-    theme = 'light'
+    theme = 'light',
+    containerPadding = 'px-4 py-2',
+    containerAspectRatio = 'aspect-[4/3] md:aspect-video',
+    titleSize = 'text-sm md:text-base',
+    titleColour,
+    titleWeight = 'font-medium',
+    subtitleSize = 'text-xs md:text-sm',
+    subtitleColour,
+    subtitleWeight = ''
 }) => {
     const chartId = `chart${idNum}`
+    let containerBackground = 'bg-neutral-50'
 
     switch (theme) {
         case 'light':
-            outerContainerClass = getValueIfUndefined(outerContainerClass, 'bg-neutral-50 px-4 py-2 rounded')
-            innerContainerClass = getValueIfUndefined(innerContainerClass, 'aspect-[4/3] md:aspect-video')
-            titleClass = getValueIfUndefined(titleClass, 'text-sm md:text-base text-gray-700 font-medium')
-            subtitleClass = getValueIfUndefined(subtitleClass, 'text-xs md:text-sm text-gray-500')
+            titleColour = getValueIfUndefined(titleColour, 'text-gray-700')
+            subtitleColour = getValueIfUndefined(subtitleColour, 'text-gray-500')
             break
         case 'dark':
-            outerContainerClass = getValueIfUndefined(outerContainerClass, 'bg-neutral-900 px-4 py-2 rounded')
-            innerContainerClass = getValueIfUndefined(innerContainerClass, 'aspect-[4/3] md:aspect-video')
-            titleClass = getValueIfUndefined(titleClass, 'text-sm md:text-base text-neutral-200 font-medium')
-            subtitleClass = getValueIfUndefined(subtitleClass, 'text-xs md:text-sm text-neutral-400')
+            containerBackground = 'bg-neutral-900'
+            titleColour = getValueIfUndefined(titleColour, 'text-neutral-200')
+            subtitleColour = getValueIfUndefined(subtitleColour, 'text-neutral-400')
             break
         case 'darkGradient':
-            outerContainerClass = getValueIfUndefined(outerContainerClass, 'bg-gradient-to-b from-gray-800 to-gray-950 px-4 py-2 rounded')
-            innerContainerClass = getValueIfUndefined(innerContainerClass, 'aspect-[4/3] md:aspect-video')
-            titleClass = getValueIfUndefined(titleClass, 'text-sm md:text-base text-neutral-200 font-medium')
-            subtitleClass = getValueIfUndefined(subtitleClass, 'text-xs md:text-sm text-neutral-400')
-            break
-        default:
-            outerContainerClass = getValueIfUndefined(outerContainerClass, 'bg-neutral-50 px-4 py-2 rounded')
-            innerContainerClass = getValueIfUndefined(innerContainerClass, 'aspect-[4/3] md:aspect-video')
-            titleClass = getValueIfUndefined(titleClass, 'text-sm md:text-base text-gray-700 font-medium')
-            subtitleClass = getValueIfUndefined(subtitleClass, 'text-xs md:text-sm text-gray-500')
+            containerBackground = 'bg-gradient-to-b from-gray-800 to-gray-950'
+            titleColour = getValueIfUndefined(titleColour, 'text-neutral-200')
+            subtitleColour = getValueIfUndefined(subtitleColour, 'text-neutral-400')
             break
     }
+
+    outerContainerClass = getValueIfUndefined(outerContainerClass, `${containerBackground} ${containerPadding} rounded`)
+    innerContainerClass = getValueIfUndefined(innerContainerClass, containerAspectRatio)
+    titleClass = getValueIfUndefined(titleClass, `${titleSize} ${titleColour} ${titleWeight}`)
+    subtitleClass = getValueIfUndefined(subtitleClass, `${subtitleSize} ${subtitleColour} ${subtitleWeight}`)
 
     d3
         .select(`#${chartsContainerId}`)

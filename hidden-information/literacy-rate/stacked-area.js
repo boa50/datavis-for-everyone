@@ -46,6 +46,29 @@ export const addChart = (chartProps, data) => {
         .attr('opacity', 0.45)
         .text('Literacy Rate')
 
+    const simplifiedData = data.filter(d => ['1900', '1960', '2022'].includes(d.year))
+    const tooltipColour = d3.hsl(palette.bluishGreen).darker(2)
+
+    chart
+        .selectAll('.data-point-simplified')
+        .data(simplifiedData)
+        .join('circle')
+        .attr('cx', d => x(d.year))
+        .attr('cy', d => y(d.literacyRate))
+        .attr('r', 5)
+        .attr('fill', tooltipColour)
+
+    chart
+        .selectAll('.data-point-simplified-text')
+        .data(simplifiedData)
+        .join('text')
+        .attr('x', d => x(d.year) + (d.year === '1900' ? 5 : -5))
+        .attr('y', d => y(d.literacyRate + 2))
+        .attr('font-size', '0.8rem')
+        .attr('text-anchor', d => d.year === '1900' ? 'start' : 'end')
+        .attr('fill', tooltipColour)
+        .text(d => d3.format('.1%')(d.literacyRate / 100))
+
     addAxis({
         chart,
         height,
@@ -71,10 +94,10 @@ export const addChart = (chartProps, data) => {
         <strong>${d.year}</strong>
         <div style="display: flex; justify-content: space-between">
             <span>Literacy Rate:&emsp;</span>
-            <span>${d3.format('.2%')(d.literacyRate / 100)}</span>
+            <span>${d3.format('.1%')(d.literacyRate / 100)}</span>
         </div>
         `,
-        colour: d3.hsl(palette.bluishGreen).darker(2),
+        colour: tooltipColour,
         data,
         cx: d => x(d.year),
         cy: d => y(d.literacyRate),

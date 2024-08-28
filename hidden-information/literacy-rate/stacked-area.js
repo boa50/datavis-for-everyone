@@ -35,6 +35,17 @@ export const addChart = (chartProps, data) => {
         .attr('fill', palette.bluishGreen)
         .attr('d', area)
 
+    chart
+        .append('text')
+        .attr('x', width / 1.7)
+        .attr('y', y(25))
+        .attr('font-size', '2.5rem')
+        .attr('fill', '#171717')
+        .attr('font-weight', 500)
+        .attr('dominant-baseline', 'middle')
+        .attr('opacity', 0.45)
+        .text('Literacy Rate')
+
     addAxis({
         chart,
         height,

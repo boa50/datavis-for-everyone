@@ -9,6 +9,8 @@ export const runRaceChart = ({
     dateField = undefined,
     yearField = undefined,
     isRankedData = false,
+    splitsPerStep = 50,
+    nRanks = 10,
     x,
     y,
     updateAxis,
@@ -19,7 +21,9 @@ export const runRaceChart = ({
         data,
         dateField,
         yearField,
-        isRankedData
+        isRankedData,
+        k: splitsPerStep,
+        n: nRanks
     })
 
     let createChart, updateChart

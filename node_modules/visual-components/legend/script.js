@@ -74,7 +74,7 @@ export const addLegend = ({
             .append('text')
             .attr('x', xSpace)
             .attr('y', 0)
-            .attr('font-weight', 700)
+            .attr('font-weight', fontWeight)
             .attr('font-size', fontSize)
             .attr('fill', colour)
             .text(legendText)

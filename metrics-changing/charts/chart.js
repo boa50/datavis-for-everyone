@@ -1,4 +1,4 @@
-import { colours } from "../../../node_modules/visual-components/index.js"
+import { colours, addAxis, updateXaxis } from "../../../node_modules/visual-components/index.js"
 import { createChartContainer } from "../utils.js"
 
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
@@ -21,9 +21,16 @@ export const addChart = async ({ svg, width, height, xPosition, yPosition }) => 
         .range([0, height])
         .padding(.1)
 
-    const chartProps = { chart, x, y, data }
+    addAxis({
+        chart,
+        height,
+        width,
+        colour: colours.paletteLightBg.axis,
+        x,
+        hideXdomain: true
+    })
 
-    // plotChart(chartProps, 'homicideNumber')
+    const chartProps = { chart, x, y, data }
 
     return chartProps
 }
@@ -52,6 +59,13 @@ function plotChart(chartProps, metric) {
         .attr('x', x(0))
         .attr('y', d => y(d.country))
         .attr('width', d => x(d[metric]))
+
+    updateXaxis({
+        chart,
+        x,
+        format: d3.format('.2s'),
+        hideDomain: true
+    })
 }
 
 

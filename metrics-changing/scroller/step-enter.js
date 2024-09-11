@@ -19,7 +19,7 @@ export const handleStepEnter = ({
             // If it's the case, remove the zoom
             break
         case 4:
-            updateChartFunctions().plotHomicideRate()
+            if (currentDirection === 'down') updateChartFunctions().plotHomicideRate()
             break
         default:
             break

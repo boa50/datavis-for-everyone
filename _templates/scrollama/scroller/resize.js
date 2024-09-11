@@ -1,4 +1,4 @@
-import { convertSizeToIntPx } from "../../node_modules/visual-components/index.js"
+import { convertSizeToIntPx } from "../../../node_modules/visual-components/index.js"
 
 export const handleResize = (article, scroller, svg) => {
     const steps = article.selectAll('.step')

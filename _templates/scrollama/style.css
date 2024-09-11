@@ -8,6 +8,11 @@ body {
     align-items: center;
 }
 
+#header {
+    width: 100vw;
+    height: 100vh;
+}
+
 #header>img {
     width: 100vw;
     height: 100vh;

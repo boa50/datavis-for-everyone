@@ -1,5 +1,5 @@
-import { colours } from "../../node_modules/visual-components/index.js"
-import { createChartContainer } from "./utils.js"
+import { colours } from "../../../node_modules/visual-components/index.js"
+import { createChartContainer } from "../utils.js"
 
 const data = [
     { group: 'a', value: 1 },

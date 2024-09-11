@@ -37,6 +37,11 @@ export const addChart = ({ svg, width, height, xPosition, yPosition }) => {
 function updateChart(chartProps, data) {
     const { chart, x, y, height } = chartProps
 
+    // Check for on course transitions
+    const chartNodes = chart.selectAll('.data-point').nodes()
+    if (chartNodes.length > 0 &&
+        d3.active(chartNodes[0], 'plotChart')) return
+
     chart
         .selectAll('.data-point')
         .data(data)
@@ -45,7 +50,7 @@ function updateChart(chartProps, data) {
         .attr('x', d => x(d.group))
         .attr('width', x.bandwidth())
         .attr('fill', colours.paletteLightBg.blue)
-        .transition()
+        .transition('plotChart')
         .attr('y', d => y(d.value))
         .attr('height', d => height - y(d.value))
 

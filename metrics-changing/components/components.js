@@ -1,7 +1,7 @@
 import { createText, colours } from "../../../node_modules/visual-components/index.js"
 import { addChart } from "../charts/chart.js"
 
-export const addVisualComponents = ({
+export const addVisualComponents = async ({
     svg,
     visualisationsWidth,
     windowHeight
@@ -22,7 +22,7 @@ export const addVisualComponents = ({
         htmlText: ``
     })
 
-    const chartProps = addChart({
+    const chartProps = await addChart({
         svg,
         width: chartWidth,
         height: chartHeight,

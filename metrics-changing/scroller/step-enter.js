@@ -1,19 +1,25 @@
-export const handleStepEnter = response => {
+export const handleStepEnter = ({
+    response,
+    updateChartFunctions
+}) => {
     const currentIndex = response.index
     const currentDirection = response.direction
 
     switch (currentIndex) {
         case 0:
-            // Do Something
+            updateChartFunctions().plotHomicideNumber()
             break
         case 1:
-            // Do Something
+            // Add positions for each flag
             break
         case 2:
-            // Do Something
+            // Focus on the first 3 countries (zooming or colouring)
             break
         case 3:
-            // Do Something
+            // If it's the case, remove the zoom
+            break
+        case 4:
+            updateChartFunctions().plotHomicideRate()
             break
         default:
             break

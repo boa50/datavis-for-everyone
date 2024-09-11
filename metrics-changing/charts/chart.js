@@ -1,60 +1,68 @@
 import { colours } from "../../../node_modules/visual-components/index.js"
 import { createChartContainer } from "../utils.js"
 
-const data = [
-    { group: 'a', value: 1 },
-    { group: 'b', value: 2 },
-    { group: 'c', value: 3 },
-]
-
-const data2 = [
-    { group: 'a', value: 1 },
-    { group: 'b', value: 5 },
-    { group: 'c', value: 3 },
-]
-
-export const addChart = ({ svg, width, height, xPosition, yPosition }) => {
-    const chart = createChartContainer('test-id', svg, xPosition, yPosition)
+export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
+    const chart = createChartContainer('bar-chart', svg, xPosition, yPosition)
+    const data = await d3.csv('./data/dataset.csv')
+        .then(dt => dt.map(d => {
+            return {
+                ...d,
+                homicideRate: +d.homicideRate,
+                homicideNumber: +d.homicideNumber
+            }
+        }))
 
     const x = d3
-        .scaleBand()
-        .domain(data.map(d => d.group))
+        .scaleLinear()
         .range([0, width])
-        .padding(.1)
 
     const y = d3
-        .scaleLinear()
-        .domain([0, d3.max(data2, d => d.value)])
-        .range([height, 0])
+        .scaleBand()
+        .range([0, height])
+        .padding(.1)
 
-    const chartProps = { chart, x, y, height }
+    const chartProps = { chart, x, y, data }
 
-    updateChart(chartProps, data)
+    // plotChart(chartProps, 'homicideNumber')
 
     return chartProps
 }
 
-function updateChart(chartProps, data) {
-    const { chart, x, y, height } = chartProps
+function plotChart(chartProps, metric) {
+    const { chart, x, y, data } = chartProps
+
+    // Check for on course transitions
+    const chartNodes = chart.selectAll('.data-point').nodes()
+    if (chartNodes.length > 0 &&
+        d3.active(chartNodes[0], 'plotChart')) return
+
+    const chartData = data.sort((a, b) => b[metric] - a[metric]).slice(0, 10)
+
+    x.domain([0, d3.max(chartData, d => d[metric]) * 1.05])
+    y.domain(chartData.map(d => d.country))
 
     chart
         .selectAll('.data-point')
-        .data(data)
+        .data(chartData)
         .join('rect')
         .attr('class', 'data-point')
-        .attr('x', d => x(d.group))
-        .attr('width', x.bandwidth())
+        .attr('height', y.bandwidth())
         .attr('fill', colours.paletteLightBg.blue)
-        .transition()
-        .attr('y', d => y(d.value))
-        .attr('height', d => height - y(d.value))
-
+        .transition('plotChart')
+        .attr('x', x(0))
+        .attr('y', d => y(d.country))
+        .attr('width', d => x(d[metric]))
 }
 
-export function updateChart1(chartProps) {
-    updateChart(chartProps, data)
+
+const clearChart = chart => {
+    chart.selectAll('rect').remove()
 }
 
-export function updateChart2(chartProps) {
-    updateChart(chartProps, data2)
+export const updateChartFunctions = chartProps => {
+    return {
+        plotHomicideNumber: () => plotChart(chartProps, 'homicideNumber'),
+        plotHomicideRate: () => plotChart(chartProps, 'homicideRate'),
+        clearChart: () => clearChart(chartProps.chart)
+    }
 }

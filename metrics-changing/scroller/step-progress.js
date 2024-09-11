@@ -1,15 +1,13 @@
 import { changeText } from "../../../node_modules/visual-components/index.js"
 import { showHideTextElement } from "../utils.js"
 
-let lastIndex = 0
-let lastProgress = 0
+let lastIndex = -1
+let lastProgress = -1
 
 export const handleStepProgress = ({
     response,
     explanationText,
-    stepsSizes,
-    updateChart1,
-    updateChart2
+    stepsSizes
 }) => {
     const currentIndex = response.index
     const currentProgress = response.progress
@@ -26,17 +24,16 @@ export const handleStepProgress = ({
         })
     }
 
+
     // Start the animation only after the first step
     switch (currentIndex) {
         case 0:
             break
         case 1:
             changeExplanationText('First Step')
-            updateChart1()
             break
         case 2:
             changeExplanationText('Second Step')
-            updateChart2()
             break
         case 3:
             changeExplanationText('Pre Ending Step', true, false)
@@ -46,5 +43,5 @@ export const handleStepProgress = ({
     }
 
     lastIndex = currentIndex
-    lastProgress = currentProgress
+    lastProgress = currentProgress === 0 ? -1 : currentProgress
 }

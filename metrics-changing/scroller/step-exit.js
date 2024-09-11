@@ -1,10 +1,13 @@
-export const handleStepExit = response => {
+export const handleStepExit = ({
+    response,
+    updateChartFunctions
+}) => {
     const currentIndex = response.index
     const currentDirection = response.direction
 
     switch (currentIndex) {
         case 0:
-            // Do Something
+            if (currentDirection === 'up') updateChartFunctions().clearChart()
             break
         case 1:
             // Do Something

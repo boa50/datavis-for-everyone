@@ -1,1 +1,1 @@
-Images obtained from https://flagpedia.net
+Images obtained from https://flagpedia.net according to the URL: https://flagpedia.net/data/flags/w580/${ISO2_COUNTRY_CODE}.webp

@@ -1,0 +1,1 @@
+Images obtained from https://flagpedia.net

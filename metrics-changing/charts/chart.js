@@ -61,6 +61,23 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
         .attr('y', d => y(d.country))
         .attr('width', d => x(d[metric]))
 
+    const flagWidth = y.bandwidth() * 1.6
+
+    chart
+        .selectAll('.country-flag')
+        .data(chartData, d => d.country)
+        .join('image')
+        .attr('class', 'country-flag')
+        .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
+        .attr('width', flagWidth)
+        .attr('height', y.bandwidth())
+        .attr('preserveAspectRatio', 'none')
+        .attr('x', x(0) - flagWidth - 4)
+        .transition('plotChartFlags')
+        .duration(isInitialPlot ? 500 : 1000)
+        .attr('transform', d => `translate(0, ${y(d.country)})`)
+        .attr('y', 0)
+
     if (isInitialPlot) plotAxis(chart, x, y, height, width, metric)
     else updateAxis(chart, x, y, metric)
 }
@@ -74,11 +91,11 @@ function plotAxis(chart, x, y, height, width, xLabel) {
         width,
         colour: colours.paletteLightBg.axis,
         x,
-        y,
+        // y,
         xFormat,
         xLabel,
         hideXdomain: true,
-        hideYdomain: true
+        // hideYdomain: true
     })
 }
 
@@ -91,11 +108,11 @@ function updateAxis(chart, x, y, xLabel) {
         label: xLabel
     })
 
-    updateYaxis({
-        chart,
-        y,
-        hideDomain: true
-    })
+    // updateYaxis({
+    //     chart,
+    //     y,
+    //     hideDomain: true
+    // })
 }
 
 function clearChart(chart) {

@@ -1,6 +1,5 @@
 import { appendBar, updateBar } from "./bar.js"
-import { appendFlag } from "./flag.js"
-import { plotAxis, updateAxis } from "./axis.js"
+import { plotAxis, updateAxis, appendFlag, appendRanking } from "./axis.js"
 import { createChartContainer } from "../utils.js"
 
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
@@ -74,6 +73,7 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
                 .attr('class', 'data-point')
                 .call(g => appendBar(g, x, y, metric, transition))
                 .call(g => appendFlag(g, x, y, flagWidth))
+                .call(g => appendRanking(g, x, y, flagWidth))
                 .attr('transform', `translate(0, ${yOutOfBounds})`)
                 .transition(transition)
                 .attr('transform', d => `translate(0, ${y(d.country)})`),
@@ -87,8 +87,8 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
                 .attr('transform', d => `translate(0, ${yOutOfBounds})`)
         )
 
-    if (isInitialPlot) plotAxis(chart, x, y, height, width, metric)
-    else updateAxis(chart, x, y, metric)
+    if (isInitialPlot) plotAxis(chart, x, height, width, metric)
+    else updateAxis(chart, x, metric)
 }
 
 function clearChart(chart) {

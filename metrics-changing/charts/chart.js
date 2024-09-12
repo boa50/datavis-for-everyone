@@ -1,4 +1,6 @@
-import { colours, addAxis, updateXaxis, updateYaxis } from "../../../node_modules/visual-components/index.js"
+import { appendBar, updateBar } from "./bar.js"
+import { appendFlag } from "./flag.js"
+import { plotAxis, updateAxis } from "./axis.js"
 import { createChartContainer } from "../utils.js"
 
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
@@ -67,11 +69,7 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
                 .transition(transition)
                 .attr('transform', d => `translate(0, ${y(d.country)})`),
             update => update
-                .call(g => g
-                    .selectAll('rect')
-                    .transition(transition)
-                    .attr('width', d => x(d[metric]))
-                )
+                .call(g => updateBar(g, x, metric, transition))
                 .transition(transition)
                 .attr('transform', d => `translate(0, ${y(d.country)})`),
             exit => exit
@@ -82,62 +80,6 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
 
     if (isInitialPlot) plotAxis(chart, x, y, height, width, metric)
     else updateAxis(chart, x, y, metric)
-}
-
-function appendBar(g, x, y, metric, transition) {
-    g
-        .append('rect')
-        .attr('height', y.bandwidth())
-        .attr('x', x(0))
-        .attr('y', 0)
-        .attr('fill', d => d.country === 'Brazil' ? colours.paletteLightBg.bluishGreen : colours.paletteLightBg.blue)
-        .transition(transition)
-        .attr('width', d => x(d[metric]))
-}
-
-function appendFlag(g, x, y, flagWidth) {
-    g
-        .append('image')
-        .attr('class', 'country-flag')
-        .attr('width', flagWidth)
-        .attr('height', y.bandwidth())
-        .attr('x', x(0) - flagWidth - 4)
-        .attr('y', 0)
-        .attr('preserveAspectRatio', 'none')
-        .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
-}
-
-const xFormat = d3.format('.2s')
-
-function plotAxis(chart, x, y, height, width, xLabel) {
-    addAxis({
-        chart,
-        height,
-        width,
-        colour: colours.paletteLightBg.axis,
-        x,
-        // y,
-        xFormat,
-        xLabel,
-        hideXdomain: true,
-        // hideYdomain: true
-    })
-}
-
-function updateAxis(chart, x, y, xLabel) {
-    updateXaxis({
-        chart,
-        x,
-        format: xFormat,
-        hideDomain: true,
-        label: xLabel
-    })
-
-    // updateYaxis({
-    //     chart,
-    //     y,
-    //     hideDomain: true
-    // })
 }
 
 function clearChart(chart) {

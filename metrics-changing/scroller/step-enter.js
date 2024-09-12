@@ -12,6 +12,7 @@ export const handleStepEnter = ({
             break
         case 1:
             // Add positions for each flag
+            updateChartFunctions().plotHomicideRate()
             break
         case 2:
             // Focus on the first 3 countries (zooming or colouring)

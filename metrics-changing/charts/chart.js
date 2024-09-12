@@ -48,62 +48,63 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
     x.domain([0, d3.max(chartData, d => d[metric]) * 1.05])
     y.domain(chartData.map(d => d.country))
 
+    const flagWidth = y.bandwidth() * 1.6
+    const yOutOfBounds = height * 2
+    const transition = d3
+        .transition('plotChart')
+        .duration(isInitialPlot ? 500 : 1000)
+
     chart
         .selectAll('.data-point')
         .data(chartData, d => d.country)
-        .join('rect')
-        .attr('class', 'data-point')
-        .attr('height', y.bandwidth())
-        .attr('fill', d => d.country === 'Brazil' ? colours.paletteLightBg.bluishGreen : colours.paletteLightBg.blue)
-        .transition('plotChart')
-        .duration(isInitialPlot ? 500 : 1000)
-        .attr('x', x(0))
-        .attr('y', d => y(d.country))
-        .attr('width', d => x(d[metric]))
-
-    const flagWidth = y.bandwidth() * 1.6
-
-    chart
-        .selectAll('.country-flag')
-        .data(chartData, d => d.country)
         .join(
             enter => enter
-                .append('image')
-                .attr('class', 'country-flag')
-                .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
-                .attr('width', flagWidth)
-                .attr('height', y.bandwidth())
-                .attr('preserveAspectRatio', 'none')
-                .attr('x', x(0) - flagWidth - 4)
-                .transition('plotChartFlags')
-                .duration(isInitialPlot ? 500 : 1000)
-                .attr('transform', d => `translate(0, ${y(d.country)})`)
-                .attr('y', 0),
+                .append('g')
+                .attr('class', 'data-point')
+                .call(g => appendBar(g, x, y, metric, transition))
+                .call(g => appendFlag(g, x, y, flagWidth))
+                .attr('transform', `translate(0, ${yOutOfBounds})`)
+                .transition(transition)
+                .attr('transform', d => `translate(0, ${y(d.country)})`),
             update => update
-                .transition('plotChartFlags')
-                .duration(isInitialPlot ? 500 : 1000)
-                .attr('transform', d => `translate(0, ${y(d.country)})`)
-                .attr('y', 0),
+                .call(g => g
+                    .selectAll('rect')
+                    .transition(transition)
+                    .attr('width', d => x(d[metric]))
+                )
+                .transition(transition)
+                .attr('transform', d => `translate(0, ${y(d.country)})`),
             exit => exit
-                .transition('plotChartFlags')
-                .duration(isInitialPlot ? 500 : 1000)
+                .transition(transition)
                 .remove()
-                .attr('transform', d => `translate(0, ${height + 100})`)
-                .attr('y', 0),
+                .attr('transform', d => `translate(0, ${yOutOfBounds})`)
         )
-    // .attr('class', 'country-flag')
-    // .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
-    // .attr('width', flagWidth)
-    // .attr('height', y.bandwidth())
-    // .attr('preserveAspectRatio', 'none')
-    // .attr('x', x(0) - flagWidth - 4)
-    // .transition('plotChartFlags')
-    // .duration(isInitialPlot ? 500 : 1000)
-    // .attr('transform', d => `translate(0, ${y(d.country)})`)
-    // .attr('y', 0)
 
     if (isInitialPlot) plotAxis(chart, x, y, height, width, metric)
     else updateAxis(chart, x, y, metric)
+}
+
+function appendBar(g, x, y, metric, transition) {
+    g
+        .append('rect')
+        .attr('height', y.bandwidth())
+        .attr('x', x(0))
+        .attr('y', 0)
+        .attr('fill', d => d.country === 'Brazil' ? colours.paletteLightBg.bluishGreen : colours.paletteLightBg.blue)
+        .transition(transition)
+        .attr('width', d => x(d[metric]))
+}
+
+function appendFlag(g, x, y, flagWidth) {
+    g
+        .append('image')
+        .attr('class', 'country-flag')
+        .attr('width', flagWidth)
+        .attr('height', y.bandwidth())
+        .attr('x', x(0) - flagWidth - 4)
+        .attr('y', 0)
+        .attr('preserveAspectRatio', 'none')
+        .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
 }
 
 const xFormat = d3.format('.2s')

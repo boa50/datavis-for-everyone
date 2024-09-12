@@ -1,201 +1,201 @@
-country,homicideRate,homicideNumber
-Afghanistan,4.02,1610
-Albania,2.31,66
-Algeria,1.57,705
-American Samoa,0.0,0
-Andorra,2.57,2
-Angola,4.1,1198
-Anguilla,28.33,4
-Antigua and Barbuda,17.16,16
-Argentina,4.62,2095
-Armenia,2.19,63
-Aruba,1.93,2
-Australia,0.74,194
-Austria,0.73,66
-Azerbaijan,1.91,196
-Bahamas,29.17,116
-Bahrain,0.07,2
-Bangladesh,2.34,3827
-Barbados,11.38,33
-Belarus,2.33,220
-Belgium,1.08,125
-Belize,31.25,124
-Bermuda,10.91,8
-Bhutan,2.46,19
-Bolivia,3.49,418
-Bosnia and Herzegovina,0.98,32
-Botswana,10.55,254
-Brazil,22.38,46707
-British Virgin Islands,8.22,3
-Brunei,0.49,2
-Bulgaria,1.28,88
-Burundi,5.82,655
-Cambodia,1.84,271
-Cameroon,4.54,1190
-Canada,2.07,795
-Cape Verde,6.18,32
-Cayman Islands,4.46,4
-Chile,3.63,707
-China,0.5,7163
-Colombia,27.48,14069
-Cook Islands,3.49,1
-Costa Rica,11.41,578
-Croatia,0.81,32
-Cuba,4.42,495
-Curacao,17.09,27
-Cyprus,1.29,17
-Czechia,0.45,48
-Denmark,0.8,48
-Dominica,13.81,10
-Dominican Republic,10.54,1173
-East Timor,4.06,49
-Ecuador,14.02,2480
-Egypt,1.34,1386
-El Salvador,18.17,1137
-Eritrea,14.57,443
-Estonia,1.96,27
-Eswatini,12.66,153
-Ethiopia,8.63,8270
-Fiji,2.17,20
-Finland,1.65,92
-France,1.14,752
-French Guiana,13.3,39
-French Polynesia,0.35,1
-Georgia,2.04,78
-Germany,0.83,698
-Ghana,1.84,598
-Gibraltar,3.2,2
-Greece,0.85,91
-Greenland,5.37,4
-Grenada,4.01,5
-Guadeloupe,5.78,24
-Guam,4.15,7
-Guatemala,19.99,3519
-Guinea-Bissau,1.12,21
-Guyana,16.28,133
-Haiti,13.01,1480
-Honduras,38.25,3936
-Hong Kong,0.31,23
-Hungary,0.77,75
-Iceland,0.54,3
-India,2.94,41525
-Indonesia,0.63,1432
-Iran,2.42,1974
-Iraq,9.41,3321
-Ireland,0.44,23
-Isle of Man,0.0,0
-Israel,1.94,174
-Italy,0.51,306
-Jamaica,52.13,1480
-Japan,0.23,288
-Jordan,1.02,114
-Kazakhstan,3.19,623
-Kenya,5.27,2808
-Kiribati,7.17,9
-Kosovo,1.99,35
-Kuwait,0.25,12
-Latvia,3.04,58
-Lebanon,2.26,129
-Lesotho,37.69,742
-Liberia,3.12,137
-Liechtenstein,5.12,3
-Lithuania,2.58,73
-Luxembourg,0.63,5
-Macao,0.44,4
-Malawi,1.79,282
-Malaysia,0.72,249
-Maldives,0.59,3
-Malta,0.38,2
-Marshall Islands,4.01,2
-Martinique,2.79,12
-Mauritania,1.02,48
-Mauritius,2.62,34
-Mayotte,5.82,12
-Mexico,28.18,35966
-Micronesia (country),0.9,1
-Moldova,3.01,93
-Monaco,0.0,0
-Mongolia,6.15,206
-Montenegro,2.39,15
-Montserrat,0.0,0
-Morocco,1.93,714
-Mozambique,3.57,846
-Myanmar,28.44,15183
-Namibia,12.45,350
-Nepal,2.29,650
-Netherlands,0.65,116
-New Caledonia,3.11,9
-New Zealand,2.6,130
-Nicaragua,11.01,732
-Niger,4.39,783
-Nigeria,21.74,45544
-North Macedonia,1.14,22
-Norway,0.54,30
-Oman,0.24,11
-Pakistan,3.98,9529
-Palau,11.2,2
-Palestine,0.88,46
-Panama,12.64,550
-Papua New Guinea,9.4,718
-Paraguay,7.83,524
-Peru,5.71,1877
-Philippines,4.32,4783
-Poland,0.71,272
-Portugal,0.8,83
-Puerto Rico,16.99,557
-Qatar,0.33,10
-Reunion,1.7,15
-Romania,1.26,243
-Russia,6.8,9916
-Rwanda,3.59,470
-Saint Helena,0.0,0
-Saint Kitts and Nevis,29.41,14
-Saint Lucia,38.96,70
-Saint Martin (French part),28.73,11
-Saint Pierre and Miquelon,16.52,2
-Saint Vincent and the Grenadines,30.67,32
-Samoa,6.2,13
-San Marino,0.0,0
-Sao Tome and Principe,3.23,6
-Saudi Arabia,0.8,243
-Serbia,1.06,73
-Seychelles,4.7,6
-Sierra Leone,2.14,170
-Singapore,0.1,6
-Slovakia,1.01,55
-Slovenia,0.42,9
-Solomon Islands,3.68,19
-South Africa,41.87,25749
-South Korea,0.52,271
-South Sudan,14.05,1512
-Spain,0.61,292
-Sri Lanka,3.43,769
-Suriname,5.71,36
-Sweden,1.08,113
-Switzerland,0.48,43
-Syria,2.07,467
-Tajikistan,0.91,89
-Tanzania,3.7,2259
-Thailand,4.81,3322
-Tonga,0.95,2
-Trinidad and Tobago,29.36,437
-Tunisia,4.62,554
-Turkey,2.52,2185
-Turkmenistan,1.09,68
-Turks and Caicos Islands,5.72,3
-Tuvalu,0.0,0
-Uganda,8.53,3917
-Ukraine,3.84,1703
-United Arab Emirates,0.47,46
-United Kingdom,1.0,676
-United States,6.81,23157
-United States Virgin Islands,49.63,52
-Uruguay,8.9,303
-Uzbekistan,1.41,482
-Vanuatu,0.32,1
-Vatican,0.0,0
-Venezuela,19.31,5452
-Vietnam,1.54,1360
-Yemen,6.31,1850
-Zambia,5.25,861
-Zimbabwe,6.14,970
+country,code,homicideRate,homicideNumber
+Afghanistan,AFG,4.02,1610
+Albania,ALB,2.31,66
+Algeria,DZA,1.57,705
+American Samoa,ASM,0.0,0
+Andorra,AND,2.57,2
+Angola,AGO,4.1,1198
+Anguilla,AIA,28.33,4
+Antigua and Barbuda,ATG,17.16,16
+Argentina,ARG,4.62,2095
+Armenia,ARM,2.19,63
+Aruba,ABW,1.93,2
+Australia,AUS,0.74,194
+Austria,AUT,0.73,66
+Azerbaijan,AZE,1.91,196
+Bahamas,BHS,29.17,116
+Bahrain,BHR,0.07,2
+Bangladesh,BGD,2.34,3827
+Barbados,BRB,11.38,33
+Belarus,BLR,2.33,220
+Belgium,BEL,1.08,125
+Belize,BLZ,31.25,124
+Bermuda,BMU,10.91,8
+Bhutan,BTN,2.46,19
+Bolivia,BOL,3.49,418
+Bosnia and Herzegovina,BIH,0.98,32
+Botswana,BWA,10.55,254
+Brazil,BRA,22.38,46707
+British Virgin Islands,VGB,8.22,3
+Brunei,BRN,0.49,2
+Bulgaria,BGR,1.28,88
+Burundi,BDI,5.82,655
+Cambodia,KHM,1.84,271
+Cameroon,CMR,4.54,1190
+Canada,CAN,2.07,795
+Cape Verde,CPV,6.18,32
+Cayman Islands,CYM,4.46,4
+Chile,CHL,3.63,707
+China,CHN,0.5,7163
+Colombia,COL,27.48,14069
+Cook Islands,COK,3.49,1
+Costa Rica,CRI,11.41,578
+Croatia,HRV,0.81,32
+Cuba,CUB,4.42,495
+Curacao,CUW,17.09,27
+Cyprus,CYP,1.29,17
+Czechia,CZE,0.45,48
+Denmark,DNK,0.8,48
+Dominica,DMA,13.81,10
+Dominican Republic,DOM,10.54,1173
+East Timor,TLS,4.06,49
+Ecuador,ECU,14.02,2480
+Egypt,EGY,1.34,1386
+El Salvador,SLV,18.17,1137
+Eritrea,ERI,14.57,443
+Estonia,EST,1.96,27
+Eswatini,SWZ,12.66,153
+Ethiopia,ETH,8.63,8270
+Fiji,FJI,2.17,20
+Finland,FIN,1.65,92
+France,FRA,1.14,752
+French Guiana,GUF,13.3,39
+French Polynesia,PYF,0.35,1
+Georgia,GEO,2.04,78
+Germany,DEU,0.83,698
+Ghana,GHA,1.84,598
+Gibraltar,GIB,3.2,2
+Greece,GRC,0.85,91
+Greenland,GRL,5.37,4
+Grenada,GRD,4.01,5
+Guadeloupe,GLP,5.78,24
+Guam,GUM,4.15,7
+Guatemala,GTM,19.99,3519
+Guinea-Bissau,GNB,1.12,21
+Guyana,GUY,16.28,133
+Haiti,HTI,13.01,1480
+Honduras,HND,38.25,3936
+Hong Kong,HKG,0.31,23
+Hungary,HUN,0.77,75
+Iceland,ISL,0.54,3
+India,IND,2.94,41525
+Indonesia,IDN,0.63,1432
+Iran,IRN,2.42,1974
+Iraq,IRQ,9.41,3321
+Ireland,IRL,0.44,23
+Isle of Man,IMN,0.0,0
+Israel,ISR,1.94,174
+Italy,ITA,0.51,306
+Jamaica,JAM,52.13,1480
+Japan,JPN,0.23,288
+Jordan,JOR,1.02,114
+Kazakhstan,KAZ,3.19,623
+Kenya,KEN,5.27,2808
+Kiribati,KIR,7.17,9
+Kosovo,OWID_KOS,1.99,35
+Kuwait,KWT,0.25,12
+Latvia,LVA,3.04,58
+Lebanon,LBN,2.26,129
+Lesotho,LSO,37.69,742
+Liberia,LBR,3.12,137
+Liechtenstein,LIE,5.12,3
+Lithuania,LTU,2.58,73
+Luxembourg,LUX,0.63,5
+Macao,MAC,0.44,4
+Malawi,MWI,1.79,282
+Malaysia,MYS,0.72,249
+Maldives,MDV,0.59,3
+Malta,MLT,0.38,2
+Marshall Islands,MHL,4.01,2
+Martinique,MTQ,2.79,12
+Mauritania,MRT,1.02,48
+Mauritius,MUS,2.62,34
+Mayotte,MYT,5.82,12
+Mexico,MEX,28.18,35966
+Micronesia (country),FSM,0.9,1
+Moldova,MDA,3.01,93
+Monaco,MCO,0.0,0
+Mongolia,MNG,6.15,206
+Montenegro,MNE,2.39,15
+Montserrat,MSR,0.0,0
+Morocco,MAR,1.93,714
+Mozambique,MOZ,3.57,846
+Myanmar,MMR,28.44,15183
+Namibia,NAM,12.45,350
+Nepal,NPL,2.29,650
+Netherlands,NLD,0.65,116
+New Caledonia,NCL,3.11,9
+New Zealand,NZL,2.6,130
+Nicaragua,NIC,11.01,732
+Niger,NER,4.39,783
+Nigeria,NGA,21.74,45544
+North Macedonia,MKD,1.14,22
+Norway,NOR,0.54,30
+Oman,OMN,0.24,11
+Pakistan,PAK,3.98,9529
+Palau,PLW,11.2,2
+Palestine,PSE,0.88,46
+Panama,PAN,12.64,550
+Papua New Guinea,PNG,9.4,718
+Paraguay,PRY,7.83,524
+Peru,PER,5.71,1877
+Philippines,PHL,4.32,4783
+Poland,POL,0.71,272
+Portugal,PRT,0.8,83
+Puerto Rico,PRI,16.99,557
+Qatar,QAT,0.33,10
+Reunion,REU,1.7,15
+Romania,ROU,1.26,243
+Russia,RUS,6.8,9916
+Rwanda,RWA,3.59,470
+Saint Helena,SHN,0.0,0
+Saint Kitts and Nevis,KNA,29.41,14
+Saint Lucia,LCA,38.96,70
+Saint Martin (French part),MAF,28.73,11
+Saint Pierre and Miquelon,SPM,16.52,2
+Saint Vincent and the Grenadines,VCT,30.67,32
+Samoa,WSM,6.2,13
+San Marino,SMR,0.0,0
+Sao Tome and Principe,STP,3.23,6
+Saudi Arabia,SAU,0.8,243
+Serbia,SRB,1.06,73
+Seychelles,SYC,4.7,6
+Sierra Leone,SLE,2.14,170
+Singapore,SGP,0.1,6
+Slovakia,SVK,1.01,55
+Slovenia,SVN,0.42,9
+Solomon Islands,SLB,3.68,19
+South Africa,ZAF,41.87,25749
+South Korea,KOR,0.52,271
+South Sudan,SSD,14.05,1512
+Spain,ESP,0.61,292
+Sri Lanka,LKA,3.43,769
+Suriname,SUR,5.71,36
+Sweden,SWE,1.08,113
+Switzerland,CHE,0.48,43
+Syria,SYR,2.07,467
+Tajikistan,TJK,0.91,89
+Tanzania,TZA,3.7,2259
+Thailand,THA,4.81,3322
+Tonga,TON,0.95,2
+Trinidad and Tobago,TTO,29.36,437
+Tunisia,TUN,4.62,554
+Turkey,TUR,2.52,2185
+Turkmenistan,TKM,1.09,68
+Turks and Caicos Islands,TCA,5.72,3
+Tuvalu,TUV,0.0,0
+Uganda,UGA,8.53,3917
+Ukraine,UKR,3.84,1703
+United Arab Emirates,ARE,0.47,46
+United Kingdom,GBR,1.0,676
+United States,USA,6.81,23157
+United States Virgin Islands,VIR,49.63,52
+Uruguay,URY,8.9,303
+Uzbekistan,UZB,1.41,482
+Vanuatu,VUT,0.32,1
+Vatican,VAT,0.0,0
+Venezuela,VEN,19.31,5452
+Vietnam,VNM,1.54,1360
+Yemen,YEM,6.31,1850
+Zambia,ZMB,5.25,861
+Zimbabwe,ZWE,6.14,970

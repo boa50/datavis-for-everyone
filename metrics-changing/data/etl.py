@@ -40,7 +40,7 @@ df = pd.merge(df, df_population, how="left", on=["code", "year"])
 df["homicideNumber"] = np.ceil(df["population"] / 1e5 * df["homicideRate"]).astype(int)
 df["homicideRate"] = np.round(df["homicideRate"], 2)
 
-df = df.drop(["code", "year", "country_y", "population"], axis=1)
+df = df.drop(["year", "country_y", "population"], axis=1)
 
 df = df.rename(columns={"country_x": "country"})
 

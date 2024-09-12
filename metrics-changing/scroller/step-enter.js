@@ -7,7 +7,8 @@ export const handleStepEnter = ({
 
     switch (currentIndex) {
         case 0:
-            updateChartFunctions().plotHomicideNumber()
+            if (currentDirection === 'down') updateChartFunctions().plotInitial()
+            else updateChartFunctions().plotHomicideNumber()
             break
         case 1:
             // Add positions for each flag

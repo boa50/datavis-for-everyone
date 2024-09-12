@@ -21,24 +21,22 @@ export const addChart = async ({ svg, width, height, xPosition, yPosition }) => 
         .range([0, height])
         .padding(.1)
 
-    addAxis({
-        chart,
-        height,
-        width,
-        colour: colours.paletteLightBg.axis,
-        x,
-        y,
-        hideXdomain: true,
-        hideYdomain: true
-    })
-
-    const chartProps = { chart, x, y, data }
+    const chartProps = { chart, x, y, height, width, data }
 
     return chartProps
 }
 
-function plotChart(chartProps, metric) {
-    const { chart, x, y, data } = chartProps
+export const updateChartFunctions = chartProps => {
+    return {
+        plotInitial: () => plotChart(chartProps, 'homicideNumber', true),
+        plotHomicideNumber: () => plotChart(chartProps, 'homicideNumber'),
+        plotHomicideRate: () => plotChart(chartProps, 'homicideRate'),
+        clearChart: () => clearChart(chartProps.chart)
+    }
+}
+
+function plotChart(chartProps, metric, isInitialPlot = false) {
+    const { chart, x, y, height, width, data } = chartProps
 
     // Check for on course transitions
     const chartNodes = chart.selectAll('.data-point').nodes()
@@ -58,17 +56,39 @@ function plotChart(chartProps, metric) {
         .attr('height', y.bandwidth())
         .attr('fill', d => d.country === 'Brazil' ? colours.paletteLightBg.bluishGreen : colours.paletteLightBg.blue)
         .transition('plotChart')
-        .duration(1000)
+        .duration(isInitialPlot ? 500 : 1000)
         .attr('x', x(0))
         .attr('y', d => y(d.country))
         .attr('width', d => x(d[metric]))
 
+    if (isInitialPlot) plotAxis(chart, x, y, height, width, metric)
+    else updateAxis(chart, x, y, metric)
+}
+
+const xFormat = d3.format('.2s')
+
+function plotAxis(chart, x, y, height, width, xLabel) {
+    addAxis({
+        chart,
+        height,
+        width,
+        colour: colours.paletteLightBg.axis,
+        x,
+        y,
+        xFormat,
+        xLabel,
+        hideXdomain: true,
+        hideYdomain: true
+    })
+}
+
+function updateAxis(chart, x, y, xLabel) {
     updateXaxis({
         chart,
         x,
-        format: d3.format('.2s'),
+        format: xFormat,
         hideDomain: true,
-        label: metric
+        label: xLabel
     })
 
     updateYaxis({
@@ -78,15 +98,8 @@ function plotChart(chartProps, metric) {
     })
 }
 
-
-const clearChart = chart => {
+function clearChart(chart) {
     chart.selectAll('rect').remove()
-}
-
-export const updateChartFunctions = chartProps => {
-    return {
-        plotHomicideNumber: () => plotChart(chartProps, 'homicideNumber'),
-        plotHomicideRate: () => plotChart(chartProps, 'homicideRate'),
-        clearChart: () => clearChart(chartProps.chart)
-    }
+    chart.select('.x-axis-group').remove()
+    chart.select('.y-axis-group').remove()
 }

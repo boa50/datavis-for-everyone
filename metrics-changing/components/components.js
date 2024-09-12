@@ -7,9 +7,9 @@ export const addVisualComponents = async ({
     windowHeight
 }) => {
     const chartWidth = 1080 < visualisationsWidth - 450 ? 1080 : visualisationsWidth - 450
-    const chartHeight = chartWidth / 1.6
+    const chartHeight = windowHeight - 86
     const chartXposition = 64
-    const chartYposition = (windowHeight - chartHeight) / 2
+    const chartYposition = (windowHeight - chartHeight) / 2 - 16
 
     const explanationText = createText({
         svg,

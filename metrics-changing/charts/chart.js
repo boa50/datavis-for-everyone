@@ -66,17 +66,41 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
     chart
         .selectAll('.country-flag')
         .data(chartData, d => d.country)
-        .join('image')
-        .attr('class', 'country-flag')
-        .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
-        .attr('width', flagWidth)
-        .attr('height', y.bandwidth())
-        .attr('preserveAspectRatio', 'none')
-        .attr('x', x(0) - flagWidth - 4)
-        .transition('plotChartFlags')
-        .duration(isInitialPlot ? 500 : 1000)
-        .attr('transform', d => `translate(0, ${y(d.country)})`)
-        .attr('y', 0)
+        .join(
+            enter => enter
+                .append('image')
+                .attr('class', 'country-flag')
+                .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
+                .attr('width', flagWidth)
+                .attr('height', y.bandwidth())
+                .attr('preserveAspectRatio', 'none')
+                .attr('x', x(0) - flagWidth - 4)
+                .transition('plotChartFlags')
+                .duration(isInitialPlot ? 500 : 1000)
+                .attr('transform', d => `translate(0, ${y(d.country)})`)
+                .attr('y', 0),
+            update => update
+                .transition('plotChartFlags')
+                .duration(isInitialPlot ? 500 : 1000)
+                .attr('transform', d => `translate(0, ${y(d.country)})`)
+                .attr('y', 0),
+            exit => exit
+                .transition('plotChartFlags')
+                .duration(isInitialPlot ? 500 : 1000)
+                .remove()
+                .attr('transform', d => `translate(0, ${height + 100})`)
+                .attr('y', 0),
+        )
+    // .attr('class', 'country-flag')
+    // .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
+    // .attr('width', flagWidth)
+    // .attr('height', y.bandwidth())
+    // .attr('preserveAspectRatio', 'none')
+    // .attr('x', x(0) - flagWidth - 4)
+    // .transition('plotChartFlags')
+    // .duration(isInitialPlot ? 500 : 1000)
+    // .attr('transform', d => `translate(0, ${y(d.country)})`)
+    // .attr('y', 0)
 
     if (isInitialPlot) plotAxis(chart, x, y, height, width, metric)
     else updateAxis(chart, x, y, metric)

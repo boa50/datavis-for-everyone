@@ -107,7 +107,8 @@ export function updateXaxis({ }: {
     format?: Function,
     tickValues?: Array<any>,
     hideDomain?: boolean,
-    transitionFix?: boolean
+    transitionFix?: boolean,
+    label?: string
 }): null
 
 export function updateYaxis({ }: {
@@ -116,7 +117,8 @@ export function updateYaxis({ }: {
     format?: Function,
     tickValues?: Array<any>,
     hideDomain?: boolean,
-    transitionFix?: boolean
+    transitionFix?: boolean,
+    label?: string
 }): null
 
 

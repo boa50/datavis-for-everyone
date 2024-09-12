@@ -67,7 +67,8 @@ function plotChart(chartProps, metric) {
         chart,
         x,
         format: d3.format('.2s'),
-        hideDomain: true
+        hideDomain: true,
+        label: metric
     })
 
     updateYaxis({

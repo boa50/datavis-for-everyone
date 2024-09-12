@@ -83,7 +83,8 @@ export const updateXaxis = ({
     format = undefined,
     tickValues = undefined,
     hideDomain = false,
-    transitionFix = true
+    transitionFix = true,
+    label = undefined
 }) => {
     const axisClass = '.x-axis-group'
     const transitionDuration = 250
@@ -116,6 +117,7 @@ export const updateXaxis = ({
                     .then(() => { hideOverlappingTicks(axis, transitionDuration * 0.9) })
             }
         })
+        .call(g => { if (label !== undefined) g.select('.axis-label').text(label) })
 }
 
 export const updateYaxis = ({
@@ -124,7 +126,8 @@ export const updateYaxis = ({
     format = undefined,
     tickValues = undefined,
     hideDomain = false,
-    transitionFix = true
+    transitionFix = true,
+    label = undefined
 }) => {
     const axisClass = '.y-axis-group'
     const transitionDuration = 250
@@ -144,6 +147,7 @@ export const updateYaxis = ({
                 .tickValues(tickValues)
         )
         .call(g => adjustColours(g, colour, hideDomain))
+        .call(g => { if (label !== undefined) g.select('.axis-label').text(label) })
 }
 
 function addSingleAxis({
@@ -201,6 +205,7 @@ function addSingleAxis({
         .call(g => {
             g
                 .append('text')
+                .attr('class', 'axis-label')
                 .attr('x', labelXposition)
                 .attr('y', labelYposition(g))
                 .attr('transform', `rotate(${labelRotation})`)

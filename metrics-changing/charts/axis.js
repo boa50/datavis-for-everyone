@@ -1,4 +1,4 @@
-import { colours, addAxis, updateXaxis, updateYaxis } from "../../../node_modules/visual-components/index.js"
+import { colours, addAxis, updateXaxis } from "../../../node_modules/visual-components/index.js"
 
 const xFormat = d3.format('.2s')
 
@@ -9,11 +9,9 @@ export const plotAxis = (chart, x, y, height, width, xLabel) => {
         width,
         colour: colours.paletteLightBg.axis,
         x,
-        // y,
         xFormat,
         xLabel,
         hideXdomain: true,
-        // hideYdomain: true
     })
 }
 
@@ -25,10 +23,4 @@ export const updateAxis = (chart, x, y, xLabel) => {
         hideDomain: true,
         label: xLabel
     })
-
-    // updateYaxis({
-    //     chart,
-    //     y,
-    //     hideDomain: true
-    // })
 }

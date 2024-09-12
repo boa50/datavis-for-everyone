@@ -6,13 +6,22 @@ import { createChartContainer } from "../utils.js"
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
     const chart = createChartContainer('bar-chart', svg, xPosition, yPosition)
     const data = await d3.csv('./data/dataset.csv')
-        .then(dt => dt.map(d => {
-            return {
-                ...d,
-                homicideRate: +d.homicideRate,
-                homicideNumber: +d.homicideNumber
-            }
-        }))
+        .then(dt => dt
+            .map(d => {
+                return {
+                    ...d,
+                    homicideRate: +d.homicideRate,
+                    homicideNumber: +d.homicideNumber
+                }
+            })
+            .sort((a, b) => b.homicideNumber - a.homicideNumber)
+            .map((d, i) => {
+                return {
+                    ...d,
+                    homicideNumberRank: i + 1
+                }
+            })
+        )
 
     const x = d3
         .scaleLinear()

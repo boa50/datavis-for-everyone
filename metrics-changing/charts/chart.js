@@ -1,4 +1,4 @@
-import { colours, addAxis, updateXaxis } from "../../../node_modules/visual-components/index.js"
+import { colours, addAxis, updateXaxis, updateYaxis } from "../../../node_modules/visual-components/index.js"
 import { createChartContainer } from "../utils.js"
 
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
@@ -27,7 +27,9 @@ export const addChart = async ({ svg, width, height, xPosition, yPosition }) => 
         width,
         colour: colours.paletteLightBg.axis,
         x,
-        hideXdomain: true
+        y,
+        hideXdomain: true,
+        hideYdomain: true
     })
 
     const chartProps = { chart, x, y, data }
@@ -43,19 +45,20 @@ function plotChart(chartProps, metric) {
     if (chartNodes.length > 0 &&
         d3.active(chartNodes[0], 'plotChart')) return
 
-    const chartData = data.sort((a, b) => b[metric] - a[metric]).slice(0, 10)
+    const chartData = data.sort((a, b) => b[metric] - a[metric]).slice(0, 20)
 
     x.domain([0, d3.max(chartData, d => d[metric]) * 1.05])
     y.domain(chartData.map(d => d.country))
 
     chart
         .selectAll('.data-point')
-        .data(chartData)
+        .data(chartData, d => d.country)
         .join('rect')
         .attr('class', 'data-point')
         .attr('height', y.bandwidth())
-        .attr('fill', colours.paletteLightBg.blue)
+        .attr('fill', d => d.country === 'Brazil' ? colours.paletteLightBg.bluishGreen : colours.paletteLightBg.blue)
         .transition('plotChart')
+        .duration(1000)
         .attr('x', x(0))
         .attr('y', d => y(d.country))
         .attr('width', d => x(d[metric]))
@@ -64,6 +67,12 @@ function plotChart(chartProps, metric) {
         chart,
         x,
         format: d3.format('.2s'),
+        hideDomain: true
+    })
+
+    updateYaxis({
+        chart,
+        y,
         hideDomain: true
     })
 }

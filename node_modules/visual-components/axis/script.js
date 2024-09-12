@@ -117,7 +117,18 @@ export const updateXaxis = ({
                     .then(() => { hideOverlappingTicks(axis, transitionDuration * 0.9) })
             }
         })
-        .call(g => { if (label !== undefined) g.select('.axis-label').text(label) })
+        .call(g => {
+            if (label !== undefined)
+                g
+                    .select('.axis-label')
+                    .transition('x-axis-label-change')
+                    .duration(transitionDuration * 0.1)
+                    .style('opacity', 0)
+                    .transition('x-axis-label-change')
+                    .duration(transitionDuration * 0.9)
+                    .text(label)
+                    .style('opacity', 1)
+        })
 }
 
 export const updateYaxis = ({
@@ -147,7 +158,18 @@ export const updateYaxis = ({
                 .tickValues(tickValues)
         )
         .call(g => adjustColours(g, colour, hideDomain))
-        .call(g => { if (label !== undefined) g.select('.axis-label').text(label) })
+        .call(g => {
+            if (label !== undefined)
+                g
+                    .select('.axis-label')
+                    .transition('y-axis-label-change')
+                    .duration(transitionDuration * 0.1)
+                    .style('opacity', 0)
+                    .transition('y-axis-label-change')
+                    .duration(transitionDuration * 0.9)
+                    .text(label)
+                    .style('opacity', 1)
+        })
 }
 
 function addSingleAxis({

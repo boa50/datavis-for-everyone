@@ -17,17 +17,35 @@ export const handleStepEnter = ({
             // Add positions for each flag
             manageDirection({
                 currentDirection,
-                down: updateChartFunctions().showRanking
+                down: updateChartFunctions().showRanking,
+                up: updateChartFunctions().defaultBarColour
             })
             break
         case 2:
             // Focus on the first 3 countries (zooming or colouring)
+            manageDirection({
+                currentDirection,
+                down: updateChartFunctions().highlightBarColour
+            })
             break
         case 3:
-            // If it's the case, remove the zoom
+            manageDirection({
+                currentDirection,
+                up: () => {
+                    updateChartFunctions().plotHomicideNumber()
+                    updateChartFunctions().showRanking()
+                    updateChartFunctions().highlightBarColour()
+                }
+            })
             break
         case 4:
-            if (currentDirection === 'down') updateChartFunctions().plotHomicideRate()
+            manageDirection({
+                currentDirection,
+                down: () => {
+                    updateChartFunctions().plotHomicideRate()
+                    updateChartFunctions().showRanking()
+                }
+            })
             break
         default:
             break

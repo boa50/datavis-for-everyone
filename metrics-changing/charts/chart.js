@@ -1,4 +1,4 @@
-import { appendBar, updateBar } from "./bar.js"
+import { appendBar, updateBar, highlightBarColour, defaultBarColour } from "./bar.js"
 import { plotAxis, updateAxis, appendFlag, appendRanking, showRanking, hideRanking } from "./axis.js"
 import { createChartContainer } from "../utils.js"
 
@@ -43,6 +43,8 @@ export const updateChartFunctions = chartProps => {
         plotHomicideRate: () => plotChart(chartProps, 'homicideRate'),
         showRanking: () => showRanking(chartProps.chart),
         hideRanking: () => hideRanking(chartProps.chart),
+        highlightBarColour: () => highlightBarColour(chartProps.chart),
+        defaultBarColour: () => defaultBarColour(chartProps.chart),
         clearChart: () => clearChart(chartProps.chart)
     }
 }

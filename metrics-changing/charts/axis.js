@@ -78,5 +78,8 @@ export const appendCountryName = (g, x, y) => {
         .attr('dominant-baseline', 'middle')
         .attr('text-anchor', 'start')
         .style('fill', colours.paletteLightBg.contrasting)
+        .style('font-weight', 500)
+        .style('stroke', 'black')
+        .style('stroke-width', 0.5)
         .text(d => d.country)
 }

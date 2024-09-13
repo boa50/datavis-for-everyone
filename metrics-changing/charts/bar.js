@@ -28,7 +28,7 @@ export const highlightBarColour = chart => {
     chart
         .selectAll(barClass)
         .transition(getBarColourTransition())
-        .attr('fill', d => highlightedCountries.includes(d.country) ? colours.paletteLightBg.orange : colours.paletteLightBg.blue)
+        .attr('fill', d => highlightedCountries.includes(d.country) ? colours.paletteLightBg.vermillion : colours.paletteLightBg.blue)
 }
 
 export const defaultBarColour = chart => {

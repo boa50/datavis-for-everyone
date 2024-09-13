@@ -92,8 +92,10 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
                 .attr('transform', `translate(0, ${yOutOfBounds})`)
         )
 
-    if (isInitialPlot) plotAxis(chart, x, height, width, metric)
-    else updateAxis(chart, x, metric)
+    const xLabel = metric === 'homicideNumber' ? 'Number of Homicides' : 'Homicide Rate'
+
+    if (isInitialPlot) plotAxis(chart, x, height, width, xLabel)
+    else updateAxis(chart, x, xLabel)
 }
 
 function clearChart(chart) {

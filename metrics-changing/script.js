@@ -39,7 +39,7 @@ const handleExit = response => {
 scroller
     .setup({
         step: '#scrolly article .step',
-        debug: true,
+        // debug: true,
         progress: true,
         offset: 0.5
     })

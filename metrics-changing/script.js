@@ -7,7 +7,7 @@ const svg = scrolly.select('#chart')
 const article = scrolly.select('article')
 const scroller = scrollama()
 
-const stepsSizes = addSteps(5, article)
+const stepsSizes = addSteps(6, article, [0])
 
 // Adjusting the window screen
 let { windowHeight, visualisationsWidth } = handleResize(article, scroller, svg)

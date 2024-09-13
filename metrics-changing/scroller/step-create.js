@@ -1,6 +1,6 @@
-export const addSteps = (nSteps, article) => {
+export const addSteps = (nSteps, article, doubledSizeIdx = []) => {
     const stepsSizes = {}
-    const eventSteps = new Set([])
+    const eventSteps = new Set(doubledSizeIdx)
     for (let i = 0; i < nSteps; i++) {
         if (eventSteps.has(i)) stepsSizes[i] = 2
         else stepsSizes[i] = 1

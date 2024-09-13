@@ -1,5 +1,5 @@
 import { appendBar, updateBar, highlightBarColour, defaultBarColour } from "./bar.js"
-import { plotAxis, updateAxis, appendFlag, appendRanking, showRanking, hideRanking } from "./axis.js"
+import { plotAxis, updateAxis, appendFlag, appendRanking, showRanking, hideRanking, appendCountryName } from "./axis.js"
 import { createChartContainer } from "../utils.js"
 
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
@@ -78,6 +78,7 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
                 .call(g => appendBar(g, x, y, metric, transition))
                 .call(g => appendFlag(g, x, y, flagWidth))
                 .call(g => appendRanking(g, x, y, flagWidth))
+                .call(g => appendCountryName(g, x, y))
                 .attr('transform', `translate(0, ${yOutOfBounds})`)
                 .transition(transition)
                 .attr('transform', d => `translate(0, ${y(d.country)})`),

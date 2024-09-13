@@ -37,22 +37,25 @@ export const appendFlag = (g, x, y, flagWidth) => {
         .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
 }
 
+const countryRankingClass = '.country-ranking'
+
 export const appendRanking = (g, x, y, flagWidth) => {
     g
         .append('text')
-        .attr('class', 'country-ranking')
+        .attr('class', countryRankingClass.slice(1))
         .attr('x', x(0) - flagWidth - 16)
         .attr('y', y.bandwidth() / 2)
         .attr('font-size', '1.2rem')
         .attr('dominant-baseline', 'middle')
         .attr('text-anchor', 'end')
         .style('opacity', 0)
+        .style('fill', colours.paletteLightBg.axis)
         .text(d => d.homicideNumberRank)
 }
 
 export const showRanking = chart => {
     chart
-        .selectAll('.country-ranking')
+        .selectAll(countryRankingClass)
         .transition('showRanking')
         .duration(500)
         .style('opacity', 1)
@@ -60,8 +63,21 @@ export const showRanking = chart => {
 
 export const hideRanking = chart => {
     chart
-        .selectAll('.country-ranking')
+        .selectAll(countryRankingClass)
         .transition('hideRanking')
         .duration(500)
         .style('opacity', 0)
+}
+
+export const appendCountryName = (g, x, y) => {
+    g
+        .append('text')
+        .attr('class', 'country-name')
+        .attr('x', x(0) + 8)
+        .attr('y', y.bandwidth() / 2)
+        .attr('font-size', '1rem')
+        .attr('dominant-baseline', 'middle')
+        .attr('text-anchor', 'start')
+        .style('fill', colours.paletteLightBg.contrasting)
+        .text(d => d.country)
 }

@@ -1,30 +1,26 @@
+type Theme = 'light' | 'dark' | 'darkGradient'
+
+type Palette = {
+    orange: string,
+    skyBlue: string,
+    bluishGreen: string,
+    amber: string,
+    blue: string,
+    vermillion: string,
+    reddishPurple: string,
+    axis: string,
+    contrasting: string
+}
+
 /*
 *   COLOURS
 */
 export const colours: {
-    paletteLightBg: {
-        orange: string,
-        skyBlue: string,
-        bluishGreen: string,
-        amber: string,
-        blue: string,
-        vermillion: string,
-        reddishPurple: string,
-        axis: string,
-        contrasting: string
-    },
-    paletteDarkBg: {
-        orange: string,
-        skyBlue: string,
-        bluishGreen: string,
-        amber: string,
-        blue: string,
-        vermillion: string,
-        reddishPurple: string,
-        axis: string,
-        contrasting: string
-    }
+    paletteLightBg: Palette,
+    paletteDarkBg: Palette
 }
+
+export function getPalette(theme?: Theme): Palette
 
 
 /*
@@ -352,7 +348,7 @@ export function appendChartContainer({ }: {
     titleClass?: string,
     subtitleClass?: string,
     chartsContainerId?: string,
-    theme?: 'light' | 'dark' | 'darkGradient',
+    theme?: Theme,
     containerPadding?: string,
     containerAspectRatio?: string,
     titleSize?: string,

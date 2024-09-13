@@ -1,8 +1,8 @@
-import { addColourLegend, addHighlightTooltip, formatCurrency } from "../../node_modules/visual-components/index.js"
-import { palette } from "../../colours.js"
+import { addColourLegend, addHighlightTooltip, formatCurrency, getPalette } from "../../node_modules/visual-components/index.js"
 
-export const addChart = (chartProps, data, geo) => {
+export const addChart = (chartProps, data, geo, theme = 'light') => {
     const { chart, width, height } = chartProps
+    const palette = getPalette(theme)
 
     const projection = d3
         // .geoEquirectangular()
@@ -12,7 +12,7 @@ export const addChart = (chartProps, data, geo) => {
         .translate([width / 2, height / 2])
         .clipExtent([[0, 0], [width, height]])
 
-    const colour = getColourScale(d3.max(data, d => d.gdpPerCapita) / 2, 7, 'log')
+    const colour = getColourScale(d3.max(data, d => d.gdpPerCapita) / 2, 7, 'log', palette)
 
     const getCountry = code => {
         const dataPoint = data.filter(d => d.code === code)[0]
@@ -41,7 +41,7 @@ export const addChart = (chartProps, data, geo) => {
             else return d3.hsl(palette.axis).brighter(3)
         })
         .attr('stroke-width', 0.25)
-        .style('stroke', '#262626')
+        .style('stroke', theme === 'light' ? palette.axis : palette.contrasting)
 
     const colourLegendWidth = width / 4
     const colourLegendLength = colour.domain().length
@@ -80,7 +80,7 @@ export const addChart = (chartProps, data, geo) => {
     })
 }
 
-function getColourScale(maxValue, nSteps = 5, type = 'linear') {
+function getColourScale(maxValue, nSteps = 5, type = 'linear', palette) {
     const significantNumbers = Math.pow(10, Math.trunc(maxValue).toString().length - 2)
     const maxTruncated = Math.trunc(maxValue / significantNumbers) * significantNumbers
     let domain

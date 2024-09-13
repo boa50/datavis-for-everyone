@@ -1,8 +1,9 @@
-import { addAxis, formatCurrency } from "../../node_modules/visual-components/index.js"
-import { palette } from "../../colours.js"
+import { addAxis, formatCurrency, getPalette } from "../../node_modules/visual-components/index.js"
 
-export const addChart = (chartProps, data) => {
+
+export const addChart = (chartProps, data, theme = 'light') => {
     const { chart, width, height } = chartProps
+    const palette = getPalette(theme)
 
     data.sort((a, b) => b.gdpPerCapita - a.gdpPerCapita)
     data = data.slice(0, 5)

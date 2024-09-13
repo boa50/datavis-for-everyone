@@ -1,9 +1,9 @@
-import { addHighlightTooltip } from '../../node_modules/visual-components/index.js'
-import { palette } from '../../colours.js'
+import { addHighlightTooltip, getPalette } from '../../node_modules/visual-components/index.js'
 import { linksHighlight, getNumLinks } from './utils.js'
 
-export const addChart = (chartProps, data, geo) => {
+export const addChart = (chartProps, data, geo, theme = 'light') => {
     const { chart, width, height } = chartProps
+    const palette = getPalette(theme)
     const groups = [...new Set(data.nodes.map(d => d.group))]
 
     const nodeLinks = data.links.map(d => {
@@ -43,7 +43,7 @@ export const addChart = (chartProps, data, geo) => {
         .attr('d', geoPath)
         .attr('fill', 'none')
         .attr('stroke-width', 0.25)
-        .style('stroke', '#262626')
+        .style('stroke', palette.axis)
 
     const link = chart
         .append('g')

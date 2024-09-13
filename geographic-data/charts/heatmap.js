@@ -1,8 +1,8 @@
-import { addAxis, addHighlightTooltip } from "../../node_modules/visual-components/index.js"
-import { palette } from "../../colours.js"
+import { addAxis, addHighlightTooltip, getPalette } from "../../node_modules/visual-components/index.js"
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, theme = 'light') => {
     const { chart, width, height } = chartProps
+    const palette = getPalette(theme)
 
     const dataGrouped = d3.flatRollup(data, D => D.length, d => d.latitude_grp, d => d.longitude_grp)
 

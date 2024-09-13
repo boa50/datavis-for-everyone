@@ -23,3 +23,16 @@ export const colours = {
         contrasting: '#262626'
     }
 }
+
+export const getPalette = (theme = 'light') => {
+    switch (theme) {
+        case 'light':
+            return colours.paletteLightBg
+        case 'dark':
+            return colours.paletteDarkBg
+        case 'darkGradient':
+            return colours.paletteDarkBg
+        default:
+            return colours.paletteLightBg
+    }
+}

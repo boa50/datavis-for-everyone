@@ -30,13 +30,14 @@ const getData = () =>
         )
     ])
 
+const theme = 'light'
 
-const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column to Choropleth' })
-const choroplethId = appendChartContainer({ idNum: 10, chartTitle: 'Choropleth' })
-const heatmapId = appendChartContainer({ idNum: 2, chartTitle: 'Heatmap to Points' })
-const scattermapId = appendChartContainer({ idNum: 20, chartTitle: 'Scatter Map' })
-const networkId = appendChartContainer({ idNum: 3, chartTitle: 'Network to Linked' })
-const connectionMapId = appendChartContainer({ idNum: 30, chartTitle: 'Connection Map' })
+const columnId = appendChartContainer({ idNum: 1, chartTitle: 'Column to Choropleth', theme })
+const choroplethId = appendChartContainer({ idNum: 10, chartTitle: 'Choropleth', theme })
+const heatmapId = appendChartContainer({ idNum: 2, chartTitle: 'Heatmap to Points', theme })
+const scattermapId = appendChartContainer({ idNum: 20, chartTitle: 'Scatter Map', theme })
+const networkId = appendChartContainer({ idNum: 3, chartTitle: 'Network to Linked', theme })
+const connectionMapId = appendChartContainer({ idNum: 30, chartTitle: 'Connection Map', theme })
 
 getData().then(datasets => {
     const geoData = datasets[0]
@@ -48,34 +49,40 @@ getData().then(datasets => {
 
     addColumn(
         getChart({ id: columnId, margin: getMargin({ left: 80, bottom: 32 }) }),
-        gdpPerCapitaData.filter(d => d.year === '2021')
+        gdpPerCapitaData.filter(d => d.year === '2021'),
+        theme
     )
 
     addChoropleth(
         getChart({ id: choroplethId, margin: mapMargin }),
         gdpPerCapitaData.filter(d => d.year === '2021'),
-        geoData
+        geoData,
+        theme
     )
 
     addHeatmap(
         getChart({ id: heatmapId, margin: getMargin({ left: 64, bottom: 50 }) }),
-        randomGeo
+        randomGeo,
+        theme
     )
 
     addScattermap(
         getChart({ id: scattermapId, margin: mapMargin }),
         randomGeo.slice(0, 1000),
-        geoData
+        geoData,
+        theme
     )
 
     addNetwork(
         getChart({ id: networkId, margin: { left: 0, right: 0, top: 0, bottom: 0 } }),
-        networkDataset
+        networkDataset,
+        theme
     )
 
     addConnectionMap(
         getChart({ id: connectionMapId, margin: mapMargin }),
         networkDataset,
-        geoData
+        geoData,
+        theme
     )
 })

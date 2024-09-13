@@ -1,7 +1,8 @@
-import { palette } from "../../colours.js"
+import { getPalette } from "../../node_modules/visual-components/index.js"
 
-export const addChart = (chartProps, data, geo) => {
+export const addChart = (chartProps, data, geo, theme = 'light') => {
     const { chart, width, height } = chartProps
+    const palette = getPalette(theme)
 
     const projection = d3
         .geoNaturalEarth1()
@@ -20,7 +21,7 @@ export const addChart = (chartProps, data, geo) => {
         )
         .attr('fill', 'transparent')
         .attr('stroke-width', 0.25)
-        .style('stroke', '#262626')
+        .style('stroke', palette.axis)
 
     chart
         .selectAll('.data-points')

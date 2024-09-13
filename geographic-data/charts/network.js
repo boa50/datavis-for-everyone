@@ -1,9 +1,9 @@
-import { addHighlightTooltip } from '../../node_modules/visual-components/index.js'
-import { palette } from '../../colours.js'
+import { addHighlightTooltip, getPalette } from '../../node_modules/visual-components/index.js'
 import { linksHighlight, getNumLinks } from './utils.js'
 
-export const addChart = (chartProps, data) => {
+export const addChart = (chartProps, data, theme = 'light') => {
     const { chart, width, height } = chartProps
+    const palette = getPalette(theme)
     const nodeRadius = 5
     const groups = [...new Set(data.nodes.map(d => d.group))]
 

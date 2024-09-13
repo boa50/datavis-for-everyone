@@ -40,7 +40,7 @@ export const handleStepProgress = ({
             changeExplanationText('In this case we can focus on the first three countries to check how they\'ll be affected by the change')
             break
         case 4:
-            changeExplanationText('When changing the metric to the Homicides Rate, we can see that only the first two countries are still present on the new chart and a bunch of countries with lower ranks within the number of homicides metric shown up now')
+            changeExplanationText('When changing the metric to the Homicide Rate, we can see that only the first two countries are still present on the new chart and a bunch of countries with lower ranks within the number of homicides metric show up now')
             break
         case 5:
             changeExplanationText('So, depending on the information that must be conveyed and how people\' behaviour should be influenced different perspectives could be presented')

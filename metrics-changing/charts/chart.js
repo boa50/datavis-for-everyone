@@ -1,6 +1,7 @@
 import { appendBar, updateBar, highlightBarColour, defaultBarColour } from "./bar.js"
 import { plotAxis, updateAxis, appendFlag, appendRanking, showRanking, hideRanking, appendCountryName } from "./axis.js"
 import { createChartContainer } from "../utils.js"
+import { getBarTransition } from "./transition.js"
 
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
     const chart = createChartContainer('bar-chart', svg, xPosition, yPosition)
@@ -64,9 +65,6 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
 
     const flagWidth = y.bandwidth() * 1.6
     const yOutOfBounds = height * 2
-    const transition = d3
-        .transition('plotChart')
-        .duration(isInitialPlot ? 500 : 1000)
 
     chart
         .selectAll('.data-point')
@@ -75,19 +73,19 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
             enter => enter
                 .append('g')
                 .attr('class', 'data-point')
-                .call(g => appendBar(g, x, y, metric, transition))
+                .call(g => appendBar(g, x, y, metric))
                 .call(g => appendFlag(g, x, y, flagWidth))
                 .call(g => appendRanking(g, x, y, flagWidth))
                 .call(g => appendCountryName(g, x, y))
                 .attr('transform', `translate(0, ${yOutOfBounds})`)
-                .transition(transition)
+                .transition(getBarTransition())
                 .attr('transform', d => `translate(0, ${y(d.country)})`),
             update => update
-                .call(g => updateBar(g, x, metric, transition))
-                .transition(transition)
+                .call(g => updateBar(g, x, metric))
+                .transition(getBarTransition())
                 .attr('transform', d => `translate(0, ${y(d.country)})`),
             exit => exit
-                .transition(transition)
+                .transition(getBarTransition())
                 .remove()
                 .attr('transform', d => `translate(0, ${yOutOfBounds})`)
         )

@@ -1,4 +1,5 @@
 import { colours, addAxis, updateXaxis } from "../../../node_modules/visual-components/index.js"
+import { getRankingTransition } from "./transition.js"
 
 const xFormat = d3.format('.2s')
 
@@ -56,16 +57,14 @@ export const appendRanking = (g, x, y, flagWidth) => {
 export const showRanking = chart => {
     chart
         .selectAll(countryRankingClass)
-        .transition('showRanking')
-        .duration(500)
+        .transition(getRankingTransition())
         .style('opacity', 1)
 }
 
 export const hideRanking = chart => {
     chart
         .selectAll(countryRankingClass)
-        .transition('hideRanking')
-        .duration(500)
+        .transition(getRankingTransition())
         .style('opacity', 0)
 }
 

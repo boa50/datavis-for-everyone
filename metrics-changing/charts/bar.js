@@ -1,8 +1,9 @@
 import { colours } from "../../../node_modules/visual-components/index.js"
+import { getBarTransition, getBarColourTransition } from "./transition.js"
 
 const barClass = '.country-bar'
 
-export const appendBar = (g, x, y, metric, transition) => {
+export const appendBar = (g, x, y, metric) => {
     g
         .append('rect')
         .attr('class', barClass.slice(1))
@@ -10,14 +11,14 @@ export const appendBar = (g, x, y, metric, transition) => {
         .attr('x', x(0))
         .attr('y', 0)
         .attr('fill', colours.paletteLightBg.blue)
-        .transition(transition)
+        .transition(getBarTransition())
         .attr('width', d => x(d[metric]))
 }
 
-export const updateBar = (g, x, metric, transition) => {
+export const updateBar = (g, x, metric) => {
     g
         .selectAll(barClass)
-        .transition(transition)
+        .transition(getBarTransition())
         .attr('width', d => x(d[metric]))
 }
 
@@ -26,15 +27,13 @@ export const highlightBarColour = chart => {
 
     chart
         .selectAll(barClass)
-        .transition('highlightBarColour')
-        .duration(1000)
+        .transition(getBarColourTransition())
         .attr('fill', d => highlightedCountries.includes(d.country) ? colours.paletteLightBg.orange : colours.paletteLightBg.blue)
 }
 
 export const defaultBarColour = chart => {
     chart
         .selectAll(barClass)
-        .transition('defaultBarColour')
-        .duration(1000)
+        .transition(getBarColourTransition())
         .attr('fill', colours.paletteLightBg.blue)
 }

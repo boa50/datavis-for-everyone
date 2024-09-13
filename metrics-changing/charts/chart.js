@@ -50,13 +50,15 @@ export const updateChartFunctions = chartProps => {
     }
 }
 
+const dataGroupClass = '.data-group'
+
 function plotChart(chartProps, metric, isInitialPlot = false) {
     const { chart, x, y, height, width, data } = chartProps
 
     // Check for on course transitions
-    const chartNodes = chart.selectAll('.data-point').nodes()
+    const chartNodes = chart.selectAll(dataGroupClass).nodes()
     if (chartNodes.length > 0 &&
-        d3.active(chartNodes[0], 'plotChart')) return
+        d3.active(chartNodes[0], 'bar')) return
 
     const chartData = data.sort((a, b) => b[metric] - a[metric]).slice(0, 20)
 
@@ -67,12 +69,12 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
     const yOutOfBounds = height * 2
 
     chart
-        .selectAll('.data-point')
+        .selectAll(dataGroupClass)
         .data(chartData, d => d.country)
         .join(
             enter => enter
                 .append('g')
-                .attr('class', 'data-point')
+                .attr('class', dataGroupClass.slice(1))
                 .call(g => appendBar(g, x, y, metric))
                 .call(g => appendFlag(g, x, y, flagWidth))
                 .call(g => appendRanking(g, x, y, flagWidth))
@@ -87,7 +89,7 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
             exit => exit
                 .transition(getBarTransition())
                 .remove()
-                .attr('transform', d => `translate(0, ${yOutOfBounds})`)
+                .attr('transform', `translate(0, ${yOutOfBounds})`)
         )
 
     if (isInitialPlot) plotAxis(chart, x, height, width, metric)
@@ -95,7 +97,11 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
 }
 
 function clearChart(chart) {
-    chart.selectAll('.data-point').remove()
+    chart
+        .selectAll(dataGroupClass)
+        .transition(getBarTransition())
+        .remove()
+        .attr('transform', `translate(0, ${2000})`)
     chart.select('.x-axis-group').remove()
     chart.select('.y-axis-group').remove()
 }

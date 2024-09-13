@@ -9,6 +9,7 @@ export const plotAxis = (chart, x, height, width, xLabel) => {
         height,
         width,
         colour: colours.paletteLightBg.axis,
+        fontSize: '1rem',
         x,
         xFormat,
         xLabel,

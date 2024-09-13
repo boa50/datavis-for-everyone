@@ -7,12 +7,18 @@ export const handleStepEnter = ({
 
     switch (currentIndex) {
         case 0:
-            if (currentDirection === 'down') updateChartFunctions().plotInitial()
-            else updateChartFunctions().plotHomicideNumber()
+            manageDirection({
+                currentDirection,
+                down: updateChartFunctions().plotInitial,
+                up: updateChartFunctions().hideRanking
+            })
             break
         case 1:
             // Add positions for each flag
-            updateChartFunctions().plotHomicideRate()
+            manageDirection({
+                currentDirection,
+                down: updateChartFunctions().showRanking
+            })
             break
         case 2:
             // Focus on the first 3 countries (zooming or colouring)
@@ -26,4 +32,9 @@ export const handleStepEnter = ({
         default:
             break
     }
+}
+
+function manageDirection({ currentDirection, up = () => { }, down = () => { } }) {
+    if (currentDirection === 'down') down()
+    else up()
 }

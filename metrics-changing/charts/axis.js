@@ -46,5 +46,22 @@ export const appendRanking = (g, x, y, flagWidth) => {
         .attr('font-size', '1.2rem')
         .attr('dominant-baseline', 'middle')
         .attr('text-anchor', 'end')
+        .style('opacity', 0)
         .text(d => d.homicideNumberRank)
+}
+
+export const showRanking = chart => {
+    chart
+        .selectAll('.country-ranking')
+        .transition('showRanking')
+        .duration(500)
+        .style('opacity', 1)
+}
+
+export const hideRanking = chart => {
+    chart
+        .selectAll('.country-ranking')
+        .transition('hideRanking')
+        .duration(500)
+        .style('opacity', 0)
 }

@@ -1,5 +1,5 @@
 import { appendBar, updateBar } from "./bar.js"
-import { plotAxis, updateAxis, appendFlag, appendRanking } from "./axis.js"
+import { plotAxis, updateAxis, appendFlag, appendRanking, showRanking, hideRanking } from "./axis.js"
 import { createChartContainer } from "../utils.js"
 
 export const addChart = async ({ svg, width, height, xPosition, yPosition }) => {
@@ -41,6 +41,8 @@ export const updateChartFunctions = chartProps => {
         plotInitial: () => plotChart(chartProps, 'homicideNumber', true),
         plotHomicideNumber: () => plotChart(chartProps, 'homicideNumber'),
         plotHomicideRate: () => plotChart(chartProps, 'homicideRate'),
+        showRanking: () => showRanking(chartProps.chart),
+        hideRanking: () => hideRanking(chartProps.chart),
         clearChart: () => clearChart(chartProps.chart)
     }
 }
@@ -92,7 +94,7 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
 }
 
 function clearChart(chart) {
-    chart.selectAll('rect').remove()
+    chart.selectAll('.data-point').remove()
     chart.select('.x-axis-group').remove()
     chart.select('.y-axis-group').remove()
 }

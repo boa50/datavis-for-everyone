@@ -9,7 +9,7 @@ export const adjustColours = (g, colour, hideDomain = false) => {
 
 export const addAxis = ({
     chart, height, width, colour = 'black', fontSize = '0.8rem',
-    x, xLabel = '', xFormat, xTickValues, xNumTicks, xNumTicksForceInitial = false, hideXdomain = false, xTickPadding = 10,
+    x, xLabel = '', xFormat, xTickValues, xNumTicks, xNumTicksForceInitial = false, hideXdomain = false, xTickPadding = 10, xTicksRotate = false,
     y, yLabel = '', yFormat, yTickValues, yNumTicks, yNumTicksForceInitial = false, hideYdomain = false, yTickPadding = 10,
     yRight, yRightLabel = '', yRightFormat, yRightTickValues, yRightNumTicks, yRightNumTicksForceInitial = false, yRightTickPadding = 10
 }) => {
@@ -32,6 +32,8 @@ export const addAxis = ({
             tickValues: xTickValues,
             tickPadding: xTickPadding
         })
+
+        if (xTicksRotate) rotateXticks(chart)
     }
 
     if (y !== undefined) {
@@ -84,7 +86,8 @@ export const updateXaxis = ({
     tickValues = undefined,
     hideDomain = false,
     transitionFix = true,
-    label = undefined
+    label = undefined,
+    rotate = false
 }) => {
     const axisClass = '.x-axis-group'
     const transitionDuration = 250
@@ -129,6 +132,8 @@ export const updateXaxis = ({
                     .text(label)
                     .style('opacity', 1)
         })
+
+    if (rotate) rotateXticks(chart)
 }
 
 export const updateYaxis = ({
@@ -317,4 +322,13 @@ function hideOverlappingTicks(axis, transitionDuration) {
             showTick(d3.select(this))
         }
     })
+}
+
+function rotateXticks(chart, angle = 45) {
+    chart
+        .selectAll('.x-axis-group .tick text')
+        .attr('transform', `rotate(${angle})`)
+        .attr('text-anchor', 'start')
+        .attr('dx', '0.1rem')
+        .attr('dy', '0.1rem')
 }

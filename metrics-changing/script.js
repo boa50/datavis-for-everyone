@@ -12,7 +12,7 @@ const stepsSizes = addSteps(6, article, [0])
 // Adjusting the window screen
 let { windowHeight, visualisationsWidth } = handleResize(article, scroller, svg)
 
-const { explanationText, chartProps } = await addVisualComponents({ svg, visualisationsWidth, windowHeight })
+const { chartProps, explanationText, chartTitle } = await addVisualComponents({ svg, visualisationsWidth, windowHeight })
 
 
 // Initialising the scroller
@@ -26,12 +26,14 @@ const handleProgress = response => {
 const handleEnter = response => {
     handleStepEnter({
         response,
+        chartTitle,
         updateChartFunctions: () => updateChartFunctions(chartProps)
     })
 }
 const handleExit = response => {
     handleStepExit({
         response,
+        chartTitle,
         updateChartFunctions: () => updateChartFunctions(chartProps)
     })
 }

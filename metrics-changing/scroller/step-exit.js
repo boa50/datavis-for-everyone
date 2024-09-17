@@ -1,5 +1,8 @@
+import { hideTextTransition } from "../../../node_modules/visual-components/index.js"
+
 export const handleStepExit = ({
     response,
+    chartTitle,
     updateChartFunctions
 }) => {
     const currentIndex = response.index
@@ -7,7 +10,10 @@ export const handleStepExit = ({
 
     switch (currentIndex) {
         case 0:
-            if (currentDirection === 'up') updateChartFunctions().clearChart()
+            if (currentDirection === 'up') {
+                updateChartFunctions().clearChart()
+                hideTextTransition(chartTitle, 1000)
+            }
             break
         case 1:
             // Do Something

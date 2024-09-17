@@ -24,7 +24,6 @@ export const handleStepProgress = ({
         })
     }
 
-
     // Start the animation only after the first step
     switch (currentIndex) {
         case 0:

@@ -22,18 +22,17 @@ export const addVisualComponents = async ({
         htmlText: ``
     })
 
-    const titleText = 'Number of Homicides per Country'
     const titleSize = '1.75rem'
 
-    const title = createText({
+    const chartTitle = createText({
         svg: svg,
-        x: chartXposition,
+        x: chartXposition - 48,
         y: chartYposition - 50,
-        width: getTextWidth(titleText, titleSize),
+        width: chartWidth + 48,
         height: 40,
         textColour: colours.paletteLightBg.axis,
         fontSize: titleSize,
-        htmlText: `<span class="font-medium">${titleText}</span>`
+        htmlText: ``
     })
 
     const chartProps = await addChart({
@@ -52,5 +51,5 @@ export const addVisualComponents = async ({
         .style('text-anchor', 'end')
         .text('Source: United Nations Office on Drugs and Crime (2023) – with minor processing by Our World in Data')
 
-    return { explanationText, chartProps }
+    return { chartProps, explanationText, chartTitle }
 }

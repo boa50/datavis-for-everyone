@@ -17,6 +17,13 @@ body {
     width: 100vw;
 }
 
+@media (min-width: 1024px) {
+    #header>img {
+        width: 100vw;
+        height: 100vh;
+    }
+}
+
 #scrolly {
     position: relative;
     display: -webkit-box;

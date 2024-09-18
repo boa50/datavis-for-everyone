@@ -65,7 +65,6 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
     x.domain([0, d3.max(chartData, d => d[metric]) * 1.05])
     y.domain(chartData.map(d => d.country))
 
-    const flagWidth = y.bandwidth() * 1.6
     const yOutOfBounds = height * 2
 
     chart
@@ -76,8 +75,8 @@ function plotChart(chartProps, metric, isInitialPlot = false) {
                 .append('g')
                 .attr('class', dataGroupClass.slice(1))
                 .call(g => appendBar(g, x, y, metric))
-                .call(g => appendFlag(g, x, y, flagWidth))
-                .call(g => appendRanking(g, x, y, flagWidth))
+                .call(g => appendFlag(g, x, y))
+                .call(g => appendRanking(g, x, y))
                 .call(g => appendCountryName(g, x, y))
                 .attr('transform', `translate(0, ${yOutOfBounds})`)
                 .transition(getBarTransition())

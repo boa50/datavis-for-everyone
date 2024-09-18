@@ -1,5 +1,14 @@
 import { colours, addAxis, updateXaxis } from "../../../node_modules/visual-components/index.js"
 import { getRankingTransition } from "./transition.js"
+import {
+    xAxisFontSize,
+    flagWidth,
+    flagToBarPadding,
+    rankingToFlagPadding,
+    rankingFontSize,
+    countryNamePadding,
+    countryNameFontSize
+} from "../sizes.js"
 
 const xFormat = d3.format('.2s')
 
@@ -9,7 +18,7 @@ export const plotAxis = (chart, x, height, width, xLabel) => {
         height,
         width,
         colour: colours.paletteLightBg.axis,
-        fontSize: '1rem',
+        fontSize: xAxisFontSize,
         x,
         xFormat,
         xLabel,
@@ -27,13 +36,13 @@ export const updateAxis = (chart, x, xLabel) => {
     })
 }
 
-export const appendFlag = (g, x, y, flagWidth) => {
+export const appendFlag = (g, x, y) => {
     g
         .append('image')
         .attr('class', 'country-flag')
         .attr('width', flagWidth)
         .attr('height', y.bandwidth())
-        .attr('x', x(0) - flagWidth - 4)
+        .attr('x', x(0) - flagWidth - flagToBarPadding)
         .attr('y', 0)
         .attr('preserveAspectRatio', 'none')
         .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
@@ -41,13 +50,13 @@ export const appendFlag = (g, x, y, flagWidth) => {
 
 const countryRankingClass = '.country-ranking'
 
-export const appendRanking = (g, x, y, flagWidth) => {
+export const appendRanking = (g, x, y) => {
     g
         .append('text')
         .attr('class', countryRankingClass.slice(1))
-        .attr('x', x(0) - flagWidth - 16)
+        .attr('x', x(0) - flagWidth - flagToBarPadding - rankingToFlagPadding)
         .attr('y', y.bandwidth() / 2)
-        .attr('font-size', '1.2rem')
+        .attr('font-size', rankingFontSize)
         .attr('dominant-baseline', 'middle')
         .attr('text-anchor', 'end')
         .style('opacity', 0)
@@ -73,9 +82,9 @@ export const appendCountryName = (g, x, y) => {
     g
         .append('text')
         .attr('class', 'country-name')
-        .attr('x', x(0) + 8)
+        .attr('x', x(0) + countryNamePadding)
         .attr('y', y.bandwidth() / 2)
-        .attr('font-size', '1rem')
+        .attr('font-size', countryNameFontSize)
         .attr('dominant-baseline', 'middle')
         .attr('text-anchor', 'start')
         .style('fill', colours.paletteLightBg.contrasting)

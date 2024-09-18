@@ -15,15 +15,6 @@ export const handleStepExit = ({
                 hideTextTransition(chartTitle, 1000)
             }
             break
-        case 1:
-            // Do Something
-            break
-        case 2:
-            // Do Something
-            break
-        case 3:
-            // Do Something
-            break
         default:
             break
     }

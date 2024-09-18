@@ -1,4 +1,4 @@
-import { createText, colours } from "../../../node_modules/visual-components/index.js"
+import { createText, colours, getTextWidth } from "../../../node_modules/visual-components/index.js"
 import { addChart } from "../charts/chart.js"
 import {
     explanationTextFontSize,
@@ -12,7 +12,10 @@ import {
     chartTitleX,
     getChartTitleYposition,
     getChartTitleWidth,
-    chartTitleHeight
+    chartTitleHeight,
+    dataSourceFontSize,
+    dataSourceHeight,
+    getDataSourceYposition
 } from "../sizes.js"
 
 export const addVisualComponents = async ({
@@ -50,13 +53,18 @@ export const addVisualComponents = async ({
         yPosition: getChartYposition(windowHeight)
     })
 
-    svg
-        .append('text')
-        .attr('transform', `translate(${[visualisationsWidth - 75, windowHeight - 25]})`)
-        .attr('class', 'text-sm')
-        .attr('fill', '#6b7280')
-        .style('text-anchor', 'end')
-        .text('Source: United Nations Office on Drugs and Crime (2023) – with minor processing by Our World in Data')
+    const dataSourceText = 'Source: United Nations Office on Drugs and Crime (2023) – with minor processing by Our World in Data'
+
+    createText({
+        svg,
+        width: getTextWidth(dataSourceText, dataSourceFontSize),
+        height: dataSourceHeight,
+        x: chartTitleX,
+        y: getDataSourceYposition(windowHeight),
+        textColour: colours.paletteLightBg.axis,
+        fontSize: dataSourceFontSize,
+        htmlText: dataSourceText
+    })
 
     return { chartProps, explanationText, chartTitle }
 }

@@ -29,6 +29,7 @@ const links = [
     { txt: 'Light & Dark Backgrounds', url: './light-dark-background/index.html', dateUpdated: new Date(2024, 6, 12) },
     { txt: 'Categorical Distribution', url: './categorical-distribution/index.html', dateUpdated: new Date(2024, 6, 18) },
     { txt: 'Geographic Data', url: './geographic-data/index.html', dateUpdated: new Date(2024, 7, 26) },
+    { txt: 'Deceiving Metrics', url: './metrics-changing/index.html', dateUpdated: new Date(2024, 8, 19) },
 ]
 
 links

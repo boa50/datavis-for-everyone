@@ -1,4 +1,4 @@
-import { colours, addAxis, updateXaxis } from "../../../node_modules/visual-components/index.js"
+import { colours, addAxis, updateXaxis } from "../../node_modules/visual-components/index.js"
 import { getRankingTransition } from "./transition.js"
 import {
     xAxisFontSize,

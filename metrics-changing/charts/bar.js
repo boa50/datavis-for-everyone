@@ -1,4 +1,4 @@
-import { colours } from "../../../node_modules/visual-components/index.js"
+import { colours } from "../../node_modules/visual-components/index.js"
 import { getBarTransition, getBarColourTransition } from "./transition.js"
 
 const barClass = '.country-bar'

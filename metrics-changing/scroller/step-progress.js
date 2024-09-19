@@ -1,4 +1,4 @@
-import { changeText } from "../../../node_modules/visual-components/index.js"
+import { changeText } from "../../node_modules/visual-components/index.js"
 import { showHideTextElement } from "../utils.js"
 
 let lastIndex = -1

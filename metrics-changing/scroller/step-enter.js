@@ -1,4 +1,4 @@
-import { changeText, showTextTransition, changeTextTransition } from "../../../node_modules/visual-components/index.js"
+import { changeText, showTextTransition, changeTextTransition } from "../../node_modules/visual-components/index.js"
 
 export const handleStepEnter = ({
     response,

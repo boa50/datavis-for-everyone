@@ -1,5 +1,4 @@
-import { hideText, showText, createText } from "../../node_modules/visual-components/index.js"
-import { defaultColours as colours } from "../../colours.js"
+import { hideText, showText, createText, colours } from "../node_modules/visual-components/index.js"
 
 const getSpeed = stepSize => (1 / 0.5) * stepSize
 
@@ -50,7 +49,7 @@ export const addAnnotation = ({
         y,
         width: 200,
         height: 34,
-        textColour: d3.hsl(colours.axis).brighter(0.9),
+        textColour: d3.hsl(colours.paletteLightBg.axis).brighter(0.9),
         fontSize: '0.7rem',
         htmlText: `
             <span class="font-base leading-tight">${d3.formatLocale({ thousands: ' ', grouping: [3] }).format(',.0f')(deaths)}k deaths</span>

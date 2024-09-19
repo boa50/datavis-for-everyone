@@ -1,4 +1,4 @@
-import { createText, colours, getTextWidth } from "../../../node_modules/visual-components/index.js"
+import { createText, colours, getTextWidth } from "../../node_modules/visual-components/index.js"
 import { addChart } from "../charts/chart.js"
 import {
     explanationTextFontSize,

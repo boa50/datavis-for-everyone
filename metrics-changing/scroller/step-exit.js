@@ -1,4 +1,4 @@
-import { hideTextTransition } from "../../../node_modules/visual-components/index.js"
+import { hideTextTransition } from "../../node_modules/visual-components/index.js"
 
 export const handleStepExit = ({
     response,

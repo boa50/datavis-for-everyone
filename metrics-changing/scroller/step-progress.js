@@ -42,7 +42,10 @@ export const handleStepProgress = ({
             changeExplanationText('When we change the metric to the Homicide Rate, the impact on countries\' rankings is significant. Only the first two countries remain on the new chart, and several countries with lower ranks within the Number of Homicides metric now appear')
             break
         case 5:
-            changeExplanationText('So, different perspectives could be presented depending on the information that must be conveyed and how people\'s behaviour should be influenced')
+            changeExplanationText(
+                'So, different perspectives could be presented depending on the information that must be conveyed and how people\'s behaviour should be influenced',
+                true, false
+            )
             break
         default:
             break

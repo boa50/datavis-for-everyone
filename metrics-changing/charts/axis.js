@@ -45,7 +45,7 @@ export const appendFlag = (g, x, y) => {
         .attr('x', x(0) - flagWidth - flagToBarPadding)
         .attr('y', 0)
         .attr('preserveAspectRatio', 'none')
-        .attr('xlink:href', d => `/_data/img/country-flags/${d.code}.webp`)
+        .attr('xlink:href', d => `../../_data/img/country-flags/${d.code}.webp`)
 }
 
 const countryRankingClass = '.country-ranking'
